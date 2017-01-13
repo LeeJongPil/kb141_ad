@@ -11,7 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import groovy.transform.ToString;
+
 import lombok.Getter;
 import lombok.Setter;
 
