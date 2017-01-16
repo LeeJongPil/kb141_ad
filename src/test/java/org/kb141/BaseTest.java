@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.BaseDAO;
 import org.kb141.domain.BaseVO;
-import org.kb141.domain.BaseVO;
 import org.kb141.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -115,7 +114,6 @@ public class BaseTest {
 		
 		System.out.println(baseService);
 	}
-	
 	
 	@Test
 	public void removeTest() {

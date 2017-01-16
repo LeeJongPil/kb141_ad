@@ -5,7 +5,7 @@ import java.util.List;
 import org.kb141.domain.ClientVO;
 
 public interface ClientService {
-	public void insert(ClientVO vo);
+	public void register(ClientVO vo);
 
 	public ClientVO view(String cid);
 

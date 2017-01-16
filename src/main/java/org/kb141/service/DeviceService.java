@@ -6,7 +6,7 @@ import org.kb141.domain.DeviceVO;
 
 public interface DeviceService {
 
-	public void insert(DeviceVO vo);
+	public void register(DeviceVO vo);
 
 	public DeviceVO view(Integer dno);
 
