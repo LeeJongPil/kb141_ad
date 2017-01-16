@@ -59,7 +59,6 @@ public class DeviceServiceImpl implements DeviceService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return result;
 	}
 
