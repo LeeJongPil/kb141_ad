@@ -15,5 +15,6 @@ public interface KmeansService {
 	public void remove(Integer kno);
 	
 	public List<KmeansVO> getlist();
+
 	
 }
