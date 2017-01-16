@@ -8,11 +8,11 @@ public interface BaseService {
 
 	public void register(BaseVO vo);
 	
-	public BaseVO view(Integer kno);
+	public BaseVO view(Integer bno);
 	
 	public void modify(BaseVO vo);
 	
-	public void remove(Integer kno);
+	public void remove(Integer bno);
 	
 	public List<BaseVO> getlist();
 }
