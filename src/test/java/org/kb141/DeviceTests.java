@@ -18,10 +18,10 @@ public class DeviceTests {
 
 	@Autowired
 	private DeviceDAO dao;
-	
+
 	@Autowired
 	private DeviceService service;
-	
+
 	@Test
 	public void createTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
@@ -61,13 +61,12 @@ public class DeviceTests {
 
 	///////////////////////////////////////////////////////////////////////////////////
 
-	
 	@Test
 	public void insertTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
 		vo.setState("경기도");
 		vo.setCity("김포시");
-		service.insert(vo);
+		service.register(vo);
 	}
 
 	@Test
@@ -93,6 +92,5 @@ public class DeviceTests {
 	public void getListTest() throws Exception {
 		System.out.println(service.getList());
 	}
-	
-	
+
 }

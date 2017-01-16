@@ -14,7 +14,7 @@ public class DeviceServiceImpl implements DeviceService {
 	private DeviceDAO deviceDAO;
 
 	@Override
-	public void insert(DeviceVO vo) {
+	public void register(DeviceVO vo) {
 		try {
 			deviceDAO.save(vo);
 		} catch (Exception e) {

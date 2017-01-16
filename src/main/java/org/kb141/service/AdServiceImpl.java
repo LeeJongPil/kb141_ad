@@ -2,65 +2,66 @@ package org.kb141.service;
 
 import java.util.List;
 
-import org.kb141.dao.ClientDAO;
-import org.kb141.domain.ClientVO;
+import org.kb141.dao.AdDAO;
+import org.kb141.domain.AdVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientServiceImpl implements ClientService {
+public class AdServiceImpl implements AdService {
 
 	@Autowired
-	private ClientDAO clientDAO;
+	private AdDAO adDAO;
 
 	@Override
-	public void register(ClientVO vo) {
+	public void register(AdVO vo) {
 		try {
-			clientDAO.save(vo);
+			adDAO.save(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public AdVO view(Integer adno) {
+		AdVO vo = null;
+		try {
+			 vo = adDAO.findOne(adno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
+	@Override
+	public void modify(AdVO vo) {
+		try {
+			adDAO.save(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public ClientVO view(String cid) {
-		ClientVO result = null;
+	public void remove(Integer adno) {
 		try {
-			result = clientDAO.findOne(cid);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	@Override
-	public void modify(ClientVO vo) {
-		try {
-			clientDAO.save(vo);
+			adDAO.delete(adno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void remove(String cid) {
+	public List<AdVO> getList() {
+		List<AdVO> list = null;
+		
 		try {
-			clientDAO.delete(cid);
+			list = adDAO.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public List<ClientVO> getList() {
-		List<ClientVO> result = null;
-		try {
-			result = clientDAO.findAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return result;
+		return list;
 	}
 
 }

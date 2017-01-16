@@ -14,7 +14,7 @@ public class AdminServiceImpl implements AdminService {
 	private AdminDAO adminDAO;
 
 	@Override
-	public void insert(AdminVO vo) {
+	public void register(AdminVO vo) {
 		try {
 			adminDAO.save(vo);
 		} catch (Exception e) {
