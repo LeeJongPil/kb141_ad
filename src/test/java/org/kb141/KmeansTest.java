@@ -7,7 +7,6 @@ import javax.sql.DataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.KmeansDAO;
-import org.kb141.domain.BoardVO;
 import org.kb141.domain.KmeansVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
