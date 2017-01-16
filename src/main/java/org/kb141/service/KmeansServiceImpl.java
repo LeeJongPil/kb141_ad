@@ -2,24 +2,22 @@ package org.kb141.service;
 
 import java.util.List;
 
-import org.kb141.dao.BaseDAO;
-import org.kb141.domain.BaseVO;
+import org.kb141.dao.KmeansDAO;
+import org.kb141.domain.KmeansVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BaseServiceImpl implements BaseService {
-	
-	
+public class KmeansServiceImpl implements KmeansService {
 	
 	@Autowired
-	private BaseDAO baseDAO;
+	private KmeansDAO kmeansDAO;
 	
 	@Override
-	public void register(BaseVO vo) {
-
+	public void register(KmeansVO vo) {
+		
 		try{
-			baseDAO.save(vo);
+			kmeansDAO.save(vo);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
@@ -27,11 +25,10 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public BaseVO view(Integer bno) {
-		
-		BaseVO vo = null;
+	public KmeansVO view(Integer kno) {
+		KmeansVO vo = null;
 		try{
-			vo = baseDAO.findOne(bno);
+			vo = kmeansDAO.findOne(kno);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -39,9 +36,9 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public void modify(BaseVO vo) {
+	public void modify(KmeansVO vo) {
 		try{
-			baseDAO.save(vo);
+			kmeansDAO.save(vo);
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -50,24 +47,24 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public void remove(Integer bno) {
+	public void remove(Integer kno) {
 		try{
-			baseDAO.delete(bno);
+			kmeansDAO.delete(kno);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
-	public List<BaseVO> getlist() {
-		List<BaseVO> vo = null;
+	public List<KmeansVO> getlist() {
+		List<KmeansVO> vo = null;
 		try{
-			vo = baseDAO.findAll();
+			vo = kmeansDAO.findAll();
 		} catch(Exception e){
 			e.printStackTrace();
 		}
 		return vo;
 	}
-
 }
+
+
