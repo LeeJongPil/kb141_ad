@@ -18,10 +18,10 @@ public class DeviceTests {
 
 	@Autowired
 	private DeviceDAO dao;
-	
+
 	@Autowired
 	private DeviceService service;
-	
+
 	@Test
 	public void createTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
@@ -61,7 +61,6 @@ public class DeviceTests {
 
 	///////////////////////////////////////////////////////////////////////////////////
 
-	
 	@Test
 	public void insertTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
@@ -93,6 +92,5 @@ public class DeviceTests {
 	public void getListTest() throws Exception {
 		System.out.println(service.getList());
 	}
-	
-	
+
 }
