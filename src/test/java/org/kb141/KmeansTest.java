@@ -129,7 +129,7 @@ public class KmeansTest {
 	
 	@Test
 	public void getlistTest() {
-		List<KmeansVO> list = (List<KmeansVO>) kmeansService.getlist();
+		List<KmeansVO> list = (List<KmeansVO>) kmeansService.getList();
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}

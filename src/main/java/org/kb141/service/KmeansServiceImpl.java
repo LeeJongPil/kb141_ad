@@ -56,7 +56,7 @@ public class KmeansServiceImpl implements KmeansService {
 	}
 
 	@Override
-	public List<KmeansVO> getlist() {
+	public List<KmeansVO> getList() {
 		List<KmeansVO> vo = null;
 		try{
 			vo = kmeansDAO.findAll();

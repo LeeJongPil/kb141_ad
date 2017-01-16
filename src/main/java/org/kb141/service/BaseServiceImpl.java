@@ -60,7 +60,7 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public List<BaseVO> getlist() {
+	public List<BaseVO> getList() {
 		List<BaseVO> vo = null;
 		try{
 			vo = baseDAO.findAll();

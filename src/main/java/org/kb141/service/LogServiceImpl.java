@@ -2,31 +2,31 @@ package org.kb141.service;
 
 import java.util.List;
 
-import org.kb141.dao.AdminDAO;
-import org.kb141.domain.AdminVO;
+import org.kb141.dao.LogDAO;
+import org.kb141.domain.LogVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminServiceImpl implements AdminService {
-
+public class LogServiceImpl implements LogService {
+	
 	@Autowired
-	private AdminDAO adminDAO;
+	private LogDAO logDAO;
 
 	@Override
-	public void insert(AdminVO vo) {
+	public void register(LogVO vo) {
 		try {
-			adminDAO.save(vo);
+			logDAO.save(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public AdminVO view(String aid) {
-		AdminVO result = null;
+	public LogVO view(Integer lno) {
+		LogVO result = null;
 		try {
-			result = adminDAO.findOne(aid);
+			result = logDAO.findOne(lno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -34,33 +34,34 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void modify(AdminVO vo) {
+	public void modify(LogVO vo) {
 		try {
-			adminDAO.save(vo);
+			logDAO.save(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void remove(Integer lno) {
+		try {
+			logDAO.delete(lno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void remove(String aid) {
-		try {
-			adminDAO.delete(aid);
-		} catch (Exception e) {
+	public List<LogVO> getList() {
+		List<LogVO> vo = null;
+		try{
+			vo = logDAO.findAll();
+		} catch(Exception e){
 			e.printStackTrace();
 		}
+		return vo;
 	}
-
-	@Override
-	public List<AdminVO> getList() {
-		List<AdminVO> result = null;
-		try {
-			result = adminDAO.findAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return result;
-	}
+	
 
 }

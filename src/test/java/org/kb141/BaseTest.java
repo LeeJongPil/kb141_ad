@@ -123,7 +123,7 @@ public class BaseTest {
 	
 	@Test
 	public void getlistTest() {
-		List<BaseVO> list = (List<BaseVO>) baseService.getlist();
+		List<BaseVO> list = (List<BaseVO>) baseService.getList();
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}
