@@ -1,11 +1,20 @@
 package org.kb141.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class DeviceService {
+import org.kb141.domain.DeviceVO;
 
-	
+public interface DeviceService {
+
+	public void insert(DeviceVO vo);
+
+	public DeviceVO view(Integer dno);
+
+	public void modify(DeviceVO vo);
+
+	public void remove(Integer dno);
+
+	public List<DeviceVO> getList();
 	
 	
 }
