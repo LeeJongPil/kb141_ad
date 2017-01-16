@@ -6,7 +6,7 @@ import org.kb141.domain.AdminVO;
 
 public interface AdminService {
 	
-	public void insert(AdminVO vo);
+	public void register(AdminVO vo);
 	
 	public AdminVO view(String aid);
 	

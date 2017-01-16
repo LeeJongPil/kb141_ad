@@ -67,7 +67,7 @@ public class ClientTests {
 		vo.setCid("Client2");
 		vo.setCpw("Client2");
 		vo.setCompany("Client2");
-		service.insert(vo);
+		service.register(vo);
 	}
 
 	@Test

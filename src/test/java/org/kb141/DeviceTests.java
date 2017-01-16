@@ -67,7 +67,7 @@ public class DeviceTests {
 		DeviceVO vo = new DeviceVO();
 		vo.setState("경기도");
 		vo.setCity("김포시");
-		service.insert(vo);
+		service.register(vo);
 	}
 
 	@Test

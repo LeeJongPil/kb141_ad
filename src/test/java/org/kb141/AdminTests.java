@@ -75,7 +75,7 @@ public class AdminTests {
 		AdminVO vo = new AdminVO();
 		vo.setAid("ya");
 		vo.setApw("ho");
-		service.insert(vo);
+		service.register(vo);
 	}
 	
 	@Test

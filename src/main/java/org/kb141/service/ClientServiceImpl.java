@@ -14,7 +14,7 @@ public class ClientServiceImpl implements ClientService {
 	ClientDAO clientDAO;
 
 	@Override
-	public void insert(ClientVO vo) {
+	public void register(ClientVO vo) {
 		try {
 			clientDAO.save(vo);
 		} catch (Exception e) {
