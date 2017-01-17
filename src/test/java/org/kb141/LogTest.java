@@ -26,9 +26,9 @@ public class LogTest {
 		vo.setDno(10000);
 		vo.setAge(100000);
 		vo.setGender("M");
-		vo.setEmotion_before("SAD");
-		vo.setEmotion_after("HAPPY");
-		vo.setEmotion_change("SO HAPPY");
+//		vo.setEmotion_before("SAD");
+//		vo.setEmotion_after("HAPPY");
+//		vo.setEmotion_change("SO HAPPY");
 		vo.setAdno(1);
 		vo.setWatch_time(3);
 		
@@ -49,9 +49,9 @@ public class LogTest {
 		vo.setDno(2);
 		vo.setAge(3);
 		vo.setGender("F");
-		vo.setEmotion_before("SADDDDDDDDD");
-		vo.setEmotion_after("HAPPYYYYYYYYY");
-		vo.setEmotion_change("SO HAPPYYYYYYYYYY");
+//		vo.setEmotion_before("SADDDDDDDDD");
+//		vo.setEmotion_after("HAPPYYYYYYYYY");
+//		vo.setEmotion_change("SO HAPPYYYYYYYYYY");
 		vo.setAdno(1);
 		vo.setWatch_time(3);
 		vo.setLno(1);
@@ -74,9 +74,9 @@ public class LogTest {
 		vo.setDno(10000);
 		vo.setAge(100000);
 		vo.setGender("M");
-		vo.setEmotion_before("SAD");
-		vo.setEmotion_after("HAPPY");
-		vo.setEmotion_change("SO HAPPY");
+//		vo.setEmotion_before("SAD");
+//		vo.setEmotion_after("HAPPY");
+//		vo.setEmotion_change("SO HAPPY");
 		vo.setAdno(1);
 		vo.setWatch_time(3);
 		
@@ -94,9 +94,9 @@ public class LogTest {
 		vo.setDno(2);
 		vo.setAge(3);
 		vo.setGender("F");
-		vo.setEmotion_before("SADDDDDDDDD");
-		vo.setEmotion_after("HAPPYYYYYYYYY");
-		vo.setEmotion_change("SO HAPPYYYYYYYYYY");
+//		vo.setEmotion_before("SADDDDDDDDD");
+//		vo.setEmotion_after("HAPPYYYYYYYYY");
+//		vo.setEmotion_change("SO HAPPYYYYYYYYYY");
 		vo.setAdno(1);
 		vo.setWatch_time(3);
 		vo.setLno(4);

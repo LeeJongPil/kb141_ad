@@ -26,16 +26,7 @@ public class LogVO {
 
 	@Column(nullable = false)
 	private String gender;
-	
-	@Column(nullable = false)
-	private String emotion_before;
-	
-	@Column(nullable = false)
-	private String emotion_after;
-	
-	@Column(nullable = false)
-	private String emotion_change;
-	
+
 	@Column(nullable = false)
 	private Integer adno;
 
@@ -44,10 +35,84 @@ public class LogVO {
 	
 	private Date curr_time;
 	
+	@Column(nullable = false)
+	private Double bef_happiness;
+	
+	@Column(nullable = false)
+	private Double bef_anger;
+	
+	@Column(nullable = false)
+	private Double bef_sadness;
+	
+	@Column(nullable = false)
+	private Double bef_neutral;
+
+	@Column(nullable = false)
+	private Double bef_surprise;
+	
+	@Column(nullable = false)
+	private Double bef_fear;
+	
+	@Column(nullable = false)
+	private Double bef_contempt;
+	
+	@Column(nullable = false)
+	private Double bef_disgust;
+	
+	@Column(nullable = false)
+	private Double aft_happiness;
+	
+	@Column(nullable = false)
+	private Double aft_anger;
+	
+	@Column(nullable = false)
+	private Double aft_sadness;
+	
+	@Column(nullable = false)
+	private Double aft_neutral;
+
+	@Column(nullable = false)
+	private Double aft_surprise;
+	
+	@Column(nullable = false)
+	private Double aft_fear;
+	
+	@Column(nullable = false)
+	private Double aft_contempt;
+	
+	@Column(nullable = false)
+	private Double aft_disgust;
+	
+	private Double cha_happiness;
+	
+	private Double cha_anger;
+	
+	private Double cha_sadness;
+	
+	private Double cha_neutral;
+
+	private Double cha_surprise;
+	
+	private Double cha_fear;
+	
+	private Double cha_contempt;
+	
+	private Double cha_disgust;
+	
 	@PrePersist
 	protected void onCreate() {
-		curr_time = new Date();
+		this.curr_time = new Date();
+		
+		this.cha_happiness = this.aft_happiness - this.bef_happiness;
+		this.cha_anger = this.aft_anger - this.bef_anger;
+		this.cha_sadness = this.aft_sadness - this.bef_sadness;
+		this.cha_neutral = this.aft_neutral - this.bef_neutral;
+		this.cha_surprise = this.aft_surprise - this.bef_surprise;
+		this.cha_fear = this.aft_fear - this.bef_fear;
+		this.cha_contempt = this.aft_contempt - this.bef_contempt;
+		this.cha_disgust = this.aft_disgust - this.bef_disgust;
 	}
+	
 	
 	public Integer getLno() {
 		return lno;
@@ -81,30 +146,7 @@ public class LogVO {
 		this.gender = gender;
 	}
 
-	public String getEmotion_before() {
-		return emotion_before;
-	}
-
-	public void setEmotion_before(String emotion_before) {
-		this.emotion_before = emotion_before;
-	}
-
-	public String getEmotion_after() {
-		return emotion_after;
-	}
-
-	public void setEmotion_after(String emotion_after) {
-		this.emotion_after = emotion_after;
-	}
-
-	public String getEmotion_change() {
-		return emotion_change;
-	}
-
-	public void setEmotion_change(String emotion_change) {
-		this.emotion_change = emotion_change;
-	}
-
+	
 	public Integer getAdno() {
 		return adno;
 	}
@@ -129,11 +171,19 @@ public class LogVO {
 		this.curr_time = curr_time;
 	}
 
+
 	@Override
 	public String toString() {
-		return "LogVO [lno=" + lno + ", dno=" + dno + ", age=" + age + ", gender=" + gender + ", emotion_before="
-				+ emotion_before + ", emotion_after=" + emotion_after + ", emotion_change=" + emotion_change + ", adno="
-				+ adno + ", watch_time=" + watch_time + ", curr_time=" + curr_time + "]";
+		return "LogVO [lno=" + lno + ", dno=" + dno + ", age=" + age + ", gender=" + gender + ", adno=" + adno
+				+ ", watch_time=" + watch_time + ", curr_time=" + curr_time + ", bef_happiness=" + bef_happiness
+				+ ", bef_anger=" + bef_anger + ", bef_sadness=" + bef_sadness + ", bef_neutral=" + bef_neutral
+				+ ", bef_surprise=" + bef_surprise + ", bef_fear=" + bef_fear + ", bef_contempt=" + bef_contempt
+				+ ", bef_disgust=" + bef_disgust + ", aft_happiness=" + aft_happiness + ", aft_anger=" + aft_anger
+				+ ", aft_sadness=" + aft_sadness + ", aft_neutral=" + aft_neutral + ", aft_surprise=" + aft_surprise
+				+ ", aft_fear=" + aft_fear + ", aft_contempt=" + aft_contempt + ", aft_disgust=" + aft_disgust
+				+ ", cha_happiness=" + cha_happiness + ", cha_anger=" + cha_anger + ", cha_sadness=" + cha_sadness
+				+ ", cha_neutral=" + cha_neutral + ", cha_surprise=" + cha_surprise + ", cha_fear=" + cha_fear
+				+ ", cha_contempt=" + cha_contempt + ", cha_disgust=" + cha_disgust + "]";
 	}
-
+	
 }
