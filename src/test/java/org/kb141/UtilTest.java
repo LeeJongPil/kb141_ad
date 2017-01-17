@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kb141.dao.KMeansTestDAO;
+import org.kb141.dao.KmeansTestDAO;
 import org.kb141.domain.KmeansTestVO;
 import org.kb141.util.Centroid;
 import org.kb141.util.KMeansMachine;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UtilTest {
 	
 	@Autowired
-	private KMeansTestDAO dao;
+	private KmeansTestDAO dao;
 	
 	@Test
 	public void algorithm() {

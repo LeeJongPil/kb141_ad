@@ -5,7 +5,7 @@ import java.util.List;
 import org.kb141.domain.KmeansTestVO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface KMeansTestDAO extends PagingAndSortingRepository<KmeansTestVO, Integer> {
+public interface KmeansTestDAO extends PagingAndSortingRepository<KmeansTestVO, Integer> {
 
 	public List<KmeansTestVO> findAll();
 	
