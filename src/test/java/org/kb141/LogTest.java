@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.LogDAO;
 import org.kb141.domain.LogVO;
+import org.kb141.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -14,6 +15,9 @@ public class LogTest {
 	
 	@Autowired
 	private LogDAO dao;
+	
+	@Autowired
+	private LogService logService;
 	
 	@Test
 	public void createTest() {
@@ -32,4 +36,14 @@ public class LogTest {
 
 	}
 
+	
+//	---------------------------- TEST SERVICE ----------------------------
+	
+	@Test
+	public void registerTest() {
+		LogVO vo = new LogVO() ;
+		
+		
+	}
+	
 }
