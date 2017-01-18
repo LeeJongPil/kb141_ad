@@ -14,5 +14,5 @@ public interface BaseService {
 	
 	public void remove(Integer bno);
 	
-	public List<BaseVO> getlist();
+	public List<BaseVO> getList();
 }

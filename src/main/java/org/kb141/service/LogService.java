@@ -16,4 +16,5 @@ public interface LogService {
 	
 	public List<LogVO> getList();
 	
+
 }

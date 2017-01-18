@@ -2,19 +2,19 @@ package org.kb141.service;
 
 import java.util.List;
 
-import org.kb141.dao.KmeansDAO;
-import org.kb141.domain.KmeansVO;
+import org.kb141.dao.KmeansTestDAO;
+import org.kb141.domain.KmeansTestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KmeansServiceImpl implements KmeansService {
-	
+public class KmeansTestServiceImpl implements KmeansTestService {
+
 	@Autowired
-	private KmeansDAO kmeansDAO;
+	private KmeansTestDAO kmeansDAO;
 	
 	@Override
-	public void register(KmeansVO vo) {
+	public void register(KmeansTestVO vo) {
 		
 		try{
 			kmeansDAO.save(vo);
@@ -25,8 +25,8 @@ public class KmeansServiceImpl implements KmeansService {
 	}
 
 	@Override
-	public KmeansVO view(Integer kno) {
-		KmeansVO vo = null;
+	public KmeansTestVO view(Integer kno) {
+		KmeansTestVO vo = null;
 		try{
 			vo = kmeansDAO.findOne(kno);
 		}catch(Exception e){
@@ -36,7 +36,7 @@ public class KmeansServiceImpl implements KmeansService {
 	}
 
 	@Override
-	public void modify(KmeansVO vo) {
+	public void modify(KmeansTestVO vo) {
 		try{
 			kmeansDAO.save(vo);
 			
@@ -56,8 +56,8 @@ public class KmeansServiceImpl implements KmeansService {
 	}
 
 	@Override
-	public List<KmeansVO> getList() {
-		List<KmeansVO> vo = null;
+	public List<KmeansTestVO> getList() {
+		List<KmeansTestVO> vo = null;
 		try{
 			vo = kmeansDAO.findAll();
 		} catch(Exception e){
@@ -65,6 +65,16 @@ public class KmeansServiceImpl implements KmeansService {
 		}
 		return vo;
 	}
+
+	@Override
+	public List<KmeansTestVO> getGenderList(String gender) {
+		List<KmeansTestVO> vo = null;
+		try{
+			vo = kmeansDAO.findByGenderEquals(gender);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
 }
-
-

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class DeviceServiceImpl implements DeviceService {
 
 	@Autowired
-	DeviceDAO deviceDAO;
+	private DeviceDAO deviceDAO;
 
 	@Override
 	public void register(DeviceVO vo) {

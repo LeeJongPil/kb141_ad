@@ -21,6 +21,12 @@ public class DeviceVO {
 
 	@Column(nullable = false)
 	private String city;
+	
+	@Column(nullable = false)
+	private Double lat;
+	
+	@Column(nullable = false)
+	private Double lng;
 
 	public Integer getDno() {
 		return dno;
@@ -46,9 +52,25 @@ public class DeviceVO {
 		this.city = city;
 	}
 
-	@Override
-	public String toString() {
-		return "DeviceVO [dno=" + dno + ", state=" + state + ", city=" + city + "]";
+	public Double getLat() {
+		return lat;
 	}
 
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+
+	public Double getLng() {
+		return lng;
+	}
+
+	public void setLng(Double lng) {
+		this.lng = lng;
+	}
+
+	@Override
+	public String toString() {
+		return "DeviceVO [dno=" + dno + ", state=" + state + ", city=" + city + ", lat=" + lat + ", lng=" + lng + "]";
+	}
+	
 }

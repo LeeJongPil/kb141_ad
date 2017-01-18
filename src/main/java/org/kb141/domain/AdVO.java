@@ -37,13 +37,12 @@ public class AdVO {
 
 	@Column(nullable = false)
 	private String ad_video;
-
-	@Override
-	public String toString() {
-		return "AdVO [adno=" + adno + ", ad_title=" + ad_title + ", cid=" + cid + ", category=" + category
-				+ ", start_duration=" + start_duration + ", end_duration=" + end_duration + ", ad_image=" + ad_image
-				+ ", ad_video=" + ad_video + "]";
-	}
+	
+	@Column(nullable = false)
+	private Boolean permission;
+	
+	@Column(nullable = false)
+	private String target_emotions;
 
 	public Integer getAdno() {
 		return adno;
@@ -109,5 +108,28 @@ public class AdVO {
 		this.ad_video = ad_video;
 	}
 
+	public Boolean getPermission() {
+		return permission;
+	}
+
+	public void setPermission(Boolean permission) {
+		this.permission = permission;
+	}
+
+	public String getTarget_emotions() {
+		return target_emotions;
+	}
+
+	public void setTarget_emotions(String target_emotions) {
+		this.target_emotions = target_emotions;
+	}
+
+	@Override
+	public String toString() {
+		return "AdVO [adno=" + adno + ", ad_title=" + ad_title + ", cid=" + cid + ", category=" + category
+				+ ", start_duration=" + start_duration + ", end_duration=" + end_duration + ", ad_image=" + ad_image
+				+ ", ad_video=" + ad_video + ", permission=" + permission + ", target_emotions=" + target_emotions
+				+ "]";
+	}
 
 }

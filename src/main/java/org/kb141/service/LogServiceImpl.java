@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class LogServiceImpl implements LogService {
 
 	@Autowired
-	LogDAO logDAO;
-	
+	private LogDAO logDAO;
+
 	@Override
 	public void register(LogVO vo) {
 		try {
@@ -40,6 +40,7 @@ public class LogServiceImpl implements LogService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	@Override
@@ -53,13 +54,14 @@ public class LogServiceImpl implements LogService {
 
 	@Override
 	public List<LogVO> getList() {
-		List<LogVO> result = null;
-		try {
-			result = logDAO.findAll();
-		} catch (Exception e) {
+		List<LogVO> vo = null;
+		try{
+			vo = logDAO.findAll();
+		} catch(Exception e){
 			e.printStackTrace();
 		}
-		return result;
+		return vo;
 	}
+
 
 }

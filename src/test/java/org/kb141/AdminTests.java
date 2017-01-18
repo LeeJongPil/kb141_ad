@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import lombok.extern.java.Log;
 
-@Log
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AdminTests {
@@ -38,7 +38,7 @@ public class AdminTests {
 	@Test
 	public void readTest() throws Exception{
 		AdminVO vo = dao.findOne("admin");
-		log.info("VO" + vo);
+		System.out.println("VO" + vo);
 		
 	}
 	

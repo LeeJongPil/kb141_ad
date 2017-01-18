@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl implements AdminService {
 
 	@Autowired
-	AdminDAO adminDAO;
+	private AdminDAO adminDAO;
 
 	@Override
 	public void register(AdminVO vo) {
