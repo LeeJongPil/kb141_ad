@@ -18,45 +18,45 @@ public class LogVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer lno;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer dno;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer age;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private String gender;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer adno;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer watch_time;
 	
 	private Date curr_time;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_happiness;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_anger;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_sadness;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_neutral;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_surprise;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_fear;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_contempt;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_disgust;
 	
 //	@Column(nullable = false)

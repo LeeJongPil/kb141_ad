@@ -145,7 +145,7 @@ public class PersonController {
 	}
 
 	@GetMapping("/modifyClient")
-	public void modifyClientGet(@RequestParam("cid") String cid, Model model) throws Exception {
+	public void modifyClientGET(@RequestParam("cid") String cid, Model model) throws Exception {
 		logger.info("GET CLIENT Modify....");
 		model.addAttribute(clientService.view(cid));
 	}
