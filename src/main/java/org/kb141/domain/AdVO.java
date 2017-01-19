@@ -39,7 +39,7 @@ public class AdVO {
 	private String ad_video;
 	
 	@Column(nullable = false)
-	private Boolean permission;
+	private boolean permission;
 	
 	@Column(nullable = false)
 	private String target_emotions;
@@ -108,11 +108,11 @@ public class AdVO {
 		this.ad_video = ad_video;
 	}
 
-	public Boolean getPermission() {
+	public boolean getPermission() {
 		return permission;
 	}
 
-	public void setPermission(Boolean permission) {
+	public void setPermission(boolean permission) {
 		this.permission = permission;
 	}
 

@@ -38,7 +38,8 @@ public class BaseVO {
 
 	@Column(nullable = false)
 	private String b_third;
-
+	
+	@Column(nullable = false)
 	private Date bdate;
 
 	@PrePersist
@@ -78,6 +79,14 @@ public class BaseVO {
 		this.bemotion = bemotion;
 	}
 
+	public String getBarea() {
+		return barea;
+	}
+
+	public void setBarea(String barea) {
+		this.barea = barea;
+	}
+
 	public String getB_first() {
 		return b_first;
 	}
@@ -102,11 +111,20 @@ public class BaseVO {
 		this.b_third = b_third;
 	}
 
+	public Date getBdate() {
+		return bdate;
+	}
+
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
+	}
+
 	@Override
 	public String toString() {
 		return "BaseVO [bno=" + bno + ", bage=" + bage + ", bgender=" + bgender + ", bemotion=" + bemotion + ", barea="
 				+ barea + ", b_first=" + b_first + ", b_second=" + b_second + ", b_third=" + b_third + ", bdate="
 				+ bdate + "]";
 	}
+
 
 }
