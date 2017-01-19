@@ -111,7 +111,7 @@ public class MessageTests {
 	
 	@Test
 	public void getListTest(){
-		System.out.println(service.getList(0));
+		System.out.println(service.getList());
 	}
 
 }

@@ -13,11 +13,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MessageDAO extends PagingAndSortingRepository<MessageVO, Integer> {
 		
-	
-	// 보내는 사람에 대한 리스트 
-	List<MessageVO> findByMfromOrderByMnoDesc(String mfrom);
-	// 번호 에 대한 역 정렬 리스트 
-	Page<MessageVO> findByMno(Pageable page);
+	List<MessageVO> findAll();
+//	
+//	// 보내는 사람에 대한 리스트 
+//	List<MessageVO> findByMfromOrderByMnoDesc(String mfrom);
+//	// 번호 에 대한 역 정렬 리스트 
+//	Page<MessageVO> findByMno(Pageable page);
 	
 	
 	
