@@ -17,7 +17,14 @@
                         <div class="col-md-12">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <p class="no-s">Simple, clean and engaging charts for designers and developers.</p>
+                                    <form action="#" method="GET">
+                                        <div class="input-group">
+                                            <input type="text" name="search" class="form-control input-search" placeholder="Search...">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>
+                                            </span>
+                                        </div><!-- Input Group -->
+                                    </form>
                                 </div>
                             </div>
                         </div>

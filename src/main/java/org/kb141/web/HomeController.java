@@ -101,6 +101,11 @@ public class HomeController {
 		logger.info("YHJ IS COMING");
 	}
 	
+	@GetMapping("/charts-chartjs2")
+	public void chartschartjs2(Model model){
+		logger.info("YHJ IS COMING");
+	}
+	
 	@GetMapping("profile")
 	public void profile(){
 		logger.info("YHJ IS COMING");
