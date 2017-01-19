@@ -1,5 +1,6 @@
 <%@include file="header.jsp"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
             <div class="page-inner">
                 <div class="page-title">
                     <h3>Dashboard</h3>
@@ -17,7 +18,7 @@
                                 <div class="panel-body">
                                     <div class="info-box-stats">
                                         <p class="counter">107,200</p>
-                                        <span class="info-box-title">User activity this month</span>
+                                        <span class="info-box-title">광고를 맡기신 광고주님 숫자.</span>
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-users"></i>
@@ -36,7 +37,7 @@
                                 <div class="panel-body">
                                     <div class="info-box-stats">
                                         <p class="counter">340,230</p>
-                                        <span class="info-box-title">Page views</span>
+                                        <span class="info-box-title">우리 광고를 본 닝겐 수</span>
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-eye"></i>
@@ -54,8 +55,8 @@
                             <div class="panel info-box panel-white">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p>$<span class="counter">653,000</span></p>
-                                        <span class="info-box-title">Monthly revenue goal</span>
+                                        <p><span class="counter">65 </span>%</p>
+                                        <span class="info-box-title">전일 대비 광고 시청률</span>
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-basket"></i>
@@ -73,8 +74,8 @@
                             <div class="panel info-box panel-white">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p class="counter">47,500</p>
-                                        <span class="info-box-title">New emails recieved</span>
+                                        <p class="counter">47,500 </p>
+                                        <span class="info-box-title">우리한테 궁금한게 많네</span>
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-envelope"></i>
@@ -96,7 +97,7 @@
                                     <div class="col-sm-8">
                                         <div class="visitors-chart">
                                             <div class="panel-heading">
-                                                <h4 class="panel-title">Visitors</h4>
+                                                <h4 class="panel-title">기간 별 본 닝겐 수</h4>
                                             </div>
                                             <div class="panel-body">
                                                 <div id="flotchart1"></div>
@@ -106,17 +107,18 @@
                                     <div class="col-sm-4">
                                         <div class="stats-info">
                                             <div class="panel-heading">
-                                                <h4 class="panel-title">Browser Stats</h4>
+                                                <h4 class="panel-title">어디서 많이 봤니</h4>
                                             </div>
                                             <div class="panel-body">
                                                 <ul class="list-unstyled">
-                                                    <li>Google Chrome<div class="text-success pull-right">32%<i class="fa fa-level-up"></i></div></li>
-                                                    <li>Firefox<div class="text-success pull-right">25%<i class="fa fa-level-up"></i></div></li>
-                                                    <li>Internet Explorer<div class="text-success pull-right">16%<i class="fa fa-level-up"></i></div></li>
-                                                    <li>Safari<div class="text-danger pull-right">13%<i class="fa fa-level-down"></i></div></li>
-                                                    <li>Opera<div class="text-danger pull-right">7%<i class="fa fa-level-down"></i></div></li>
-                                                    <li>Mobile &amp; tablet<div class="text-success pull-right">4%<i class="fa fa-level-up"></i></div></li>
-                                                    <li>Others<div class="text-success pull-right">3%<i class="fa fa-level-up"></i></div></li>
+                                                    <li>강 남 구<div class="text-success pull-right">32%<i class="fa fa-level-up"></i></div></li>
+                                                    <li>동 작 구<div class="text-success pull-right">25%<i class="fa fa-level-up"></i></div></li>
+                                                    <li>인 천 검 단<div class="text-success pull-right">16%<i class="fa fa-level-up"></i></div></li>
+                                                    <li>채우기 귀찮<div class="text-danger pull-right">13%<i class="fa fa-level-down"></i></div></li>
+                                                    <li>안알랴줌<div class="text-danger pull-right">7%<i class="fa fa-level-down"></i></div></li>
+                                                    <li>에이이이이이이이<div class="text-success pull-right">4%<i class="fa fa-level-up"></i></div></li>
+                                                    <li>김 포 장 기 동<div class="text-success pull-right">3%<i class="fa fa-level-up"></i></div></li>
+                                                    <li class="nav navbar-nav navbar-right"><button>더보기></button></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -127,7 +129,7 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-white" style="height: 100%;">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">Server Load</h4>
+                                    <h4 class="panel-title">여기다 뭐넣지 아이디어좀</h4>
                                     <div class="panel-control">
                                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Expand/Collapse" class="panel-collapse"><i class="icon-arrow-down"></i></a>
                                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
@@ -155,7 +157,7 @@
                         <div class="col-lg-5 col-md-6">
                             <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">Weather</h4>
+                                    <h4 class="panel-title">기기 관리</h4>
                                     <div class="panel-control">
                                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
                                     </div>
@@ -163,13 +165,28 @@
                                 <div class="panel-body">
                                     <div class="weather-widget">
                                         <div class="row">
-                                            <div class="col-md-12">
+                        <div class="panel panel-white">
+                                            <div class="panel-body">
+                                                <div class="timeline-item-header">
+                                                    <p>기기 관리 <span>전국의 기기관리 현황</span></p>
+                                                    <small>6 hours ago</small>
+                                                </div>
+                                                <div class="timeline-item-post">
+                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                               
+                                        
+                                        
+                                        
+                                          <!--   <div class="col-md-12">
                                                 <div class="weather-top">
                                                     <div class="weather-current pull-left">
                                                         <i class="wi wi-day-cloudy weather-icon"></i>
                                                         <p><span>83<sup>&deg;F</sup></span></p>
                                                     </div>
-                                                    <h2 class="weather-day pull-right">Miami, FL<br><small><b>13th April, 2015</b></small></h2>
+                                                    <h2 class="weather-day pull-right">이거 고정값이네<br><small><b>13th April, 2015</b></small></h2>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -197,7 +214,7 @@
                                                     <li class="col-xs-4 col-sm-2"><span>16:00</span><i class="wi wi-day-cloudy"></i><span>82<sup>&deg;F</sup></span></li>
                                                     <li class="col-xs-4 col-sm-2"><span>17:00</span><i class="wi wi-day-sunny-overcast"></i><span>82<sup>&deg;F</sup></span></li>
                                                 </ul>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +223,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">Inbox</h4>
+                                    <h4 class="panel-title">메 일</h4>
                                     <div class="panel-control">
                                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
                                     </div>
@@ -287,108 +304,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="panel panel-white">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Project Stats</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive project-stats">  
-                                       <table class="table">
-                                           <thead>
-                                               <tr>
-                                                   <th>#</th>
-                                                   <th>Project</th>
-                                                   <th>Status</th>
-                                                   <th>Manager</th>
-                                                   <th>Progress</th>
-                                               </tr>
-                                           </thead>
-                                           <tbody>
-                                               <tr>
-                                                   <th scope="row">452</th>
-                                                   <td>Mailbox Template</td>
-                                                   <td><span class="label label-info">Pending</span></td>
-                                                   <td>David Green</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <th scope="row">327</th>
-                                                   <td>Wordpress Theme</td>
-                                                   <td><span class="label label-primary">In Progress</span></td>
-                                                   <td>Sandra Smith</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <th scope="row">226</th>
-                                                   <td>Modern Admin Template</td>
-                                                   <td><span class="label label-success">Finished</span></td>
-                                                   <td>Chritopher Palmer</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <th scope="row">178</th>
-                                                   <td>eCommerce template</td>
-                                                   <td><span class="label label-danger">Canceled</span></td>
-                                                   <td>Amily Lee</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <th scope="row">157</th>
-                                                   <td>Website PSD</td>
-                                                   <td><span class="label label-info">Testing</span></td>
-                                                   <td>Nick Doe</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <th scope="row">157</th>
-                                                   <td>Fronted Theme</td>
-                                                   <td><span class="label label-warning">Waiting</span></td>
-                                                   <td>David Green</td>
-                                                   <td>
-                                                       <div class="progress progress-sm">
-                                                           <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                                           </div>
-                                                       </div>
-                                                   </td>
-                                               </tr>
-                                           </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s">2015 &copy; Modern by Steelcoders.</p>
+                      <p class="no-s">2017 &copy; AD by KB141.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
         
-<%@include file="footer.jsp"%>
+		<%@include file="footer.jsp"%>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
+        <script src="assets/js/pages/dashboard.js"></script>
+        <script src="assets/js/pages/profile.js"></script>
+        
+    </body>
+</html>

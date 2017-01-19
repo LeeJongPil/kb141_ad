@@ -138,10 +138,11 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="index.html" class="logo-text"><span>Modern</span></a>
+                        <a href="index.html" class="logo-text"><span>KB 141</span></a>
                     </div><!-- Logo Box -->
                     <div class="search-button">
-                        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic 
+-search"><i class="fa fa-search"></i></a>
                     </div>
                     <div class="topmenu-outer">
                         <div class="top-menu">
@@ -156,9 +157,9 @@
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                   <!--  <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <i class="fa fa-cogs"></i>
-                                    </a>
+                                    </a> -->
                                     <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
                                         <li class="li-group">
                                             <ul class="list-unstyled">
@@ -238,11 +239,11 @@
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
                                         <li><p class="drop-title">You have 4 new  messages !</p></li>
                                         <li class="dropdown-menu-list slimscroll messages">
-                                            <ul class="list-unstyled">
+                                            <ul class="list-unstyled"> 
                                                 <li>
                                                     <a href="#">
                                                         <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar2.png" alt=""></div>
@@ -347,11 +348,11 @@
                                         <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
+                                 <li>
+							 <!--   <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
                                         <i class="fa fa-comments"></i>
                                     </a>
-                                </li>
+                                </li> 
                             </ul><!-- Nav -->
                         </div><!-- Top Menu -->
                     </div>
@@ -373,35 +374,36 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD</p></a></li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
+                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li><a href="inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
+<!--                             <ul class="sub-menu">
                                 <li><a href="inbox.html">Inbox</a></li>
                                 <li><a href="message-view.html">View Message</a></li>
                                 <li><a href="compose.html">Compose</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>차트</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-                                <li><a href="charts-sparkline.html">Sparkline</a></li>
+<!--                                 <li><a href="charts-sparkline.html">Sparkline</a></li>
                                 <li><a href="charts-rickshaw.html">Rickshaw</a></li>
                                 <li><a href="charts-morris.html">Morris</a></li>
-                                <li><a href="charts-flotchart.html">Flotchart</a></li>
-                                <li><a href="charts-chartjs.html">Chart.js</a></li>
+                                <li><a href="charts-flotchart.html">Flotchart</a></li> -->
+                                <li><a href="charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>Login</p><span class="arrow"></span></a>
+<!--                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>Login</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="login.html">Login Form</a></li>
-                                <li><a href="register.html">Register Form</a></li>
+                           <li><a href="register.html">Register Form</a></li>
                                 <li><a href="forgot.html">Forgot Password</a></li>
                                 <li><a href="lock-screen.html">Lock Screen</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-                                <li><a href="maps-google.html">Google Maps</a></li>
-                                <li><a href="maps-vector.html">Vector Maps</a></li>
+                                <li><a href="maps-google.html">기기 관리</a></li>
+                               <!--  <li><a href="maps-vector.html">Vector Maps</a></li> -->
                             </ul>
                         </li>
                     </ul>
