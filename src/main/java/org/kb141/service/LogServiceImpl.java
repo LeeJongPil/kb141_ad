@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LogServiceImpl implements LogService {
-	
+
 	@Autowired
 	private LogDAO logDAO;
 
@@ -40,7 +40,7 @@ public class LogServiceImpl implements LogService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -62,6 +62,6 @@ public class LogServiceImpl implements LogService {
 		}
 		return vo;
 	}
-	
+
 
 }

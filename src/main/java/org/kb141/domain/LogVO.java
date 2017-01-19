@@ -18,69 +18,69 @@ public class LogVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer lno;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Integer dno;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Integer age;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String gender;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Integer adno;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Integer watch_time;
 	
 	private Date curr_time;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_happiness;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_anger;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_sadness;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_neutral;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_surprise;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_fear;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_contempt;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double bef_disgust;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_happiness;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_anger;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_sadness;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_neutral;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_surprise;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_fear;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_contempt;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Double aft_disgust;
 	
 	private Double cha_happiness;
@@ -99,18 +99,20 @@ public class LogVO {
 	
 	private Double cha_disgust;
 	
+	private String rule;
+	
 	@PrePersist
 	protected void onCreate() {
 		this.curr_time = new Date();
 		
-		this.cha_happiness = this.aft_happiness - this.bef_happiness;
-		this.cha_anger = this.aft_anger - this.bef_anger;
-		this.cha_sadness = this.aft_sadness - this.bef_sadness;
-		this.cha_neutral = this.aft_neutral - this.bef_neutral;
-		this.cha_surprise = this.aft_surprise - this.bef_surprise;
-		this.cha_fear = this.aft_fear - this.bef_fear;
-		this.cha_contempt = this.aft_contempt - this.bef_contempt;
-		this.cha_disgust = this.aft_disgust - this.bef_disgust;
+//		this.cha_happiness = this.aft_happiness - this.bef_happiness;
+//		this.cha_anger = this.aft_anger - this.bef_anger;
+//		this.cha_sadness = this.aft_sadness - this.bef_sadness;
+//		this.cha_neutral = this.aft_neutral - this.bef_neutral;
+//		this.cha_surprise = this.aft_surprise - this.bef_surprise;
+//		this.cha_fear = this.aft_fear - this.bef_fear;
+//		this.cha_contempt = this.aft_contempt - this.bef_contempt;
+//		this.cha_disgust = this.aft_disgust - this.bef_disgust;
 	}
 	
 	
@@ -171,6 +173,14 @@ public class LogVO {
 		this.curr_time = curr_time;
 	}
 
+	public String getRule() {
+		return rule;
+	}
+
+	public void setRule(String rule) {
+		this.rule = rule;
+	}
+
 
 	@Override
 	public String toString() {
@@ -183,7 +193,9 @@ public class LogVO {
 				+ ", aft_fear=" + aft_fear + ", aft_contempt=" + aft_contempt + ", aft_disgust=" + aft_disgust
 				+ ", cha_happiness=" + cha_happiness + ", cha_anger=" + cha_anger + ", cha_sadness=" + cha_sadness
 				+ ", cha_neutral=" + cha_neutral + ", cha_surprise=" + cha_surprise + ", cha_fear=" + cha_fear
-				+ ", cha_contempt=" + cha_contempt + ", cha_disgust=" + cha_disgust + "]";
+				+ ", cha_contempt=" + cha_contempt + ", cha_disgust=" + cha_disgust + ", rule=" + rule + "]";
 	}
+	
+	
 	
 }

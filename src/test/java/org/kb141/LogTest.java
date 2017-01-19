@@ -23,8 +23,8 @@ public class LogTest {
 	public void createTest() {
 		
 		LogVO vo = new LogVO();
-		vo.setDno(10000);
-		vo.setAge(100000);
+		vo.setDno(10);
+		vo.setAge(20);
 		vo.setGender("M");
 //		vo.setEmotion_before("SAD");
 //		vo.setEmotion_after("HAPPY");
@@ -71,14 +71,14 @@ public class LogTest {
 	@Test
 	public void registerTest() {
 		LogVO vo = new LogVO();
-		vo.setDno(10000);
-		vo.setAge(100000);
-		vo.setGender("M");
+		vo.setDno(100);
+		vo.setAge(30);
+		vo.setGender("F");
 //		vo.setEmotion_before("SAD");
 //		vo.setEmotion_after("HAPPY");
 //		vo.setEmotion_change("SO HAPPY");
 		vo.setAdno(1);
-		vo.setWatch_time(3);
+		vo.setWatch_time(6);
 		
 		service.register(vo);
 	}
@@ -113,4 +113,5 @@ public class LogTest {
 		System.out.println(service.getList());
 	}
 
+	
 }
