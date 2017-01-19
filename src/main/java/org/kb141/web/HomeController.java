@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
 import org.kb141.domain.KmeansTestVO;
 import org.kb141.domain.KmeansVO;
 import org.kb141.service.KmeansService;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @CrossOrigin
-@RestController
+@Controller
 public class HomeController {
 	
 	Logger logger = Logger.getLogger(this.getClass());
@@ -39,7 +38,7 @@ public class HomeController {
 	public void index(Model model) {
 		
 	}
-	@RequestMapping(value="/rulebase" , produces="application/json")
+	/*@RequestMapping(value="/rulebase" , produces="application/json")
 	public JSONObject rulebase() throws Exception  {
 		System.out.println("rulebase start");
 		
@@ -71,31 +70,41 @@ public class HomeController {
 //		KmeansVO vo = new KmeansVO();
 //		kmeansService.register(vo);
 		return obj;
-	}
+	}*/
 	@GetMapping("/login")
 	public void login(Model model) {
 		logger.info("YHJ IS COMING");
 	}
+	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {
 		logger.info("YHJ IS COMING");
 	}
+	
 	@GetMapping("/message-view")
 	public void messageview(Model model) {
 		logger.info("YHJ IS COMING");
 	}
+	
 	@GetMapping("/compose")
 	public void compose(Model model) {
 		logger.info("YHJ IS COMING");
 	}
+	
 	@GetMapping("/maps-google")
 	public void mapsgoogle(Model model) {
 		logger.info("YHJ IS COMING");
 	}
 	
+	@GetMapping("/charts-chartjs")
+	public void chartschartjs(Model model){
+		logger.info("YHJ IS COMING");
+	}
 	
-	
-	
+	@GetMapping("profile")
+	public void profile(){
+		logger.info("YHJ IS COMING");
+	}
 	
 	
 	

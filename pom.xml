@@ -51,9 +51,8 @@
 <!-- 			<groupId>org.springframework.boot</groupId> -->
 <!-- 			<artifactId>spring-boot-starter-security</artifactId> -->
 <!-- 		</dependency> -->
-<!-- 		<dependency>
 
-
+<!--
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -79,12 +78,6 @@
 			<artifactId>jxl</artifactId>
 			<version>2.6.12</version>
 		</dependency> -->
-
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-starter-security</artifactId> -->
-		<!-- </dependency> -->
-	
 
 
 <!-- 		<dependency>
