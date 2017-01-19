@@ -15,17 +15,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageServiceImpl implements MessageService {
-	
+
 	@Autowired
 	private MessageDAO dao;
-	
-	
 
 	@Override
 	public void register(MessageVO vo) {
-		try{
+		try {
 			dao.save(vo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -33,9 +31,9 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public MessageVO view(Integer mno) {
 		MessageVO vo = null;
-		try{
+		try {
 			vo = dao.findOne(mno);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
@@ -43,9 +41,9 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public void modify(MessageVO vo) {
-		try{
+		try {
 			dao.save(vo);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -53,23 +51,35 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public void remove(Integer mno) {
-		try{
+		try {
 			dao.delete(mno);
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-  
+
 	@Override
-	public List<MessageVO> getList(Integer pageNum) {
-		List<MessageVO> list = null;
-		try{
-			PageRequest page = new PageRequest( pageNum , 10, new Sort(Direction.DESC, "mno"));
-			Page<MessageVO> result = dao.findAll(page);
-			list = result.getContent();
-		}catch(Exception e){
+	public List<MessageVO> getList() {
+		List<MessageVO> result = null;
+		try {
+			result = dao.findAll();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return result;
 	}
+
+	// @Override
+	// public List<MessageVO> getList(Integer pageNum) {
+	// List<MessageVO> list = null;
+	// try {
+	// PageRequest page = new PageRequest(pageNum, 10, new Sort(Direction.DESC,
+	// "mno"));
+	// Page<MessageVO> result = dao.findAll(page);
+	// list = result.getContent();
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// return list;
+	// }
 }

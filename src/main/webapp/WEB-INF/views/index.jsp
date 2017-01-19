@@ -179,6 +179,7 @@
                                
                                         
                                         
+                                        
                                           <!--   <div class="col-md-12">
                                                 <div class="weather-top">
                                                     <div class="weather-current pull-left">

@@ -15,7 +15,7 @@ public interface MessageService {
 	
 	public void remove(Integer mno);
 	
-	public List<MessageVO> getList(Integer pageNum);
+	public List<MessageVO> getList();
 	
 
 }
