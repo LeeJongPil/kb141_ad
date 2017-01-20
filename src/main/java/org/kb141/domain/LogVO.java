@@ -18,45 +18,45 @@ public class LogVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer lno;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer dno;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer age;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private String gender;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer adno;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Integer watch_time;
 	
 	private Date curr_time;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_happiness;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_anger;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_sadness;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_neutral;
 
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_surprise;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_fear;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_contempt;
 	
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	private Double bef_disgust;
 	
 //	@Column(nullable = false)
@@ -103,16 +103,14 @@ public class LogVO {
 	
 	@PrePersist
 	protected void onCreate() {
-		this.curr_time = new Date();
-		
-//		this.cha_happiness = this.aft_happiness - this.bef_happiness;
-//		this.cha_anger = this.aft_anger - this.bef_anger;
-//		this.cha_sadness = this.aft_sadness - this.bef_sadness;
-//		this.cha_neutral = this.aft_neutral - this.bef_neutral;
-//		this.cha_surprise = this.aft_surprise - this.bef_surprise;
-//		this.cha_fear = this.aft_fear - this.bef_fear;
-//		this.cha_contempt = this.aft_contempt - this.bef_contempt;
-//		this.cha_disgust = this.aft_disgust - this.bef_disgust;
+		this.cha_happiness = this.aft_happiness - this.bef_happiness;
+		this.cha_anger = this.aft_anger - this.bef_anger;
+		this.cha_sadness = this.aft_sadness - this.bef_sadness;
+		this.cha_neutral = this.aft_neutral - this.bef_neutral;
+		this.cha_surprise = this.aft_surprise - this.bef_surprise;
+		this.cha_fear = this.aft_fear - this.bef_fear;
+		this.cha_contempt = this.aft_contempt - this.bef_contempt;
+		this.cha_disgust = this.aft_disgust - this.bef_disgust;
 	}
 	
 	
@@ -182,6 +180,166 @@ public class LogVO {
 	}
 
 
+	public Double getBef_happiness() {
+		return bef_happiness;
+	}
+
+
+	public void setBef_happiness(Double bef_happiness) {
+		this.bef_happiness = bef_happiness;
+	}
+
+
+	public Double getBef_anger() {
+		return bef_anger;
+	}
+
+
+	public void setBef_anger(Double bef_anger) {
+		this.bef_anger = bef_anger;
+	}
+
+
+	public Double getBef_sadness() {
+		return bef_sadness;
+	}
+
+
+	public void setBef_sadness(Double bef_sadness) {
+		this.bef_sadness = bef_sadness;
+	}
+
+
+	public Double getBef_neutral() {
+		return bef_neutral;
+	}
+
+
+	public void setBef_neutral(Double bef_neutral) {
+		this.bef_neutral = bef_neutral;
+	}
+
+
+	public Double getBef_surprise() {
+		return bef_surprise;
+	}
+
+
+	public void setBef_surprise(Double bef_surprise) {
+		this.bef_surprise = bef_surprise;
+	}
+
+
+	public Double getBef_fear() {
+		return bef_fear;
+	}
+
+
+	public void setBef_fear(Double bef_fear) {
+		this.bef_fear = bef_fear;
+	}
+
+
+	public Double getBef_contempt() {
+		return bef_contempt;
+	}
+
+
+	public void setBef_contempt(Double bef_contempt) {
+		this.bef_contempt = bef_contempt;
+	}
+
+
+	public Double getBef_disgust() {
+		return bef_disgust;
+	}
+
+
+	public void setBef_disgust(Double bef_disgust) {
+		this.bef_disgust = bef_disgust;
+	}
+
+
+	public Double getAft_happiness() {
+		return aft_happiness;
+	}
+
+
+	public void setAft_happiness(Double aft_happiness) {
+		this.aft_happiness = aft_happiness;
+	}
+
+
+	public Double getAft_anger() {
+		return aft_anger;
+	}
+
+
+	public void setAft_anger(Double aft_anger) {
+		this.aft_anger = aft_anger;
+	}
+
+
+	public Double getAft_sadness() {
+		return aft_sadness;
+	}
+
+
+	public void setAft_sadness(Double aft_sadness) {
+		this.aft_sadness = aft_sadness;
+	}
+
+
+	public Double getAft_neutral() {
+		return aft_neutral;
+	}
+
+
+	public void setAft_neutral(Double aft_neutral) {
+		this.aft_neutral = aft_neutral;
+	}
+
+
+	public Double getAft_surprise() {
+		return aft_surprise;
+	}
+
+
+	public void setAft_surprise(Double aft_surprise) {
+		this.aft_surprise = aft_surprise;
+	}
+
+
+	public Double getAft_fear() {
+		return aft_fear;
+	}
+
+
+	public void setAft_fear(Double aft_fear) {
+		this.aft_fear = aft_fear;
+	}
+
+
+	public Double getAft_contempt() {
+		return aft_contempt;
+	}
+
+
+	public void setAft_contempt(Double aft_contempt) {
+		this.aft_contempt = aft_contempt;
+	}
+
+
+	public Double getAft_disgust() {
+		return aft_disgust;
+	}
+
+
+	public void setAft_disgust(Double aft_disgust) {
+		this.aft_disgust = aft_disgust;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "LogVO [lno=" + lno + ", dno=" + dno + ", age=" + age + ", gender=" + gender + ", adno=" + adno

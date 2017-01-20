@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_kmeans") // table 생성할때 만들어지는 이름
 
 public class KmeansVO {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer kno;
