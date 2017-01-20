@@ -249,6 +249,7 @@ public class AdController {
 		
 		
 		// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드 
+		// Kmeans 돌려서 나오는 걸  DB에 넣고 CSV 를 만든다. 
 		@RequestMapping(value="/base" , produces="application/json")
 		public void base() throws Exception  {
 			System.out.println("base start");
@@ -288,5 +289,15 @@ public class AdController {
 			}
 
 		}
+		
+		
+		// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다. 
+		@RequestMapping(value="/adlist" , produces="application/json")
+		public void ADList() throws Exception  {
+			
+		}
+		
+		
+		
 	
 }

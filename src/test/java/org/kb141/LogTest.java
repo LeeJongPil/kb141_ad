@@ -1,5 +1,7 @@
 package org.kb141;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.LogDAO;
@@ -8,6 +10,7 @@ import org.kb141.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -113,5 +116,6 @@ public class LogTest {
 		System.out.println(service.getList());
 	}
 
-	
+
+
 }
