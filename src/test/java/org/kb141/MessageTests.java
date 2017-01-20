@@ -33,7 +33,7 @@ public class MessageTests {
 			vo.setMto("client" + i);
 			vo.setMtitle("createTest title" + i);
 			vo.setMcontent("create Test content" + i);
-			vo.setChecked(false);
+			vo.setChecked(0);
 			dao.save(vo);
 			
 		}
@@ -52,7 +52,7 @@ public class MessageTests {
 		vo.setMto("client12345");
 		vo.setMtitle("createTest title12345");
 		vo.setMcontent("create Test content12345");
-		vo.setChecked(true);
+		vo.setChecked(0);
 		dao.save(vo);
 	}
 	
@@ -83,7 +83,7 @@ public class MessageTests {
 		vo.setMto("regTest client");
 		vo.setMtitle("regTest title");
 		vo.setMcontent("regTest content");
-		vo.setChecked(false);
+		vo.setChecked(0);
 		service.register(vo);
 	}
 	
@@ -100,7 +100,7 @@ public class MessageTests {
 		vo.setMto("modifyTest client");
 		vo.setMtitle("modifyTest title");
 		vo.setMcontent("modifyTest content");
-		vo.setChecked(true);
+		vo.setChecked(0);
 		service.modify(vo);
 	}
 	
