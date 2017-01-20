@@ -475,11 +475,11 @@
                         </div>
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
-                <div class="page-footer">
+<!--                 <div class="page-footer">
                     <p class="no-s">2017 &copy; AD by KB141.</p>
                 </div>
-            </div><!-- Page Inner -->
-        </main><!-- Page Content -->
+            </div>Page Inner
+        </main>Page Content -->
      <%@include file="footer.jsp"%>
      
         <!-- Javascripts -->

@@ -392,20 +392,7 @@
                             	<li><a href="charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
-<!--                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>Login</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="login.html">Login Form</a></li>
-                           <li><a href="register.html">Register Form</a></li>
-                                <li><a href="forgot.html">Forgot Password</a></li>
-                                <li><a href="lock-screen.html">Lock Screen</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="maps-google.html">기기 관리</a></li>
-                               <!--  <li><a href="maps-vector.html">Vector Maps</a></li> -->
-                            </ul>
-                        </li>
+                        <li><a href="maps-google.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div><!-- Page Sidebar -->
