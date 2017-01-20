@@ -37,7 +37,13 @@ public class HomeController {
 //		KmeansCSVRead kmeans = new KmeansCSVRead();
 //		return kmeans.kmeansCSV();
 //	}
-		
+	
+	@GetMapping("/index")
+	public void index(Model model) {
+		logger.info("YHJ IS COMING");
+	}
+	
+	
 	
 	@GetMapping("/login")
 	public void login(Model model) {

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -142,8 +141,7 @@
                         <a href="index.html" class="logo-text"><span>KB 141</span></a>
                     </div><!-- Logo Box -->
                     <div class="search-button">
-                        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic 
--search"><i class="fa fa-search"></i></a>
+                        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic-search"><i class="fa fa-search"></i></a>
                     </div>
                     <div class="topmenu-outer">
                         <div class="top-menu">
@@ -396,4 +394,4 @@
                         <li><a href="maps-google.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
-            </div><!-- Page Sidebar -->
+			</div>
