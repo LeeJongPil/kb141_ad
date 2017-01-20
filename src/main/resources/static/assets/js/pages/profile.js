@@ -1,8 +1,8 @@
 $( document ).ready(function() {
     function initialize() {
         var mapOptions = {
-            center: new google.maps.LatLng(40.7033127,-73.979681,10),
-            zoom: 9
+            center: new google.maps.LatLng(37.494496,127.028014),
+            zoom: 15
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions); 
     }
