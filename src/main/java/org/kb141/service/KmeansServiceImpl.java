@@ -15,13 +15,11 @@ public class KmeansServiceImpl implements KmeansService {
 	
 	@Override
 	public void register(KmeansVO vo) {
-		
 		try{
 			kmeansDAO.save(vo);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
@@ -39,11 +37,9 @@ public class KmeansServiceImpl implements KmeansService {
 	public void modify(KmeansVO vo) {
 		try{
 			kmeansDAO.save(vo);
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override

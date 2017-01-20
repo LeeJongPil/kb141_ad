@@ -1,3 +1,9 @@
+  <div class="page-footer">
+  <p class="no-s">2017 &copy; AD by KB141.</p>
+  </div>
+ </div><!-- Page Inner -->
+</main><!-- Page Content -->
+  
   <nav class="cd-nav-container" id="cd-nav">
             <header>
                 <h3>Navigation</h3>
