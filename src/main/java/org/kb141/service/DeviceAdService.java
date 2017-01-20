@@ -8,7 +8,9 @@ public interface DeviceAdService {
 
 	public void register(DeviceAdVO vo);
 
-	public DeviceAdVO view(Integer dano);
+	public DeviceAdVO viewFromDno(Integer dno);
+	
+	public DeviceAdVO viewFromAdno(Integer Adno);
 
 	public void modify(DeviceAdVO vo);
 

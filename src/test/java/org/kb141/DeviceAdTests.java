@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.DeviceAdDAO;
 import org.kb141.domain.DeviceAdVO;
+import org.kb141.service.DeviceAdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,15 +14,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DeviceAdTests {
 
 	@Autowired
-	private DeviceAdDAO dao;
-	
+	private DeviceAdService service;
+
 	@Test
-	public void createTest() throws Exception{
+	public void registerTest() throws Exception {
 		DeviceAdVO vo = new DeviceAdVO();
-		vo.setDno(3);
-		vo.setAdno(6);
-		dao.save(vo);
-	} 
-	
-	
+		vo.setDno(4);
+		vo.setAdno(2);
+		service.register(vo);
+	}
+
+	@Test
+	public void readTest() throws Exception {
+
+	}
+
 }
