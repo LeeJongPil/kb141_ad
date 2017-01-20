@@ -21,7 +21,7 @@ public class DeviceAdTests {
 		vo.setDno(3);
 		vo.setAdno(6);
 		dao.save(vo);
-	}
+	} 
 	
 	
 }
