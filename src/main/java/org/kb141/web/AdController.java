@@ -145,7 +145,7 @@ public class AdController {
 	@GetMapping("/listDevice")
 	public void listDevice(Model model) throws Exception {
 		logger.info("GET DEVICE List....");
-		model.addAttribute(deviceService.getList());
+		model.addAttribute("device",deviceService.getList());
 		logger.info("result: " + deviceService.getList());
 	}
 

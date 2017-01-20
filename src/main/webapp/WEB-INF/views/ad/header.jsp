@@ -15,27 +15,27 @@
         
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link href="assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-        <link href="assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+        <link href="../assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+        <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
         	
         <!-- Theme Styles -->
-        <link href="assets/css/modern.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/modern.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
-        <script src="assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
-        <script src="assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+        <script src="../assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+        <script src="../assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,14 +50,14 @@
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
             <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
             <div class="slimscroll">
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
             </div>
 		</nav>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
@@ -65,7 +65,7 @@
             <div class="slimscroll chat">
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="assets/images/avatar2.png" alt="">
+                        <img src="../assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Hi There!
@@ -78,7 +78,7 @@
                 </div>
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="assets/images/avatar2.png" alt="">
+                        <img src="../assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Fine! do you like my project?
@@ -91,7 +91,7 @@
                 </div>
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="assets/images/avatar2.png" alt="">
+                        <img src="../assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Thanks, I tried!
@@ -111,7 +111,7 @@
 		</nav>
         <div class="menu-wrap">
             <nav class="profile-menu">
-                <div class="profile"><img src="assets/images/avatar1.png" width="52" alt="David Green"/><span>David Green</span></div>
+                <div class="profile"><img src="../assets/images/avatar1.png" width="52" alt="David Green"/><span>David Green</span></div>
                 <div class="profile-menu-list">
                     <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                     <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
@@ -246,7 +246,7 @@
                                             <ul class="list-unstyled"> 
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar2.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar2.png" alt=""></div>
                                                         <p class="msg-name">Sandra Smith</p>
                                                         <p class="msg-text">Hey ! I'm working on your project</p>
                                                         <p class="msg-time">3 minutes ago</p>
@@ -254,7 +254,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar4.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar4.png" alt=""></div>
                                                         <p class="msg-name">Amily Lee</p>
                                                         <p class="msg-text">Hi David !</p>
                                                         <p class="msg-time">8 minutes ago</p>
@@ -262,7 +262,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar3.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar3.png" alt=""></div>
                                                         <p class="msg-name">Christopher Palmer</p>
                                                         <p class="msg-text">See you soon !</p>
                                                         <p class="msg-time">56 minutes ago</p>
@@ -270,7 +270,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar5.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar5.png" alt=""></div>
                                                         <p class="msg-name">Nick Doe</p>
                                                         <p class="msg-text">Nice to meet you</p>
                                                         <p class="msg-time">2 hours ago</p>
@@ -278,7 +278,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar2.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar2.png" alt=""></div>
                                                         <p class="msg-name">Sandra Smith</p>
                                                         <p class="msg-text">Hey ! I'm working on your project</p>
                                                         <p class="msg-time">5 hours ago</p>
@@ -286,7 +286,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar4.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar4.png" alt=""></div>
                                                         <p class="msg-name">Amily Lee</p>
                                                         <p class="msg-text">Hi David !</p>
                                                         <p class="msg-time">9 hours ago</p>
@@ -332,7 +332,7 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name">David<i class="fa fa-angle-down"></i></span>
-                                        <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt="">
+                                        <img class="img-circle avatar" src="../assets/images/avatar1.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
                                         <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
@@ -364,7 +364,7 @@
                         <div class="sidebar-profile">
                             <a href="javascript:void(0);" id="profile-menu-link">
                                 <div class="sidebar-profile-image">
-                                    <img src="assets/images/avatar1.png" class="img-circle img-responsive" alt="">
+                                    <img src="../assets/images/avatar1.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span>David Green<br><small>Art Director</small></span>
