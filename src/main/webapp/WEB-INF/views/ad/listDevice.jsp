@@ -43,7 +43,6 @@ main {
 			</c:forEach>
 			
 			
-			
 // 			openInfo(marker);
 
 // 			openInfo(marker2);
@@ -71,7 +70,7 @@ main {
 				title : markerTitle,
 			});
 		}
-
+ 
 		$(document).ready(function() {
 			$("body").attr("class", "page-header-fixed page-sidebar-fixed");
 			// 			$("main").attr("class", "page-content content-wrap full-height");
