@@ -164,7 +164,7 @@ public class AdController {
 	public void registerLogGET() throws Exception {
 		logger.info("GET LOG Register....");
 	}
-
+ 
 	@PostMapping("/registerLog")
 	public String registerLogPOST(LogVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST LOG Register....");
