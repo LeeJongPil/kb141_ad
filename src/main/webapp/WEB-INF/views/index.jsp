@@ -116,8 +116,8 @@
 
 																																<c:forEach items="${devList}" var = "devlist"  begin="0"  end="8">
 																																			<li>
-																																					${devlist.state}	
-																																					<div class="pull-right">${devlist.city}</div>
+																																					${devlist.state}	- ${devlist.city}
+																																					<div class="pull-right">${devlist.logPercent}%</div>
 																																			</li>
 																																</c:forEach>
 	                                                
