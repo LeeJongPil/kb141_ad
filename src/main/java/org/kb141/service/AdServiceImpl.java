@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.kb141.dao.AdDAO;
 import org.kb141.domain.AdVO;
+import org.kb141.domain.DeviceVO;
+import org.kb141.mapper.AdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class AdServiceImpl implements AdService {
 	@Autowired
 	private AdDAO adDAO;
 
+	@Autowired
+	private AdMapper adMapper;
 	@Override
 	public void register(AdVO vo) {
 		try {
@@ -57,7 +61,19 @@ public class AdServiceImpl implements AdService {
 		List<AdVO> list = null;
 		
 		try {
-			list = adDAO.findAll();
+			list = adMapper.getlist();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<DeviceVO> getMapChecking(Integer adno) {
+		List<DeviceVO> list = null;
+		
+		try {
+			list = adMapper.mapChecking(adno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

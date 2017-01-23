@@ -1,6 +1,7 @@
 package org.kb141.web;
 
 import org.apache.log4j.Logger;
+import org.kb141.service.AdService;
 import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin
 @Controller
@@ -21,6 +23,9 @@ public class HomeController {
 	
 	@Autowired
 	private LogService logService;
+	
+	@Autowired
+	private AdService adService;
 	
 	@RequestMapping("/")
 	public String index() {
@@ -83,13 +88,17 @@ public class HomeController {
 	}
 	
 	@GetMapping("profile")
-	public void profile(){
+	public void profile(Model model){
 		logger.info("YHJ IS COMING");
+		model.addAttribute("adVO", adService.getList());
 	}
 	
 	@GetMapping("profile2")
-	public void profile2(){
+	public void profile2(@RequestParam("adno") Integer adno, Model model){
 		logger.info("YHJ IS COMING");
+		logger.info("adno : " + adno);
+		model.addAttribute("adVO", adService.view(adno));
+		model.addAttribute("deviceVO", adService.getMapChecking(adno));
 	}
 	
 	
