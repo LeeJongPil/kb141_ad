@@ -145,7 +145,7 @@ public class AdController {
 	@GetMapping("/listDevice")
 	public void listDevice(Model model) throws Exception {
 		logger.info("GET DEVICE List....");
-		model.addAttribute(deviceService.getList());
+		model.addAttribute("device",deviceService.getList());
 		logger.info("result: " + deviceService.getList());
 	}
 
@@ -183,7 +183,7 @@ public class AdController {
 	public void registerLogGET() throws Exception {
 		logger.info("GET LOG Register....");
 	}
-
+ 
 	@PostMapping("/registerLog")
 	public String registerLogPOST(LogVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST LOG Register....");
