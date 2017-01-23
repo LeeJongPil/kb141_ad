@@ -14,16 +14,7 @@
           
                 <div id="main-wrapper">
                    <div class="col-md-8 col-centered">
-                    <div class="row">
-                    		
-                           <div class="panel panel-white">
-                        	<div class="row">
-                        		
-                                <div class="col-md-11 text-right"><p>광고주님들&emsp;광고들 &emsp; 영상 갯수 &emsp;</p>
-                                <h3>1020명 &emsp;1780개  &emsp; 260개 &emsp;  </h3></div>
-                          
-                           </div>
- 						</div>
+          
                       
                 
                            <div class="panel panel-white">
@@ -31,13 +22,18 @@
                                     <div class="panel-title">광고주님들 명단</div>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="team">
+                                    <div class="team col-md-6">
                                         <div class="team-member">
                                            <div class="online on"></div>
                                             <img src="assets/images/avatar1.png" alt="">
                                         </div>
-                                        
-                                    </div>
+                                        </div>
+                                        <blockquote class="blockquote-reverse text-right col-md-6">
+                                     	   <ul class="list-inline">
+                                     	   <dl><h4><dt>광고주님들 / ${clientVO.size()} 명</dt><dt> 광고들 /  ${adVO.size() } 개 </dt><dt>영상갯수 / ${adVO.size() } 개</dt>
+                                		</h4></dl>
+                                   			
+                                			</blockquote>
                                 </div>
                             </div> 
                             
