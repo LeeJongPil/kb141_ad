@@ -52,6 +52,7 @@ public class HomeController {
 //		KmeansCSVRead kmeans = new KmeansCSVRead();
 //		return kmeans.kmeansCSV();
 //	}
+
 		
 	@GetMapping("/index")
 	public void indexing(Model model, ClientVO vo){
