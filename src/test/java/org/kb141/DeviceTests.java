@@ -105,9 +105,11 @@ public class DeviceTests {
 		for(int i = 0 ; i <8; i++){
 			j += list.get(i).getLogcnt();
 		}
+		System.out.println(j);
 		
 		for(int i = 0 ; i < 8 ; i++) {
 //			j는 모든 로그 값을 합한거니까 그걸로 확률 하는 코드를 짜 면 된다. 
+//			list.get(i).set
 			
 		}
 		
