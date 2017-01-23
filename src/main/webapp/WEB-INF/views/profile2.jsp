@@ -180,6 +180,7 @@
  		}
 
  		
+ 		
  		$(document).ready(function(){
 			
          $("body").attr("class","page-header-fixed page-sidebar-fixed");
