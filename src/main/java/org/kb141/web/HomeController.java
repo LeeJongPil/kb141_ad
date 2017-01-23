@@ -1,8 +1,14 @@
 package org.kb141.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.kb141.domain.LogVO;
 import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
+import org.kb141.util.AttributeGenerator;
+import org.kb141.util.ChartAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +50,10 @@ public class HomeController {
 		logger.info("YHJ IS COMING");
 	}
 	
-	
+	@GetMapping("/index")
+	public void index(Model model) {
+		logger.info("YHJ IS COMING");
+	}
 	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {
@@ -68,7 +77,15 @@ public class HomeController {
 	
 	@GetMapping("/charts-chartjs")
 	public void chartschartjs(Model model){
-		logger.info("YHJ IS COMING");
+		logger.info("YHJ'S CHART IS COMING");
+		
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getList());
+		
+		System.out.println(result);
+		
+		model.addAttribute("data", result);
+		
 	}
 	
 	@GetMapping("/charts-chartjs2")
