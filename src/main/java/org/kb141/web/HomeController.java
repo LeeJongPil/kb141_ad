@@ -67,8 +67,8 @@ public class HomeController {
 		model.addAttribute("devList", deviceService.getDevList());
 //		model.addAttribute("msgList", messageService.getMsgList(vo.getCid()));   이게 진짜임
 		model.addAttribute("msgList", messageService.getMsgList("client0"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
-		model.addAttribute("Adviewership",logService.getAdviewership());
-		
+		model.addAttribute("Adviewership", logService.getAdviewership());
+		model.addAttribute("deviceList", deviceService.getDeviceList());
 		
 	}
 

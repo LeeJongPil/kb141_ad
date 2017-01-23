@@ -93,4 +93,15 @@ public class DeviceServiceImpl implements DeviceService {
 		return result;
 	}
 
+	@Override
+	public List<DeviceVO> getDeviceList() {
+		List<DeviceVO> list = null;
+		try {
+			list = deviceMapper.deviceList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

@@ -16,6 +16,11 @@ public interface AdMapper {
 	
 	@Select("select count(*) from tbl_ad")
 	public Integer countAd() throws Exception;
+	
+	
+	
+	
+	
 }
 
 

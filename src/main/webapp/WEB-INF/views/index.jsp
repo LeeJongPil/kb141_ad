@@ -38,15 +38,16 @@
                             <div class="panel info-box panel-white">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p class="counter">${logCount }</p>
-                                        <span class="info-box-title">우리 광고를 본 닝겐 수</span>
+                                    <p><span class="counter">${logCount }  </span>명</p>
+                                        <span class="info-box-title">목표 : 10000</span>
+<!--                                         <span class="info-box-title">광고를 본 닝겐 수 / 10000</span> -->
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-eye"></i>
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: ${logCount/100}%">
                                             </div>
                                         </div>
                                     </div>
@@ -76,15 +77,15 @@
                             <div class="panel info-box panel-white">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p class="counter">${msgCount} </p>
-                                        <span class="info-box-title">우리한테 궁금한게 많네</span>
+                                       <p><span class="counter">${msgCount} </span>%</p>
+                                        <span class="info-box-title">전달 대비 쪽지 비율</span>
                                     </div>
                                     <div class="info-box-icon">
                                         <i class="icon-envelope"></i>
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:${msgCount}%">
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +110,7 @@
                                     <div class="col-sm-3">
                                         <div class="stats-info">
                                             <div class="panel-heading">
-                                                <h4 class="panel-title">어디서 많이 봤니 (기준을 전체로 할건지 어제꺼인 로그만 보고 할껀지 고민)</h4>
+                                                <h4 class="panel-title">어디서 많이 봤니</h4>
                                             </div>
                                             <div class="panel-body">
                                                 <ul class="list-unstyled">
@@ -240,9 +241,63 @@
                     </div>
                 </div><!-- Main Wrapper -->
 		<%@include file="footer.jsp"%>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
+		
         <script  src="assets/js/pages/dashboard.js"></script>
         <script src="assets/js/pages/profile.js"></script>
-      
     </body>
+    
+    <script>
+    var map;
+		
+	function initMap() {
+			map = new google.maps.Map(document.getElementById('map-canvas'), {
+				center : {
+					lat : 37.494505,
+					lng : 127.028022
+				},
+				zoom : 8
+			});
+		<c:forEach items="${deviceList}" var="device">
+		var marker${device.state} = new google.maps.Marker({
+			position : {
+				lat : ${device.lat},
+				lng : ${device.lng}
+			},
+			map : map,
+			title : '${device.state}'
+		});
+		openInfo(marker${device.state});
+
+		</c:forEach>
+		};
+		function openInfo(markerName) {
+			console.log(markerName.title);
+			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
+			var infowindow = new google.maps.InfoWindow({
+				content : contentString
+			});
+			markerName.addListener('click', function() {
+				infowindow.open(map, markerName);
+			});
+		}
+		function makeMarker(name, markerLat, markerLng, markerTitle) {
+			var name = new google.maps.Marker({
+				position : {
+					lat : markerLat,
+					lng : markerLng
+				},
+				map : map,
+				title : markerTitle,
+			});
+		}
+		
+		$(document).ready(function(){
+		
+     $("body").attr("class","page-header-fixed page-sidebar-fixed");
+     $("main").attr("class","page-content content-wrap full-height");
+
+	});
+    
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
 </html>

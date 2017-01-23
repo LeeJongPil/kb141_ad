@@ -106,6 +106,14 @@ public class DeviceTests {
 		}
 	}
 	
+	@Test
+	public void getDviceListTest() throws Exception{
+		List<DeviceVO> list = service.getDeviceList();
+		for(int i = 0 ; i < list.size() ; i++) {
+			System.out.println(list.get(i));
+		}
+	}
+	
 //	---------------------------------------- Mapper Test --------------------------------------------------
 	
 	@Test
@@ -116,6 +124,12 @@ public class DeviceTests {
 		}
 	}
 	
-	
+	@Test
+	public void DeviceListTest() throws Exception{
+		List<DeviceVO> list = deviceMapper.deviceList();
+		for( int i = 0; i < list.size() ; i ++ ) {
+			System.out.println(list.get(i));
+		}
+	}
 
 }

@@ -18,4 +18,7 @@ public interface DeviceService {
 	public List<DeviceVO> getList();
 	
 	public List<DeviceListVO> getDevList();
+	
+	public List<DeviceVO> getDeviceList();
+	
 }

@@ -69,7 +69,7 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public Integer countMsg() {
-		int num = 0;
+		Integer num = 0;
 		
 		try {
 			num = messageMapper.countMsg();
