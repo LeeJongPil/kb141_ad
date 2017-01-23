@@ -9,24 +9,8 @@
    text-align: center;
    }
 </style>
-      <script src="assets/plugins/jquery/jquery-2.1.3.min.js"></script>
-        <script>
-        $( document ).ready(function() {
-            function initialize() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(37.494496,127.028014),
-                    zoom: 15
-                };
-                var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions); 
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-            
 
-            
-            
-        });
 
-        </script>
 
             
          <div class="page-inner">
@@ -142,25 +126,69 @@
                   
      
               
-		<%@include file="footer.jsp"%>
+		
+    </body>
+    <%@include file="footer.jsp"%>
         <!-- Javascripts -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
-
        	<script src="assets/plugins/chartsjs/Chart.min.js"></script>
         <script src="assets/js/pages/charts-chartjs.js"></script>  
+      	<script src="assets/js/pages/profile.js"></script>
         <script>
-		$(document).ready(function(){
+  
+ 		var map;
+ 		
+		function initMap() {
+ 			map = new google.maps.Map(document.getElementById('map-canvas'), {
+ 				center : {
+ 					lat : 37.494505,
+ 					lng : 127.028022
+ 				},
+ 				zoom : 8
+ 			});
+ 		<c:forEach items="${deviceVO}" var="device">
+ 		var marker${device.dano} = new google.maps.Marker({
+ 			position : {
+ 				lat : ${device.lat},
+ 				lng : ${device.lng}
+ 			},
+ 			map : map,
+ 			title : '${device.dano}'
+ 		});
+ 		openInfo(marker${device.dano});
+
+ 		</c:forEach>
+ 		};
+ 		function openInfo(markerName) {
+ 			console.log(markerName.title);
+ 			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
+ 			var infowindow = new google.maps.InfoWindow({
+ 				content : contentString
+ 			});
+ 			markerName.addListener('click', function() {
+ 				infowindow.open(map, markerName);
+ 			});
+ 		}
+ 		function makeMarker(name, markerLat, markerLng, markerTitle) {
+ 			var name = new google.maps.Marker({
+ 				position : {
+ 					lat : markerLat,
+ 					lng : markerLng
+ 				},
+ 				map : map,
+ 				title : markerTitle,
+ 			});
+ 		}
+
+ 		
+ 		$(document).ready(function(){
 			
          $("body").attr("class","page-header-fixed page-sidebar-fixed");
          $("main").attr("class","page-content content-wrap full-height");
  
+         
+
 		});
-     
-        	
-
-            
+        </script>
+       	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
         
-
-        </script>   
-    </body>
 </html>
