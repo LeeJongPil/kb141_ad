@@ -17,5 +17,7 @@ public interface MessageService {
 	
 	public List<MessageVO> getList();
 	
-
+	public Integer countMsg() ;
+	
+	public List<MessageVO> getMsgList(String mto);
 }

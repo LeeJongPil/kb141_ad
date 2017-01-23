@@ -1,9 +1,14 @@
 package org.kb141.web;
 
 import org.apache.log4j.Logger;
+import org.kb141.domain.ClientVO;
 import org.kb141.service.AdService;
+import org.kb141.service.DeviceService;
 import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
+import org.kb141.service.MessageService;
+import org.kb141.util.AttributeGenerator;
+import org.kb141.util.ChartAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +32,15 @@ public class HomeController {
 	@Autowired
 	private AdService adService;
 	
+
+	@Autowired
+	private MessageService messageService;
+	
+	@Autowired
+	private DeviceService deviceService;
+	
+	
+	
 	@RequestMapping("/")
 	public String index() {
 		logger.info("YHJ IS COMING");
@@ -42,20 +56,27 @@ public class HomeController {
 //		KmeansCSVRead kmeans = new KmeansCSVRead();
 //		return kmeans.kmeansCSV();
 //	}
-	
+
+		
 	@GetMapping("/index")
-	public void index(Model model) {
-		logger.info("YHJ IS COMING");
+	public void indexing(Model model, ClientVO vo){
+		logger.info("index");
+		model.addAttribute("adCount", adService.getCount());
+		model.addAttribute("logCount", logService.countLog());
+		model.addAttribute("msgCount",messageService.countMsg());
+		model.addAttribute("devList", deviceService.getDevList());
+//		model.addAttribute("msgList", messageService.getMsgList(vo.getCid()));   이게 진짜임
+		model.addAttribute("msgList", messageService.getMsgList("client0"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
+		model.addAttribute("Adviewership",logService.getAdviewership());
+		
+		
 	}
-	
-	
-	
+
+
 	@GetMapping("/login")
 	public void login(Model model) {
 		logger.info("YHJ IS COMING");
 	}
-	
-	
 	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {
@@ -77,9 +98,18 @@ public class HomeController {
 		logger.info("YHJ IS COMING");
 	}
 	
+	
 	@GetMapping("/charts-chartjs")
 	public void chartschartjs(Model model){
-		logger.info("YHJ IS COMING");
+		logger.info("YHJ'S CHART IS COMING");
+		
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getList());
+		
+		System.out.println(result);
+		
+		model.addAttribute("data", result);
+		
 	}
 	
 	@GetMapping("/charts-chartjs2")

@@ -3,7 +3,9 @@ package org.kb141.service;
 import java.util.List;
 
 import org.kb141.dao.DeviceDAO;
+import org.kb141.domain.DeviceListVO;
 import org.kb141.domain.DeviceVO;
+import org.kb141.mapper.DeviceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,10 @@ public class DeviceServiceImpl implements DeviceService {
 
 	@Autowired
 	private DeviceDAO deviceDAO;
+	
+	@Autowired
+	private DeviceMapper deviceMapper;
+	
 
 	@Override
 	public void register(DeviceVO vo) {
@@ -56,6 +62,17 @@ public class DeviceServiceImpl implements DeviceService {
 		List<DeviceVO> result = null;
 		try {
 			result = deviceDAO.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<DeviceListVO> getDevList() {
+		List<DeviceListVO> result = null;
+		try {
+			result = deviceMapper.devList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

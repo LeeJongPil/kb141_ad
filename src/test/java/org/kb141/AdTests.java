@@ -26,6 +26,7 @@ public class AdTests {
 	
 	@Autowired
 	private AdMapper adMapper;
+	
 	@Test
 	public void createTest() {
 
@@ -82,25 +83,6 @@ public class AdTests {
 //		
 //	}
 	
-	@Test
-	public void getMapperlist() throws Exception{
-		AdVO vo = new AdVO();
-		
-		List<AdVO> list = adMapper.getlist();
-		for(int i = 0 ; i < list.size(); i++){
-			System.out.println(list.get(i));
-		}
-		
-	}
-	
-	@Test
-	public void mapChecking() throws Exception{
-		
-		List<DeviceVO> list = adMapper.mapChecking(6);
-		for(int i = 0 ; i < list.size(); i++){
-			System.out.println(list.get(i));
-		}
-	}
 	
 // ------------------------------------------------------------ Service Test ------------------------------------------------------------ 	
 
@@ -148,9 +130,21 @@ public class AdTests {
 	}
 	
 	@Test
-	public void getMapChecking() {
+	public void getCountTest() {
+		System.out.println(adService.getCount());
+	}
+	
+	
+// ------------------------------------------------------------ Mapper Test ------------------------------------------------------------ 	
+
+	@Test
+	public void CountADTest() throws Exception{
+		System.out.println(adMapper.countAd());
+	}
+	@Test
+	public void mapChecking() throws Exception{
 		
-		List<DeviceVO> list = adService.getMapChecking(6);
+		List<DeviceVO> list = adMapper.mapChecking(6);
 		for(int i = 0 ; i < list.size(); i++){
 			System.out.println(list.get(i));
 		}

@@ -1,3 +1,4 @@
+
 package org.kb141.service;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public interface AdService {
 	public void remove(Integer adno);
 	
 	public List<AdVO> getList();
+	
+	public Integer getCount();
 	
 	public List<DeviceVO> getMapChecking(Integer adno);
 }

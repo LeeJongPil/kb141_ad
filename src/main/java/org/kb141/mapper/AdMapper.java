@@ -13,4 +13,10 @@ public interface AdMapper {
 	
 	@Select("select lat,lng from tbl_device_ad da join tbl_device d where da.dno=d.dno and adno = #{adno}")
 	public List<DeviceVO> mapChecking(Integer adno) throws Exception;
+	
+	@Select("select count(*) from tbl_ad")
+	public Integer countAd() throws Exception;
 }
+
+
+

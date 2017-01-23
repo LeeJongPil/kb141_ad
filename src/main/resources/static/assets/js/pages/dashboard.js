@@ -17,88 +17,96 @@ $( document ).ready(function() {
         toastr.success('Checkout settings menu on left!', 'Welcome to Modern!');
     }, 1800);
     
-    var flot2 = function () {
+//    var flot2 = function () {
 
 		// We use an inline data source in the example, usually data would
 		// be fetched from a server
 
-		var data = [],
-			totalPoints = 100;
+//		var data = [],
+//			totalPoints = 100;
         
-		function getRandomData() {
-
-			if (data.length > 0)
-				data = data.slice(1);
-
-			// Do a random walk
-
-			while (data.length < totalPoints) {
-
-				var prev = data.length > 0 ? data[data.length - 1] : 50,
-					y = prev + Math.random() * 10 - 5;
-
-				if (y < 0) {
-					y = 0;
-				} else if (y > 100) {
-					y = 100;
-				}
-
-				data.push(y);
-			}
+//		function getRandomData() {
+//
+//			if (data.length > 0)
+//				data = data.slice(1);
+//
+//			// Do a random walk
+//
+//			while (data.length < totalPoints) {
+//
+//				var prev = data.length > 0 ? data[data.length - 1] : 50,
+//					y = prev + Math.random() * 10 - 5;
+//
+//				if (y < 0) {
+//					y = 0;
+//				} else if (y > 100) {
+//					y = 100;
+//				}
+//
+//				data.push(y);
+//			}
 
 			// Zip the generated y values with the x values
 
-			var res = [];
-			for (var i = 0; i < data.length; ++i) {
-				res.push([i, data[i]])
-			}
+//			var res = [];
+//			for (var i = 0; i < data.length; ++i) {
+//				res.push([i, data[i]])
+//			}
+//
+//			return res;
+//		}
 
-			return res;
-		}
+//		var plot2 = $.plot("#flotchart2", [ getRandomData() ], {
+//			series: {
+//				shadowSize: 0	// Drawing is faster without shadows
+//			},
+//			yaxis: {
+//				min: 0,
+//				max: 100
+//			},
+//			xaxis: {
+//				show: false
+//			},
+//            colors: ["#22BAA0"],
+//            legend: {
+//                show: false
+//            },
+//            grid: {
+//                color: "#AFAFAF",
+//                hoverable: true,
+//                borderWidth: 0,
+//                backgroundColor: '#FFF'
+//            },
+//            tooltip: true,
+//            tooltipOpts: {
+//                content: "Y: %y",
+//                defaultTheme: false
+//            }
+//		});
 
-		var plot2 = $.plot("#flotchart2", [ getRandomData() ], {
-			series: {
-				shadowSize: 0	// Drawing is faster without shadows
-			},
-			yaxis: {
-				min: 0,
-				max: 100
-			},
-			xaxis: {
-				show: false
-			},
-            colors: ["#22BAA0"],
-            legend: {
-                show: false
-            },
-            grid: {
-                color: "#AFAFAF",
-                hoverable: true,
-                borderWidth: 0,
-                backgroundColor: '#FFF'
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: "Y: %y",
-                defaultTheme: false
-            }
-		});
-
-		function update() {
-			plot2.setData([getRandomData()]);
-
-			plot2.draw();
-			setTimeout(update, 30);
-		}
-
-		update();
-        
-    };
+//		function update() {
+//			plot2.setData([getRandomData()]);
+//
+//			plot2.draw();
+//			setTimeout(update, 30);
+//		}
+//
+//		update();
+//        
+//    };
     
-    flot2();
+//    flot2();
+    
+   var jpa = function (){
+    	console.log("zzzz");
+    	document.write("!!!!!!!!!!!!!!!!!!!!!!!!!");
+    	alert("!!!!!!!");
+    };
+     
+    
     var flot1 = function () {
-        var data = [[0, 65], [1, 59], [2, 80], [3, 81], [4, 56], [5, 55], [6, 40]];
-        var data2 = [[0, 28], [1, 48], [2, 40], [3, 19], [4, 86], [5, 27], [6, 90]];
+        var data = [[0, 65], [1, 59], [2, 80], [3, 81], [4, 56], [5, 55], [6, 40]];	// 회색 라인 데이터
+        var data2 = [[0, 28], [1, 48], [2, 40], [3, 19], [4, 86], [5, 27], [6, 90]];	// 초록 라인 데이터 
         var dataset =  [
             {
                 data: data,

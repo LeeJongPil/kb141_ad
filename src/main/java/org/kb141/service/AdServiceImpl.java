@@ -17,6 +17,7 @@ public class AdServiceImpl implements AdService {
 
 	@Autowired
 	private AdMapper adMapper;
+
 	@Override
 	public void register(AdVO vo) {
 		try {
@@ -31,7 +32,7 @@ public class AdServiceImpl implements AdService {
 	public AdVO view(Integer adno) {
 		AdVO vo = null;
 		try {
-			 vo = adDAO.findOne(adno);
+			vo = adDAO.findOne(adno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,13 +60,25 @@ public class AdServiceImpl implements AdService {
 	@Override
 	public List<AdVO> getList() {
 		List<AdVO> list = null;
-		
+
 		try {
-			list = adMapper.getlist();
+			list = adDAO.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	@Override
+	public Integer getCount() {
+		int num = 0;
+		
+		try {
+			num = adMapper.countAd();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
 	}
 
 	@Override
@@ -79,5 +92,5 @@ public class AdServiceImpl implements AdService {
 		}
 		return list;
 	}
-
 }
+
