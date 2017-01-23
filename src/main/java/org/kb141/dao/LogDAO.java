@@ -13,9 +13,4 @@ public interface LogDAO extends PagingAndSortingRepository<LogVO, Integer> {
 
 	public List<LogVO> findAll();
 	
-	@Select("select count(*) from tbl_log where adno = #{adno}")
-	public Integer AdnoCount(Integer adno);
-	
-	
-
 }

@@ -16,5 +16,8 @@ public interface LogService {
 	
 	public List<LogVO> getList();
 	
+	public Integer countLog();
+	
+	public Integer getAdviewership();
 
 }

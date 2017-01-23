@@ -16,4 +16,6 @@ public interface AdService {
 	
 	public List<AdVO> getList();
 	
+	public Integer getCount();
+	
 }

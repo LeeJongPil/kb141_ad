@@ -1,16 +1,14 @@
 package org.kb141;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.LogDAO;
 import org.kb141.domain.LogVO;
+import org.kb141.mapper.LogMapper;
 import org.kb141.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,6 +19,10 @@ public class LogTest {
 	
 	@Autowired
 	private LogService service;
+	
+	@Autowired
+	private LogMapper logMapper;
+	
 	
 	@Test
 	public void createTest() {
@@ -116,6 +118,29 @@ public class LogTest {
 		System.out.println(service.getList());
 	}
 
+	@Test
+	public void getCountLog(){
+		System.out.println(service.countLog());
+	}
+	
+	@Test
+	public void getAdviewershipTest(){
+		System.out.println(service.getAdviewership());
+	}
+	
+	
+//------------------------------Mapper Test------------------------------
 
+	@Test
+	public void CountLogTest() throws Exception {
+		System.out.println(logMapper.countLog());
+	}
+	
+	@Test
+	public void AdviewershipTest() throws Exception{
+		System.out.println(logMapper.Adviewership());
+	}
 
+	
+	
 }

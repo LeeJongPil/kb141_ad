@@ -5,8 +5,9 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.DeviceDAO;
+import org.kb141.domain.DeviceListVO;
 import org.kb141.domain.DeviceVO;
-import org.kb141.domain.DeviceVO;
+import org.kb141.mapper.DeviceMapper;
 import org.kb141.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +23,9 @@ public class DeviceTests {
 	@Autowired
 	private DeviceService service;
 
+	@Autowired
+	private DeviceMapper deviceMapper;
+	
 	@Test
 	public void createTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
@@ -59,7 +63,7 @@ public class DeviceTests {
 		System.out.println(list);
 	}
 
-	///////////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------- service Test -----------------------------------------------
 
 	@Test
 	public void insertTest() throws Exception {
@@ -92,5 +96,33 @@ public class DeviceTests {
 	public void getListTest() throws Exception {
 		System.out.println(service.getList());
 	}
+	
+	@Test
+	public void getDevListTEst() throws Exception{
+		List<DeviceListVO> list = service.getDevList();
+		DeviceListVO vo = new DeviceListVO();
+		int j = 0;
+		for(int i = 0 ; i <8; i++){
+			j += list.get(i).getLogcnt();
+		}
+		
+		for(int i = 0 ; i < 8 ; i++) {
+//			j는 모든 로그 값을 합한거니까 그걸로 확률 하는 코드를 짜 면 된다. 
+			
+		}
+		
+	}
+	
+//	---------------------------------------- Mapper Test --------------------------------------------------
+	
+	@Test
+	public void getDevList() throws Exception{
+		List<DeviceListVO> list = deviceMapper.devList();
+		for(int i = 0 ; i < list.size(); i ++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+	
 
 }
