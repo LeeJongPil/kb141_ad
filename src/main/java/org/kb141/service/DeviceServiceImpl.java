@@ -72,7 +72,20 @@ public class DeviceServiceImpl implements DeviceService {
 	public List<DeviceListVO> getDevList() {
 		List<DeviceListVO> result = null;
 		try {
+			int total = 0;
 			result = deviceMapper.devList();
+//			최고 8개 만 따질것이다.
+			for(int i = 0 ; i < 8 ; i ++){	// 총 logcnt 더한값  total 저장
+				total += result.get(i).getLogcnt();
+			}
+			
+			for(int i = 0 ; i < 8 ; i ++){
+				double logcnt = result.get(i).getLogcnt(); // double형으로 받는다.
+				double rlogcnt = logcnt / total;
+				int res = (int) Math.round(rlogcnt * 100);
+				result.get(i).setLogPercent(res);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
