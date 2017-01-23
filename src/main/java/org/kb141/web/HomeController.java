@@ -44,12 +44,6 @@ public class HomeController {
 //		return kmeans.kmeansCSV();
 //	}
 	
-	@GetMapping("/index")
-	public void index(Model model) {
-		logger.info("YHJ IS COMING");
-	}
-	
-	
 	
 	@GetMapping("/login")
 	public void login(Model model) {
