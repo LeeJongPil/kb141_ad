@@ -86,6 +86,7 @@ public class DeviceServiceImpl implements DeviceService {
 				result.get(i).setLogPercent(res);
 			}
 			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
