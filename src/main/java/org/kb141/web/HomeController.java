@@ -7,6 +7,8 @@ import org.kb141.service.DeviceService;
 import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
 import org.kb141.service.MessageService;
+import org.kb141.util.AttributeGenerator;
+import org.kb141.util.ChartAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -94,9 +96,18 @@ public class HomeController {
 		logger.info("YHJ IS COMING");
 	}
 	
+	
 	@GetMapping("/charts-chartjs")
 	public void chartschartjs(Model model){
-		logger.info("YHJ IS COMING");
+		logger.info("YHJ'S CHART IS COMING");
+		
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getList());
+		
+		System.out.println(result);
+		
+		model.addAttribute("data", result);
+		
 	}
 	
 	@GetMapping("/charts-chartjs2")
