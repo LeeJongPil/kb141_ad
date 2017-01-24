@@ -92,7 +92,7 @@ public class DeviceServiceImpl implements DeviceService {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public List<DeviceListVO> getStateGenderCount() {
 		List<DeviceListVO> result = null;

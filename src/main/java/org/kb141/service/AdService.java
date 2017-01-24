@@ -4,7 +4,7 @@ package org.kb141.service;
 import java.util.List;
 
 import org.kb141.domain.AdVO;
-import org.kb141.domain.DeviceVO;
+import org.kb141.domain.DeviceAdVO;
 
 public interface AdService {
 
@@ -20,5 +20,5 @@ public interface AdService {
 	
 	public Integer getCount();
 	
-	public List<DeviceVO> getMapChecking(Integer adno);
+	public List<DeviceAdVO> getMapChecking(Integer adno);
 }

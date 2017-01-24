@@ -106,6 +106,7 @@ public class DeviceTests {
 		}
 	}
 	
+	
 //	---------------------------------------- Mapper Test --------------------------------------------------
 	
 	@Test
@@ -115,7 +116,6 @@ public class DeviceTests {
 			System.out.println(list.get(i));
 		}
 	}
-	
-	
+
 
 }

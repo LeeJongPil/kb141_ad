@@ -8,25 +8,15 @@
    margin: auto;
    text-align: center;
    }
+.col-righted{
+	float: none;
+   	margin: auto;
+   	text-align: right;
+}   
+   
 </style>
-      <script src="assets/plugins/jquery/jquery-2.1.3.min.js"></script>
-        <script>
-        $( document ).ready(function() {
-            function initialize() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(37.494496,127.028014),
-                    zoom: 15
-                };
-                var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions); 
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-            
 
-            
-            
-        });
 
-        </script>
 
             
          <div class="page-inner">
@@ -37,7 +27,7 @@
                     	<div class="col-sm-12 col-lg-6">
                            <div class="panel panel-white" style="height: 275px">
                                 <div class="panel-heading">
-                                    <div class="panel-title">실험중인 광고이름</div>
+                                    <div class="panel-title"><i class="fa fa-folder-open"></i> 실험중인 광고이름</div>
                                 </div>
                                 <div class="panel-body">
                                 	
@@ -45,7 +35,7 @@
                            			<p>ClIENT  : ${adVO.ad_title }</p>
                            			<p>SERVICE : ${adVO.category } </p>
                            			<p>D A T E : <fmt:formatDate value="${adVO.start_duration }" pattern="yyyy-MM-dd "/> ~ <fmt:formatDate value="${adVO.end_duration }" pattern="yyyy-MM-dd "/></p>
-                           			<p>CONTENT : ${adVO.ad_content } ${deviceVO }</p>
+                           			<p>CONTENT : ${adVO.ad_content }</p>
                            	
                            		</blockquote>
                                 </div>
@@ -54,7 +44,7 @@
                             <div class="col-sm-12 col-lg-6">
                             <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">사용중인 기기</h4>
+                                    <h4 class="panel-title"><i class="fa fa-bookmark"></i>  사용중인 기기</h4>
                                     <div class="panel-control">
                                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload" class="panel-reload"><i class="icon-reload"></i></a>
                                     </div>
@@ -71,29 +61,49 @@
                        <div class="row">
                     	<div class="col-sm-12 col-lg-6">
                     		 <div class="panel panel-white">
-	                            <div class="visitors-chart">
                                             <div class="panel-heading">
-                                                <h4 class="panel-title">기간 별 본 닝겐 수</h4>
+                                                <h4 class="panel-title"><span class="icon-user-following" aria-hidden="ture"></span> 오늘 광고를 본 남녀 성비</h4>
                                             </div>
-                                         <div class="panel-body">
-                                    <div>
-                                        <canvas id="chart1" height="150"></canvas>
-                                    </div>
+                                         <div class="panel-body" style="height: 180px;">
+                                        <div class="col-centered">
+                                        	<span class="item">
+                                        	<h1><span class="icon-symbol-male text-info m-t-xxs" aria-hidden="ture"> <b>${data.male}</b> 명</span></h1>
+                                        	<h1><span class="icon-symbol-female text-danger m-t-xxs" aria-hidden="ture"> <b>${data.female }</b> 명</span></h1>
+                                        	</span>
+                                        </div>
+                                    <div class="col-righted">
+                                   
+                                    <a href="charts-chartjs2.html" class="btn btn-default btn-rounded"> 더보기</a>
+                                 	
+                                 	</div>
                                  </div>
-                              </div>
 	                    	</div>
 	                    </div>
 	                    <div class="col-sm-12 col-lg-6">
                     		 <div class="panel panel-white">
 	                            <div class="visitors-chart">
                                    <div class="panel-heading">
-                                      <h4 class="panel-title">기간 별 본 닝겐 수</h4>
+                                      <h4 class="panel-title"> <span class="icon-users" aria-hidden="ture"></span> 오늘 광고를 본 연령별</h4>
                                   </div>
                                 <div class="panel-body">
-	                                <div>
-	                                   <canvas id="chart2" height="150"></canvas>
-	                                </div>
-                              </div>
+                                <div class="col-centered">
+	                                	<div class="col-sm-6">
+	                                		<h3>10대: ${data.view_age[0] }</h4>
+	                                		<h3>20대: ${data.view_age[1] }</h4>
+	                                		<h3>30대: ${data.view_age[2] }</h4>
+	                                		<h3>40대: ${data.view_age[3] }</h4>
+	                                	</div>
+                                	
+	                                	<div class="col-sm-6">
+	                                		<h3>50대: ${data.view_age[4] }</h4>
+	                                		<h3>60대: ${data.view_age[5] }</h4>
+	                                		<h3>70대: ${data.view_age[6] }</h4>
+	                                		<h3></h4>
+                                	
+                                		</div>
+                     				</div>
+            
+                                </div>
                             </div>
 	                      </div>
 	                    </div>     
@@ -107,7 +117,7 @@
                                     <li class="timeline-item">
                                         <div class="panel panel-white" style="height: 475px;">
                                         <div class="panel-heading">
-                                                <h4 class="panel-title">동영상</h4>
+                                                <h4 class="panel-title"><span class="icon-social-youtube" aria-hidden="ture"></span> 동영상</h4>
                                             </div>
                                             <div class="panel-body col-centered">
                            					   <video width="480" height="360" controls>
@@ -125,7 +135,7 @@
                                     <li class="timeline-item">
                                         <div class="panel panel-white" style="height: 475px;">
                                         <div class="panel-heading">
-                                                <h4 class="panel-title">포스터</h4>
+                                                <h4 class="panel-title"><span class="icon-picture" aria-hidden="ture"></span> 포스터</h4>
                                             </div>
                                             <div class="panel-body col-centered">
                                               <img src ="assets/images/ad/${adVO.ad_image}.png" style="height: 400px">
@@ -135,32 +145,76 @@
                                 </ul>
                             </div>
                             </div>
+                            <br>
+                            <br>
+                             <div class="row col-righted">
+                             	<div class="col-sm-12 col-lg-6"></div>
+                             	<div class="col-sm-12 col-lg-6 ">
+                             		<a href="" type="button" class="btn btn-warning btn-rounded">수정</a>
+                             		<a href="" type="button" class="btn btn-primary btn-rounded">삭제</a>
+                             	</div>
+                             </div>
                         </div>
                     </div>
-              
-                
-                  
-     
-              
-		<%@include file="footer.jsp"%>
+    			</body>
         <!-- Javascripts -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
-
-       	<script src="assets/plugins/chartsjs/Chart.min.js"></script>
-        <script src="assets/js/pages/charts-chartjs.js"></script>  
+    	<%@include file="footer.jsp"%>
+      	<script src="assets/js/pages/profile.js"></script>
         <script>
-		$(document).ready(function(){
+  
+ 		var map;
+ 		
+		function initMap() {
+ 			map = new google.maps.Map(document.getElementById('map-canvas'), {
+ 				center : {
+ 					lat : 37.494505,
+ 					lng : 127.028022
+ 				},
+ 				zoom : 8
+ 			});
+ 		<c:forEach items="${deviceVO}" var="device">
+ 		var marker${device.dano} = new google.maps.Marker({
+ 			position : {
+ 				lat : ${device.lat},
+ 				lng : ${device.lng}
+ 			},
+ 			map : map,
+ 			title : '${device.dano}'
+ 		});
+ 		openInfo(marker${device.dano});
+
+ 		</c:forEach>
+ 		};
+ 		function openInfo(markerName) {
+ 			console.log(markerName.title);
+ 			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
+ 			var infowindow = new google.maps.InfoWindow({
+ 				content : contentString
+ 			});
+ 			markerName.addListener('click', function() {
+ 				infowindow.open(map, markerName);
+ 			});
+ 		}
+ 		function makeMarker(name, markerLat, markerLng, markerTitle) {
+ 			var name = new google.maps.Marker({
+ 				position : {
+ 					lat : markerLat,
+ 					lng : markerLng
+ 				},
+ 				map : map,
+ 				title : markerTitle,
+ 			});
+ 		}
+
+ 		
+ 		
+ 		$(document).ready(function(){
 			
          $("body").attr("class","page-header-fixed page-sidebar-fixed");
          $("main").attr("class","page-content content-wrap full-height");
- 
+ 		
 		});
-     
-        	
-
-            
+        </script>
+       	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
         
-
-        </script>   
-    </body>
 </html>

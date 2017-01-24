@@ -3,6 +3,7 @@ package org.kb141.web;
 import org.apache.log4j.Logger;
 import org.kb141.domain.ClientVO;
 import org.kb141.service.AdService;
+import org.kb141.service.ClientService;
 import org.kb141.service.DeviceService;
 import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
@@ -39,6 +40,8 @@ public class HomeController {
 	@Autowired
 	private DeviceService deviceService;
 	
+	@Autowired
+	private ClientService clientService;
 	
 	@RequestMapping("/")
 	public String index() {
@@ -66,8 +69,8 @@ public class HomeController {
 		model.addAttribute("devList", deviceService.getDevList());
 //		model.addAttribute("msgList", messageService.getMsgList(vo.getCid()));   이게 진짜임
 		model.addAttribute("msgList", messageService.getMsgList("client0"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
-		model.addAttribute("Adviewership",logService.getAdviewership());
-		
+		model.addAttribute("Adviewership", logService.getAdviewership());
+		model.addAttribute("deviceList", deviceService.getList());
 		
 	}
 
@@ -124,6 +127,7 @@ public class HomeController {
 	public void profile(Model model){
 		logger.info("YHJ IS COMING");
 		model.addAttribute("adVO", adService.getList());
+		model.addAttribute("clientVO", clientService.getList());
 	}
 	
 	@GetMapping("profile2")
@@ -132,6 +136,13 @@ public class HomeController {
 		logger.info("adno : " + adno);
 		model.addAttribute("adVO", adService.view(adno));
 		model.addAttribute("deviceVO", adService.getMapChecking(adno));
+		
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getList());
+		
+		System.out.println(result);
+		
+		model.addAttribute("data", result);
 	}
 	
 	
