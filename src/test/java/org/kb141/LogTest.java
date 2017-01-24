@@ -1,9 +1,14 @@
 package org.kb141;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.LogDAO;
 import org.kb141.domain.LogVO;
+import org.kb141.mapper.LogMapper;
 import org.kb141.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +23,10 @@ public class LogTest {
 	
 	@Autowired
 	private LogService service;
+	
+	@Autowired
+	private LogMapper logMapper;
+	
 	
 	@Test
 	public void createTest() {
@@ -41,6 +50,7 @@ public class LogTest {
 		System.out.println(dao.findOne(1));
 		
 	}
+	
 	
 	@Test
 	public void updateTest() {
@@ -113,5 +123,43 @@ public class LogTest {
 		System.out.println(service.getList());
 	}
 
+	@Test
+	public void getCountLog(){
+		System.out.println(service.countLog());
+	}
 	
+	@Test
+	public void getAdviewershipTest(){
+		System.out.println(service.getAdviewership());
+	}
+	
+	
+//------------------------------Mapper Test------------------------------
+
+	@Test
+	public void CountLogTest() throws Exception {
+		System.out.println(logMapper.countLog());
+	}
+	
+	@Test
+	public void AdviewershipTest() throws Exception{
+		System.out.println(logMapper.Adviewership());
+	}
+	
+	@Test
+	public void getDateViewTest() throws Exception {
+		System.out.println(logMapper.getDateView());
+	}
+	
+	@Test
+	public void timeCalcTest() throws Exception {
+		Calendar cal = Calendar.getInstance();
+		
+		Date date = service.view(25).getCurr_time();
+		
+		cal.setTime(date);
+
+		System.out.println(cal.get(Calendar.HOUR));
+		
+	}
 }

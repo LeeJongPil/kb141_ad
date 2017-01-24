@@ -2,6 +2,7 @@ package org.kb141.service;
 
 import java.util.List;
 
+import org.kb141.domain.DeviceListVO;
 import org.kb141.domain.DeviceVO;
 
 public interface DeviceService {
@@ -16,5 +17,9 @@ public interface DeviceService {
 
 	public List<DeviceVO> getList();
 	
+	public List<DeviceListVO> getDevList();
 	
+	public List<DeviceListVO> getStateGenderCount();
+	
+
 }

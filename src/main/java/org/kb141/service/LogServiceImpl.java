@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.kb141.dao.LogDAO;
 import org.kb141.domain.LogVO;
+import org.kb141.mapper.LogMapper;
+import org.kb141.util.ChartAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,10 @@ public class LogServiceImpl implements LogService {
 	@Autowired
 	private LogDAO logDAO;
 
+	@Autowired
+	private LogMapper logMapper;
+	
+	
 	@Override
 	public void register(LogVO vo) {
 		try {
@@ -61,6 +67,40 @@ public class LogServiceImpl implements LogService {
 			e.printStackTrace();
 		}
 		return vo;
+	}
+
+	@Override
+	public Integer countLog() {
+		int num = 0;
+		
+		try {
+			num = logMapper.countLog();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	@Override
+	public Integer getAdviewership() {
+		int num = 0;
+		try {
+			num = logMapper.Adviewership();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	@Override
+	public ChartAttributes getDateView() {
+		ChartAttributes result = null;
+		try {
+			result = logMapper.getDateView();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 

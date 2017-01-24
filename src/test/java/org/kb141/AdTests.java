@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.AdDAO;
 import org.kb141.domain.AdVO;
+import org.kb141.domain.DeviceAdVO;
 import org.kb141.mapper.AdMapper;
 import org.kb141.service.AdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class AdTests {
 	
 	@Autowired
 	private AdMapper adMapper;
+	
 	@Test
 	public void createTest() {
 
@@ -81,17 +83,6 @@ public class AdTests {
 //		
 //	}
 	
-	@Test
-	public void getMapperlist() throws Exception{
-		AdVO vo = new AdVO();
-		
-		List<AdVO> list = adMapper.getlist();
-		
-		for(int i = 0 ; i < list.size(); i++){
-			System.out.println(list.get(i));
-		}
-		
-	}
 	
 // ------------------------------------------------------------ Service Test ------------------------------------------------------------ 	
 
@@ -136,6 +127,27 @@ public class AdTests {
 	@Test
 	public void getFindAllTest(){
 		System.out.println(adService.getList());
+	}
+	
+	@Test
+	public void getCountTest() {
+		System.out.println(adService.getCount());
+	}
+	
+	
+// ------------------------------------------------------------ Mapper Test ------------------------------------------------------------ 	
+
+	@Test
+	public void CountADTest() throws Exception{
+		System.out.println(adMapper.countAd());
+	}
+	@Test
+	public void mapChecking() throws Exception{
+		
+		List<DeviceAdVO> list = adMapper. mapChecking(6);
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
 	}
 }
 
