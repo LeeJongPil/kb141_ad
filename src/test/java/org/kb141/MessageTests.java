@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.MessageDAO;
 import org.kb141.domain.MessageVO;
+import org.kb141.mapper.MessageMapper;
 import org.kb141.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +25,9 @@ public class MessageTests {
 	
 	@Autowired
 	private MessageService service;
+	
+	@Autowired
+	private MessageMapper messageMapper;
 	
 	@Test
 	public void createTest(){
@@ -112,6 +116,36 @@ public class MessageTests {
 	@Test
 	public void getListTest(){
 		System.out.println(service.getList());
+	}
+	
+	@Test
+	public void getCountMsg() {
+		System.out.println(service.countMsg());
+	}
+	
+	@Test
+	public void getMsgLIstTest() {
+		List<MessageVO> list = service.getMsgList("client0");
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+	// ---------------- Mapper Test ----------------------
+	
+	@Test
+	public void countMsgTest() throws Exception {
+		System.out.println(messageMapper.countMsg());
+	}
+	
+	@Test
+	public void MsgList() throws Exception{
+		List<MessageVO> list = messageMapper.msgList("client0");
+		for(int i = 0 ; i <list.size(); i++){
+			System.out.println(list.get(i));
+		}
+		
+		
 	}
 
 }

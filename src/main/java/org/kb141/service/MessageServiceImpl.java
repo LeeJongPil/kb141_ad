@@ -15,7 +15,7 @@ public class MessageServiceImpl implements MessageService {
 	private MessageDAO dao;
 	
 	@Autowired
-	private MessageMapper mapper;
+	private MessageMapper messageMapper;
 
 	@Override
 	public void register(MessageVO vo) {
@@ -70,11 +70,34 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public void updateState(MessageVO vo) {
 		try {
-			mapper.updateState(vo);
+			messageMapper.updateState(vo);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Integer countMsg() {
+		Integer num = 0;
+		
+		try {
+			num = messageMapper.countMsg();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	@Override
+	public List<MessageVO> getMsgList(String mto) {
+		List<MessageVO> list = null;
+		try {
+			list = messageMapper.msgList(mto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	// @Override

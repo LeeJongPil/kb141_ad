@@ -238,6 +238,7 @@
                                 <li>	
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                                 </li>
+<<<<<<< HEAD
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -329,6 +330,13 @@
                                         <li class="drop-all"><a href="#" class="text-center">All Tasks</a></li>
                                     </ul>
                                 </li>
+=======
+
+<!-- 																															이걸 지우고 싶어 ↓ -->
+                                    <a href="#" class="" data-toggle="" id="showRight">
+                                    </a>
+
+>>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name">David<i class="fa fa-angle-down"></i></span>
