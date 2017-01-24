@@ -93,4 +93,15 @@ public class DeviceServiceImpl implements DeviceService {
 		return result;
 	}
 
+	@Override
+	public List<DeviceListVO> getStateGenderCount() {
+		List<DeviceListVO> result = null;
+		try {
+			result = deviceMapper.getStateGenderCount();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

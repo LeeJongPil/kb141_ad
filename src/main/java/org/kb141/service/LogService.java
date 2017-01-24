@@ -3,6 +3,7 @@ package org.kb141.service;
 import java.util.List;
 
 import org.kb141.domain.LogVO;
+import org.kb141.util.ChartAttributes;
 
 public interface LogService {
 
@@ -19,5 +20,7 @@ public interface LogService {
 	public Integer countLog();
 	
 	public Integer getAdviewership();
+	
+	public ChartAttributes getDateView();
 
 }

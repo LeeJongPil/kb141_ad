@@ -40,7 +40,6 @@ public class HomeController {
 	private DeviceService deviceService;
 	
 	
-	
 	@RequestMapping("/")
 	public String index() {
 		logger.info("YHJ IS COMING");
@@ -106,9 +105,13 @@ public class HomeController {
 		ChartAttributes result = AttributeGenerator.
 				INSTANCE.generator(logService.getList());
 		
-		System.out.println(result);
 		
+		ChartAttributes result2 = logService.getDateView();
+		result.setView_date(result2.getView_date());
+		
+		System.out.println(result);
 		model.addAttribute("data", result);
+		model.addAttribute("stategender", deviceService.getStateGenderCount());
 		
 	}
 	

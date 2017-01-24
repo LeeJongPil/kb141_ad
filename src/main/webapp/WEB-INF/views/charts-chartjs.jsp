@@ -129,10 +129,8 @@
                         </div>
 					</div>
                 </div><!-- Main Wrapper -->
-      
 	<%@include file="footer.jsp"%>
 	
-
 <!-- Javascripts -->
 <script src="assets/plugins/chartsjs/Chart.min.js" ></script>
 <!-- <script src="assets/js/pages/charts-chartjs.js"></script> -->
@@ -156,48 +154,43 @@ $( document ).ready(function() {
     		
     ];
 	
-	
 	// Area / View Chart
+	var data2_labels = [<c:forEach items="${stategender}" var="i">"${i.city}",</c:forEach>]
+	var data2_male = [<c:forEach items="${stategender}" var="i">"${i.log_area_male}",</c:forEach>]
+	var data2_female = [<c:forEach items="${stategender}" var="i">"${i.log_area_female}",</c:forEach>]
+	
     var data2 = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: data2_labels,
         datasets: [
             {
-                label: "My First dataset",
+                label: "Male dataset",
                 fillColor: "rgba(220,220,220,0.2)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: data2_male
             },
             {
-                label: "My Second dataset",
+                label: "Female dataset",
                 fillColor: "rgba(34,186,160,0.2)",
                 strokeColor: "rgba(34,186,160,1)",
                 pointColor: "rgba(34,186,160,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(18,175,203,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: data2_female
             }
         ]
     };
 
 	// Date / View
+	var data3_data = [<c:forEach items="${data.view_date}" var="i">${i},</c:forEach>];
+	
     var data3 = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: ["어제", "이틀 전", "3일 전", "4일 전", "5일 전", "6일 전", "일주일 전"],
         datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
             {
                 label: "My Second dataset",
                 fillColor: "rgba(34,186,160,0.2)",
@@ -206,7 +199,7 @@ $( document ).ready(function() {
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(18,175,203,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: data3_data
             }
         ]
     };
@@ -215,16 +208,6 @@ $( document ).ready(function() {
     var data4 = {
             labels: ["10대", "20대", "30대", "40대", "50대", "60대", "70대"],
             datasets: [
-//                 {
-//                     label: "My First dataset",
-//                     fillColor: "rgba(220,220,220,0.2)",
-//                     strokeColor: "rgba(220,220,220,1)",
-//                     pointColor: "rgba(220,220,220,1)",
-//                     pointStrokeColor: "#fff",
-//                     pointHighlightFill: "#fff",
-//                     pointHighlightStroke: "rgba(220,220,220,1)",
-//                     data: [65, 59, 80, 81, 56, 55, 40]
-//                 },
                 {
                     label: "My Second dataset",
                     fillColor: "rgba(34,186,160,0.2)",
@@ -241,19 +224,16 @@ $( document ).ready(function() {
         };
 
 	// Time / View
+	
+	var data5_labels = new Array();
+	for(var i = 0 ; i < 24 ; i++){
+		data5_labels.push(i + " 시");
+	}
+	var data5_data = [<c:forEach items="${data.view_time}" var="i">${i},</c:forEach>];
+	
     var data5 = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: data5_labels,
             datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
                 {
                     label: "My Second dataset",
                     fillColor: "rgba(34,186,160,0.2)",
@@ -262,7 +242,7 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(18,175,203,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: data5_data
                 }
             ]
         };
@@ -368,7 +348,7 @@ $( document ).ready(function() {
 			scaleShowHorizontalLines: true,
 			scaleShowVerticalLines: true,
 			barShowStroke : true,
-			barStrokeWidth : 2,
+			barStrokeWidth : 1,
 			barDatasetSpacing : 1,
 			responsive: true
 		};

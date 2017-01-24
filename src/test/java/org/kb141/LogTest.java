@@ -1,5 +1,9 @@
 package org.kb141;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.LogDAO;
@@ -141,7 +145,21 @@ public class LogTest {
 	public void AdviewershipTest() throws Exception{
 		System.out.println(logMapper.Adviewership());
 	}
+	
+	@Test
+	public void getDateViewTest() throws Exception {
+		System.out.println(logMapper.getDateView());
+	}
+	
+	@Test
+	public void timeCalcTest() throws Exception {
+		Calendar cal = Calendar.getInstance();
+		
+		Date date = service.view(25).getCurr_time();
+		
+		cal.setTime(date);
 
-	
-	
+		System.out.println(cal.get(Calendar.HOUR));
+		
+	}
 }
