@@ -17,5 +17,7 @@ public interface MessageService {
 	
 	public List<MessageVO> getList();
 	
+	public void updateState(MessageVO vo);
+	
 
 }

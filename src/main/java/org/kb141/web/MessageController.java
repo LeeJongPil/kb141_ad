@@ -70,10 +70,10 @@ public class MessageController {
 		logger.info("state change called...");
 		logger.info("vo : " + vo);
 		if(vo.getChecked() == 1){
-			service.modify(vo);
+			service.updateState(vo);
 		}
 		else if(vo.getChecked() ==2){
-			service.modify(vo);
+			service.updateState(vo);
 			return "redirect:message/inbox";
 		}
 		return null;
