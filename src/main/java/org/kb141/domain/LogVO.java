@@ -340,6 +340,86 @@ public class LogVO {
 	}
 
 	
+	public Double getCha_happiness() {
+		return cha_happiness;
+	}
+
+
+	public void setCha_happiness(Double cha_happiness) {
+		this.cha_happiness = cha_happiness;
+	}
+
+
+	public Double getCha_anger() {
+		return cha_anger;
+	}
+
+
+	public void setCha_anger(Double cha_anger) {
+		this.cha_anger = cha_anger;
+	}
+
+
+	public Double getCha_sadness() {
+		return cha_sadness;
+	}
+
+
+	public void setCha_sadness(Double cha_sadness) {
+		this.cha_sadness = cha_sadness;
+	}
+
+
+	public Double getCha_neutral() {
+		return cha_neutral;
+	}
+
+
+	public void setCha_neutral(Double cha_neutral) {
+		this.cha_neutral = cha_neutral;
+	}
+
+
+	public Double getCha_surprise() {
+		return cha_surprise;
+	}
+
+
+	public void setCha_surprise(Double cha_surprise) {
+		this.cha_surprise = cha_surprise;
+	}
+
+
+	public Double getCha_fear() {
+		return cha_fear;
+	}
+
+
+	public void setCha_fear(Double cha_fear) {
+		this.cha_fear = cha_fear;
+	}
+
+
+	public Double getCha_contempt() {
+		return cha_contempt;
+	}
+
+
+	public void setCha_contempt(Double cha_contempt) {
+		this.cha_contempt = cha_contempt;
+	}
+
+
+	public Double getCha_disgust() {
+		return cha_disgust;
+	}
+
+
+	public void setCha_disgust(Double cha_disgust) {
+		this.cha_disgust = cha_disgust;
+	}
+
+
 	@Override
 	public String toString() {
 		return "LogVO [lno=" + lno + ", dno=" + dno + ", age=" + age + ", gender=" + gender + ", adno=" + adno
