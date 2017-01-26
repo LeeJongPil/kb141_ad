@@ -37,7 +37,7 @@ margin-top: 10px;
 		var map;
 		var lat;
 		var lng;
-		
+		 
 		
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map-canvas'), {

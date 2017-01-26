@@ -29,8 +29,10 @@ public class DeviceAdVO {
 	private Integer adno;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(nullable=true, name="adno",insertable=false, updatable=false )
+	@JoinColumn(nullable=true, name="adno",insertable=false, updatable=false)
 	private AdVO ads;
+	
+	
 
 	public Integer getDano() {
 		return dano;
