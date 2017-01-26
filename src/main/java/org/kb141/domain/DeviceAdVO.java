@@ -1,8 +1,5 @@
 package org.kb141.domain;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,12 +24,17 @@ public class DeviceAdVO {
 	@Column(nullable = false)
 	private Integer adno;
 	
+	@Column(nullable = false)
+	private Double lat;
+	
+	@Column(nullable = false)
+	private Double lng;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable=true, name="adno",insertable=false, updatable=false)
 	private AdVO ads;
 	
 	
-
 	public Integer getDano() {
 		return dano;
 	}
@@ -58,14 +59,29 @@ public class DeviceAdVO {
 		this.adno = adno;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "DeviceAdVO [dno=" + dno + ", adno=" + adno + "]";
-//	}
+
+	public Double getLat() {
+		return lat;
+	}
+
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+
+	public Double getLng() {
+		return lng;
+	}
+
+	public void setLng(Double lng) {
+		this.lng = lng;
+	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "DeviceAdVO [dano=" + dano + ", dno=" + dno + ", adno=" + adno + "]";
+		return "DeviceAdVO [dano=" + dano + ", dno=" + dno + ", adno=" + adno + ", lat=" + lat + ", lng=" + lng + "]";
 	}
-
+	
+	
 }

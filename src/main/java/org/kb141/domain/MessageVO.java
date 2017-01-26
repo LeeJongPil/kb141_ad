@@ -32,7 +32,7 @@ public class MessageVO {
 	private String mcontent;
 	
 	@Column(nullable = false)
-	private boolean checked;
+	private Integer checked;
 	
 	private Date regdate;
 	private Date updatedate;
@@ -88,11 +88,11 @@ public class MessageVO {
 		this.mcontent = mcontent;
 	}
 
-	public boolean isChecked() {
+	public Integer getChecked() {
 		return checked;
 	}
 
-	public void setChecked(boolean checked) {
+	public void setChecked(Integer checked) {
 		this.checked = checked;
 	}
 

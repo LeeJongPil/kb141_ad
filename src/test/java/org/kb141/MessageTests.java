@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.MessageDAO;
 import org.kb141.domain.MessageVO;
+import org.kb141.mapper.MessageMapper;
 import org.kb141.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +26,9 @@ public class MessageTests {
 	@Autowired
 	private MessageService service;
 	
+	@Autowired
+	private MessageMapper messageMapper;
+	
 	@Test
 	public void createTest(){
 		for(int i = 0 ; i < 100 ; i++){
@@ -33,7 +37,7 @@ public class MessageTests {
 			vo.setMto("client" + i);
 			vo.setMtitle("createTest title" + i);
 			vo.setMcontent("create Test content" + i);
-			vo.setChecked(false);
+			vo.setChecked(0);
 			dao.save(vo);
 			
 		}
@@ -52,7 +56,7 @@ public class MessageTests {
 		vo.setMto("client12345");
 		vo.setMtitle("createTest title12345");
 		vo.setMcontent("create Test content12345");
-		vo.setChecked(true);
+		vo.setChecked(0);
 		dao.save(vo);
 	}
 	
@@ -83,7 +87,7 @@ public class MessageTests {
 		vo.setMto("regTest client");
 		vo.setMtitle("regTest title");
 		vo.setMcontent("regTest content");
-		vo.setChecked(false);
+		vo.setChecked(0);
 		service.register(vo);
 	}
 	
@@ -100,7 +104,7 @@ public class MessageTests {
 		vo.setMto("modifyTest client");
 		vo.setMtitle("modifyTest title");
 		vo.setMcontent("modifyTest content");
-		vo.setChecked(true);
+		vo.setChecked(0);
 		service.modify(vo);
 	}
 	
@@ -112,6 +116,36 @@ public class MessageTests {
 	@Test
 	public void getListTest(){
 		System.out.println(service.getList());
+	}
+	
+	@Test
+	public void getCountMsg() {
+		System.out.println(service.countMsg());
+	}
+	
+	@Test
+	public void getMsgLIstTest() {
+		List<MessageVO> list = service.getMsgList("client0");
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+	// ---------------- Mapper Test ----------------------
+	
+	@Test
+	public void countMsgTest() throws Exception {
+		System.out.println(messageMapper.countMsg());
+	}
+	
+	@Test
+	public void MsgList() throws Exception{
+		List<MessageVO> list = messageMapper.msgList("client0");
+		for(int i = 0 ; i <list.size(); i++){
+			System.out.println(list.get(i));
+		}
+		
+		
 	}
 
 }

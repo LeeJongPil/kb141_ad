@@ -2,15 +2,10 @@ package org.kb141.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.kb141.dao.MessageDAO;
 import org.kb141.domain.MessageVO;
+import org.kb141.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +13,9 @@ public class MessageServiceImpl implements MessageService {
 
 	@Autowired
 	private MessageDAO dao;
+	
+	@Autowired
+	private MessageMapper messageMapper;
 
 	@Override
 	public void register(MessageVO vo) {
@@ -67,6 +65,39 @@ public class MessageServiceImpl implements MessageService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public void updateState(MessageVO vo) {
+		try {
+			messageMapper.updateState(vo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Integer countMsg() {
+		Integer num = 0;
+		
+		try {
+			num = messageMapper.countMsg();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	@Override
+	public List<MessageVO> getMsgList(String mto) {
+		List<MessageVO> list = null;
+		try {
+			list = messageMapper.msgList(mto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	// @Override
