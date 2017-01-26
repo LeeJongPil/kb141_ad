@@ -27,7 +27,7 @@ public class AdServiceImpl implements AdService {
 	public AdVO view(Integer adno) {
 		AdVO vo = null;
 		try {
-			 vo = adDAO.findOne(adno);
+			vo = adDAO.findOne(adno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,13 +55,24 @@ public class AdServiceImpl implements AdService {
 	@Override
 	public List<AdVO> getList() {
 		List<AdVO> list = null;
-		
+
 		try {
 			list = adDAO.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	@Override
+	public List<AdVO> listFromDno(Integer dno) {
+		List<AdVO> result = null;
+		try {
+			result = adDAO.listFromDno(dno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

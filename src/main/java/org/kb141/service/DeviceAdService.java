@@ -10,7 +10,7 @@ public interface DeviceAdService {
 
 	public DeviceAdVO viewFromDno(Integer dno);
 	
-	public DeviceAdVO viewFromAdno(Integer Adno);
+	public DeviceAdVO viewFromAdno(Integer adno);
 
 	public void modify(DeviceAdVO vo);
 

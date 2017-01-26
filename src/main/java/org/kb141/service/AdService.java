@@ -16,4 +16,5 @@ public interface AdService {
 	
 	public List<AdVO> getList();
 	
+	public List<AdVO> listFromDno(Integer dno);
 }

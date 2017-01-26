@@ -11,6 +11,21 @@ main {
 #map-canvas {
 	height: 100%;
 }
+
+.dno{
+margin-top: -15px;
+}
+
+.infoH2{
+font-weight: 500;
+
+}
+
+.infoHr{
+width : 300px;
+border: 1px solid black;
+margin-top: 10px;
+}
 </style>
 <div class="page-inner full-height">
 	<div id="map-canvas"></div>
@@ -20,6 +35,10 @@ main {
 	<%@include file="footer.jsp"%>
 	<script>
 		var map;
+		var lat;
+		var lng;
+		
+		
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map-canvas'), {
 				center : {
@@ -30,34 +49,74 @@ main {
 			});
 
 			<c:forEach items="${device}" var="device">
+			
 			var marker${device.dno} = new google.maps.Marker({
 				position : {
 					lat : ${device.lat},
 					lng : ${device.lng}
 				},
 				map : map,
-				title : '${device.dno}'
+				title : '${device.dno}' 
 			});
+			
 			openInfo(marker${device.dno});
 			
-			</c:forEach>
-			
-			
-// 			openInfo(marker);
 
-// 			openInfo(marker2);
+			
+// 			var contentString = '<div><a href="'dno+'">'+markerName.title+'</a></div>';
+			
+			
+			
+			
+			</c:forEach>
 
 		}
-
+		
+		var prev_infowindow =false;
+		
 		function openInfo(markerName) {
-			console.log(markerName.title);
-			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
-			var infowindow = new google.maps.InfoWindow({
-				content : contentString
-			});
+			var dno = markerName.title;
+			
 			markerName.addListener('click', function() {
-				infowindow.open(map, markerName);
+				var str = "<div class='dno'><h2 class='infoH2'>No. "+dno+"</h2><hr class='infoHr'></div>";
+
+			
+				$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&language=ko&key=AIzaSyDho-ovmiGXI8BKnzuQyzqJ_bAxWP4qkhM", function (data) {
+					var lotNumAddress = "<p>"+data.results[0].formatted_address+"</p>";
+					var rodeNameAddress = "<p>"+data.results[1].formatted_address+"</p>";
+					console.log(lotNumAddress);
+					console.log(rodeNameAddress);
+					$('.dno').append(lotNumAddress);
+					$('.dno').append(rodeNameAddress);
+					
+				});
+				
+				
+				
+				   if( prev_infowindow ) {
+			           prev_infowindow.close();
+			        }
+
+				$.getJSON("../ad/adFromDevice/"+dno, function(data) {
+					if(data.length==0){
+						str += "현재 광고가 없습니다.";
+					}
+					$(data).each( function() {
+						str += "<div><a href='"+this.adno+"'>"+this.ad_title+"</a></div>";
+					});
+
+					var infowindow = new google.maps.InfoWindow({
+						content : str
+					});	
+					
+					prev_infowindow = infowindow;
+					infowindow.open(map, markerName);
+				});
+				
+				
+				
 			});
+
 		}
 
 		function makeMarker(name, markerLat, markerLng, markerTitle) {

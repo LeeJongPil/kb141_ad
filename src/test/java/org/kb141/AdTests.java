@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AdTests {
@@ -137,5 +138,19 @@ public class AdTests {
 	public void getFindAllTest(){
 		System.out.println(adService.getList());
 	}
+	
+	
+	
+	@Test
+	public void listFromDno() throws Exception{
+		System.out.println(adDAO.listFromDno(3));
+	}
+	
+	
+	@Test
+	public void listFromDnoServiceTest() throws Exception{
+		System.out.println(adService.listFromDno(4));
+	}
+	
+	
 }
-
