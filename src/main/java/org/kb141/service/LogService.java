@@ -22,5 +22,7 @@ public interface LogService {
 	public Integer getAdviewership();
 	
 	public ChartAttributes getDateView();
+	
+	public List<LogVO> getListByAdno(Integer adno);
 
 }

@@ -32,7 +32,6 @@ public class HomeController {
 	
 	@Autowired
 	private AdService adService;
-	
 
 	@Autowired
 	private MessageService messageService;
@@ -103,11 +102,8 @@ public class HomeController {
 	
 	@GetMapping("/charts-chartjs")
 	public void chartschartjs(Model model){
-		logger.info("YHJ'S CHART IS COMING");
-		
 		ChartAttributes result = AttributeGenerator.
 				INSTANCE.generator(logService.getList());
-		
 		
 		ChartAttributes result2 = logService.getDateView();
 		result.setView_date(result2.getView_date());
@@ -115,7 +111,6 @@ public class HomeController {
 		System.out.println(result);
 		model.addAttribute("data", result);
 		model.addAttribute("stategender", deviceService.getStateGenderCount());
-		
 	}
 	
 	@GetMapping("/charts-chartjs2")
@@ -138,7 +133,7 @@ public class HomeController {
 		model.addAttribute("deviceVO", adService.getMapChecking(adno));
 		
 		ChartAttributes result = AttributeGenerator.
-				INSTANCE.generator(logService.getList());
+				INSTANCE.generator(logService.getListByAdno(adno));
 		
 		System.out.println(result);
 		

@@ -133,6 +133,10 @@ public class LogTest {
 		System.out.println(service.getAdviewership());
 	}
 	
+	@Test
+	public void getListByAdnoTest() {
+		System.out.println(dao.findByAdno(4));
+	}
 	
 //------------------------------Mapper Test------------------------------
 
