@@ -49,8 +49,7 @@ public class AdVO {
 
 	@Column(nullable = false)
 	private String target_area;
-	
-	
+
 	public Integer getAdno() {
 		return adno;
 	}
