@@ -154,19 +154,19 @@ public class AdController {
 		logger.info("result: " + deviceService.getList());
 	}
 
-	@ResponseBody
-	@GetMapping("/adFromDevice/{dno}")
-	public ResponseEntity<List<AdVO>> adFromDevice(@PathVariable("dno") Integer dno) {
-		logger.info("GET ADLIST");
-		ResponseEntity<List<AdVO>> entity = null;
-		try {
-			entity = new ResponseEntity<>(adService.listFromDno(dno), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
+//	@ResponseBody
+//	@GetMapping("/adFromDevice/{dno}")
+//	public ResponseEntity<List<AdVO>> adFromDevice(@PathVariable("dno") Integer dno) {
+//		logger.info("GET ADLIST");
+//		ResponseEntity<List<AdVO>> entity = null;
+//		try {
+//			entity = new ResponseEntity<>(adService.listFromDno(dno), HttpStatus.OK);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//		}
+//		return entity;
+//	}
 
 	@ResponseBody
 	@GetMapping("/infoDevice/{dno}")

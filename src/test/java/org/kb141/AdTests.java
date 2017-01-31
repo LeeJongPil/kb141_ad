@@ -135,16 +135,9 @@ public class AdTests {
 	}
 	
 	
-	@Test
-	public void listFromDno() throws Exception{
-		System.out.println(adDAO.listFromDno(3));
-	}
+
 	
 	
-	@Test
-	public void listFromDnoServiceTest() throws Exception{
-		System.out.println(adService.listFromDno(4));
-	}
 // ------------------------------------------------------------ Mapper Test ------------------------------------------------------------ 	
 
 	@Test
@@ -158,6 +151,11 @@ public class AdTests {
 		for(int i = 0 ; i < list.size(); i++){
 			System.out.println(list.get(i));
 		}
+	}
+	
+	@Test
+	public void listFromDnoServiceTest2() throws Exception{
+		System.out.println(adMapper.listFindDno(4));
 	}
 }
 

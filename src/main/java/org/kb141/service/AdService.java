@@ -21,5 +21,5 @@ public interface AdService {
 	
 	public List<DeviceAdVO> getMapChecking(Integer adno);
 	
-	public List<AdVO> listFromDno(Integer dno);
+//	public List<AdVO> listFromDno(Integer dno);
 }

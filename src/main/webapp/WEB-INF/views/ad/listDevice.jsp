@@ -79,17 +79,16 @@ margin-top: 10px;
 			
 			markerName.addListener('click', function() {
 				var str = "<div class='dno'><h2 class='infoH2'>No. "+dno+"</h2><hr class='infoHr'></div>";
-
 			
-				$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&language=ko&key=AIzaSyDho-ovmiGXI8BKnzuQyzqJ_bAxWP4qkhM", function (data) {
-					var lotNumAddress = "<p>"+data.results[0].formatted_address+"</p>";
-					var rodeNameAddress = "<p>"+data.results[1].formatted_address+"</p>";
-					console.log(lotNumAddress);
-					console.log(rodeNameAddress);
-					$('.dno').append(lotNumAddress);
-					$('.dno').append(rodeNameAddress);
+// 				$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&language=ko&key=AIzaSyDho-ovmiGXI8BKnzuQyzqJ_bAxWP4qkhM", function (data) {
+// 					var lotNumAddress = "<p>"+data.results[0].formatted_address+"</p>";
+// 					var rodeNameAddress = "<p>"+data.results[1].formatted_address+"</p>";
+// 					console.log(lotNumAddress);
+// 					console.log(rodeNameAddress);
+// 					$('.dno').append(lotNumAddress);
+// 					$('.dno').append(rodeNameAddress);
 					
-				});
+// 				});
 				
 				
 				

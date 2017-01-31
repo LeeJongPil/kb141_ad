@@ -93,15 +93,15 @@ public class AdServiceImpl implements AdService {
 		return list;
 	}
 	
-	@Override
-	public List<AdVO> listFromDno(Integer dno) {
-		List<AdVO> result = null;
-		try {
-			result = adDAO.listFromDno(dno);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
+//	@Override
+//	public List<AdVO> listFromDno(Integer dno) {
+//		List<AdVO> result = null;
+//		try {
+//			result = adDAO.listFromDno(dno);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return result;
+//	}
 }
 
