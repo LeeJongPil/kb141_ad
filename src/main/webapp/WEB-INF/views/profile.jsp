@@ -6,6 +6,11 @@
         .col-centered{
         float: none;
         margin: auto;}
+        .col-righted{
+	float: none;
+   	margin: auto;
+   	text-align: right;
+}   
         </style>
         
         
@@ -19,8 +24,14 @@
                 
                            <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <div class="panel-title">광고주님들 명단</div>
-                                </div>
+                                    <div class="panel-title col-sm-12 col-lg-6">광고주님들 명단</div>       
+                                    <div class="row col-righted">
+                             	<div class="col-sm-12 col-lg-6">
+				                    <a href="profile2Register.html" type="button"
+				                     class="btn btn-warning btn-rounded">생성</a>
+				                 		   </div>
+				                    	</div>
+                               		 </div>
                                 <div class="panel-body">
                                     <div class="team col-md-6">
                                         <div class="team-member">
@@ -44,7 +55,7 @@
                                         <c:forEach var="adVO" items="${adVO }">
                                             <div class="panel-body">
                                                  <a href="profile2.html?adno=${adVO.adno }"><div class="timeline-item-header well">
-                                                    <img src="assets/images/ad/${adVO.ad_image}.png" alt="">
+                                                    <img src="http://localhost:8081/viewfile?fileName=${adVO.ad_image}" alt="">
                                                     
                                                     <p>${adVO.ad_title }<span>/ ${adVO.category }</span></p> <small><fmt:formatDate value="${adVO.start_duration }" pattern="yyyy-MM-dd "/></small>
 		                                                <div class="timeline-item-post">
