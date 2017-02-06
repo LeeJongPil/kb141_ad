@@ -2,6 +2,7 @@ package org.kb141.service;
 
 import java.util.List;
 
+import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceAdVO;
 
@@ -21,5 +22,5 @@ public interface AdService {
 	
 	public List<DeviceAdVO> getMapChecking(Integer adno);
 	
-//	public List<AdVO> listFromDno(Integer dno);
+	public List<AdDeviceVO> deviceListFromDno(Integer dno);
 }

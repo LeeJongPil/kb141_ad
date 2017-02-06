@@ -19,7 +19,7 @@ public interface AdMapper {
 	public Integer countAd() throws Exception;
 	
 	@Select("select da.dno, ad.adno, ad.ad_title, ad.ad_content, ad.category, ad.cid, d.lng, d.lat,ad.start_duration, ad.end_duration, ad.permission,ad.target_area, ad.ad_image, ad.ad_video from tbl_device_ad da ,tbl_ad ad, tbl_device d where ad.adno = da.adno and da.dno=d.dno and da.dno=#{dno}")
-	public List<AdDeviceVO> listFindDno(Integer dno) throws Exception;
+	public List<AdDeviceVO> deviceListFromDno(Integer dno) throws Exception;
 	
 	
 }

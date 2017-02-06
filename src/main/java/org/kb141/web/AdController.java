@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.List;
 
+import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceVO;
 import org.kb141.domain.KmeansVO;
@@ -39,7 +40,6 @@ import net.sf.json.JSONObject;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/ad")
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);
@@ -122,20 +122,20 @@ public class AdController {
 	 * DEVICE CRUD START
 	 */
 
-	@GetMapping("/registerDevice")
-	public void registerDeviceGET() throws Exception {
+	@GetMapping("device/register")
+	public void registerDeviceGET(Model model) throws Exception {
 		logger.info("GET DEVICE Register....");
+		model.addAttribute("lastDno",deviceService.getLastDno());
 	}
 
-	@PostMapping("/registerDevice")
+	@PostMapping("device/register")
 	public String registerDevicePOST(DeviceVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST DEVICE Register....");
 		logger.info("POST: " + vo);
-		// rttr.addFlashAttribute("msg","success");
+		rttr.addFlashAttribute("msg","success");
 		deviceService.register(vo);
 
-		model.addAttribute("result", "success");
-		return "redirect:list";
+		return "redirect:map";
 	}
 
 	@GetMapping("/viewDevice")
@@ -147,26 +147,26 @@ public class AdController {
 		logger.info("result: " + deviceService.view(dno));
 	}
 
-	@GetMapping("/listDevice")
+	@GetMapping("device/map")
 	public void listDevice(Model model) throws Exception {
 		logger.info("GET DEVICE List....");
 		model.addAttribute("device", deviceService.getList());
 		logger.info("result: " + deviceService.getList());
 	}
 
-//	@ResponseBody
-//	@GetMapping("/adFromDevice/{dno}")
-//	public ResponseEntity<List<AdVO>> adFromDevice(@PathVariable("dno") Integer dno) {
-//		logger.info("GET ADLIST");
-//		ResponseEntity<List<AdVO>> entity = null;
-//		try {
-//			entity = new ResponseEntity<>(adService.listFromDno(dno), HttpStatus.OK);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//		}
-//		return entity;
-//	}
+	@ResponseBody
+	@GetMapping("device/adFromDevice/{dno}")
+	public ResponseEntity<List<AdDeviceVO>> adFromDevice(@PathVariable("dno") Integer dno) {
+		logger.info("GET ADLIST");
+		ResponseEntity<List<AdDeviceVO>> entity = null;
+		try {
+			entity = new ResponseEntity<>(adService.deviceListFromDno(dno), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 
 	@ResponseBody
 	@GetMapping("/infoDevice/{dno}")
@@ -182,14 +182,14 @@ public class AdController {
 		return entity;
 	}
 
-	@PostMapping("/removeDevice")
+	@PostMapping("device/remove")
 	public String removeDevice(@RequestParam("dno") Integer dno, RedirectAttributes rttr) throws Exception {
 		logger.info("GET DEVICE Remove....");
 		logger.info("dno: " + dno);
 		deviceService.remove(dno);
 
 		rttr.addFlashAttribute("msg", "success");
-		return "redirect:list";
+		return "redirect:map";
 	}
 
 	@GetMapping("/modifyDevice")

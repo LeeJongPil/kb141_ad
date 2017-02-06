@@ -29,8 +29,11 @@ public class DeviceTests {
 	@Test
 	public void createTest() throws Exception {
 		DeviceVO vo = new DeviceVO();
-		vo.setState("경기도");
-		vo.setCity("안양시");
+		vo.setDno(1);
+		vo.setState("서울");
+		vo.setCity("서초");
+		vo.setLat(37.4945732);
+		vo.setLng(127.0272646);
 		dao.save(vo);
 	}
 
@@ -115,6 +118,16 @@ public class DeviceTests {
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}
+	}
+	
+	@Test
+	public void getLastDno() throws Exception{
+		System.out.println(deviceMapper.lastDno());
+	}
+	
+	@Test
+	public void getLastDno2() throws Exception{
+		System.out.println(service.getLastDno());
 	}
 
 

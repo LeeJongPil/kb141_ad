@@ -13,5 +13,6 @@ public interface DeviceMapper {
 	@Select("select log.dno, device.city, device.state, count(if(log.gender='M', 1, null)) log_area_male,  count(if(log.gender='F', 1, null)) log_area_female from (select gender, dno from tbl_log) log, (select city, state, dno from tbl_device) device where log.dno = device.dno group by city order by dno")
 	public List<DeviceListVO> getStateGenderCount() throws Exception;
 	
-	
+	@Select("select max(dno)+1 from tbl_device")
+	public Integer lastDno() throws Exception;
 }

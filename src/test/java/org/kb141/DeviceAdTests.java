@@ -22,8 +22,8 @@ public class DeviceAdTests {
 	@Test
 	public void registerTest() throws Exception {
 		DeviceAdVO vo = new DeviceAdVO();
-		vo.setDno(4);
-		vo.setAdno(6);
+		vo.setDno(1);
+		vo.setAdno(4);
 		service.register(vo);
 	}
 

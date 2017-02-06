@@ -14,10 +14,9 @@ public class DeviceServiceImpl implements DeviceService {
 
 	@Autowired
 	private DeviceDAO deviceDAO;
-	
+
 	@Autowired
 	private DeviceMapper deviceMapper;
-	
 
 	@Override
 	public void register(DeviceVO vo) {
@@ -74,25 +73,24 @@ public class DeviceServiceImpl implements DeviceService {
 		try {
 			int total = 0;
 			result = deviceMapper.devList();
-//			최고 8개 만 따질것이다.
-			for(int i = 0 ; i < 8 ; i ++){	// 총 logcnt 더한값  total 저장
+			// 최고 8개 만 따질것이다.
+			for (int i = 0; i < 8; i++) { // 총 logcnt 더한값 total 저장
 				total += result.get(i).getLogcnt();
 			}
-			
-			for(int i = 0 ; i < 8 ; i ++){
+
+			for (int i = 0; i < 8; i++) {
 				double logcnt = result.get(i).getLogcnt(); // double형으로 받는다.
 				double rlogcnt = logcnt / total;
 				int res = (int) Math.round(rlogcnt * 100);
 				result.get(i).setLogPercent(res);
 			}
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+
 	@Override
 	public List<DeviceListVO> getStateGenderCount() {
 		List<DeviceListVO> result = null;
@@ -104,4 +102,14 @@ public class DeviceServiceImpl implements DeviceService {
 		return result;
 	}
 
+	@Override
+	public Integer getLastDno() {
+		Integer result = 0;
+		try {
+			result = deviceMapper.lastDno();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
