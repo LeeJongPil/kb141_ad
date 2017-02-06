@@ -154,6 +154,7 @@ public class AdController {
 		logger.info("result: " + deviceService.getList());
 	}
 
+	
 	@ResponseBody
 	@GetMapping("device/adFromDevice/{dno}")
 	public ResponseEntity<List<AdDeviceVO>> adFromDevice(@PathVariable("dno") Integer dno) {
