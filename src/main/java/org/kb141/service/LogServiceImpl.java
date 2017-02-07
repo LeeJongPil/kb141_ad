@@ -113,4 +113,15 @@ public class LogServiceImpl implements LogService {
 		}
 		return vo;
 	}
+
+	@Override
+	public List<LogVO> getClientList(String cid) throws Exception {
+		List<LogVO> list = null;
+		try{
+			list = logMapper.getClientList(cid);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

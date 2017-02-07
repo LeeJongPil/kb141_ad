@@ -24,5 +24,6 @@ public interface LogService {
 	public ChartAttributes getDateView();
 	
 	public List<LogVO> getListByAdno(Integer adno);
-
+	
+	public List<LogVO> getClientList(String cid) throws Exception;
 }

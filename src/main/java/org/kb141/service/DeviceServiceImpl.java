@@ -104,4 +104,15 @@ public class DeviceServiceImpl implements DeviceService {
 		return result;
 	}
 
+	@Override
+	public List<DeviceVO> getClientCount(String cid) {
+		List<DeviceVO> result = null;
+		try {
+			result = deviceMapper.getClientCount(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

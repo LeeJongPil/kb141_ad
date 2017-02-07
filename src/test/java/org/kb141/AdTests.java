@@ -157,5 +157,18 @@ public class AdTests {
 	public void listFromDnoServiceTest2() throws Exception{
 		System.out.println(adMapper.listFindDno(4));
 	}
+	
+	@Test
+	public void listAdTest() throws Exception{
+		System.out.println(adMapper.getAdlist("lsy"));
+	}
+	
+	@Test
+	public void getTermDurationTest() throws Exception{
+		List<AdVO> list = adMapper.getTermDuration("lsy");
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
 }
 

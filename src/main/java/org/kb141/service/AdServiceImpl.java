@@ -92,6 +92,29 @@ public class AdServiceImpl implements AdService {
 		}
 		return list;
 	}
+
+	@Override
+	public List<AdVO> getAdlist(String cid) throws Exception {
+		List<AdVO> list = null;
+		
+		try {
+			list = adMapper.getAdlist(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<AdVO> getTermDuration(String cid) throws Exception {
+		List<AdVO> vo = null;
+		try {
+			vo = adMapper.getTermDuration(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	
 //	@Override
 //	public List<AdVO> listFromDno(Integer dno) {

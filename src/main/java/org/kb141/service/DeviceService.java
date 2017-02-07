@@ -21,5 +21,5 @@ public interface DeviceService {
 	
 	public List<DeviceListVO> getStateGenderCount();
 	
-
+	public List<DeviceVO> getClientCount(String cid);
 }

@@ -117,5 +117,11 @@ public class DeviceTests {
 		}
 	}
 
-
+	@Test
+	public void getClientTest() throws Exception{
+		List<DeviceVO> list = deviceMapper.getClientCount("lsy");
+		for(int i = 0 ; i < list.size(); i ++){
+			System.out.println(list.get(i));
+		}
+	}
 }

@@ -9,7 +9,7 @@ import org.kb141.domain.DeviceAdVO;
 
 public interface AdMapper {
 	
-	@Select("select * from tbl_ad order by ad_title desc")
+	@Select("select * from tbl_ad order by adno desc")
 	public List<AdVO> getlist()throws Exception;
 	
 	@Select("select dano,lat,lng from tbl_device_ad da join tbl_device d where da.dno=d.dno and adno = #{adno}")
@@ -21,7 +21,11 @@ public interface AdMapper {
 	@Select("select da.dno, ad.adno, ad.ad_title, ad.ad_content, ad.category, ad.cid, d.lng, d.lat,ad.start_duration, ad.end_duration, ad.permission,ad.target_area, ad.ad_image, ad.ad_video from tbl_device_ad da ,tbl_ad ad, tbl_device d where ad.adno = da.adno and da.dno=d.dno and da.dno=#{dno}")
 	public List<AdDeviceVO> listFindDno(Integer dno) throws Exception;
 	
-	
+	@Select("select * from tbl_ad where cid=#{cid}")
+	public List<AdVO> getAdlist(String cid) throws Exception;
+
+	@Select("select start_duration,end_duration from tbl_ad where cid = #{cid}")
+	public List<AdVO> getTermDuration(String cid) throws Exception;
 }
 
 

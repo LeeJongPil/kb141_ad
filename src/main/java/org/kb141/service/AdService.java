@@ -22,4 +22,8 @@ public interface AdService {
 	public List<DeviceAdVO> getMapChecking(Integer adno);
 	
 //	public List<AdVO> listFromDno(Integer dno);
+	
+	public List<AdVO> getAdlist(String cid) throws Exception;
+	
+	public List<AdVO> getTermDuration(String cid) throws Exception;
 }

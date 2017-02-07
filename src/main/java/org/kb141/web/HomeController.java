@@ -225,12 +225,11 @@ public class HomeController {
 	
 	@PostMapping("profile2Modify")
 	public String profile2ModifyPOST(@RequestParam(value="ad_image")MultipartFile imgfile,@RequestParam(value="ad_video")MultipartFile vdfile,
-			   @RequestParam(value="ad_title")String ad_title,@RequestParam(value="category")String category,
-			   @RequestParam(value="cid")String cid, @RequestParam(value="ad_content")String ad_content,
-			   @RequestParam(value="start_duration")Date start_duration,@RequestParam(value="end_duration")Date end_duration,
-			   @RequestParam(value="target_area")String target_area,@RequestParam(value="target_emotions")String target_emotions,
-			   @RequestParam(value="permission")Boolean permission,
-			   RedirectAttributes rttr){
+		 						    @RequestParam(value="ad_title")String ad_title,@RequestParam(value="category")String category,
+								    @RequestParam(value="cid")String cid, @RequestParam(value="ad_content")String ad_content,
+								    @RequestParam(value="start_duration")Date start_duration,@RequestParam(value="end_duration")Date end_duration,
+								    @RequestParam(value="target_area")String target_area,@RequestParam(value="target_emotions")String target_emotions,
+								    @RequestParam(value="permission")Boolean permission,RedirectAttributes rttr){
 
 		AdVO adVO = new AdVO();
 		FileMaker fileMaker = new FileMaker();
