@@ -20,6 +20,9 @@ public interface MessageMapper {
 	@Update("update tbl_message set checked = #{checked}  where mno = #{mno}")
 	public void updateState(MessageVO vo)throws Exception;
 	
-	
+	@Select("select count(*) from tbl_message")
+	public Integer count() throws Exception;
 
 }
+
+

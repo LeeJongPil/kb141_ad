@@ -21,4 +21,7 @@ public interface AdService {
 	public Integer getCount();
 	
 	public List<DeviceAdVO> getMapChecking(Integer adno);
+
+	public List<AdVO> getAdListCSV();
+
 }

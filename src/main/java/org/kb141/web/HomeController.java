@@ -33,7 +33,6 @@ public class HomeController {
 	@Autowired
 	private AdService adService;
 	
-
 	@Autowired
 	private MessageService messageService;
 	
@@ -42,6 +41,8 @@ public class HomeController {
 	
 	@Autowired
 	private ClientService clientService;
+
+	
 	
 	@RequestMapping("/")
 	public String index() {

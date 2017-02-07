@@ -31,7 +31,7 @@ public class MessageVO {
 	@Column(nullable = false)
 	private String mcontent;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Integer checked;
 	
 	private Date regdate;
@@ -41,6 +41,7 @@ public class MessageVO {
 	protected void onCreate(){
 		regdate = new Date();
 		updatedate = new Date();
+		checked = 0;
 	}
 	
 	@PreUpdate

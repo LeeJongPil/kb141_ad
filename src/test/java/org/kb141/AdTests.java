@@ -10,6 +10,7 @@ import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceAdVO;
 import org.kb141.mapper.AdMapper;
 import org.kb141.service.AdService;
+import org.kb141.util.AdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,6 +27,8 @@ public class AdTests {
 	
 	@Autowired
 	private AdMapper adMapper;
+	
+	private AdUtil adUtil = new AdUtil();
 	
 	@Test
 	public void createTest() {
@@ -44,7 +47,7 @@ public class AdTests {
 
 	@Test
 	public void readTest() {
-		System.out.println(adDAO.findOne(1));
+		System.out.println(adDAO.findOne(3));
 	}
 
 	@Test
@@ -134,6 +137,13 @@ public class AdTests {
 		System.out.println(adService.getCount());
 	}
 	
+	@Test
+	public  void getAdListCSVTest() {
+		List<AdVO> list = adService.getAdListCSV();
+		for(int i = 0 ; i < list.size() ; i ++){
+			System.out.println(list.get(i));
+		}
+	}
 	
 // ------------------------------------------------------------ Mapper Test ------------------------------------------------------------ 	
 
@@ -149,5 +159,27 @@ public class AdTests {
 			System.out.println(list.get(i));
 		}
 	}
+	
+	@Test
+	public void ADList() throws Exception{
+		List<AdVO> list = adMapper.adListCSV();
+		for( int i = 0 ; i < list.size() ; i ++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+// ------------------------------------------------------------ AD.Util Test ------------------------------------------------------------ 	
+	
+	@Test
+	public void adUtilTest() throws Exception{
+//		List<AdVO> list = adUtil.adListWrite(adService.getAdListCSV());
+		List<AdVO> list = adUtil.adListWrite();
+		
+		for(int i = 0 ; i < list.size() ; i ++){
+			System.out.println(list.get(i));
+		}
+		
+	}
+	
 }
 

@@ -13,6 +13,7 @@ import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
 import org.kb141.util.KmeansCSVRead;
 import org.kb141.util.LogCSVWrite;
+import org.kb141.util.RulebaseCSVRead;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.sf.json.JSONObject;
@@ -31,7 +34,7 @@ import net.sf.json.JSONObject;
 /*
  * ad, device, log
  */
-
+@RestController
 @CrossOrigin
 @Controller
 @RequestMapping("/ad")
@@ -241,11 +244,28 @@ public class AdController {
 		// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
 		// JS 에서 JSON으로 받는다. 
 		@RequestMapping(value="/kmeans" , produces="application/json")
-		public JSONObject rulebase() throws Exception  {
-			System.out.println("rulebase start");
+		public JSONObject Kmeans() throws Exception  {
+			System.out.println("kmeans start");
 			KmeansCSVRead kmeans = new KmeansCSVRead();
 			return kmeans.kmeansCSV();
 		}
+		
+		@RequestMapping(value="/rulebase" , produces="application/json")
+		public JSONObject rulebaseList() throws Exception  {
+			System.out.println("RuleBase Start");
+			RulebaseCSVRead rulebase = new RulebaseCSVRead();
+			return rulebase.rulebaseCSV();
+		}
+		
+		
+		// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다. 
+		@RequestMapping(value="/adlist" , produces="application/json")
+		public void ADList() throws Exception  {
+			System.out.println("ADList Start");
+			
+		}
+		
+		
 		
 		
 		// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드 
@@ -290,14 +310,4 @@ public class AdController {
 
 		}
 		
-		
-		// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다. 
-		@RequestMapping(value="/adlist" , produces="application/json")
-		public void ADList() throws Exception  {
-			
-		}
-		
-		
-		
-	
 }

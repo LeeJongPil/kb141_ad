@@ -17,9 +17,8 @@ public interface AdMapper {
 	@Select("select count(*) from tbl_ad")
 	public Integer countAd() throws Exception;
 	
-	
-	
-	
+	@Select("select adno, ad_image, ad_video from tbl_ad")
+	public List<AdVO> adListCSV() throws Exception;
 	
 }
 

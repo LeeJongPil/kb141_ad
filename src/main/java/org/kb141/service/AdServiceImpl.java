@@ -92,5 +92,16 @@ public class AdServiceImpl implements AdService {
 		}
 		return list;
 	}
+
+	@Override
+	public List<AdVO> getAdListCSV() {
+		List<AdVO> list = null;
+		try {
+			list = adMapper.adListCSV();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
 
