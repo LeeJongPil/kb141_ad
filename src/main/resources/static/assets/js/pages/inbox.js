@@ -31,8 +31,6 @@ $( document ).ready(function() {
     			 $("#pagelist tr").removeClass('checked');
     	 }
     }
-
-     
      
      
 //     if($('.check-mail-all')[0].checked == true){

@@ -348,6 +348,7 @@ public class AdController {
 		}
 
 	}
+	
 
 	// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다.
 	@RequestMapping(value = "/adlist", produces = "application/json")
