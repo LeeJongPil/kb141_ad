@@ -55,7 +55,7 @@
                                         <c:forEach var="adVO" items="${adVO }">
                                             <div class="panel-body">
                                                  <a href="profile2.html?adno=${adVO.adno }"><div class="timeline-item-header well">
-                                                    <img src="http://localhost:8081/viewfile?fileName=${adVO.ad_image}" alt="">
+                                                    <img src="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_image}" alt="">
                                                     
                                                     <p>${adVO.ad_title }<span>/ ${adVO.category }</span></p> <small><fmt:formatDate value="${adVO.start_duration }" pattern="yyyy-MM-dd "/></small>
 		                                                <div class="timeline-item-post">
@@ -81,8 +81,9 @@
 		<%@include file="footer.jsp"%>
         <!-- Javascripts -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
-        <script src="assets/js/pages/profile.js"></script>
+        <script src="/assets/js/pages/profile.js"></script>
         <script>
+        $("#profileActive").attr("class","active");	
         $(document).ready(function() {
             console.log( "ready!" );
             

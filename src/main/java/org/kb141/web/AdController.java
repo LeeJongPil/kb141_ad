@@ -15,6 +15,7 @@ import org.kb141.service.KmeansService;
 import org.kb141.service.LogService;
 import org.kb141.util.KmeansCSVRead;
 import org.kb141.util.LogCSVWrite;
+import org.kb141.util.RulebaseCSVRead;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,6 @@ import net.sf.json.JSONObject;
 /*
  * ad, device, log
  */
-
 @CrossOrigin
 @Controller
 public class AdController {
@@ -251,6 +251,34 @@ public class AdController {
 	 * LOG UTIL
 	 */
 
+	
+		// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
+		// JS 에서 JSON으로 받는다. 
+		@RequestMapping(value="/kmeans" , produces="application/json")
+		public JSONObject Kmeans() throws Exception  {
+			System.out.println("kmeans start");
+			KmeansCSVRead kmeans = new KmeansCSVRead();
+			return kmeans.kmeansCSV();
+		}
+		
+		/*	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+		// JS 에서 JSON으로 받는다.
+		@RequestMapping(value = "/kmeans", produces = "application/json")
+		public JSONObject rulebase() throws Exception {
+			System.out.println("rulebase start");
+			KmeansCSVRead kmeans = new KmeansCSVRead();
+			return kmeans.kmeansCSV();
+		}*/
+		
+		@RequestMapping(value="/rulebase" , produces="application/json")
+		public JSONObject rulebaseList() throws Exception  {
+			System.out.println("RuleBase Start");
+			RulebaseCSVRead rulebase = new RulebaseCSVRead();
+			return rulebase.rulebaseCSV();
+		}
+		
+		
+
 	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
 	@RequestMapping(value = "/log", method = RequestMethod.POST)
 	public void filepush(String text) throws Exception {
@@ -270,14 +298,14 @@ public class AdController {
 		}
 	}
 
-	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
-	// JS 에서 JSON으로 받는다.
-	@RequestMapping(value = "/kmeans", produces = "application/json")
-	public JSONObject rulebase() throws Exception {
-		System.out.println("rulebase start");
-		KmeansCSVRead kmeans = new KmeansCSVRead();
-		return kmeans.kmeansCSV();
-	}
+//	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+//	// JS 에서 JSON으로 받는다.
+//	@RequestMapping(value = "/kmeans", produces = "application/json")
+//	public JSONObject rulebase() throws Exception {
+//		System.out.println("rulebase start");
+//		KmeansCSVRead kmeans = new KmeansCSVRead();
+//		return kmeans.kmeansCSV();
+//	}
 
 	// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드
 	// Kmeans 돌려서 나오는 걸 DB에 넣고 CSV 를 만든다.
@@ -320,6 +348,7 @@ public class AdController {
 		}
 
 	}
+	
 
 	// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다.
 	@RequestMapping(value = "/adlist", produces = "application/json")

@@ -112,7 +112,7 @@
 		</nav>
         <div class="menu-wrap">
             <nav class="profile-menu">
-                <div class="profile"><img src="../assets/images/avatar1.png" width="52" alt="David Green"/><span>David Green</span></div>
+                <div class="profile"><img src="../assets/images/avatar1.png" width="52" alt="David Green"/><span></span></div>
                 <div class="profile-menu-list">
                     <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                     <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
@@ -367,32 +367,28 @@
                                     <img src="../assets/images/avatar1.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
-                                    <span>David Green<br><small>Art Director</small></span>
+                                    <span>난 광고주<br><small>짱짱맨</small></span>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
-                        <li><a href="inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
+                        <li id="tabIndex"><a href="/client/index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
+                        <li id="tabProfile"><a href="/client/profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li id="tabMessage"><a href="/message/inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
 <!--                             <ul class="sub-menu">
                                 <li><a href="inbox.html">Inbox</a></li>
                                 <li><a href="message-view.html">View Message</a></li>
                                 <li><a href="compose.html">Compose</a></li>
                             </ul> -->
                         </li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>차트</p><span class="arrow"></span></a>
+                        <li id ="tabChart" class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>차트</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-<!--                                 <li><a href="charts-sparkline.html">Sparkline</a></li>
-                                <li><a href="charts-rickshaw.html">Rickshaw</a></li>
-                                <li><a href="charts-morris.html">Morris</a></li>
-                                <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="/client/charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="/client/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
-                        <li><a href="maps-google.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>
+                        <li id="tabMap"><a href="/device/map.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
 			</div>

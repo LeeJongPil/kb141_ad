@@ -34,14 +34,12 @@ public class LogCSVWrite {
 			}
 			fw.close();
 			System.out.println("log CSV write success.....................");
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("log CSV write fail.....................");
 		}
 		return log;
 	}
-	
 	
 	
 	public LogVO logDB(String erd[]){

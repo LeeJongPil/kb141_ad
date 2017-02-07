@@ -3,9 +3,14 @@ package org.kb141.service;
 import java.util.List;
 
 import org.kb141.dao.MessageDAO;
+import org.kb141.domain.Criteria;
 import org.kb141.domain.MessageVO;
 import org.kb141.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -99,6 +104,44 @@ public class MessageServiceImpl implements MessageService {
 		}
 		return list;
 	}
+
+	@Override
+	public List<MessageVO> pagingList(Criteria cri) {
+		List<MessageVO> list = null;
+		try{
+			cri.setTotal(messageMapper.count());
+			System.out.println("service total : " + cri.getTotal());
+			System.out.println("service page : " + cri.getpage());
+			System.out.println("service pageNum : " + cri.getPerPageNum());
+			
+		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
+						PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+						
+						Page<MessageVO> result = dao.findAll(page);
+						
+						 list = result.getContent();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<MessageVO> nextPagingList(Criteria cri) {
+		List<MessageVO> list = null;
+		try{
+		//																		   몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
+			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+			
+			Page<MessageVO> result = dao.findAll(page);
+			
+			 list = result.getContent();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 
 	// @Override
 	// public List<MessageVO> getList(Integer pageNum) {

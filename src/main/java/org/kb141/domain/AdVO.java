@@ -17,37 +17,37 @@ public class AdVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer adno;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String ad_title;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String cid;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String category;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Date start_duration;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Date end_duration;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String ad_image;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String ad_video;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private boolean permission;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String target_emotions;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String ad_content;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String target_area;
 
 	public Integer getAdno() {

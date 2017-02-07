@@ -24,7 +24,7 @@
 				<!-- Text input-->
 				<div class="form-group">
 				  <label class=" control-label">종류</label>  
-				  <select id="category" name="category" class="form-control" value="${adVO.category }">
+				  <select id="category" name="category" class="form-control">
 				      <option value="A">A</option>
 				      <option value="B">B</option>
 				      <option value="C">C</option>
@@ -35,24 +35,24 @@
 			
 				<div class="form-group">
 				  <label class=" control-label" >광고주아이디</label>  
-				  <input id="cid" name="cid" type="text" placeholder="광고주아이디"  class="form-control" value="${adVO.cid }"> 
+				  <input id="cid" name="cid" type="text" placeholder="광고주아이디"  class="form-control">
 					<span class="help-block">광고주의 이름을 입력하세요</span>  
 				</div>
 				
 				<div class="form-group">
 				  <label class=" control-label" >광고명</label>  
-				  <input id="ad_title" name="ad_title" type="text" placeholder="광고명"  class="form-control" value="${adVO.ad_title }">
+				  <input id="ad_title" name="ad_title" type="text" placeholder="광고명"  class="form-control">
 					<span class="help-block">광고의 정식 명칭을 입력하세요</span>  
 				</div>
 				
 				<div class="form-group">
 				  <label class=" control-label" >광고 설명</label>  
-					<textarea rows="10" name="ad_content" id="ad_content" class="form-control" >${adVO.ad_content }</textarea>				  
+					<textarea rows="10" name="ad_content" id="ad_content" class="form-control" ></textarea>				  
 				</div>
 				
 				<div class="form-group">
 				  <label class=" control-label" >목표감정</label>  
-				  <select id="target_emotions" name="target_emotions" class="form-control" value="${adVO.target_emotions }">
+				  <select id="target_emotions" name="target_emotions" class="form-control">
 				      <option value="happiness">행복</option>
 				      <option value="anger">화남</option>
 				      <option value="sadness">슬픔</option>
@@ -68,7 +68,7 @@
 				
 				<div class="form-group">
 				  <label class=" control-label" >목표지역</label>  
-				  <select id="target_area" name="target_area" class="form-control" value="${adVO.target_area }">
+				  <select id="target_area" name="target_area" class="form-control">
 				      <option value="seoul">서울</option>
 				      <option value="incheon">인천</option>
 				      <option value="daejeon">대전</option>
@@ -84,7 +84,7 @@
 				
 				<div class="form-group">
 				  <label class=" control-label" >상태 코드</label>  
-				  <select id="permission" name="permission" class="form-control" value="${adVO.permission }">
+				  <select id="permission" name="permission" class="form-control">
 				      <option value="false">거부</option>
 				      <option value="ture">승인</option>
 				    </select>
@@ -94,22 +94,22 @@
 				<!-- Text input-->
 				<div class="form-group">
 				  <label class=" control-label">광고시작 일자</label>  
-				  <input id="start_duration" name="start_duration" type="date" placeholder="2017-01-01" class="form-control" required="" value="${adVO.start_duration }">
+				  <input id="start_duration" name="start_duration" type="date" placeholder="2017-01-01" class="form-control" required="" >
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
 				  <label class=" control-label" >광고종료 일자</label>  
-				  <input id="end_duration" name="end_duration" type="date" placeholder="2017-01-01"  class="form-control" required="" value="${adVO.end_duration }">
+				  <input id="end_duration" name="end_duration" type="date" placeholder="2017-01-01"  class="form-control" required="">
 				</div>
 				<div class="form-group">
 				  <label class=" control-label" >광고이미지</label>  
-				  <input id="image" type="file" placeholder="광고이미지"  class="form-control" value="${adVO.ad_image}" name="ad_image" >
+				  <input id="image" type="file" placeholder="광고이미지"  class="form-control" value="ad_image" name="ad_image">
 					<span class="help-block">광고의 이미지을 넣어주세요</span>  
 				</div>
 				
 				<div class="form-group">
 				  <label class=" control-label" >광고동영상</label>  
-				  <input id="video" type="file" placeholder="광고동영상"  class="form-control" value="${adVO.ad_video}" name="ad_video">
+				  <input id="video" type="file" placeholder="광고동영상"  class="form-control" value="ad_video" name="ad_video">
 					<span class="help-block">광고의 동영상을 넣어주세요</span>  
 				</div> 
 				</form>
@@ -117,8 +117,8 @@
 		<!-- 		<form method="post" id="upload" action="profile2RegisterUpload" enctype=multipart/form-data>
 				</form> -->
 				<div class="pull-right">
-				<button type="button" class="btn btn-success" id="btnRegister">수정하기</button>
-				<a href="list"><button type="button" class="btn btn-warning" id="btnCancel" >취소</button></a>
+				<button type="button" class="btn btn-success" id="btnRegister">Register</button>
+				<a href="list"><button type="button" class="btn btn-warning" id="btnCancel" >Cancel</button></a>
 				</div>
 				
 			</div>
@@ -128,31 +128,11 @@
             
             <%@include file="footer.jsp"%>
    		<script>
+   		$("#profileActive").attr("class","active");	
    		$(document).ready(function () {
-   			
-		 	console.log("이거되냐?");
 		 	$("#btnRegister").on("click", function () {
  	   		$("#ad_content").val($("#ad_content").val().replace(/\n/g, "<br>"));
- 	   		console.log($("#category").val());
- 		   	console.log($("#cid").val());
- 	   		console.log($("#ad_title").val());
- 	  		console.log($("#ad_content").val());
-		 	console.log($("#target_emotions").val());
- 			console.log($("#permission").val());
- 			console.log($("#start_duration").val());
- 			console.log($("#end_duration").val());
- 			console.log($("#image")[0].files[0]);
- 			console.log($("#video")[0].files[0]);
-/*  		var image= $("#image")[0].files[0];
- 			var video= $("#video")[0].files[0];
- 			$("#image").attr("value",image);
- 			$("#video").attr("value",video);
- 			console.log($("#image").val());
- 			console.log($("#video").val()); */
- 			
- 	   		
- 			
- 	   		 $("#inputForm").attr("method","post").submit();   
+ 	   		$("#inputForm").attr("method","post").submit();  
 		 	});
    		});
 		</script>
