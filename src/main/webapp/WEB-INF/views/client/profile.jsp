@@ -55,7 +55,7 @@
                                         <c:forEach var="adVO" items="${adVO }">
                                             <div class="panel-body">
                                                  <a href="profile2.html?adno=${adVO.adno }"><div class="timeline-item-header well">
-                                                    <img src="http://localhost:8081/viewfile?fileName=${adVO.ad_image}" alt="">
+                                                    <img src="http://localhost:8081/client/viewfile?fileName=${adVO.ad_image}" alt="">
                                                     
                                                     <p>${adVO.ad_title }<span>/ ${adVO.category }</span></p> <small><fmt:formatDate value="${adVO.start_duration }" pattern="yyyy-MM-dd "/></small>
 		                                                <div class="timeline-item-post">

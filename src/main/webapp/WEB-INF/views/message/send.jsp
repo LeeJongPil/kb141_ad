@@ -4,7 +4,7 @@
 <link href="../assets/plugins/summernote-master/summernote-bs3.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
 
-<%@ include file="../header.jsp" %>
+<%@ include file="header.jsp" %>
     <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -73,7 +73,7 @@
                 </div><!-- Main Wrapper -->
 
 
-<%@ include file="../footer.jsp" %>
+<%@ include file="footer.jsp" %>
 <!-- <script src="../assets/plugins/summernote-master/summernote.min.js"></script>   -->
 <!-- <script src="../assets/plugins/summernote-master/summernote.js"></script> -->
 <!-- <script src="../assets/js/pages/compose.js"></script>      -->

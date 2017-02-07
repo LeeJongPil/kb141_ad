@@ -132,7 +132,7 @@
 	<%@include file="footer.jsp"%>
 	
 <!-- Javascripts -->
-<script src="assets/plugins/chartsjs/Chart.min.js" ></script>
+<script src="/assets/plugins/chartsjs/Chart.min.js" ></script>
 <!-- <script src="assets/js/pages/charts-chartjs.js"></script> -->
 <script>
 $( document ).ready(function() {

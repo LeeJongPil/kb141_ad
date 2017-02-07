@@ -38,7 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @CrossOrigin
 @Controller
-
+@RequestMapping("/admin")
 public class HomeController {
 	
 	Logger logger = Logger.getLogger(this.getClass());
