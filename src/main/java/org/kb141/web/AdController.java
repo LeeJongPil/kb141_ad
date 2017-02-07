@@ -2,7 +2,9 @@ package org.kb141.web;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.List;
 
+import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceVO;
 import org.kb141.domain.KmeansVO;
@@ -17,10 +19,13 @@ import org.kb141.util.RulebaseCSVRead;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +42,6 @@ import net.sf.json.JSONObject;
 @RestController
 @CrossOrigin
 @Controller
-@RequestMapping("/ad")
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);
@@ -50,14 +54,14 @@ public class AdController {
 
 	@Autowired
 	private LogService logService;
-	
+
 	@Autowired
 	private KmeansService kmeansService;
 
 	/*
 	 * AD CRUD START
 	 */
-	
+
 	@GetMapping("/registerAd")
 	public void registerAdGET() throws Exception {
 		logger.info("GET AD Register....");
@@ -120,20 +124,20 @@ public class AdController {
 	 * DEVICE CRUD START
 	 */
 
-	@GetMapping("/registerDevice")
-	public void registerDeviceGET() throws Exception {
+	@GetMapping("device/register")
+	public void registerDeviceGET(Model model) throws Exception {
 		logger.info("GET DEVICE Register....");
+		model.addAttribute("lastDno",deviceService.getLastDno());
 	}
 
-	@PostMapping("/registerDevice")
+	@PostMapping("device/register")
 	public String registerDevicePOST(DeviceVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST DEVICE Register....");
 		logger.info("POST: " + vo);
-		// rttr.addFlashAttribute("msg","success");
+		rttr.addFlashAttribute("msg","success");
 		deviceService.register(vo);
 
-		model.addAttribute("result", "success");
-		return "redirect:list";
+		return "redirect:map";
 	}
 
 	@GetMapping("/viewDevice")
@@ -145,21 +149,50 @@ public class AdController {
 		logger.info("result: " + deviceService.view(dno));
 	}
 
-	@GetMapping("/listDevice")
+	@GetMapping("device/map")
 	public void listDevice(Model model) throws Exception {
 		logger.info("GET DEVICE List....");
-		model.addAttribute("device",deviceService.getList());
+		model.addAttribute("device", deviceService.getList());
 		logger.info("result: " + deviceService.getList());
 	}
 
-	@PostMapping("/removeDevice")
+	
+	@ResponseBody
+	@GetMapping("device/adFromDevice/{dno}")
+	public ResponseEntity<List<AdDeviceVO>> adFromDevice(@PathVariable("dno") Integer dno) {
+		logger.info("GET ADLIST");
+		ResponseEntity<List<AdDeviceVO>> entity = null;
+		try {
+			entity = new ResponseEntity<>(adService.deviceListFromDno(dno), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	@ResponseBody
+	@GetMapping("/infoDevice/{dno}")
+	public ResponseEntity<DeviceVO> infoDevice(@PathVariable("dno") Integer dno) {
+		logger.info("GET ADLIST");
+		ResponseEntity<DeviceVO> entity = null;
+		try {
+			entity = new ResponseEntity<>(deviceService.view(dno), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	@PostMapping("device/remove")
 	public String removeDevice(@RequestParam("dno") Integer dno, RedirectAttributes rttr) throws Exception {
 		logger.info("GET DEVICE Remove....");
 		logger.info("dno: " + dno);
 		deviceService.remove(dno);
 
 		rttr.addFlashAttribute("msg", "success");
-		return "redirect:list";
+		return "redirect:map";
 	}
 
 	@GetMapping("/modifyDevice")
@@ -177,7 +210,7 @@ public class AdController {
 		return "redirect:/list";
 	}
 	////////////////////////////////////////////////////////////////////////////////////
-	
+
 	/*
 	 * LOG CRL START
 	 */
@@ -186,7 +219,7 @@ public class AdController {
 	public void registerLogGET() throws Exception {
 		logger.info("GET LOG Register....");
 	}
- 
+
 	@PostMapping("/registerLog")
 	public String registerLogPOST(LogVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST LOG Register....");
@@ -213,11 +246,9 @@ public class AdController {
 		model.addAttribute(logService.getList());
 		logger.info("result: " + logService.getList());
 	}
-	
-	
-	
+
 	////////////////////////////////////////////////////////////////////////////////////
-	
+
 	/*
 	 * LOG UTIL
 	 */
@@ -307,7 +338,20 @@ public class AdController {
 				vo.setKarea(aee[7]);
 				kmeansService.register(vo);
 			}
-
 		}
-		
+
+
+	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+	// JS 에서 JSON으로 받는다.
+	@RequestMapping(value = "/kmeans", produces = "application/json")
+	public JSONObject rulebase() throws Exception {
+		System.out.println("rulebase start");
+		KmeansCSVRead kmeans = new KmeansCSVRead();
+		return kmeans.kmeansCSV();
+	}
+
+
+
+
+
 }

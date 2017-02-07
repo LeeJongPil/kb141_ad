@@ -297,7 +297,6 @@
      $("main").attr("class","page-content content-wrap full-height");
 
 	});
-    
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
 </html>

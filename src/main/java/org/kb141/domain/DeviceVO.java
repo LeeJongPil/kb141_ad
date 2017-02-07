@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class DeviceVO {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dno;
 
 	@Column(nullable = false)

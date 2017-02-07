@@ -20,12 +20,6 @@ public class DeviceAdVO {
 
 	@Column(nullable = false)
 	private Integer adno;
-	
-	@Column(nullable = false)
-	private Double lat;
-	
-	@Column(nullable = false)
-	private Double lng;
 
 	public Integer getDano() {
 		return dano;
@@ -51,26 +45,9 @@ public class DeviceAdVO {
 		this.adno = adno;
 	}
 
-	public Double getLat() {
-		return lat;
-	}
-
-	public void setLat(Double lat) {
-		this.lat = lat;
-	}
-
-	public Double getLng() {
-		return lng;
-	}
-
-	public void setLng(Double lng) {
-		this.lng = lng;
-	}
-
 	@Override
 	public String toString() {
-		return "DeviceAdVO [dano=" + dano + ", dno=" + dno + ", adno=" + adno + ", lat=" + lat + ", lng=" + lng + "]";
+		return "DeviceAdVO [dano=" + dano + ", dno=" + dno + ", adno=" + adno + "]";
 	}
-	
 	
 }

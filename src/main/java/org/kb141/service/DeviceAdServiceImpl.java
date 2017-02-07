@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.kb141.dao.DeviceAdDAO;
 import org.kb141.domain.DeviceAdVO;
-import org.kb141.domain.DeviceVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,7 +55,7 @@ public class DeviceAdServiceImpl implements DeviceAdService {
 	public DeviceAdVO viewFromDno(Integer dno) {
 		DeviceAdVO result = null;
 		try {
-			result = dao.findOne(dno);
+			result = dao.findFromDno(dno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,14 +63,16 @@ public class DeviceAdServiceImpl implements DeviceAdService {
 	}
 
 	@Override
-	public DeviceAdVO viewFromAdno(Integer Adno) {
+	public DeviceAdVO viewFromAdno(Integer adno) {
 		DeviceAdVO result = null;
 		try {
-			result = dao.findOne(Adno);
+			result = dao.findFromAdno(adno);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
+
+	
 
 }

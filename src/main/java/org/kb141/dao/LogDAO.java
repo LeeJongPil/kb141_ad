@@ -13,4 +13,6 @@ public interface LogDAO extends PagingAndSortingRepository<LogVO, Integer> {
 
 	public List<LogVO> findAll();
 	
+	public List<LogVO> findByAdno(Integer adno);
+	
 }

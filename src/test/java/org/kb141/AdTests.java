@@ -1,5 +1,8 @@
 package org.kb141;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -31,16 +34,25 @@ public class AdTests {
 	private AdUtil adUtil = new AdUtil();
 	
 	@Test
-	public void createTest() {
+	public void createTest() throws Exception {
 
 		AdVO vo = new AdVO();
-		vo.setAd_title("test1");
-		vo.setCid("test1");
-		vo.setCategory("test1");
-		vo.setStart_duration(new Date());
-		vo.setEnd_duration(new Date());
-		vo.setAd_image("test1");
-		vo.setAd_video("test1");
+		String start = "2017-02-01";
+		String end = "2017-02-31";
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date newStart = format.parse(start);
+		Date newEnd = format.parse(end);
+		
+		vo.setAd_title("인효키보드");
+		vo.setAd_content("인효의 청축 키보드");
+		vo.setCid("sih");
+		vo.setCategory("B");
+		vo.setStart_duration(newStart);
+		vo.setEnd_duration(newEnd);
+		vo.setAd_image("keyboard");
+		vo.setAd_video("keyboard");
+		vo.setTarget_area("김포");
+		vo.setTarget_emotions("happiness");
 
 		adDAO.save(vo);
 	}
@@ -160,7 +172,6 @@ public class AdTests {
 		}
 	}
 	
-	@Test
 	public void ADList() throws Exception{
 		List<AdVO> list = adMapper.adListCSV();
 		for( int i = 0 ; i < list.size() ; i ++){
@@ -181,5 +192,13 @@ public class AdTests {
 		
 	}
 	
+	public void listFromDnoDAOTest() throws Exception{
+		System.out.println(adMapper.deviceListFromDno(4));
+	}
+	
+	@Test
+	public void listFromDnoServiceTest() throws Exception{
+		System.out.println(adService.deviceListFromDno(4));
+	}
 }
 
