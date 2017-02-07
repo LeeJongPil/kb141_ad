@@ -95,6 +95,29 @@ public class AdServiceImpl implements AdService {
 	}
 
 	@Override
+	public List<AdVO> getAdlist(String cid) throws Exception {
+		List<AdVO> list = null;
+		
+		try {
+			list = adMapper.getAdlist(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<AdVO> getTermDuration(String cid) throws Exception {
+		List<AdVO> vo = null;
+		try {
+			vo = adMapper.getTermDuration(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
+	@Override	
 	public List<AdVO> getAdListCSV() {
 		List<AdVO> list = null;
 		try {
@@ -115,5 +138,17 @@ public class AdServiceImpl implements AdService {
 		}
 		return result;
 	}
+
+	@Override
+	public AdVO getTarget_emotion(String cid) throws Exception {
+		AdVO vo = null;
+		try {
+			vo = adMapper.getTarget_emotion(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
 }
 

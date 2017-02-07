@@ -200,5 +200,22 @@ public class AdTests {
 	public void listFromDnoServiceTest() throws Exception{
 		System.out.println(adService.deviceListFromDno(4));
 	}
+	
+	@Test
+	public void listAdTest() throws Exception{
+		System.out.println(adMapper.getAdlist("lsy"));
+	}
+	
+	@Test
+	public void getTermDurationTest() throws Exception{
+		List<AdVO> list = adMapper.getTermDuration("lsy");
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
+	@Test
+	public void getTarget_emotionTest() throws Exception{
+		System.out.println(adMapper.getTarget_emotion("lsy"));
+	}
 }
 

@@ -38,6 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @CrossOrigin
 @Controller
+
 public class HomeController {
 	
 	Logger logger = Logger.getLogger(this.getClass());
@@ -67,14 +68,7 @@ public class HomeController {
 	}
 	
 	
-	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
-	// JS 에서 JSON으로 받는다. 
-//	@RequestMapping(value="/kmeans" , produces="application/json")
-//	public JSONObject rulebase() throws Exception  {
-//		System.out.println("rulebase start");
-//		KmeansCSVRead kmeans = new KmeansCSVRead();
-//		return kmeans.kmeansCSV();
-//	}
+
 
 		
 	@GetMapping("/index")
@@ -223,12 +217,11 @@ public class HomeController {
 	
 	@PostMapping("profile2Modify")
 	public String profile2ModifyPOST(@RequestParam(value="ad_image")MultipartFile imgfile,@RequestParam(value="ad_video")MultipartFile vdfile,
-			   @RequestParam(value="ad_title")String ad_title,@RequestParam(value="category")String category,
-			   @RequestParam(value="cid")String cid, @RequestParam(value="ad_content")String ad_content,
-			   @RequestParam(value="start_duration")Date start_duration,@RequestParam(value="end_duration")Date end_duration,
-			   @RequestParam(value="target_area")String target_area,@RequestParam(value="target_emotions")String target_emotions,
-			   @RequestParam(value="permission")Boolean permission,
-			   RedirectAttributes rttr){
+		 						    @RequestParam(value="ad_title")String ad_title,@RequestParam(value="category")String category,
+								    @RequestParam(value="cid")String cid, @RequestParam(value="ad_content")String ad_content,
+								    @RequestParam(value="start_duration")Date start_duration,@RequestParam(value="end_duration")Date end_duration,
+								    @RequestParam(value="target_area")String target_area,@RequestParam(value="target_emotions")String target_emotions,
+								    @RequestParam(value="permission")Boolean permission,RedirectAttributes rttr){
 
 		AdVO adVO = new AdVO();
 		FileMaker fileMaker = new FileMaker();

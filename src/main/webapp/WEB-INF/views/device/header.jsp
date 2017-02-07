@@ -458,14 +458,14 @@
 				</div>
 			</div>
 			<ul class="menu accordion-menu">
-				<li class="active"><a href="index.html"
+				<li><a href="/index.html"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-home"></span>
 					<p>메인</p></a></li>
-				<li><a href="profile.html" class="waves-effect waves-button"><span
+				<li><a href="/profile.html" class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-user"></span>
 					<p>AD 관리</p></a></li>
-				<li><a href="inbox.html" class="waves-effect waves-button"><span
+				<li><a href="/message/inbox.html" class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-envelope"></span>
 					<p>메일</p>
 						<!-- <span class="arrow"></span> --></a> <!--                             <ul class="sub-menu">
@@ -482,7 +482,7 @@
 						<li><a href="charts-chartjs.html">통합 통계</a></li>
 						<li><a href="ch arts-chartjs2.html">개별 통계</a></li>
 					</ul></li>
-				<li class="droplink"><a href="#"
+				<li class="droplink active"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
 					<p>기기관리</p>

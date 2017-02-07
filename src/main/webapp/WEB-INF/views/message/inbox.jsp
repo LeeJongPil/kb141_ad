@@ -91,6 +91,8 @@
  <script>
 $(document).ready(function (){
 	
+	$("#messageActive").attr("class","active");
+	
 	var page = 0;
 	
 	$("#left").on("click", function(event){

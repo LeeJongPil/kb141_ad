@@ -8,7 +8,7 @@
                     <h3>Dashboard</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="client/index.html">Home</a></li>
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
@@ -16,18 +16,18 @@
                 <div id="main-wrapper">
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel info-box panel-white">
+                            <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p class="counter">${adCount}</p>
-                                        <span class="info-box-title">광고를 맡긴 숫자.</span>
+                                        <h1><p><span class="counter">${adCount.size()}</span> 개</p></h1>
+                                        <span class="info-box-title">전체  광고 .</span>
                                     </div>
-                                    <div class="info-box-icon">
-                                        <i class="icon-users"></i>
-                                    </div>
+                        	            <div class="info-box-icon">
+                                  		      <small><i class="icon-info"></i></small>
+                                	    </div> 
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                             </div>
                                         </div>
                                     </div>
@@ -35,11 +35,11 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel info-box panel-white">
+                            <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                    <p><span class="counter">${logCount }  </span>명</p>
-                                        <span class="info-box-title">목표 : 10000</span>
+                                    <h1><p><span class="counter">${logCount } </span> 명</p></h1>
+                                        <span class="info-box-title">광고를 본 숫자</span>
 <!--                                         <span class="info-box-title">광고를 본 닝겐 수 / 10000</span> -->
                                     </div>
                                     <div class="info-box-icon">
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: ${logCount/100}%">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                             </div>
                                         </div>
                                     </div>
@@ -55,10 +55,10 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel info-box panel-white">
+                            <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <p><span class="counter">${Adviewership} </span>%</p>
+                                        <h1><p><span class="counter">${Adviewership} </span> %</p></h1>
                                         <span class="info-box-title">전일 대비 광고 시청률</span>
                                     </div>
                                     <div class="info-box-icon">
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${Adviewership}%">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                             </div>
                                         </div>
                                     </div>
@@ -74,18 +74,18 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <div class="panel info-box panel-white">
+                            <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                       <p><span class="counter">${msgCount} </span>%</p>
-                                        <span class="info-box-title">전달 대비 쪽지 비율</span>
+                                       <h4><p> ${emotion.target_emotions }</p></h4>
+                                        <span class="info-box-title">대표적으로 원하는 감정 </span>
                                     </div>
                                     <div class="info-box-icon">
-                                        <i class="icon-envelope"></i>
+                                        <i class="icon-star"></i>
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:${msgCount}%">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%">
                                             </div>
                                         </div>
                                     </div>
@@ -242,12 +242,11 @@
                 </div><!-- Main Wrapper -->
 		<%@include file="footer.jsp"%>
 		
-        <script  src="assets/js/pages/dashboard.js"></script>
-        <script src="assets/js/pages/profile.js"></script>
+        <script src="/assets/js/pages/dashboard.js"></script>
+        <script src="/assets/js/pages/profile.js"></script>
     </body>
     
     <script>
-    $("#mainActive").attr("class","active");	
     var map;
 		
 	function initMap() {
@@ -291,9 +290,9 @@
 				title : markerTitle,
 			});
 		}
-		
+		$("#tabIndex").attr("class","active");
 		$(document).ready(function(){
-	 
+		
      $("body").attr("class","page-header-fixed page-sidebar-fixed");
      $("main").attr("class","page-content content-wrap full-height");
 

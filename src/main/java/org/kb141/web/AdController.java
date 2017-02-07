@@ -261,6 +261,15 @@ public class AdController {
 			return kmeans.kmeansCSV();
 		}
 		
+		/*	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+		// JS 에서 JSON으로 받는다.
+		@RequestMapping(value = "/kmeans", produces = "application/json")
+		public JSONObject rulebase() throws Exception {
+			System.out.println("rulebase start");
+			KmeansCSVRead kmeans = new KmeansCSVRead();
+			return kmeans.kmeansCSV();
+		}*/
+		
 		@RequestMapping(value="/rulebase" , produces="application/json")
 		public JSONObject rulebaseList() throws Exception  {
 			System.out.println("RuleBase Start");

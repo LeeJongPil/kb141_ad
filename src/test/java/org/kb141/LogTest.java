@@ -166,4 +166,9 @@ public class LogTest {
 		System.out.println(cal.get(Calendar.HOUR));
 		
 	}
+	
+	@Test
+	public void getClientListTest() throws Exception{
+		System.out.println(service.getClientList("lsy").size());
+	}
 }

@@ -24,11 +24,10 @@
                 
                            <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <div class="panel-title col-sm-12 col-lg-6">광고주님들 명단</div>       
+                                    <div class="panel-title col-sm-12 col-lg-6">광고주 님</div>       
                                     <div class="row col-righted">
                              	<div class="col-sm-12 col-lg-6">
-				                    <a href="profile2Register.html" type="button"
-				                     class="btn btn-warning btn-rounded">생성</a>
+				                  
 				                 		   </div>
 				                    	</div>
                                		 </div>
@@ -36,12 +35,12 @@
                                     <div class="team col-md-6">
                                         <div class="team-member">
                                            <div class="online on"></div>
-                                            <img src="assets/images/avatar1.png" alt="">
+                                            <img src="/assets/images/avatar1.png" alt="">
                                         </div>
                                         </div>
                                         <blockquote class="blockquote-reverse text-right col-md-6">
                                      	   <ul class="list-inline">
-                                     	   <dl><h4><dt>광고주님들 / ${clientVO.size()} 명</dt><dt> 광고들 /  ${adVO.size() } 개 </dt><dt>영상갯수 / ${adVO.size() } 개</dt>
+                                     	   <dl><h4><dt> 광고들 /  ${adVO.size() } 개 </dt><dt>영상갯수 / ${adVO.size() } 개</dt>
                                 		</h4></dl>
                                    			
                                 			</blockquote>
@@ -52,6 +51,7 @@
                                 <ul class="list-unstyled">
                                     <li class="timeline-item">
                                         <div class="panel panel-white">
+                                        <div class="panel-heading">광고 리스트</div>
                                         <c:forEach var="adVO" items="${adVO }">
                                             <div class="panel-body">
                                                  <a href="profile2.html?adno=${adVO.adno }"><div class="timeline-item-header well">
@@ -81,12 +81,11 @@
 		<%@include file="footer.jsp"%>
         <!-- Javascripts -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek"></script>
-        <script src="assets/js/pages/profile.js"></script>
+        <script src="/assets/js/pages/profile.js"></script>
         <script>
-        $("#profileActive").attr("class","active");	
         $(document).ready(function() {
             console.log( "ready!" );
-            
+            $("#tabProfile").attr("class","active");
             
         });
         </script>

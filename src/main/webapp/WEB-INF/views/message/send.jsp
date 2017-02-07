@@ -80,7 +80,7 @@
 
 <script>
 $(document).ready(function(){
-	
+	    $("#messageActive").attr("class","active");
 		$("#btnSend").on("click", function(event){
 			event.preventDefault();
 			var suc = $("#text").val($("#text").val().replace(/\n/g, "<br>"));
