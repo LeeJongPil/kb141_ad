@@ -35,6 +35,18 @@ public class PersonController {
 	@Autowired
 	private MessageService messageService;
 
+	
+	
+	/*
+	 *SECURITY 
+	 */
+	
+	@GetMapping("/login")
+	public void login(){}
+	
+	
+	
+	
 	/*
 	 * ADMIN CRUD START
 	 */
