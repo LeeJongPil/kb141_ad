@@ -83,7 +83,7 @@
 <%@include file="../footer.jsp" %>
 <script type="text/javascript">
 $(document).ready(function() {
-	
+			$("#messageActive").attr("class","active");
 			//view page open and immediately update state at the same time
 
 			$.ajax({

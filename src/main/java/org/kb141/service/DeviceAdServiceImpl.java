@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.kb141.dao.DeviceAdDAO;
 import org.kb141.domain.DeviceAdVO;
-import org.kb141.domain.DeviceVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,5 +72,7 @@ public class DeviceAdServiceImpl implements DeviceAdService {
 		}
 		return result;
 	}
+
+	
 
 }

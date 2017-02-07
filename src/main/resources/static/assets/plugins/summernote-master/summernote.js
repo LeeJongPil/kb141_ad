@@ -9,6 +9,7 @@
  * Date: 2014-11-29T05:20Z
  */
 (function (factory) {
+	var suc;
   /* global define */
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -3315,6 +3316,7 @@
 
     this.updateCodeview = function ($container, isCodeview) {
       var $btn = $container.find('button[data-event="codeview"]');
+      console.log($btn.context);
       $btn.toggleClass('active', isCodeview);
     };
   };
@@ -3793,7 +3795,7 @@
         toolbar.updateFullscreen($toolbar, isFullscreen);
       },
 
-      codeview: function (layoutInfo) {
+      codeview: function (layoutInfo) {                   
         var $editor = layoutInfo.editor(),
         $toolbar = layoutInfo.toolbar(),
         $editable = layoutInfo.editable(),
@@ -3849,6 +3851,14 @@
         }
 
         toolbar.updateCodeview(layoutInfo.toolbar(), isCodeview);
+        
+        
+  	  console.log(commands.codeview);
+  	  console.log("codeview :" + layoutInfo.codable()[0].value);
+  	  console.log("toolbar.updateCodeview : " + toolbar.updateCodeview);     
+        
+        
+  	   suc = layoutInfo.codable()[0].value;
       }
     };
 
@@ -5378,4 +5388,26 @@
       return this;
     }
   });
+  
+//  $("#send").on("click" , function (event) {
+//	  var but = $(".note-view").context.all[903].childNodes[1];		// codeview 버튼 
+//		console.log($('.note-editable')[0].textContent);			// 그냥 일반 텍스트 창에 있는걸 긁어온다.
+//		console.log("send button click");
+////			console.log(suc);
+//		console.log("----------commands------------")
+//		console.log("trigger click1")
+//		$(but).trigger('click');
+//		console.log("trigger click2")
+//		console.log(suc);
+//		
+//		
+//	});
+  
+  
+  
 }));
+
+
+
+
+

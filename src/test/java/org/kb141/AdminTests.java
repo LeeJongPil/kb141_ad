@@ -28,8 +28,8 @@ public class AdminTests {
 	@Test
 	public void createTest() throws Exception {
 		AdminVO vo = new AdminVO();
-		vo.setAid("ya");
-		vo.setApw("ho");
+		vo.setAid("admin");
+		vo.setApw("admin");
 		dao.save(vo);
 	}
 	

@@ -128,6 +128,7 @@
             
             <%@include file="footer.jsp"%>
    		<script>
+   		$("#profileActive").attr("class","active");	
    		$(document).ready(function () {
    			
 		 	console.log("이거되냐?");

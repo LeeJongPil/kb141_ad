@@ -3,7 +3,7 @@ package org.kb141.domain;
 import java.util.Date;
 
 public class AdDeviceVO {
-
+  
 	private Integer dno, adno;
 	private boolean permission; 
 	private String ad_title, ad_content, category, cid, target_area;
@@ -101,6 +101,4 @@ public class AdDeviceVO {
 				+ target_area + ", ad_image=" + ad_image + ", ad_video=" + ad_video + ", lng=" + lng + ", lat=" + lat
 				+ ", start_duration=" + start_duration + ", end_duration=" + end_duration + "]";
 	}
-	
-	
 }

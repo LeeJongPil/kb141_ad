@@ -16,4 +16,8 @@ public interface DeviceMapper {
 	
 	@Select("select * from tbl_device where dno in(select dno from tbl_device_ad where adno in (select adno from tbl_ad where cid = #{cid}))")
 	public List<DeviceVO> getClientCount(String cid) throws Exception;
+
+	@Select("select max(dno)+1 from tbl_device")
+	public Integer lastDno() throws Exception;
+
 }

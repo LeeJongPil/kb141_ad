@@ -128,6 +128,7 @@
             
             <%@include file="footer.jsp"%>
    		<script>
+   		$("#profileActive").attr("class","active");	
    		$(document).ready(function () {
 		 	$("#btnRegister").on("click", function () {
  	   		$("#ad_content").val($("#ad_content").val().replace(/\n/g, "<br>"));

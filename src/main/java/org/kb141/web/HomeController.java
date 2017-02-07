@@ -38,6 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @CrossOrigin
 @Controller
+
 public class HomeController {
 	
 	Logger logger = Logger.getLogger(this.getClass());
@@ -60,8 +61,6 @@ public class HomeController {
 	@Autowired
 	private ClientService clientService;
 	
-
-	
 	@RequestMapping("/")
 	public String index() {
 		logger.info("YHJ IS COMING");
@@ -69,14 +68,7 @@ public class HomeController {
 	}
 	
 	
-	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
-	// JS 에서 JSON으로 받는다. 
-//	@RequestMapping(value="/kmeans" , produces="application/json")
-//	public JSONObject rulebase() throws Exception  {
-//		System.out.println("rulebase start");
-//		KmeansCSVRead kmeans = new KmeansCSVRead();
-//		return kmeans.kmeansCSV();
-//	}
+
 
 		
 	@GetMapping("/index")

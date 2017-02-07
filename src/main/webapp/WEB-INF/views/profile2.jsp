@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
+
+
 <style>
 .col-centered{
    float: none;
@@ -170,7 +172,7 @@
     	<%@include file="footer.jsp"%>
       	<script src="assets/js/pages/profile.js"></script>
         <script>
-
+       
  		var map;
  		
 		function initMap() {
@@ -214,7 +216,7 @@
  				title : markerTitle,
  			});
  		}
- 		
+ 		$("#profileActive").attr("class","active");
  		$("#btnRemove").on("click", function(event) {
 	       	 console.log(event);
 	            if (confirm("정말삭제하시겠습니까?") == true) {
@@ -227,7 +229,9 @@
 		</script>
        	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
         <script>
+        
  		$(document).ready(function(){
+ 			 
  	         $("body").attr("class","page-header-fixed page-sidebar-fixed");
  	         $("main").attr("class","page-content content-wrap full-height");
  	            
