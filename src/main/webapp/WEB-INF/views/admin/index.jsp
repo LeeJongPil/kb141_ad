@@ -242,8 +242,8 @@
                 </div><!-- Main Wrapper -->
 		<%@include file="footer.jsp"%>
 		
-        <script  src="assets/js/pages/dashboard.js"></script>
-        <script src="assets/js/pages/profile.js"></script>
+        <script  src="/assets/js/pages/dashboard.js"></script>
+        <script src="/assets/js/pages/profile.js"></script>
     </body>
     
     <script>

@@ -373,8 +373,8 @@
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li id="mainActive"><a href="/index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
-                        <li id="profileActive"><a href="/profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li id="mainActive"><a href="/admin/index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
+                        <li id="profileActive"><a href="/admin/profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
                         <li id="messageActive"><a href="/message/inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
 <!--                             <ul class="sub-menu">
                                 <li><a href="inbox.html">Inbox</a></li>
@@ -388,8 +388,8 @@
                                 <li><a href="charts-rickshaw.html">Rickshaw</a></li>
                                 <li><a href="charts-morris.html">Morris</a></li>
                                 <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="/charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="/charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="/admin/charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
                         <li id="mapActive"><a href="/device/map.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>

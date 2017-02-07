@@ -115,12 +115,12 @@
                                             <div class="panel-body">
                                                 <ul class="list-unstyled">
 
-																																<c:forEach items="${devList}" var = "devlist"  begin="0"  end="8">
-																																			<li>
-																																					${devlist.state}	- ${devlist.city}
-																																					<div class="pull-right">${devlist.logPercent}%</div>
-																																			</li>
-																																</c:forEach>
+															<c:forEach items="${devList}" var = "devlist"  begin="0"  end="8">
+																		<li>
+																				${devlist.state}	- ${devlist.city}
+																				<div class="pull-right">${devlist.logPercent}%</div>
+																		</li>
+															</c:forEach>
 	                                                
 <!--                                                     <li>강 남 구<div class="text-success pull-right">32%<i class="fa fa-level-up"></i></div></li> -->
 
