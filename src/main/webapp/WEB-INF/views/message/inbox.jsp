@@ -178,10 +178,12 @@ $(document).ready(function (){
 		$("<form action='delete' method='post'><input type='hidden' name='mno' value=" +arr+ "></form>").appendTo("body").submit();
     });
 
+
+
    $('.checkbox-mail').on('click', function(e){
 // 		   	var bool = $(e.currentTarget.attributes[0]).context.value;
 // 		   	var arr = [];
-		   	console.log(e);
+// 		   	console.log(e);
 // 		   	console.log(e.currentTarget);
 // 		    	console.log(bool);
 // 		    	   	if(bool == "checked"){
@@ -200,7 +202,8 @@ $(document).ready(function (){
 		//    	console.log(($(e.currentTarget.attributes[0]).context.value).is("checked"));
    });
 	
-	
+   
+
 	
 	
 	

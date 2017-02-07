@@ -10,9 +10,44 @@ $( document ).ready(function() {
     hiddenMailOptions();
     
     $('.check-mail-all').click(function (event) {
-        console.log(event);
-    	$('.checkbox-mail').click();
-    });
+     console.log($('.check-mail-all')[0].checked);
+//     console.log($('.checkbox-mail'));	// 0 ~ 11 , length = 12
+//     console.log($('.checkbox-mail')[0].parentNode.hasClass("checked"));	// 0 ~ 11 , length = 12
+     console.log($('.checkbox-mail')[1].parentNode);	// 0 ~ 11 , length = 12
+     
+     
+     if($('.check-mail-all')[0].checked == true){
+    	 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
+    		 $('.checkbox-mail')[i].checked=true;
+    		 $('.checkbox-mail')[i].parentNode.className = "checked";
+    		 $("#pagelist tr").addClass('checked');
+    	 }
+     }
+     else {
+    	 console.log($("#pagelist tr"));
+    	 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
+    			 $('.checkbox-mail')[i].checked=false;
+    			 $('.checkbox-mail')[i].parentNode.className = "";
+    			 $("#pagelist tr").removeClass('checked');
+    	 }
+    }
+
+     
+     
+     
+//     if($('.check-mail-all')[0].checked == true){
+//    	 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
+//			 $('.checkbox-mail')[i].checked=true;
+//    	 }
+//     }
+//     else {
+//    		 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
+//    			 $('.checkbox-mail')[i].checked=false;
+//    		 }
+//    	 }
+     
+//     $('.checkbox-mail').click();
+ });
     
     $('.checkbox-mail').each(function() {
         $(this).click(function() {

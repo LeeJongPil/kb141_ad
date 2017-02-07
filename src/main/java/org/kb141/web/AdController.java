@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.sf.json.JSONObject;
@@ -39,7 +38,6 @@ import net.sf.json.JSONObject;
 /*
  * ad, device, log
  */
-@RestController
 @CrossOrigin
 @Controller
 public class AdController {
@@ -252,25 +250,7 @@ public class AdController {
 	/*
 	 * LOG UTIL
 	 */
-	
-	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다. 
-		@RequestMapping(value="/log", method=RequestMethod.POST)
-		public void filepush(String text) throws Exception {
-			logger.info("log Start....................................");
-			LogCSVWrite logwrite = new LogCSVWrite();
-			
-			String log = logwrite.logCSV(text);
-			// 로그 들을 String 한줄로 다 붙여버린다. 
-		
-			String res[] = log.split("  ");
-			String csa[] = {};
-			
-			for(int i = 1; i < res.length; i ++){
-				csa = res[i].split(",");
-				logService.register(logwrite.logDB(csa));
-				System.out.println("log go to DB ..................");
-			}
-		}
+
 	
 		// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
 		// JS 에서 JSON으로 받는다. 
@@ -289,69 +269,81 @@ public class AdController {
 		}
 		
 		
-		// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다. 
-		@RequestMapping(value="/adlist" , produces="application/json")
-		public void ADList() throws Exception  {
-			System.out.println("ADList Start");
-			
-		}
-		
-		
-		
-		
-		// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드 
-		// Kmeans 돌려서 나오는 걸  DB에 넣고 CSV 를 만든다. 
-		@RequestMapping(value="/base" , produces="application/json")
-		public void base() throws Exception  {
-			System.out.println("base start");
-			
-			FileReader fr = new FileReader("C://zzz//Kmeans.csv");
-			BufferedReader br = new BufferedReader(fr);
-			
-			fr.read();	// 리턴값으로 읽어온 char 수를 리턴한다. -1 은 다읽은 거다.
-			String result = "";
-			
-			while(true){
-				if(br.ready() == false){
-					break;
-				}
-				result += br.readLine().replaceAll("\"", "") + " ";
-			}
-			System.out.println("result : " +result);
-			
-			String arr[] = result.split(" ");	// 첫줄은 헤더니까 1부터 시작해서 파싱 시작해줘야한다. 
-																// 모든것을 읽어서 띄어쓰기로 나눠서 배열로 넣어두었다.
-			
-			String aee[]={};
-			System.out.println("arr 길이 : " + arr.length);
-			
-			for(int i = 1; i < arr.length; i ++){
-				System.out.println(arr[i]);
-				aee = arr[i].split(",");
-				KmeansVO vo = new KmeansVO();
-				vo.setKage(Integer.parseInt(aee[1]));
-				vo.setKgender(aee[2]);
-				vo.setKemotion(aee[3]);
-				vo.setK_first(aee[4]);
-				vo.setK_second(aee[5]);
-				vo.setK_third(aee[6]);
-				vo.setKarea(aee[7]);
-				kmeansService.register(vo);
-			}
-		}
 
+	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
+	@RequestMapping(value = "/log", method = RequestMethod.POST)
+	public void filepush(String text) throws Exception {
+		logger.info("log Start....................................");
+		LogCSVWrite logwrite = new LogCSVWrite();
 
-	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
-	// JS 에서 JSON으로 받는다.
-	@RequestMapping(value = "/kmeans", produces = "application/json")
-	public JSONObject rulebase() throws Exception {
-		System.out.println("rulebase start");
-		KmeansCSVRead kmeans = new KmeansCSVRead();
-		return kmeans.kmeansCSV();
+		String log = logwrite.logCSV(text);
+		// 로그 들을 String 한줄로 다 붙여버린다.
+
+		String res[] = log.split("  ");
+		String csa[] = {};
+
+		for (int i = 1; i < res.length; i++) {
+			csa = res[i].split(",");
+			logService.register(logwrite.logDB(csa));
+			System.out.println("log go to DB ..................");
+		}
 	}
 
+//	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+//	// JS 에서 JSON으로 받는다.
+//	@RequestMapping(value = "/kmeans", produces = "application/json")
+//	public JSONObject rulebase() throws Exception {
+//		System.out.println("rulebase start");
+//		KmeansCSVRead kmeans = new KmeansCSVRead();
+//		return kmeans.kmeansCSV();
+//	}
 
+	// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드
+	// Kmeans 돌려서 나오는 걸 DB에 넣고 CSV 를 만든다.
+	@RequestMapping(value = "/base", produces = "application/json")
+	public void base() throws Exception {
+		System.out.println("base start");
 
+		FileReader fr = new FileReader("C://zzz//Kmeans.csv");
+		BufferedReader br = new BufferedReader(fr);
 
+		fr.read(); // 리턴값으로 읽어온 char 수를 리턴한다. -1 은 다읽은 거다.
+		String result = "";
+
+		while (true) {
+			if (br.ready() == false) {
+				break;
+			}
+			result += br.readLine().replaceAll("\"", "") + " ";
+		}
+		System.out.println("result : " + result);
+
+		String arr[] = result.split(" "); // 첫줄은 헤더니까 1부터 시작해서 파싱 시작해줘야한다.
+											// 모든것을 읽어서 띄어쓰기로 나눠서 배열로 넣어두었다.
+
+		String aee[] = {};
+		System.out.println("arr 길이 : " + arr.length);
+
+		for (int i = 1; i < arr.length; i++) {
+			System.out.println(arr[i]);
+			aee = arr[i].split(",");
+			KmeansVO vo = new KmeansVO();
+			vo.setKage(Integer.parseInt(aee[1]));
+			vo.setKgender(aee[2]);
+			vo.setKemotion(aee[3]);
+			vo.setK_first(aee[4]);
+			vo.setK_second(aee[5]);
+			vo.setK_third(aee[6]);
+			vo.setKarea(aee[7]);
+			kmeansService.register(vo);
+		}
+
+	}
+
+	// JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다.
+	@RequestMapping(value = "/adlist", produces = "application/json")
+	public void ADList() throws Exception {
+
+	}
 
 }
