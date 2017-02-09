@@ -8,7 +8,7 @@ import org.kb141.domain.MessageVO;
 
 public interface MessageMapper {
 	
-	@Select("select * from tbl_message where mto = #{mto}")
+	@Select("select * from tbl_message where mto = #{mto} order by mno desc")
 	public List<MessageVO> msgList(String mto) throws Exception;
 
 	@Select("select round((lm.lm - tlm.tlm) / tlm.tlm * 100) from"
