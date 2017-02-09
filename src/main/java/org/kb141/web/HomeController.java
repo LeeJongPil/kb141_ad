@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.ClientVO;
+import org.kb141.mapper.SecurityMapper;
 import org.kb141.service.AdService;
 import org.kb141.service.ClientService;
 import org.kb141.service.DeviceService;
@@ -61,18 +62,20 @@ public class HomeController {
 	@Autowired
 	private ClientService clientService;
 	
-	@RequestMapping("/")
-	public String index() {
-		logger.info("YHJ IS COMING");
-		return "hello YHJ!";
-	}
+	
+	
+//	@RequestMapping("/")
+//	public String index() {
+//		logger.info("YHJ IS COMING");
+//		return "hello YHJ!";
+//	}
 	
 	
 
 
 		
-	@GetMapping("/index")
-	public void indexing(Model model, ClientVO vo){
+	@GetMapping("")
+	public String indexing(Model model, ClientVO vo){
 		logger.info("index");
 		model.addAttribute("adCount", adService.getCount());
 		model.addAttribute("logCount", logService.countLog());
@@ -82,14 +85,14 @@ public class HomeController {
 		model.addAttribute("msgList", messageService.getMsgList("client0"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
 		model.addAttribute("Adviewership", logService.getAdviewership());
 		model.addAttribute("deviceList", deviceService.getList());
-		
+		return "admin/index";
 	}
 
 
-	@GetMapping("/login")
-	public void login(Model model) {
-		logger.info("YHJ IS COMING");
-	}
+//	@GetMapping("/login")
+//	public void login(Model model) {
+//		logger.info("YHJ IS COMING");
+//	}
 	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {

@@ -365,8 +365,13 @@
 		     $("body").attr("class","page-header-fixed page-sidebar-fixed");
 		     $("main").attr("class","page-content content-wrap full-height");
 		     
-		
+			
+		     
+		     
 	});
+// 		     console.log($(".user-name")[0].innerText);
+		
+		
 		
 		
 		
