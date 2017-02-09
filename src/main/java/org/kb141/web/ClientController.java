@@ -55,8 +55,8 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 	
-	@GetMapping("/index")
-	public void indexing(Model model, ClientVO vo) throws Exception{
+	@GetMapping("")
+	public String indexing(Model model, ClientVO vo) throws Exception{
 		logger.info("index");
 		model.addAttribute("adCount",adService.getTermDuration(testId));
 		model.addAttribute("adList", adService.getAdlist(testId));
@@ -67,12 +67,13 @@ public class ClientController {
 		model.addAttribute("Adviewership",logService.getAdviewership());
 		model.addAttribute("deviceList",deviceService.getClientCount(testId));
 		model.addAttribute("emotion", adService.getTarget_emotion(testId));
+		return "client/index";
 	}
 	
-	@GetMapping("/login")
-	public void login(Model model) {
-		logger.info("YHJ IS COMING");
-	}
+//	@GetMapping("/login")
+//	public void login(Model model) {
+//		logger.info("YHJ IS COMING");
+//	}
 	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {

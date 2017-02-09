@@ -45,6 +45,17 @@ public class PersonController {
 	public void login(){}
 	
 	
+	@GetMapping("/register")
+	public void register(){
+		logger.info("REGISTER GET....");
+	}
+	
+	@PostMapping("/register")
+	public String register(ClientVO vo, RedirectAttributes rttr) throws Exception{
+		rttr.addFlashAttribute("msg","success");
+		clientService.register(vo);
+		return "redirect:login";
+	}
 	
 	
 	/*

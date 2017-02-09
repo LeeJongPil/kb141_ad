@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,6 +48,21 @@
         
     </head>
     <body class="page-header-fixed">
+    <style>
+    .logoutBtn {
+	border: none;
+	background: none;
+}
+
+.top-menu form {
+	display: block;
+	padding: 20px 18px;
+	color: #5f5f5f;
+	border: none;
+	position: relative;
+	line-height: 20px;
+}
+    </style>
         <div class="overlay"></div>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
             <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
@@ -331,7 +347,8 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <span class="user-name">David<i class="fa fa-angle-down"></i></span>
+                                        <span class="user-name"><sec:authentication
+										property="principal.username" /><i class="fa fa-angle-down"></i></span>
                                         <img class="img-circle avatar" src="../assets/images/avatar1.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
@@ -344,9 +361,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
-                                        <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
-                                    </a>
+                                    <form action="/logout" method="post"
+								class="log-out waves-effect waves-button waves-classic">
+								<span><i class="fa fa-sign-out"></i><input
+									type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" /> <input type="submit"
+									class="logoutBtn" value="Log out"></span>
+							</form>
                                 </li>
                                  <li>
 							 <!--   <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
@@ -367,7 +388,7 @@
                                     <img src="../assets/images/avatar1.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
-                                    <span>난 광고주<br><small>짱짱맨</small></span>
+                                    <span><sec:authentication property="principal.username"/><br><small><sec:authentication property="principal.company"/></small></span>
                                 </div>
                             </a>
                         </div>
