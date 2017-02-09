@@ -77,7 +77,7 @@
 					<div class="login-box">
 						<a href="#" class="logo-name text-lg text-center">Modern</a>
 						<p class="text-center m-t-md">Please login into your account.</p>
-						<c:url value="/login" var="loginUrl" />
+						<c:url value="/login" var="loginUrl"/>
 						<form action="${loginUrl}" method="post" class="m-t-md">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Id"
