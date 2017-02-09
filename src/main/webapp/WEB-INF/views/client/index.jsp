@@ -106,7 +106,7 @@
 			                                </div>
 			                                <div class="panel-body">
 			                                    <div>
-			                                        <canvas id="chartAgeGenderWatchtime" style="height: 300px; width: 100%;"></canvas>
+			                                        <canvas id="chartAgeGenderWatchtime" style="height: 100px; width: 100%;"></canvas>
 			                                    </div>
 			                                </div>
 			                            </div>
@@ -349,7 +349,7 @@
 	 			datasetStrokeWidth : 2,
 	 			datasetFill : true,
 	 			responsive: true
-	 		}
+	 		}  
 	     
 	     
 	     
@@ -365,8 +365,13 @@
 		     $("body").attr("class","page-header-fixed page-sidebar-fixed");
 		     $("main").attr("class","page-content content-wrap full-height");
 		     
-		
+			
+		     
+		     
 	});
+// 		     console.log($(".user-name")[0].innerText);
+		
+		
 		
 		
 		

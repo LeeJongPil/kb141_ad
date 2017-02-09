@@ -40,7 +40,7 @@ public class MessageServiceImpl implements MessageService {
 			e.printStackTrace();
 		}
 		return vo;
-	}
+	} 
 
 	@Override
 	public void modify(MessageVO vo) {

@@ -19,6 +19,8 @@ public interface DeviceService {
 	
 	public List<DeviceListVO> getDevList();
 	
+	public List<DeviceListVO> getClientDevList();
+	
 	public List<DeviceListVO> getStateGenderCount();
 	
 	public List<DeviceVO> getClientCount(String cid);

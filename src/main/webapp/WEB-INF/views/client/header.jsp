@@ -395,8 +395,13 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li id="tabIndex"><a href="/client" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
+<<<<<<< HEAD
+                        <li id="tabProfile"><a href="/client/profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li id="tabMessage"><a href="/message/inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
+=======
                         <li id="tabProfile"><a href="/client/profile" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
                         <li id="tabMessage"><a href="/message/inbox" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
+>>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
 <!--                             <ul class="sub-menu">
                                 <li><a href="inbox">Inbox</a></li>
                                 <li><a href="message-view">View Message</a></li>

@@ -1,3 +1,4 @@
+
 package org.kb141.web;
 
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class ClientController {
 	Logger logger = Logger.getLogger(this.getClass());
 	
 	String testId = "lsy";
+	
 	
 	@Autowired
 	private KmeansService kmeansService;

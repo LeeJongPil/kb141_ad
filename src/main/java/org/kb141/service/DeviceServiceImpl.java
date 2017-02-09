@@ -74,11 +74,11 @@ public class DeviceServiceImpl implements DeviceService {
 			int total = 0;
 			result = deviceMapper.devList();
 			// 최고 8개 만 따질것이다.
-			for (int i = 0; i < 8; i++) { // 총 logcnt 더한값 total 저장
+			for (int i = 0; i < ((result.size() <  8) ? result.size() : 8); i++) { // 총 logcnt 더한값 total 저장
 				total += result.get(i).getLogcnt();
 			}
 
-			for (int i = 0; i < 8; i++) {
+			for (int i = 0; i < ((result.size() <  8) ? result.size() : 8); i++) {
 				double logcnt = result.get(i).getLogcnt(); // double형으로 받는다.
 				double rlogcnt = logcnt / total;
 				int res = (int) Math.round(rlogcnt * 100);
@@ -122,5 +122,37 @@ public class DeviceServiceImpl implements DeviceService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public List<DeviceListVO> getClientDevList() {
+		System.out.println("getClientDevList Start....................");
+		List<DeviceListVO> result = null;
+		
+		try {
+			int total = 0;
+			System.out.println("total Start .......................");
+			result = deviceMapper.clientDevList();
+			// 최고 8개 만 따질것이다.
+			System.out.println("total plus Start....................");
+			for(int i = 0; i < ((result.size() <  8) ? result.size() : 8); i++) { // 총 logcnt 더한값 total 저장
+				total += result.get(i).getLogcnt();
+				System.out.println(total);
+			}
+			System.out.println(total);
+
+			for (int i = 0; i < ((result.size() <  8) ? result.size() : 8); i++) {
+				double logcnt = result.get(i).getLogcnt(); // double형으로 받는다.
+				double rlogcnt = logcnt / total;
+				int res = (int) Math.round(rlogcnt * 100);
+				result.get(i).setLogPercent(res);
+				System.out.println(result.get(i).getLogPercent());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+		
 	}
 }
