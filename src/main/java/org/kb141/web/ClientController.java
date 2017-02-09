@@ -70,7 +70,7 @@ public class ClientController {
 		model.addAttribute("adList", adService.getAdlist(testId));
 		model.addAttribute("logCount",logService.getClientList(testId).size());
 		model.addAttribute("msgCount",messageService.countMsg());
-		model.addAttribute("devList",deviceService.getDevList());
+		model.addAttribute("devList",deviceService.getClientDevList());		//	로그인 처리되면 파라미터 cid 값을 받아서 넘겨줘야 한다. 
 		model.addAttribute("msgList",messageService.getMsgList("test"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
 		model.addAttribute("Adviewership",logService.getAdviewership());
 		model.addAttribute("deviceList",deviceService.getClientCount(testId));

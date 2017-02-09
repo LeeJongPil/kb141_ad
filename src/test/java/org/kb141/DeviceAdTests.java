@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.arjuna.ats.internal.jdbc.drivers.modifiers.extensions;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DeviceAdTests {
@@ -63,7 +65,6 @@ public class DeviceAdTests {
 		System.out.println(dao.findFromAdno(4));
 	}
 	
-
 
 
 }

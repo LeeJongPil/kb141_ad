@@ -109,6 +109,12 @@ public class DeviceTests {
 		}
 	}
 	
+	@Test
+	public void getClientDevListTest() throws Exception{
+		service.getClientDevList();
+		
+	}
+	
 	
 //	---------------------------------------- Mapper Test --------------------------------------------------
 	
@@ -133,6 +139,14 @@ public class DeviceTests {
 	@Test
 	public void getClientTest() throws Exception{
 		List<DeviceVO> list = deviceMapper.getClientCount("lsy");
+		for(int i = 0 ; i < list.size(); i ++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+	@Test
+	public void clientDevListTest() throws Exception{
+		List<DeviceListVO> list = deviceMapper.clientDevList();
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}
