@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -32,23 +33,29 @@ public class MessageController {
 	
 	
 	@GetMapping("/inbox")
-	public void inboxMain(Model model){
+	public void inboxMain(@RequestParam(value="keyword", defaultValue="") String keyword,   Model model){
+		logger.info(keyword);
 		logger.info("view inbox main call...");
-		cri.setpage(0);
+		cri.setpage(0);	// F5를 했을경우 다시 첫페이지로 가기 위해서 해놔야 한다. 리얼 트루
+		cri.setSearch(keyword);
 		List<MessageVO>msgList = service.pagingList(cri);
 		model.addAttribute("list" , msgList);
 		model.addAttribute("total", cri.getTotal());
 	}
+	
 	
 	@PostMapping("paging")
 	@ResponseBody
 	public List<MessageVO> paging(int page){
 		System.out.println(page);
 		cri.setpage(page);
-		List<MessageVO> list = service.nextPagingList(cri);
+//		List<MessageVO> list = service.nextPagingList(cri);
+		List<MessageVO> list = service.pagingList(cri);
 		System.out.println(list);
 		return list;
 	}
+	
+	
 	
 	
 	@GetMapping("/view")

@@ -7,7 +7,7 @@
     <head>
         
         <!-- Title -->
-        <title>Modern | Admin Dashboard Template</title>
+        <title>KB 141 | CLIENT PAGE </title>
         
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta charset="UTF-8">

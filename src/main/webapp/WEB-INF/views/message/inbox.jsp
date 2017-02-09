@@ -7,15 +7,15 @@
                         <div class="col-md-12">
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
-                                    <a href="/message/send" class="btn btn-success btn-block">Compose</a>
+                                    <a href="/message/send?mfrom=admin" class="btn btn-success btn-block">Compose</a>
                                 </div>
                                 <div class="col-md-6">
                                     <h2>메 일 함</h2>
                                 </div>
                                 <div class="col-md-4">
-                                    <form action="#" method="GET">
+                                    <form action="inbox" method="GET" id = "search">
                                         <div class="input-group">
-                                            <input type="text" name="search" class="form-control input-search" placeholder="Search...">
+                                            <input type="text"  name="keyword" class="form-control input-search"  placeholder="Search..."  id = "search">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>
                                             </span>
@@ -27,9 +27,8 @@
                         <div class="col-md-2">
                             <ul class="list-unstyled mailbox-nav">
                                 <li class="active"><a href="inbox.html"><i class="fa fa-inbox"></i>메일함 <span class="badge badge-success pull-right">4</span></a></li>
-                                <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li>
-                             
-                                <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li>
+<!--                                 <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li> -->
+
                             </ul>
                         </div>
                         <div class="col-md-10">
@@ -42,16 +41,11 @@
                                         </th>
                                         <th class="text-right" colspan="5">
                                             <span class="text-muted m-r-sm">Showing 20 of 346 </span>
-                                            <a class="btn btn-default m-r-sm" data-toggle="tooltip" data-placement="top" title="Refresh"><i class="fa fa-refresh"></i></a>
+                                            <a class="btn btn-default m-r-sm" data-toggle="tooltip" data-placement="top" title="Refresh" id=refresh><i class="fa fa-refresh"></i></a>
                                             
                                             <div class="btn-group m-r-sm mail-hidden-options">
                                                 <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete" id ="delete"><i class="fa fa-trash"></i></a>
                                             </div>
-
-
-
-
-                                            
                                             <div class="btn-group m-r-sm mail" id = "fa-pendil">
                                                 <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Send Message" >
                                                 <i class="fa fa-pencil"></i>
@@ -67,14 +61,13 @@
                                 </thead>
                                 <tbody id="pagelist">
                                 <c:forEach var="list" items="${list}" >
-                                					<tr class=" ${list.checked == 0 ? 'unread' : 'read' }">
-                                						 <td class="hidden-xs"><span><input type="checkbox" class="checkbox-mail"></span></td>
+                                					<tr class=" ${list.checked == 0 ? 'unread' : 'read' }"  id = "trcheck">
+                                						 <td class="hidden-xs"  id = "tdcheck"><span><input type="checkbox" class="checkbox-mail"></span></td>
                                 						 <td id = "listmno">${list.mno}</td>
 																						 <td class="hidden-xs">${list.mfrom}</td>
 																						 <td>${list.mtitle}</td>
 																						 <td></td>
 																						 <td>${list.regdate}</td>
-<!-- 																						 <input type="hidden"  value = ""  id = "mno" name = "mno"></input> -->
 																					</tr>
                                 </c:forEach>
                                 </tbody>
@@ -96,7 +89,7 @@ $(document).ready(function (){
 	var page = 0;
 	
 	$("#left").on("click", function(event){
-		event.preventDefault();
+// 		event.preventDefault();
 			console.log(event);
 				page--;
 				if(page <= 0){
@@ -107,7 +100,7 @@ $(document).ready(function (){
 	});
 	
 	$("#right").on("click", function(event){
-		event.preventDefault();
+// 		event.preventDefault();
 		console.log(event);
 		page++;
 		if(page>=${total}){
@@ -133,22 +126,30 @@ $(document).ready(function (){
 					data :  {"page" : page},
 					dataType : "json",
 					success : function(result){
+						var page = "";
 						console.log(result);
 						console.log(result[0].mno);
-						var page = "";
-						for(var i = 0 ; i < result.length ; i ++){
-							page += '<tr class='+ (result[i].checked == 0 ? 'unread' : 'read') +'>'
-									 + '<td class="hidden-xs"><span><input type="checkbox" class="checkbox-mail"></span></td>'
+						for(var i = 0; i < result.length; i++){
+							page += '<tr id="please" class='+ (result[i].checked == 0 ? 'unread' : 'read') +'>'
+									 + '<td class="hidden-xs" id = "tdcheck"><span><input type="checkbox" class="checkbox-mail"></span></td>'
 									 + '<td>'+ result[i].mno +'</td>'
 									 + '<td class="hidden-xs">' + result[i].mfrom+ '</td>' 
 									 + '<td>' + result[i].mtitle + '</td>'
 									 + '<td></td>'
 									 + '<td>'+result[i].regdate+'</td>'
-									 +'</tr>';					
+									 +'</tr>';					 
 						}
+						console.log("success");
 						$("#pagelist").html(page);
 					}
 				});
+				console.log($(".check-mail-all"));	
+				if($(".check-mail-all")[0].checked==true){
+					$(".check-mail-all")[0].checked=false;
+					$(".check-mail-all")[0].parentNode.className = "";
+				}			
+				
+				
 			}
 //			$("tbody > tr").on("click" , function(event){
 //			console.log("childeren.inndrText : " + event.currentTarget.children[1].innerText);
@@ -182,7 +183,7 @@ $(document).ready(function (){
 
 
 
-   $('.checkbox-mail').on('click', function(e){
+//    $('.checkbox-mail').on('click', function(e){
 // 		   	var bool = $(e.currentTarget.attributes[0]).context.value;
 // 		   	var arr = [];
 // 		   	console.log(e);
@@ -202,12 +203,20 @@ $(document).ready(function (){
 		//    	console.log($(e.currentTarget.attributes[0]).context.value);
 		//    	console.log(bool.is("checked"));
 		//    	console.log(($(e.currentTarget.attributes[0]).context.value).is("checked"));
-   });
-	
-   
-
+//    });
 	
 	
+	$(".input-group-btn").on('click', function(e){
+		console.log(e);
+		console.log($('#search').val());
+		$("#search").submit();
+	});
+	
+	
+	$("#refresh").on('click', function(e){
+			console.log(e);
+			ajaxPage();
+	});
 	
 	
 	
