@@ -3,6 +3,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
     
             <div class="page-inner" >
                 <div class="page-title">
@@ -78,7 +80,7 @@
                             <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                       <h4><p> ${emotion.target_emotions }</p></h4>
+                                       <h1><p> ${emotion.target_emotions }</p></h1>
                                         <span class="info-box-title">대표적으로 원하는 감정 </span>
                                     </div>
                                     <div class="info-box-icon">
@@ -365,7 +367,6 @@
 		     $("body").attr("class","page-header-fixed page-sidebar-fixed");
 		     $("main").attr("class","page-content content-wrap full-height");
 		     
-			
 		     
 		     
 	});

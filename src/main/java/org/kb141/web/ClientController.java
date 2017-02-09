@@ -58,11 +58,13 @@ public class ClientController {
 	private ClientService clientService;
 	
 	@GetMapping("")
-	public String indexing(Model model, ClientVO vo) throws Exception{
-		logger.info("index");
+	public String indexing(Model model, String username) throws Exception{
+		logger.info("client index");
+		logger.info("username  : " + username); 
+		
 		ChartAttributes result = AttributeGenerator.
 				INSTANCE.generator(logService.getClientList(testId));
-
+		
 		ChartAttributes result2 = logService.getDateView();
 		result.setView_date(result2.getView_date());
 		
