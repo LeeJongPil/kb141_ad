@@ -95,18 +95,18 @@ public class MessageTests {
 		}
 	}
 	
-	@Test
-	public void NextPagingTest(){
-		Criteria cri = new Criteria();
-		service.pagingList(cri);
-		
-		cri.setpage(100);
-		System.out.println(cri);
-		List<MessageVO> list = service.nextPagingList(cri);
-		for(int i = 0 ; i < list.size(); i++){
-			System.out.println(list.get(i));
-		}
-	}
+//	@Test
+//	public void NextPagingTest(){
+//		Criteria cri = new Criteria();
+//		service.pagingList(cri);
+//		
+//		cri.setpage(100);
+//		System.out.println(cri);
+//		List<MessageVO> list = service.nextPagingList(cri);
+//		for(int i = 0 ; i < list.size(); i++){
+//			System.out.println(list.get(i));
+//		}
+//	}
 	
 	
 	
@@ -160,6 +160,27 @@ public class MessageTests {
 			System.out.println(list.get(i));
 		}
 	}
+	
+	@Test
+	public void getSearchListTest(){
+		Criteria cri = new Criteria();
+		cri.setSearch("test");
+		List<MessageVO> list = service.pagingList(cri);
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+//	@Test
+//	public void getSearchDAOListTest(){
+//		Criteria cri = new Criteria();
+//		cri.setSearch("t_s");
+//		List<MessageVO> list = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri);
+//		for(int i = 0 ; i < list.size(); i ++){
+//			System.out.println(list.get(i));
+//		}
+//	}
+	
 	
 	// ---------------- Mapper Test ----------------------
 	

@@ -32,76 +32,90 @@ $( document ).ready(function() {
     	 }
     }
      
-     
-//     if($('.check-mail-all')[0].checked == true){
-//    	 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
-//			 $('.checkbox-mail')[i].checked=true;
-//    	 }
-//     }
-//     else {
-//    		 for(var i = 0 ; i < $('.checkbox-mail').length ; i ++){
-//    			 $('.checkbox-mail')[i].checked=false;
-//    		 }
-//    	 }
-     
-//     $('.checkbox-mail').click();
+  
  });
     
-    $('.checkbox-mail').each(function() {
-        $(this).click(function() {
-            if($(this).closest('tr').hasClass("checked")){
-                $(this).closest('tr').removeClass('checked');
-                hiddenMailOptions();
-            } else {
-                $(this).closest('tr').addClass('checked');
-                hiddenMailOptions();
-            }
-        });
+//    $(document).on('click', '.checkbox-mail tr td', $('.checkbox-mail').each(function() {
+//        $(this).click(function() {
+//            if($(this).closest('tr').hasClass("checked")){
+//                $(this).closest('tr').removeClass('checked');
+//                hiddenMailOptions();
+//            } else {
+//                $(this).closest('tr').addClass('checked');
+//                hiddenMailOptions();
+//            }
+//        });
+//    })); 
+    
+    
+    
+    $(document).on('click', ('.mailbox-content tr td input'), function(e) {
+    		console.log(e);
+    		if($(this).closest('tr').hasClass("checked")){
+              $(this).closest('tr').removeClass('checked');
+              hiddenMailOptions();
+          } else {
+              $(this).closest('tr').addClass('checked');
+              hiddenMailOptions();
+          }
     });
     
-    $('.mailbox-content table tr td').not(":first-child").on('click', function(e) {
-        console.log(e.currentTarget.parentNode.children[1].innerText);
-    	e.stopPropagation();
-        e.preventDefault();
-    	var mno = e.currentTarget.parentNode.children[1].innerText;
-		$("<form action='view'><input type='hidden' name='mno' value='"+mno+"'></form>").appendTo("body").submit();
+
+//    $(document).not(":first-child").on('click', ('.pagelist tr td'),function(e) {
+//  $(document).on('click', '.mailbox-content table tr td:not(tdcheck)', function(e) {
+//	  e.preventDefault();
+//	console.log(e);
+//    console.log(e.currentTarget.parentNode.children[1].innerText);
+//	e.stopPropagation();
+//    e.preventDefault();
+//	var mno = e.currentTarget.parentNode.children[1].innerText;
+//	$("<form action='view'><input type='hidden' name='mno' value='"+mno+"'></form>").appendTo("body").submit();
+//});
+    
+    
+    $(document).on('click',('.mailbox-content table tr td'), function(e) {
+//    	console.log(e);
+   
+//        console.log(e.currentTarget.parentNode.children[1].innerText);
+//    	e.stopPropagation();
+//        e.preventDefault();
+        console.log($(this).context.id);
+        console.log($(this).context.parentNode.children[1].innerText);
+        if($(this).context.id == 'tdcheck'){
+        	console.log("Don't go viewPage");
+        }
+        else{
+//        	console.log("Go viewPage");
+			$("<form action='view'><input type='hidden' name='mno' value='"+$(this).context.parentNode.children[1].innerText+"'></form>").appendTo("body").submit();
+        	
+        }
+        
+        
+//    	var mno = e.currentTarget.parentNode.children[1].innerText;
+//		$("<form action='view'><input type='hidden' name='mno' value='"+mno+"'></form>").appendTo("body").submit();
     });
-
-
-//    $("#delete").on('click', function(e){
-//    	console.log(e);
-//    	console.log($(".mailbox-content table tr"));
-//    	
-//    	var arr = [];
-    	// 길이 - 1  시작은 1 부터 
-//    	for(var i = 1 ; i < $(".mailbox-content table tr").length - 1;  i++){
-//    		console.log($(".mailbox-content table tr")[i].childNodes[1].);
     
-//    	}
-//    	console.log($(".mailbox-content table tr")[i].childNodes[3].innerText);
-    	
+    
+    
+    
+    
+    
+    
+//    $('.mailbox-content table tr td').not(":first-child").on('click', function(e) {
+//    	console.log(e);
+//        console.log(e.currentTarget.parentNode.children[1].innerText);
+//    	e.stopPropagation();
+//        e.preventDefault();
+//    	var mno = e.currentTarget.parentNode.children[1].innerText;
+//		$("<form action='view'><input type='hidden' name='mno' value='"+mno+"'></form>").appendTo("body").submit();
 //    });
 
-//    $('.checker span').on('click', function(e){
-//    	var bool = $(e.currentTarget.attributes[0]).context.value;
-//    	var arr = [];
-//    	console.log(e);
-//    	console.log(e.currentTarget);
-    	
-    	//    	if(bool == "checked"){
-//    		arr.push($('.mailbox-content table tr td')[1].innerText);
-//    		console.log("true");
-//    	}	
-//    	else{
-//    		console.log(arr.indexOf(bool));
-//    	}
-//    	console.log(arr);
-//    	console.log($(e.currentTarget.attributes[0]).context.value);
-//    	console.log(bool.is("checked"));
-//    	console.log(($(e.currentTarget.attributes[0]).context.value).is("checked"));
-//    });
+
     
-    
+
+
+
+
     
 
 });

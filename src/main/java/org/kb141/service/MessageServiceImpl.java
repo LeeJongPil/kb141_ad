@@ -77,7 +77,6 @@ public class MessageServiceImpl implements MessageService {
 		try {
 			messageMapper.updateState(vo);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -104,7 +103,8 @@ public class MessageServiceImpl implements MessageService {
 		}
 		return list;
 	}
-
+	
+	
 	@Override
 	public List<MessageVO> pagingList(Criteria cri) {
 		List<MessageVO> list = null;
@@ -113,34 +113,47 @@ public class MessageServiceImpl implements MessageService {
 			System.out.println("service total : " + cri.getTotal());
 			System.out.println("service page : " + cri.getpage());
 			System.out.println("service pageNum : " + cri.getPerPageNum());
+			System.out.println("service search : " + cri.getSearch());
+			Page<MessageVO> result = null;
+			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
 			
+			if(cri.getSearch() == null){
 		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
-						PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
-						
-						Page<MessageVO> result = dao.findAll(page);
-						
-						 list = result.getContent();
+//				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+				result = dao.findAll(page);
+			}
+			else{
+		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
+//				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+				result = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri.getSearch(), cri.getSearch(), cri.getSearch(), page);
+			}
+			list = result.getContent();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return list;
 	}
 
-	@Override
-	public List<MessageVO> nextPagingList(Criteria cri) {
-		List<MessageVO> list = null;
-		try{
-		//																		   몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
-			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
-			
-			Page<MessageVO> result = dao.findAll(page);
-			
-			 list = result.getContent();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return list;
-	}
+	
+	
+//	@Override
+//	public List<MessageVO> nextPagingList(Criteria cri) {
+//		List<MessageVO> list = null;
+//		Page<MessageVO> result = null;
+//		PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+//		try{
+//			if(cri.getSearch() == null){
+//				result = dao.findAll(page);
+//			}
+//			else{
+//				result = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri.getSearch(), cri.getSearch(), cri.getSearch(), page);
+//			}
+//			 list = result.getContent();
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//		return list;
+//	}
 
 
 	// @Override

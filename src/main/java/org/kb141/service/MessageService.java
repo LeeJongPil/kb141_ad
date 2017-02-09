@@ -26,5 +26,5 @@ public interface MessageService {
 	
 	public List<MessageVO> pagingList(Criteria cri);
 	
-	public List<MessageVO> nextPagingList(Criteria cri);
+//	public List<MessageVO> nextPagingList(Criteria cri);
 }
