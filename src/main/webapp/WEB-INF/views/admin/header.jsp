@@ -5,39 +5,57 @@
 	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Title -->
-        <title>KB 141 | ADMIN PAGE</title>
-        
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
-        
-        <!-- Styles -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link href="../assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-        <link href="../assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
-        <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="../assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
-        	
-        <!-- Theme Styles -->
-        <link href="../assets/css/modern.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
-        
-        <script src="../assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
-        <script src="../assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+<head>
+<!-- Title -->
+<title>KB 141 | ADMIN PAGE</title>
+
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta charset="UTF-8">
+<meta name="description" content="Admin Dashboard Template" />
+<meta name="keywords" content="admin,dashboard" />
+<meta name="author" content="Steelcoders" />
+
+<!-- Styles -->
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600'
+	rel='stylesheet' type='text/css'>
+<link
+	href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css"
+	rel="stylesheet" />
+<link href="/assets/plugins/uniform/css/uniform.default.min.css"
+	rel="stylesheet" />
+<link href="/assets/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/fontawesome/css/font-awesome.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/line-icons/simple-line-icons.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/waves/waves.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="/assets/plugins/switchery/switchery.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/3d-bold-navigation/css/style.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/slidepushmenus/css/component.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="/assets/plugins/weather-icons-master/css/weather-icons.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="/assets/plugins/toastr/toastr.min.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- Theme Styles -->
+<link href="/assets/css/modern.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/themes/white.css" class="theme-color"
+	rel="stylesheet" type="text/css" />
+<link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+
+<script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+<script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
 </head>
 <body class="page-header-fixed">
 	<style>
@@ -64,29 +82,29 @@
 		</h3>
 		<div class="slimscroll">
 			<a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar2.png" alt=""><span>Sandra
+				src="/assets/images/avatar2.png" alt=""><span>Sandra
 					smith<small>Hi! How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar3.png" alt=""><span>Amily
-					Lee<small>Hi! How're you?</small>
+				src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi!
+						How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar4.png" alt=""><span>Christopher
+				src="/assets/images/avatar4.png" alt=""><span>Christopher
 					Palmer<small>Hi! How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar5.png" alt=""><span>Nick
-					Doe<small>Hi! How're you?</small>
+				src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi!
+						How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar2.png" alt=""><span>Sandra
+				src="/assets/images/avatar2.png" alt=""><span>Sandra
 					smith<small>Hi! How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar3.png" alt=""><span>Amily
-					Lee<small>Hi! How're you?</small>
+				src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi!
+						How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar4.png" alt=""><span>Christopher
+				src="/assets/images/avatar4.png" alt=""><span>Christopher
 					Palmer<small>Hi! How're you?</small>
 			</span></a> <a href="javascript:void(0);" class="showRight2"><img
-				src="../assets/images/avatar5.png" alt=""><span>Nick
-					Doe<small>Hi! How're you?</small>
+				src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi!
+						How're you?</small>
 			</span></a>
 		</div>
 	</nav>
@@ -100,7 +118,7 @@
 		<div class="slimscroll chat">
 			<div class="chat-item chat-item-left">
 				<div class="chat-image">
-					<img src="../assets/images/avatar2.png" alt="">
+					<img src="/assets/images/avatar2.png" alt="">
 				</div>
 				<div class="chat-message">Hi There!</div>
 			</div>
@@ -109,7 +127,7 @@
 			</div>
 			<div class="chat-item chat-item-left">
 				<div class="chat-image">
-					<img src="../assets/images/avatar2.png" alt="">
+					<img src="/assets/images/avatar2.png" alt="">
 				</div>
 				<div class="chat-message">Fine! do you like my project?</div>
 			</div>
@@ -119,7 +137,7 @@
 			</div>
 			<div class="chat-item chat-item-left">
 				<div class="chat-image">
-					<img src="../assets/images/avatar2.png" alt="">
+					<img src="/assets/images/avatar2.png" alt="">
 				</div>
 				<div class="chat-message">Thanks, I tried!</div>
 			</div>
@@ -136,7 +154,7 @@
 	<div class="menu-wrap">
 		<nav class="profile-menu">
 			<div class="profile">
-				<img src="../assets/images/avatar1.png" width="52" alt="David Green" /><span>난
+				<img src="/assets/images/avatar1.png" width="52" alt="David Green" /><span>난
 					관리자</span>
 			</div>
 			<div class="profile-menu-list">
@@ -295,7 +313,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online on"></div>
-													<img class="img-circle" src="../assets/images/avatar2.png"
+													<img class="img-circle" src="/assets/images/avatar2.png"
 														alt="">
 												</div>
 												<p class="msg-name">Sandra Smith</p>
@@ -305,7 +323,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online off"></div>
-													<img class="img-circle" src="../assets/images/avatar4.png"
+													<img class="img-circle" src="/assets/images/avatar4.png"
 														alt="">
 												</div>
 												<p class="msg-name">Amily Lee</p>
@@ -315,7 +333,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online off"></div>
-													<img class="img-circle" src="../assets/images/avatar3.png"
+													<img class="img-circle" src="/assets/images/avatar3.png"
 														alt="">
 												</div>
 												<p class="msg-name">Christopher Palmer</p>
@@ -325,7 +343,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online on"></div>
-													<img class="img-circle" src="../assets/images/avatar5.png"
+													<img class="img-circle" src="/assets/images/avatar5.png"
 														alt="">
 												</div>
 												<p class="msg-name">Nick Doe</p>
@@ -335,7 +353,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online on"></div>
-													<img class="img-circle" src="../assets/images/avatar2.png"
+													<img class="img-circle" src="/assets/images/avatar2.png"
 														alt="">
 												</div>
 												<p class="msg-name">Sandra Smith</p>
@@ -345,7 +363,7 @@
 										<li><a href="#">
 												<div class="msg-img">
 													<div class="online off"></div>
-													<img class="img-circle" src="../assets/images/avatar4.png"
+													<img class="img-circle" src="/assets/images/avatar4.png"
 														alt="">
 												</div>
 												<p class="msg-name">Amily Lee</p>
@@ -398,8 +416,8 @@
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"> <span class="user-name"><sec:authentication
 										property="principal.username" /><i class="fa fa-angle-down"></i></span>
-								<img class="img-circle avatar"
-								src="../assets/images/avatar1.png" width="40" height="40" alt="">
+								<img class="img-circle avatar" src="/assets/images/avatar1.png"
+								width="40" height="40" alt="">
 						</a>
 							<ul class="dropdown-menu dropdown-list" role="menu">
 								<li role="presentation"><a href="profile"><i
@@ -419,11 +437,11 @@
 						<li>
 							<form action="/logout" method="post"
 								class="log-out waves-effect waves-button waves-classic">
-								<span><i class="fa fa-sign-out"></i><input
-									type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> <input type="submit"
-									class="logoutBtn" value="Log out"></span>
-							</form></li>
+								<span><i class="fa fa-sign-out"></i><input type="hidden"
+									name="${_csrf.parameterName}" value="${_csrf.token}" /> <input
+									type="submit" class="logoutBtn" value="Log out"></span>
+							</form>
+						</li>
 						<li>
 							<!--   <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
                                         <i class="fa fa-comments"></i>
@@ -442,11 +460,11 @@
 				<div class="sidebar-profile">
 					<a href="javascript:void(0);" id="profile-menu-link">
 						<div class="sidebar-profile-image">
-							<img src="../assets/images/avatar1.png"
+							<img src="/assets/images/avatar1.png"
 								class="img-circle img-responsive" alt="">
 						</div>
 						<div class="sidebar-profile-details">
-							<span><sec:authentication property="principal.username"/><br></span>
+							<span><sec:authentication property="principal.username" /><br></span>
 						</div>
 					</a>
 				</div>
@@ -481,15 +499,19 @@
 						<li><a href="/admin/charts-chartjs">통합 통계</a></li>
 						<li><a href="/admin/charts-chartjs2">개별 통계</a></li>
 					</ul></li>
-				<li id="mapActive"><a href="/device/map"
+				<li class="droplink active"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
-						<p>기기관리</p></a></li>
+						<p>기기관리</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="/admin/device/map">위치 확인</a></li>
+						<li><a href="/admin/device/register">기기 등록</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- Page Sidebar Inner -->
 	</div>
 	<script>
-	var url = document.location.href;
-	console.log(url);
+		var url = document.location.href;
+		console.log(url);
 	</script>

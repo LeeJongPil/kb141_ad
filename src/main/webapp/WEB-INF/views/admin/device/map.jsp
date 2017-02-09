@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -46,14 +46,16 @@ font-size:16px;
 
 
 </style>
-<form role='form' method='post'><input type='hidden' class='inputDno' name='dno'></button></form>
+<form role='form' method='post'><input type='hidden' class='inputDno' name='dno'></button>
+<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token }" /></form>
 <div class="page-inner full-height">
 <div class="address" title="test" data-ad=""></div>
 	<div id="map-canvas"></div>
 
 	</body>
 
-	<%@include file="footer.jsp"%>
+	<%@include file="../footer.jsp"%>
 	<script>
 	
 	var formObj = $("form[role='form']");
@@ -65,7 +67,7 @@ font-size:16px;
 		var check = confirm("정말로 삭제하시겠습니까?");
 		
 		inputObj.attr("value",dno);
-		formObj.attr("action","/device/remove");
+		formObj.attr("action","/admin/device/remove");
 		
 		if(check)
 			formObj.submit();
