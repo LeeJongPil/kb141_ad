@@ -122,13 +122,13 @@ public class AdController {
 	 * DEVICE CRUD START
 	 */
 
-	@GetMapping("device/register")
+	@GetMapping("admin/device/register")
 	public void registerDeviceGET(Model model) throws Exception {
 		logger.info("GET DEVICE Register....");
 		model.addAttribute("lastDno",deviceService.getLastDno());
 	}
 
-	@PostMapping("device/register")
+	@PostMapping("admin/device/register")
 	public String registerDevicePOST(DeviceVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST DEVICE Register....");
 		logger.info("POST: " + vo);
@@ -138,7 +138,7 @@ public class AdController {
 		return "redirect:map";
 	}
 
-	@GetMapping("/viewDevice")
+	@GetMapping("admin/device/view")
 	public void viewDevice(@RequestParam("dno") Integer dno, Model model) throws Exception {
 		logger.info("GET DEVICE View....");
 		logger.info("dno: " + dno);
@@ -147,7 +147,7 @@ public class AdController {
 		logger.info("result: " + deviceService.view(dno));
 	}
 
-	@GetMapping("device/map")
+	@GetMapping("admin/device/map")
 	public void listDevice(Model model) throws Exception {
 		logger.info("GET DEVICE List....");
 		model.addAttribute("device", deviceService.getList());
@@ -156,7 +156,7 @@ public class AdController {
 
 	
 	@ResponseBody
-	@GetMapping("device/adFromDevice/{dno}")
+	@GetMapping("admin/device/adFromDevice/{dno}")
 	public ResponseEntity<List<AdDeviceVO>> adFromDevice(@PathVariable("dno") Integer dno) {
 		logger.info("GET ADLIST");
 		ResponseEntity<List<AdDeviceVO>> entity = null;
@@ -170,7 +170,7 @@ public class AdController {
 	}
 
 	@ResponseBody
-	@GetMapping("/infoDevice/{dno}")
+	@GetMapping("admin/device/info/{dno}")
 	public ResponseEntity<DeviceVO> infoDevice(@PathVariable("dno") Integer dno) {
 		logger.info("GET ADLIST");
 		ResponseEntity<DeviceVO> entity = null;
@@ -183,7 +183,7 @@ public class AdController {
 		return entity;
 	}
 
-	@PostMapping("device/remove")
+	@PostMapping("admin/device/remove")
 	public String removeDevice(@RequestParam("dno") Integer dno, RedirectAttributes rttr) throws Exception {
 		logger.info("GET DEVICE Remove....");
 		logger.info("dno: " + dno);
@@ -193,20 +193,20 @@ public class AdController {
 		return "redirect:map";
 	}
 
-	@GetMapping("/modifyDevice")
-	public void modifyDeviceGET(@RequestParam("dno") Integer dno, Model model) throws Exception {
-		logger.info("GET DEVICE Modify....");
-		model.addAttribute(deviceService.view(dno));
-	}
-
-	@PostMapping("/modifyDevice")
-	public String modifyDevicePOST(DeviceVO vo, RedirectAttributes rttr) throws Exception {
-		logger.info("POST DEVICE Modify....");
-		deviceService.modify(vo);
-
-		rttr.addFlashAttribute("msg", "success");
-		return "redirect:/list";
-	}
+//	@GetMapping("/modifyDevice")
+//	public void modifyDeviceGET(@RequestParam("dno") Integer dno, Model model) throws Exception {
+//		logger.info("GET DEVICE Modify....");
+//		model.addAttribute(deviceService.view(dno));
+//	}
+//
+//	@PostMapping("/modifyDevice")
+//	public String modifyDevicePOST(DeviceVO vo, RedirectAttributes rttr) throws Exception {
+//		logger.info("POST DEVICE Modify....");
+//		deviceService.modify(vo);
+//
+//		rttr.addFlashAttribute("msg", "success");
+//		return "redirect:/list";
+//	}
 	////////////////////////////////////////////////////////////////////////////////////
 
 	/*

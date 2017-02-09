@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -107,6 +107,8 @@ margin-top: 30px;
 							<div class=" col-sm-5 center"> 
 							<button type="submit" class="submitBtn btn btn-success btn-block m-t-xs">Submit</button>
 							</div>
+							<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token }" />
 						</form>
 					</div>
 				</div>
@@ -115,7 +117,7 @@ margin-top: 30px;
 		<!-- Row -->
 	</div>
 	<!-- Main Wrapper -->
-	<%@include file="footer.jsp"%>
+	<%@include file="../footer.jsp"%>
 	<script type="text/javascript">
 		
 	var pLat = $('#lat')[0].value;
