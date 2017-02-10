@@ -42,7 +42,7 @@ public class PersonController {
 	 */
 	
 	@GetMapping("/login")
-	public void login(){}
+	public void login(){}		// login 페이지로 간다. 
 	
 	
 	@GetMapping("/register")

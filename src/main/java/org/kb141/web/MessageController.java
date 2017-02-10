@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+//@RequestMapping(value={"/client/message", "/admin/message"})
 @RequestMapping("/message")
 public class MessageController {
 	
@@ -33,22 +35,32 @@ public class MessageController {
 	
 	
 	@GetMapping("/inbox")
-	public void inboxMain(@RequestParam(value="keyword", defaultValue="") String keyword,   Model model){
+	public void inboxMain(@RequestParam(value="keyword", defaultValue="") String keyword,
+			Model model, @CookieValue("username") String username){
+		logger.info("Message Inbox Comming");
+		logger.info("user name : " + username);
 		logger.info(keyword);
 		logger.info("view inbox main call...");
+		
 		cri.setpage(0);	// F5를 했을경우 다시 첫페이지로 가기 위해서 해놔야 한다. 리얼 트루
 		cri.setSearch(keyword);
+		cri.setMto(username);
 		List<MessageVO>msgList = service.pagingList(cri);
 		model.addAttribute("list" , msgList);
 		model.addAttribute("total", cri.getTotal());
+		
+//		return "/message/inbox";
 	}
 	
 	
 	@PostMapping("paging")
 	@ResponseBody
-	public List<MessageVO> paging(int page){
+	public List<MessageVO> paging(int page, @CookieValue("username") String username){
+		System.out.println("paging Start .....");
 		System.out.println(page);
 		cri.setpage(page);
+		logger.info(username);
+		cri.setMto(username);
 //		List<MessageVO> list = service.nextPagingList(cri);
 		List<MessageVO> list = service.pagingList(cri);
 		System.out.println(list);

@@ -81,7 +81,7 @@
 						<form action="${loginUrl}" method="post" class="m-t-md">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Id"
-									id="username" name="username" required>
+									id="username" name="username"  required>
 							</div>
 							<div class="form-group">
 								<input type="password" class="form-control"
@@ -141,6 +141,9 @@
 		if (result == "success") {
 			alert("회원가입이 완료되었습니다.");
 		}
+		
+		
+		
 	</script>
 </body>
 </html>

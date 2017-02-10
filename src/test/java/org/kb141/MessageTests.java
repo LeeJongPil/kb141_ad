@@ -84,9 +84,9 @@ public class MessageTests {
 	// ---------------- service --------------------------------------------------------------------------------------------------
 	
 	@Test
-	public void pagingTest() {
+	public void pagingTest() throws Exception {
 		Criteria cri = new Criteria();
-
+		cri.setMto("lsy");
 		List<MessageVO> list = service.pagingList(cri);
 		System.out.println(cri);
 		

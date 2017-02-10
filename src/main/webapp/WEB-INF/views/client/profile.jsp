@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
         <style>
         .col-centered{
         float: none;
@@ -24,7 +26,7 @@
                 
                            <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <div class="panel-title col-sm-12 col-lg-6">광고주 님</div>       
+                                    <div class="panel-title col-sm-12 col-lg-6"><sec:authentication property="principal.username"/> 님</div>       
                                     <div class="row col-righted">
                              	<div class="col-sm-12 col-lg-6">
 				                  
