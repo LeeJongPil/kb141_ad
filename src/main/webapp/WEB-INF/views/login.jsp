@@ -78,8 +78,7 @@
 						<a href="#" class="logo-name text-lg text-center">Modern</a>
 						<p class="text-center m-t-md">Please login into your account.</p>
 						<c:url value="/login" var="loginUrl" />
-						
-						<form action="${loginUrl}" method="post"  class="m-t-md" >
+						<form action="${loginUrl}" method="post" class="m-t-md">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Id"
 									id="username" name="username"  required>
@@ -96,7 +95,8 @@
 							</p>
 							<sec:csrfInput />
 							<c:if test="${param.error != null}">
-								<p class="display-block text-center m-t-md text-sm checkLogin">아이디나 비밀번호를 확인해주세요.</p>
+								<p class="display-block text-center m-t-md text-sm checkLogin">아이디나
+									비밀번호를 확인해주세요.</p>
 							</c:if>
 							<c:if test="${param.logout != null}">
 								<p class="display-block text-center m-t-md text-sm">로그아웃

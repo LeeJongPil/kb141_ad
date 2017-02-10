@@ -105,7 +105,7 @@ public class MessageServiceImpl implements MessageService {
 	}
 	
 	
-	@Override
+	@Override  
 	public List<MessageVO> pagingList(Criteria cri) {
 		List<MessageVO> list = null;
 		try{
@@ -114,13 +114,14 @@ public class MessageServiceImpl implements MessageService {
 			System.out.println("service page : " + cri.getpage());
 			System.out.println("service pageNum : " + cri.getPerPageNum());
 			System.out.println("service search : " + cri.getSearch());
+			System.out.println("service mto : " + cri.getMto());
 			Page<MessageVO> result = null;
 			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
 			
 			if(cri.getSearch() == null){
 		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
 //				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
-				result = dao.findAll(page);
+				result = dao.findByMto(cri.getMto(), page); 
 			}
 			else{
 		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"

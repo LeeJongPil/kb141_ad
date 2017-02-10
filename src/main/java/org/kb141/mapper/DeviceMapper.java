@@ -11,8 +11,8 @@ public interface DeviceMapper {
 	@Select("select dev.state, dev.city ,count(*)logcnt from tbl_log log join tbl_device dev on log.dno = dev.dno where log.curr_time >= now() - interval 1 month group by log.dno order by logcnt desc")
 	public List<DeviceListVO> devList() throws Exception;
 	
-	@Select("select dev.state, dev.city ,count(*)logcnt from (select lg.adno, lg.curr_time, lg.dno from ( select * from tbl_ad where cid = 'lsy') an join tbl_log lg on an.adno = lg.adno) log join tbl_device dev on log.dno = dev.dno where log.curr_time >= now() - interval 1 month group by log.dno order by logcnt desc")
-	public List<DeviceListVO> clientDevList() throws Exception;
+	@Select("select dev.state, dev.city ,count(*)logcnt from (select lg.adno, lg.curr_time, lg.dno from ( select * from tbl_ad where cid = #{cid}) an join tbl_log lg on an.adno = lg.adno) log join tbl_device dev on log.dno = dev.dno where log.curr_time >= now() - interval 1 month group by log.dno order by logcnt desc")
+	public List<DeviceListVO> clientDevList(String cid) throws Exception;
 	
 	
 	

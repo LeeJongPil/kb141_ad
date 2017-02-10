@@ -12,11 +12,11 @@ import org.springframework.security.web.authentication.rememberme.TokenBasedReme
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	public static final String REMEMBER_ME_KEY = "REMEMBER_ME";
-	
+	// public static final String REMEMBER_ME_KEY = "REMEMBER_ME";
+
 	@Autowired
 	UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	CustomSuccessHandler customSuccessHandler;
 
@@ -28,28 +28,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// 1.2. http 설정
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
-		.antMatchers("/admin/**").hasRole("ADMIN")
-		.antMatchers("/client/**").hasAnyRole("CLIENT", "ADMIN");
+		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/client/**")
+				.hasAnyRole("CLIENT", "ADMIN");
 		// .anyRequest().authenticated()
 
 		http.formLogin().loginPage("/login").successHandler(customSuccessHandler).permitAll();
-		
-		
-		http.rememberMe().key("REMEMBER_KEY").rememberMeParameter("_spring_security_remember_me").rememberMeCookieName("REMEMBER").tokenValiditySeconds(60);
 
-		http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies("JSESSIONID");
+		http.rememberMe().key("REMEMBER_KEY").rememberMeParameter("_spring_security_remember_me")
+				.rememberMeCookieName("REMEMBER").tokenValiditySeconds(60);
+
+		String[] cookies = { "JSESSIONID", "username", "REMEMBER" };
+		http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies(cookies);
 	}
 
-	
-//	@Bean
-//	public TokenBasedRememberMeServices tokenBasedRememberMeServices(){
-//		TokenBasedRememberMeServices tokenBasedRememberMeServices =
-//				new TokenBasedRememberMeServices(REMEMBER_ME_KEY, userDetailsService);
-//		tokenBasedRememberMeServices.setCookieName("REMEMBER");
-//		return tokenBasedRememberMeServices;
-//	}
-	
+	// @Bean
+	// public TokenBasedRememberMeServices tokenBasedRememberMeServices(){
+	// TokenBasedRememberMeServices tokenBasedRememberMeServices =
+	// new TokenBasedRememberMeServices(REMEMBER_ME_KEY, userDetailsService);
+	// tokenBasedRememberMeServices.setCookieName("REMEMBER");
+	// return tokenBasedRememberMeServices;
+	// }
+
 	// // 1.1. 인메모리 설정
 	// @Autowired
 	// public void configureGlobal(AuthenticationManagerBuilder auth) throws

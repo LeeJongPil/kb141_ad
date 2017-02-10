@@ -17,27 +17,27 @@
         
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-        <link href="/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
-        <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
-        <link href="/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
-        <link href="/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+        <link href="../assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+        <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
+        <link href="../assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
         	
         <!-- Theme Styles -->
-        <link href="/assets/css/modern.css" rel="stylesheet" type="text/css"/>
-        <link href="/assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
-        <link href="/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/modern.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
-        <script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
-        <script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+        <script src="../assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+        <script src="../assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -354,7 +354,7 @@
                                     <ul class="dropdown-menu dropdown-list" role="menu">
                                         <li role="presentation"><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
                                         <li role="presentation"><a href="calendar"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                        <li role="presentation"><a href="http://localhost:8081/message/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
+                                        <li role="presentation"><a href="/message/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a href="lock-screen"><i class="fa fa-lock"></i>Lock screen</a></li>
                                         <li role="presentation"><a href="login"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
@@ -399,7 +399,7 @@
 
                         <li id="tabProfile"><a href="/client/profile" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
 <!--                         <li id="tabMessage"><a href="/message/inbox" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p> -->
-                        <li id="tabMessage"><a  class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p>
+                        <li id="tabMessage"><a  href= "/message/inbox" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p>
                 
                 
                         <!-- <span class="arrow"></span> --></a>

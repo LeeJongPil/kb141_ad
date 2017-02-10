@@ -4,7 +4,6 @@
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-    
             <div class="page-inner">
                 <div class="page-title">
                     <h3>Dashboard</h3>
@@ -16,7 +15,7 @@
                     </div>
                 </div>
                 <div id="main-wrapper">
-                ${_csrf.parameterName}"
+               
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="panel info-box panel-white">

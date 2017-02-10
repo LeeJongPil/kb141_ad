@@ -13,7 +13,7 @@ public interface MessageMapper {
 
 	@Select("select round((lm.lm - tlm.tlm) / tlm.tlm * 100) from"
 			+ "(select count(*)tlm from tbl_message where regdate >= now() - interval 2 month and regdate < now() - interval 1 month) tlm,"
-			+ "(select count(*)lm from tbl_message where regdate >= now() - interval 1 month) lm")
+			+ "(select count(*)lm from tbl_message where regdate >= (now() - interval 1 month) and month(regdate) < month(now())) lm")
 	public Integer countMsg() throws Exception;
 	
 

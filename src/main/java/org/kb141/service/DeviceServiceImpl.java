@@ -125,14 +125,14 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	@Override
-	public List<DeviceListVO> getClientDevList() {
+	public List<DeviceListVO> getClientDevList(String cid) {
 		System.out.println("getClientDevList Start....................");
 		List<DeviceListVO> result = null;
 		
 		try {
 			int total = 0;
 			System.out.println("total Start .......................");
-			result = deviceMapper.clientDevList();
+			result = deviceMapper.clientDevList(cid);
 			// 최고 8개 만 따질것이다.
 			System.out.println("total plus Start....................");
 			for(int i = 0; i < ((result.size() <  8) ? result.size() : 8); i++) { // 총 logcnt 더한값 total 저장
