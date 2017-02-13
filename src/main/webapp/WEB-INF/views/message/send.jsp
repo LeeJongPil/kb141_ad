@@ -51,7 +51,10 @@
                                                 <input type="text"  class="form-control"  id="subject"  name ="mtitle">
                                             </div>
                                         </div>
-                                        
+                                             <div class="form-group">
+                <div class="btn btn-default btn-file">
+                  <i class="fa fa-paperclip"></i> Attachment
+                  <input type="file" name="attachment">
                                 </div>
                                 <div class="compose-message">
                                     <div class="summernote">
