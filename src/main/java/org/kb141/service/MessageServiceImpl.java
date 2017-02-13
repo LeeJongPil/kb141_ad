@@ -3,9 +3,14 @@ package org.kb141.service;
 import java.util.List;
 
 import org.kb141.dao.MessageDAO;
+import org.kb141.domain.Criteria;
 import org.kb141.domain.MessageVO;
 import org.kb141.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,7 +40,7 @@ public class MessageServiceImpl implements MessageService {
 			e.printStackTrace();
 		}
 		return vo;
-	}
+	} 
 
 	@Override
 	public void modify(MessageVO vo) {
@@ -72,7 +77,6 @@ public class MessageServiceImpl implements MessageService {
 		try {
 			messageMapper.updateState(vo);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -99,6 +103,59 @@ public class MessageServiceImpl implements MessageService {
 		}
 		return list;
 	}
+	
+	
+	@Override  
+	public List<MessageVO> pagingList(Criteria cri) {
+		List<MessageVO> list = null;
+		try{
+			cri.setTotal(messageMapper.count());
+			System.out.println("service total : " + cri.getTotal());
+			System.out.println("service page : " + cri.getpage());
+			System.out.println("service pageNum : " + cri.getPerPageNum());
+			System.out.println("service search : " + cri.getSearch());
+			System.out.println("service mto : " + cri.getMto());
+			Page<MessageVO> result = null;
+			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+			
+			if(cri.getSearch() == null){
+		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
+//				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+				result = dao.findByMto(cri.getMto(), page); 
+			}
+			else{
+		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
+//				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+				result = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri.getSearch(), cri.getSearch(), cri.getSearch(), page);
+			}
+			list = result.getContent();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	
+	
+//	@Override
+//	public List<MessageVO> nextPagingList(Criteria cri) {
+//		List<MessageVO> list = null;
+//		Page<MessageVO> result = null;
+//		PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
+//		try{
+//			if(cri.getSearch() == null){
+//				result = dao.findAll(page);
+//			}
+//			else{
+//				result = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri.getSearch(), cri.getSearch(), cri.getSearch(), page);
+//			}
+//			 list = result.getContent();
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//		return list;
+//	}
+
 
 	// @Override
 	// public List<MessageVO> getList(Integer pageNum) {

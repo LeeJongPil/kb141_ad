@@ -1,6 +1,9 @@
 package org.kb141.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Select;
+import org.kb141.domain.LogVO;
 import org.kb141.util.ChartAttributes;
 
 public interface LogMapper {
@@ -21,5 +24,8 @@ public interface LogMapper {
 	
 	@Select("select	count(if(date_format(curr_time, '%Y%m%d') = curdate() -1, 1, null))day1, count(if(date_format(curr_time, '%Y%m%d') = curdate() -2, 1, null))day2, count(if(date_format(curr_time, '%Y%m%d') = curdate() -3, 1, null))day3, count(if(date_format(curr_time, '%Y%m%d') = curdate() -4, 1, null))day4, count(if(date_format(curr_time, '%Y%m%d') = curdate() -5, 1, null))day5, count(if(date_format(curr_time, '%Y%m%d') = curdate() -6, 1, null))day6, count(if(date_format(curr_time, '%Y%m%d') = curdate() -7, 1, null))day7 from tbl_log")
 	public ChartAttributes getDateView() throws Exception;
+	
+	@Select("select * from tbl_log where adno in ( select adno from tbl_ad where cid = #{cid})")
+	public List<LogVO> getClientList(String cid) throws Exception;
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kb141.dao.MessageDAO;
+import org.kb141.domain.Criteria;
 import org.kb141.domain.MessageVO;
 import org.kb141.mapper.MessageMapper;
 import org.kb141.service.MessageService;
@@ -67,18 +68,47 @@ public class MessageTests {
 	
 	@Test
 	public void mnoListTest(){
+		// 0부터 1페이지  순으로 내림차순 정렬이고 기준은 mno 를 기준으로 한다. 
+		PageRequest page = new PageRequest(0, 10, new Sort(Direction.DESC, "mno"));
 		
-		PageRequest page = new PageRequest(2, 10, new Sort(Direction.DESC, "mno"));
-		
-		Page<MessageVO> result = dao.findAll(page);
+		Page<MessageVO> result = dao.findAll(page); 
 		
 		List<MessageVO> list = result.getContent();
 		
-		System.out.println(list);
+		for(int i = 0 ; i < list.size(); i ++) {
+			System.out.println(list.get(i));
+		}
 
 	}
 	
-	// ---------------- service ----------------------
+	// ---------------- service --------------------------------------------------------------------------------------------------
+	
+	@Test
+	public void pagingTest() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setMto("lsy");
+		List<MessageVO> list = service.pagingList(cri);
+		System.out.println(cri);
+		
+		for(int i = 0 ; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+	}
+	
+//	@Test
+//	public void NextPagingTest(){
+//		Criteria cri = new Criteria();
+//		service.pagingList(cri);
+//		
+//		cri.setpage(100);
+//		System.out.println(cri);
+//		List<MessageVO> list = service.nextPagingList(cri);
+//		for(int i = 0 ; i < list.size(); i++){
+//			System.out.println(list.get(i));
+//		}
+//	}
+	
+	
 	
 	@Test
 	public void registerTest(){
@@ -125,11 +155,32 @@ public class MessageTests {
 	
 	@Test
 	public void getMsgLIstTest() {
-		List<MessageVO> list = service.getMsgList("client0");
+		List<MessageVO> list = service.getMsgList("lsy");
 		for(int i = 0 ; i < list.size(); i++){
 			System.out.println(list.get(i));
 		}
 	}
+	
+	@Test
+	public void getSearchListTest(){
+		Criteria cri = new Criteria();
+		cri.setSearch("test");
+		List<MessageVO> list = service.pagingList(cri);
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+	}
+	
+//	@Test
+//	public void getSearchDAOListTest(){
+//		Criteria cri = new Criteria();
+//		cri.setSearch("t_s");
+//		List<MessageVO> list = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri);
+//		for(int i = 0 ; i < list.size(); i ++){
+//			System.out.println(list.get(i));
+//		}
+//	}
+	
 	
 	// ---------------- Mapper Test ----------------------
 	
@@ -140,12 +191,15 @@ public class MessageTests {
 	
 	@Test
 	public void MsgList() throws Exception{
-		List<MessageVO> list = messageMapper.msgList("client0");
+		List<MessageVO> list = messageMapper.msgList("test");
 		for(int i = 0 ; i <list.size(); i++){
 			System.out.println(list.get(i));
 		}
-		
-		
+	}
+	
+	@Test
+	public void countTest() throws Exception{
+		System.out.println(messageMapper.count());
 	}
 
 }

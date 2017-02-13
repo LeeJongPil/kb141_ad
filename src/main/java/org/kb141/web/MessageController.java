@@ -1,21 +1,25 @@
 package org.kb141.web;
 
+
 import java.util.List;
 
+import org.kb141.domain.Criteria;
 import org.kb141.domain.MessageVO;
 import org.kb141.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+//@RequestMapping(value={"/client/message", "/admin/message"})
 @RequestMapping("/message")
 public class MessageController {
 	
@@ -23,22 +27,54 @@ public class MessageController {
 	
 	@Autowired
 	private MessageService service;
+
+	
+	Criteria cri = new Criteria();
+	
+//	String str = "<tr class= result[i].checked == 0 ? 'unread' : 'read'>"	;
 	
 	
 	@GetMapping("/inbox")
-	public void inboxMain(Model model){
+	public void inboxMain(@RequestParam(value="keyword", defaultValue="") String keyword,
+			Model model, @CookieValue("username") String username){
+		logger.info("Message Inbox Comming");
+		logger.info("user name : " + username);
+		logger.info(keyword);
 		logger.info("view inbox main call...");
-		List<MessageVO>msgList = service.getList();
-		model.addAttribute("list" , msgList);
 		
+		cri.setpage(0);	// F5를 했을경우 다시 첫페이지로 가기 위해서 해놔야 한다. 리얼 트루
+		cri.setSearch(keyword);
+		cri.setMto(username);
+		List<MessageVO>msgList = service.pagingList(cri);
+		model.addAttribute("list" , msgList);
+		model.addAttribute("total", cri.getTotal());
+		
+//		return "/message/inbox";
 	}
+	
+	
+	@PostMapping("paging")
+	@ResponseBody
+	public List<MessageVO> paging(int page, @CookieValue("username") String username){
+		System.out.println("paging Start .....");
+		System.out.println(page);
+		cri.setpage(page);
+		logger.info(username);
+		cri.setMto(username);
+//		List<MessageVO> list = service.nextPagingList(cri);
+		List<MessageVO> list = service.pagingList(cri);
+		System.out.println(list);
+		return list;
+	}
+	
+	
+	
 	
 	@GetMapping("/view")
 	public void msgView(Integer mno , Model model){
 		logger.info("view called....");
 		logger.info("mno" + mno);
 		model.addAttribute("view", service.view(mno));
-		
 	}
 	
 	@GetMapping("/send")
@@ -46,24 +82,28 @@ public class MessageController {
 		logger.info("sendmsg page called.....");
 		logger.info(mfrom);
 		model.addAttribute("to" , mfrom);
-		
 	}
 	
 	@PostMapping(value = "/send")
-	public void sendMsg(MessageVO vo , Model model){
+	public String sendMsg(MessageVO vo , Model model){
 		logger.info("send msg...");
 		logger.info("vo : " + vo); 
-		
-		
+		service.register(vo);
+		return "redirect:inbox";
 	}
+	
 	 // trach clean
 	@PostMapping("/delete")
-	public void deleteMsg(Integer mno){
+	public String deleteMsg(String mno){
 		logger.info("del called.....");
 		logger.info("mno :" + mno);
-		service.remove(mno);
-		
+		String[] arr = mno.split(",");
+		for(int i = 0 ; i < arr.length; i ++){
+				service.remove(Integer.parseInt(arr[i]));
+		}
+		return "redirect:inbox";
 	}
+	
 	 // change trach  or read
 	@PostMapping("/state")
 	public String updateState(MessageVO vo){

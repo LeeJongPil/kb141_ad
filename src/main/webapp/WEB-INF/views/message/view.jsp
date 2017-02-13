@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<%@ include file="header.jsp"%>
             <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -80,10 +80,10 @@
                 </div><!-- Main Wrapper -->
                
 
-<%@include file="../footer.jsp" %>
+<%@include file="footer.jsp" %>
 <script type="text/javascript">
 $(document).ready(function() {
-	
+			$("#messageActive").attr("class","active");
 			//view page open and immediately update state at the same time
 
 			$.ajax({

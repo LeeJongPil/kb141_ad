@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
+
+
 <style>
 .col-centered{
    float: none;
@@ -121,8 +123,7 @@
                                             </div>
                                             <div class="panel-body col-centered">
                            					   <video width="480" height="360" controls>
-												  <source src="assets/images/ad/${adVO.ad_video }.mp4" type="video/mp4">
-												  <source src="assets/images/ad/Anger_School violence.ogg" type="video/ogg">
+												  <source src="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_video }" type="video/mp4">
   											   </video>
                                         </div>
                                     </li>
@@ -138,7 +139,7 @@
                                                 <h4 class="panel-title"><span class="icon-picture" aria-hidden="ture"></span> 포스터</h4>
                                             </div>
                                             <div class="panel-body col-centered">
-                                              <img src ="assets/images/ad/${adVO.ad_image}.png" style="height: 400px">
+                                              <img src ="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_image }" style="height: 400px ;width :400px;">
                                        		 </div>
                                        		 </div>
                                     </li>
@@ -150,18 +151,29 @@
                              <div class="row col-righted">
                              	<div class="col-sm-12 col-lg-6"></div>
                              	<div class="col-sm-12 col-lg-6 ">
-                             		<a href="" type="button" class="btn btn-warning btn-rounded">수정</a>
-                             		<a href="" type="button" class="btn btn-primary btn-rounded">삭제</a>
+                             		<a href="profile2Modify.html?adno=${adVO.adno }" type="button" class="btn btn-warning btn-rounded">수정</a>
+                             		<button type="button" class="btn btn-primary btn-rounded" id="btnRemove">삭제</button>
                              	</div>
                              </div>
                         </div>
                     </div>
+                    <form method="post" id="inputForm">
+                    	<input type="hidden" name="adno" value="${adVO.adno }">
+                    	<input type="hidden" name="ad_title" value="${adVO.ad_title }">
+                    	<input type="hidden" name="category" value="${adVO.category }">
+                    	<input type="hidden" name="ad_start_duration" value="${adVO.start_duration}">
+                    	<input type="hidden" name="ad_end_duration" value="${adVO.end_duration}">
+                    	<input type="hidden" name="ad_title" value="${adVO.ad_content }">
+                    	<input type="hidden" name="ad_image" value="${adVO.ad_image }">
+                    	<input type="hidden" name="ad_video" value="${adVO.ad_video }">
+                    	
+                    </form>
     			</body>
         <!-- Javascripts -->
     	<%@include file="footer.jsp"%>
-      	<script src="assets/js/pages/profile.js"></script>
+      	<script src="/assets/js/pages/profile.js"></script>
         <script>
-  
+       
  		var map;
  		
 		function initMap() {
@@ -205,16 +217,25 @@
  				title : markerTitle,
  			});
  		}
-
- 		
- 		
- 		$(document).ready(function(){
-			
-         $("body").attr("class","page-header-fixed page-sidebar-fixed");
-         $("main").attr("class","page-content content-wrap full-height");
- 		
-		});
-        </script>
+ 		$("#profileActive").attr("class","active");
+ 		$("#btnRemove").on("click", function(event) {
+	       	 console.log(event);
+	            if (confirm("정말삭제하시겠습니까?") == true) {
+	
+	                $("#inputForm").attr("action", "profile2Remove").submit();
+	            } else {
+	                return;
+	            }
+        	});
+		</script>
        	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
+        <script>
         
+ 		$(document).ready(function(){
+ 			 
+ 	         $("body").attr("class","page-header-fixed page-sidebar-fixed");
+ 	         $("main").attr("class","page-content content-wrap full-height");
+ 	            
+ 	            });
+        </script>
 </html>

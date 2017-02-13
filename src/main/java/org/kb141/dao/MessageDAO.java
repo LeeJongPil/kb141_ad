@@ -5,20 +5,26 @@ import java.util.List;
 
 import org.kb141.domain.MessageVO;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.stereotype.Repository;
 
 public interface MessageDAO extends PagingAndSortingRepository<MessageVO, Integer> {
 		
-	List<MessageVO> findAll();
-//	
+	public List<MessageVO> findAll();
+	
+	public Page<MessageVO> findByMcontentContainingOrMtitleContainingOrMfromContaining(String search1, String search2, String search3, Pageable page);
+	// 검색일때는 파라미터3개를 각각 다 받아와야한다. 검색 조건에 페이징 까지 결합한것이다. 
+	
+	public Page<MessageVO> findByMto(String mto, Pageable page);
+	// 기본 뿌릴때 파라미터 mto  를 받아서 처음에 뿌려준다.  
+	
+	
 //	// 보내는 사람에 대한 리스트 
 //	List<MessageVO> findByMfromOrderByMnoDesc(String mfrom);
 //	// 번호 에 대한 역 정렬 리스트 
 //	Page<MessageVO> findByMno(Pageable page);
+	
+	
 	
 
 	

@@ -116,10 +116,12 @@
       
 	<%@include file="footer.jsp"%>
 	
-
+		<script>
+		$("#chartActive").attr("class","active");
+		</script>
         <!-- Javascripts -->
-        <script src="assets/plugins/chartsjs/Chart.min.js"></script>
-        <script src="assets/js/pages/charts-chartjs.js"></script>
+        <script src="/assets/plugins/chartsjs/Chart.min.js"></script>
+        <script src="/assets/js/pages/charts-chartjs.js"></script>
         
     </body>
 </html>

@@ -132,7 +132,7 @@
 	<%@include file="footer.jsp"%>
 	
 <!-- Javascripts -->
-<script src="assets/plugins/chartsjs/Chart.min.js" ></script>
+<script src="/assets/plugins/chartsjs/Chart.min.js" ></script>
 <!-- <script src="assets/js/pages/charts-chartjs.js"></script> -->
 <script>
 $( document ).ready(function() {
@@ -205,6 +205,7 @@ $( document ).ready(function() {
     };
 
 	// Age / View
+	var data4_data = [<c:forEach items="${data.view_age}" var="i">${i},</c:forEach>];
     var data4 = {
             labels: ["10대", "20대", "30대", "40대", "50대", "60대", "70대"],
             datasets: [
@@ -216,9 +217,7 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(18,175,203,1)",
-                    data: ${[data.view_age[0],data.view_age[1],data.view_age[2],
-                    	data.view_age[3],data.view_age[4],data.view_age[5],
-                    		data.view_age[6]]}
+                    data: data4_data
                 }
             ]
         };
@@ -248,8 +247,11 @@ $( document ).ready(function() {
         };
 
 	// Age / Emotion
+	var data6_male = [<c:forEach items="${data.emotion_positive_male}" var="i">${i},</c:forEach>];
+	var data6_female = [<c:forEach items="${data.emotion_positive_female}" var="i">${i},</c:forEach>];
+	
     var data6 = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
             datasets: [
                 {
                     label: "My First dataset",
@@ -259,7 +261,7 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data: data6_male
                 },
                 {
                     label: "My Second dataset",
@@ -269,14 +271,23 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(18,175,203,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: data6_female
                 }
             ]
         };
 
 	// Age, Gender / Watch Time
+	
+	var data7_labels = new Array();
+	for(var i = 0 ; i < 20 ; i ++) {
+		data7_labels.push(i + 1);
+	}
+	
+	var data7_male = [<c:forEach items="${data.view_watchtime_male}" var="i">${i},</c:forEach>];
+	var data7_female = [<c:forEach items="${data.view_watchtime_female}" var="i">${i},</c:forEach>];
+	
     var data7 = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels:data7_labels,
             datasets: [
                 {
                     label: "My First dataset",
@@ -286,7 +297,7 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data: data7_male
                 },
                 {
                     label: "My Second dataset",
@@ -296,14 +307,18 @@ $( document ).ready(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(18,175,203,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: data7_female
                 }
             ]
         };
 
 	// Change Emotion
+	// anger contempt disgust fear happiness neutral sadness surprise
+	var data8_negative =  [<c:forEach items="${data.emotion_negative}" var="i">${i},</c:forEach>];
+	var data8_positive =  [<c:forEach items="${data.emotion_positive}" var="i">${i},</c:forEach>];
+	
 	var data8 = {
-		labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+		labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
 		datasets: [{
 			label: "My First dataset",
 			fillColor: "rgba(220,220,220,0.2)",
@@ -312,7 +327,7 @@ $( document ).ready(function() {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [65, 59, 90, 81, 56, 55, 40]
+			data: data8_negative
 		},
 		{
 			label: "My Second dataset",
@@ -322,7 +337,7 @@ $( document ).ready(function() {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			data: [28, 48, 40, 19, 96, 27, 100]
+			data: data8_positive
 		}
 		]};
 
@@ -347,6 +362,7 @@ $( document ).ready(function() {
 			scaleGridLineWidth : 1,
 			scaleShowHorizontalLines: true,
 			scaleShowVerticalLines: true,
+			scaleYaxesStacked : true,
 			barShowStroke : true,
 			barStrokeWidth : 1,
 			barDatasetSpacing : 1,
@@ -408,7 +424,7 @@ $( document ).ready(function() {
 	var chart4 = new Chart(ctx4).Bar(data4, barAttribute);
     var chart5 = new Chart(ctx5).Line(data5, lineAttribute);
 	var chart6 = new Chart(ctx6).Bar(data6,barAttribute);
-	var chart7 = new Chart(ctx7).Bar(data7, barAttribute);
+	var chart7 = new Chart(ctx7).Line(data7, lineAttribute);
 	var chart8 = new Chart(ctx8).Radar(data8, radarAttribute);
 	    
 });

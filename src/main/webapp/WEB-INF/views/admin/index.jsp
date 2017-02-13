@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    
+    <%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
             <div class="page-inner">
                 <div class="page-title">
                     <h3>Dashboard</h3>
@@ -14,6 +15,7 @@
                     </div>
                 </div>
                 <div id="main-wrapper">
+               
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="panel info-box panel-white">
@@ -66,7 +68,7 @@
                                     </div>
                                     <div class="info-box-progress">
                                         <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${Adviewership}%">
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +152,7 @@
                                                     <small>6 hours ago</small>
                                                 </div>
                                                 <div class="timeline-item-post">
-                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                                    <div id="map-canvas" style="height: 225px; width: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,11 +244,12 @@
                 </div><!-- Main Wrapper -->
 		<%@include file="footer.jsp"%>
 		
-        <script  src="assets/js/pages/dashboard.js"></script>
-        <script src="assets/js/pages/profile.js"></script>
+        <script  src="/assets/js/pages/dashboard.js"></script>
+        <script src="/assets/js/pages/profile.js"></script>
     </body>
     
     <script>
+    $("#mainActive").attr("class","active");	
     var map;
 		
 	function initMap() {
@@ -292,12 +295,22 @@
 		}
 		
 		$(document).ready(function(){
-		
+	 
      $("body").attr("class","page-header-fixed page-sidebar-fixed");
      $("main").attr("class","page-content content-wrap full-height");
 
 	});
-    
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
 </html>

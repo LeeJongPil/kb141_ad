@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
     <head>
         
         <!-- Title -->
-        <title>Modern | Admin Dashboard Template</title>
+        <title>KB 141 | CLIENT PAGE </title>
         
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta charset="UTF-8">
@@ -47,18 +48,33 @@
         
     </head>
     <body class="page-header-fixed">
+    <style>
+    .logoutBtn {
+	border: none;
+	background: none;
+}
+
+.top-menu form {
+	display: block;
+	padding: 20px 18px;
+	color: #5f5f5f;
+	border: none;
+	position: relative;
+	line-height: 20px;
+}
+    </style>
         <div class="overlay"></div>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
             <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
             <div class="slimscroll">
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="../assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
+                <a href="javascript:void(0);" class="showRight2"><img src="/assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
             </div>
 		</nav>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
@@ -66,7 +82,7 @@
             <div class="slimscroll chat">
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="../assets/images/avatar2.png" alt="">
+                        <img src="/assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Hi There!
@@ -79,7 +95,7 @@
                 </div>
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="../assets/images/avatar2.png" alt="">
+                        <img src="/assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Fine! do you like my project?
@@ -92,7 +108,7 @@
                 </div>
                 <div class="chat-item chat-item-left">
                     <div class="chat-image">
-                        <img src="../assets/images/avatar2.png" alt="">
+                        <img src="/assets/images/avatar2.png" alt="">
                     </div>
                     <div class="chat-message">
                         Thanks, I tried!
@@ -112,7 +128,7 @@
 		</nav>
         <div class="menu-wrap">
             <nav class="profile-menu">
-                <div class="profile"><img src="../assets/images/avatar1.png" width="52" alt="David Green"/><span>David Green</span></div>
+                <div class="profile"><img src="/assets/images/avatar1.png" width="52" alt="David Green"/><span></span></div>
                 <div class="profile-menu-list">
                     <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                     <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
@@ -139,7 +155,7 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="index.html" class="logo-text"><span>KB 141</span></a>
+                        <a href="/client" class="logo-text"><span>KB 141</span></a>
                     </div><!-- Logo Box -->
                     <div class="search-button">
                         <a href="javascript:void(0);" class="waves-effect waves-button waves-classic-search"><i class="fa fa-search"></i></a>
@@ -238,7 +254,6 @@
                                 <li>	
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                                 </li>
-<<<<<<< HEAD
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -247,7 +262,7 @@
                                             <ul class="list-unstyled"> 
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar2.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar2.png" alt=""></div>
                                                         <p class="msg-name">Sandra Smith</p>
                                                         <p class="msg-text">Hey ! I'm working on your project</p>
                                                         <p class="msg-time">3 minutes ago</p>
@@ -255,7 +270,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar4.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar4.png" alt=""></div>
                                                         <p class="msg-name">Amily Lee</p>
                                                         <p class="msg-text">Hi David !</p>
                                                         <p class="msg-time">8 minutes ago</p>
@@ -263,7 +278,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar3.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar3.png" alt=""></div>
                                                         <p class="msg-name">Christopher Palmer</p>
                                                         <p class="msg-text">See you soon !</p>
                                                         <p class="msg-time">56 minutes ago</p>
@@ -271,7 +286,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar5.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar5.png" alt=""></div>
                                                         <p class="msg-name">Nick Doe</p>
                                                         <p class="msg-text">Nice to meet you</p>
                                                         <p class="msg-time">2 hours ago</p>
@@ -279,7 +294,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="../assets/images/avatar2.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/assets/images/avatar2.png" alt=""></div>
                                                         <p class="msg-name">Sandra Smith</p>
                                                         <p class="msg-text">Hey ! I'm working on your project</p>
                                                         <p class="msg-time">5 hours ago</p>
@@ -287,7 +302,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="../assets/images/avatar4.png" alt=""></div>
+                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/assets/images/avatar4.png" alt=""></div>
                                                         <p class="msg-name">Amily Lee</p>
                                                         <p class="msg-text">Hi David !</p>
                                                         <p class="msg-time">9 hours ago</p>
@@ -330,31 +345,29 @@
                                         <li class="drop-all"><a href="#" class="text-center">All Tasks</a></li>
                                     </ul>
                                 </li>
-=======
-
-<!-- 																															이걸 지우고 싶어 ↓ -->
-                                    <a href="#" class="" data-toggle="" id="showRight">
-                                    </a>
-
->>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <span class="user-name">David<i class="fa fa-angle-down"></i></span>
-                                        <img class="img-circle avatar" src="../assets/images/avatar1.png" width="40" height="40" alt="">
+                                        <span class="user-name"><sec:authentication
+										property="principal.username" /><i class="fa fa-angle-down"></i></span>
+                                        <img class="img-circle avatar" src="/assets/images/avatar1.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
-                                        <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
-                                        <li role="presentation"><a href="calendar.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                        <li role="presentation"><a href="http://localhost:8081/message/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
+                                        <li role="presentation"><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
+                                        <li role="presentation"><a href="calendar"><i class="fa fa-calendar"></i>Calendar</a></li>
+                                        <li role="presentation"><a href="/message/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
-                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="lock-screen"><i class="fa fa-lock"></i>Lock screen</a></li>
+                                        <li role="presentation"><a href="login"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
-                                        <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
-                                    </a>
+                                    <form action="/logout" method="post"
+								class="log-out waves-effect waves-button waves-classic">
+								<span><i class="fa fa-sign-out"></i><input
+									type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" /> <input type="submit"
+									class="logoutBtn" value="Log out"></span>
+							</form>
                                 </li>
                                  <li>
 							 <!--   <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
@@ -372,35 +385,29 @@
                         <div class="sidebar-profile">
                             <a href="javascript:void(0);" id="profile-menu-link">
                                 <div class="sidebar-profile-image">
-                                    <img src="../assets/images/avatar1.png" class="img-circle img-responsive" alt="">
+                                    <img src="/assets/images/avatar1.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
-                                    <span>David Green<br><small>Art Director</small></span>
+                                    <span><sec:authentication property="principal.username"/><br><small><sec:authentication property="principal.company"/></small></span>
                                 </div>
                             </a>
                         </div>
                     </div>
+                    
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
-                        <li><a href="inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
-<!--                             <ul class="sub-menu">
-                                <li><a href="inbox.html">Inbox</a></li>
-                                <li><a href="message-view.html">View Message</a></li>
-                                <li><a href="compose.html">Compose</a></li>
-                            </ul> -->
+                        <li id="tabIndex"><a href="/client" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
+
+
+                        <li id="tabProfile"><a href="/client/profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li id="tabMessage"><a href="/message/inbox.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
+
                         </li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>차트</p><span class="arrow"></span></a>
+                        <li id ="tabChart" class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>차트</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-<!--                                 <li><a href="charts-sparkline.html">Sparkline</a></li>
-                                <li><a href="charts-rickshaw.html">Rickshaw</a></li>
-                                <li><a href="charts-morris.html">Morris</a></li>
-                                <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="/client/charts-chartjs">통합 통계</a></li>
+                            	<li><a href="/client/charts-chartjs2">개별 통계</a></li>
                             </ul>
                         </li>
-                        <li><a href="maps-google.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-map-marker"></span><p>기기관리</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
 			</div>

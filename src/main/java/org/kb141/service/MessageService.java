@@ -2,6 +2,7 @@ package org.kb141.service;
 
 import java.util.List;
 
+import org.kb141.domain.Criteria;
 import org.kb141.domain.MessageVO;
 
 
@@ -22,4 +23,7 @@ public interface MessageService {
 	public Integer countMsg() ;
 	
 	public List<MessageVO> getMsgList(String mto);
+
+	public List<MessageVO> pagingList(Criteria cri);
+
 }

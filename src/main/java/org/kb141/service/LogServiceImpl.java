@@ -103,5 +103,25 @@ public class LogServiceImpl implements LogService {
 		return result;
 	}
 
+	@Override
+	public List<LogVO> getListByAdno(Integer adno) {
+		List<LogVO> vo = null;
+		try{
+			vo = logDAO.findByAdno(adno);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return vo;
+	}
 
+	@Override
+	public List<LogVO> getClientList(String cid) throws Exception {
+		List<LogVO> list = null;
+		try{
+			list = logMapper.getClientList(cid);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

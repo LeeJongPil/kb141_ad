@@ -24,9 +24,9 @@ public class ClientTests {
 	@Test
 	public void createTest() throws Exception {
 		ClientVO vo = new ClientVO();
-		vo.setCid("client2");
-		vo.setCpw("client2");
-		vo.setCompany("client2");
+		vo.setCid("sih");
+		vo.setCpw("sih");
+		vo.setCompany("sih");
 		dao.save(vo);
 	}
 
