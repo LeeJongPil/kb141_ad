@@ -186,7 +186,7 @@ public class MessageTests {
 	
 	@Test
 	public void getMsgLIstTest() {
-		List<MessageVO> list = service.getMsgList("client0");
+		List<MessageVO> list = service.getMsgList("lsy");
 		for(int i = 0 ; i < list.size(); i++){
 			System.out.println(list.get(i));
 		}

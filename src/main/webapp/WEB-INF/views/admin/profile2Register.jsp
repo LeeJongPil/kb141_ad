@@ -112,6 +112,7 @@
 				  <input id="video" type="file" placeholder="광고동영상"  class="form-control" value="ad_video" name="ad_video">
 					<span class="help-block">광고의 동영상을 넣어주세요</span>  
 				</div> 
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }" />
 				</form>
 				
 		<!-- 		<form method="post" id="upload" action="profile2RegisterUpload" enctype=multipart/form-data>
@@ -132,6 +133,7 @@
    		$(document).ready(function () {
 		 	$("#btnRegister").on("click", function () {
  	   		$("#ad_content").val($("#ad_content").val().replace(/\n/g, "<br>"));
+ 	        /* $("#inputForm").append('<input type="hidden" name="_csrf" value="'+token+'">'); */
  	   		$("#inputForm").attr("method","post").submit();  
 		 	});
    		});

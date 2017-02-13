@@ -123,7 +123,7 @@
                                             </div>
                                             <div class="panel-body col-centered">
                            					   <video width="480" height="360" controls>
-												  <source src="http://localhost:8081/viewfile?fileName=${adVO.ad_video }" type="video/mp4">
+												  <source src="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_video }" type="video/mp4">
   											   </video>
                                         </div>
                                     </li>
@@ -139,7 +139,7 @@
                                                 <h4 class="panel-title"><span class="icon-picture" aria-hidden="ture"></span> 포스터</h4>
                                             </div>
                                             <div class="panel-body col-centered">
-                                              <img src ="http://localhost:8081/viewfile?fileName=${adVO.ad_image }" style="height: 400px">
+                                              <img src ="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_image }" style="height: 400px ;width :400px;">
                                        		 </div>
                                        		 </div>
                                     </li>
@@ -166,11 +166,12 @@
                     	<input type="hidden" name="ad_title" value="${adVO.ad_content }">
                     	<input type="hidden" name="ad_image" value="${adVO.ad_image }">
                     	<input type="hidden" name="ad_video" value="${adVO.ad_video }">
+                    	
                     </form>
     			</body>
         <!-- Javascripts -->
     	<%@include file="footer.jsp"%>
-      	<script src="assets/js/pages/profile.js"></script>
+      	<script src="/assets/js/pages/profile.js"></script>
         <script>
        
  		var map;

@@ -152,7 +152,7 @@
                                                     <small>6 hours ago</small>
                                                 </div>
                                                 <div class="timeline-item-post">
-                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                                    <div id="map-canvas" style="height: 225px; width: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>

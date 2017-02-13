@@ -56,14 +56,10 @@ public class DeviceAdTests {
 	public void listTest() throws Exception{
 		System.out.println(service.getList());
 	}
-	
-	
-	
+
 	@Test
 	public void test() throws Exception{
 		System.out.println(dao.findFromAdno(4));
 	}
-	
-
 
 }
