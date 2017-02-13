@@ -82,7 +82,7 @@ public class MessageTests {
 	
 	@Test
 	public void searchCountTest() throws Exception{
-		System.out.println(dao.findByMcontentContainingOrMtitleContainingOrMfromContainingAndMtoEquals("lsy", "lsy", "lsy", "admin").size());
+//		System.out.println(dao.findByMcontentContainingOrMtitleContainingOrMfromContainingAndMtoEquals("lsy", "lsy", "lsy", "admin").size());
 	}
 	
 	@Test
