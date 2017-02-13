@@ -158,7 +158,7 @@
                                                     <small>6 hours ago</small>
                                                 </div>
                                                 <div class="timeline-item-post">
-                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
+                                                    <div id="map-canvas" style="height: 225px; width: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,8 +181,9 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
+                               
                                     <div class="inbox-widget slimscroll">
-                                    
+                                    	
                                     		<c:forEach items="${msgList}"  var="msglist">
                                     					<div class="inbox-item">
                                                 <p class="inbox-item-author">${msglist.mfrom}</p>
