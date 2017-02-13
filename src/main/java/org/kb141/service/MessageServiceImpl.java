@@ -109,7 +109,7 @@ public class MessageServiceImpl implements MessageService {
 	public List<MessageVO> pagingList(Criteria cri) {
 		List<MessageVO> list = null;
 		try{
-			cri.setTotal(messageMapper.count());
+//			cri.setTotal(messageMapper.count());
 			System.out.println("service total : " + cri.getTotal());
 			System.out.println("service page : " + cri.getpage());
 			System.out.println("service pageNum : " + cri.getPerPageNum());
@@ -118,15 +118,22 @@ public class MessageServiceImpl implements MessageService {
 			Page<MessageVO> result = null;
 			PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
 			
-			if(cri.getSearch() == null){
+			if(cri.getSearch()==null){
+				cri.setTotal(messageMapper.count(cri.getMto()));
+				System.out.println("Search is Null");
 		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
 //				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
-				result = dao.findByMto(cri.getMto(), page); 
+				result = dao.findByMtoEquals(cri.getMto(), page); 
 			}
 			else{
+				cri.setTotal(dao.findByMtoEqualsAndMfromContainingOrMtoEqualsAndMcontentContainingOrMtoEqualsAndMtitleContaining(cri.getMto(), cri.getSearch(),
+						cri.getMto(), cri.getSearch(), cri.getMto(), cri.getSearch()).size());
+				System.out.println("Search is not Null");
 		//																			  몇 페이지 ,  몇개 읽어 올건지  ,         정렬            "정렬기준할거"
 //				PageRequest page = new PageRequest(cri.getpage(), cri.getPerPageNum(), new Sort(Direction.DESC, "mno"));
-				result = dao.findByMcontentContainingOrMtitleContainingOrMfromContaining(cri.getSearch(), cri.getSearch(), cri.getSearch(), page);
+				result = dao.findByMtoEqualsAndMfromContainingOrMtoEqualsAndMcontentContainingOrMtoEqualsAndMtitleContaining(cri.getMto(), cri.getSearch(),
+						cri.getMto(), cri.getSearch(), cri.getMto(), cri.getSearch(), page);
+				 // 내용, 제목, 글쓴이(보낸사람), 받는사람 
 			}
 			list = result.getContent();
 		}catch(Exception e){

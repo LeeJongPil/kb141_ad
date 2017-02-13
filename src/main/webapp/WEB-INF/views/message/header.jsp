@@ -6,6 +6,8 @@
 <html>
     <head>
         
+        
+        
         <!-- Title -->
         <title>Modern | Admin Dashboard Template</title>
         
@@ -342,11 +344,11 @@
                                         <li role="presentation"><a href="http://localhost:8081/message/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
-                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="../login"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
+                                    <a href="../login" class="log-out waves-effect waves-button waves-classic">
                                         <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
                                     </a>
                                 </li>
@@ -375,8 +377,8 @@
                         </div> 
                     </div>
                     <ul class="menu accordion-menu">
-                        <li id="mainActive"><a href="/client" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
-                        <li id="profileActive"><a href="/client/profile" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
+                        <li id="mainActive"><a href="${urlname}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>메인</p></a></li>
+                        <li id="profileActive"><a href="${urlname}/profile" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>AD 관리</p></a></li>
                         <li id="messageActive"><a href="/message/inbox" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>메일</p><!-- <span class="arrow"></span> --></a>
 <!--                             <ul class="sub-menu">
                                 <li><a href="inbox.html">Inbox</a></li>
@@ -394,6 +396,14 @@
                             	<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
+                        <li class="droplink"  id = "devicemanagement"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-map-marker"></span>
+						<p>기기관리</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="/admin/device/map">위치 확인</a></li>
+						<li><a href="/admin/device/register">기기 등록</a></li>
+					</ul></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
 			</div>

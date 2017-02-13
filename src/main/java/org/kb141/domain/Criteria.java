@@ -36,6 +36,7 @@ public class Criteria {
 
 	public void setTotal(int total) {
 		this.total = total / this.perPageNum;
+		// 페이지의 총수 
 	}
 
 	public int getpage() {

@@ -10,13 +10,14 @@
                         <div class="col-md-12">
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
-                                    <a href="/message/send?mfrom=admin" class="btn btn-success btn-block">Compose</a>
+<%--                                     <a href="/message/send?mfrom=<sec:authentication property="principal.username"/>" class="btn btn-success btn-block">Compose</a> --%>
+                                    <a href="/message/send"  class="btn btn-success btn-block">Compose</a>
                                 </div>
                                 <div class="col-md-6">
                                     <h2>메 일 함</h2>
                                 </div>
                                 <div class="col-md-4">
-                                    <form action="inbox" method="GET" id = "search">
+                                    <form action="inbox" method="GET"  id="search">
                                         <div class="input-group">
                                             <input type="text"  name="keyword" class="form-control input-search"  placeholder="Search..."  id = "search">
                                             <span class="input-group-btn">
@@ -44,7 +45,7 @@
                                         </th>
                                         <th class="text-right" colspan="5">
                                             <span class="text-muted m-r-sm">Showing 20 of 346 </span>
-                                            <a class="btn btn-default m-r-sm" data-toggle="tooltip" data-placement="top" title="Refresh" id=refresh><i class="fa fa-refresh"></i></a>
+                                            <a class="btn btn-default m-r-sm" data-toggle="tooltip" data-placement="top" title="Refresh" id="refresh"><i class="fa fa-refresh"></i></a>
                                             
                                             <div class="btn-group m-r-sm mail-hidden-options">
                                                 <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete" id ="delete"><i class="fa fa-trash"></i></a>
@@ -95,10 +96,13 @@ $(document).ready(function (){
 // 		event.preventDefault();
 			console.log(event);
 				page--;
-				if(page <= 0){
+				if(page < 0){
 					page = 0;
+					console.log("page 값 : " + page);
+					return;
 				}
 				console.log("page 값 : " + page);
+// 				var num = page ;
 				ajaxPage();
 	});
 	
@@ -107,12 +111,21 @@ $(document).ready(function (){
 		console.log(event);
 		page++;
 		if(page>=${total}){
-				page=${total};
+				page=${total}-1;
+				console.log("page 값 : " + page);
+				return;
 		}
 		console.log("page 값 : " + page);
+// 		var num = page;
 		ajaxPage();
 	});
 
+	
+	$("#refresh").on('click', function(e){
+		console.log(e);
+		ajaxPage();
+});
+	
 	$("#fa-pendil").on("click", function(event){
 			console.log(event);
 // 			$("<form action='send'><input type='hidden' name='mfrom' value='"+mno+"'></form>").appendTo("body").submit();
@@ -121,10 +134,10 @@ $(document).ready(function (){
 	});
 	
 	
-	
 			function ajaxPage(){
+				console.log("ajax 들어옴........")
 				$.ajax({
-					type : "post",
+					type : "get",
 					url : "/message/paging",
 					data :  {"page" : page},
 					dataType : "json",
@@ -208,7 +221,6 @@ $(document).ready(function (){
 		//    	console.log(($(e.currentTarget.attributes[0]).context.value).is("checked"));
 //    });
 	
-	
 	$(".input-group-btn").on('click', function(e){
 		console.log(e);
 		console.log($('#search').val());
@@ -216,15 +228,13 @@ $(document).ready(function (){
 	});
 	
 	
-	$("#refresh").on('click', function(e){
-			console.log(e);
-			ajaxPage();
-	});
 	
-	
-	
+	 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
 	
 });
+
+		
+
 
 </script>
 <script src="../assets/js/pages/inbox.js"></script>
