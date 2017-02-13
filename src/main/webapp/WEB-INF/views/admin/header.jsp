@@ -499,13 +499,13 @@
 						<li><a href="/admin/charts-chartjs">통합 통계</a></li>
 						<li><a href="/admin/charts-chartjs2">개별 통계</a></li>
 					</ul></li>
-				<li class="droplink active"><a href="#"
+				<li id = 'mapDropLink' class="droplink"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
 						<p>기기관리</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-						<li><a href="/admin/device/map">위치 확인</a></li>
-						<li><a href="/admin/device/register">기기 등록</a></li>
+						<li id ='mapActive1'><a href="/admin/device/map">위치 확인</a></li>
+						<li id ='mapActive2'><a href="/admin/device/register">기기 등록</a></li>
 					</ul></li>
 			</ul>
 		</div>

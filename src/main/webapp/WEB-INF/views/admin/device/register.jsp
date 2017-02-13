@@ -306,3 +306,10 @@ margin-top: 30px;
 			event.target.value = event.target.value.replace(/[^-\.0-9]/g, "");
 		}
 	</script>
+	<script>
+	$(document).ready(function() {
+		$("#mapDropLink").attr("class","droplink open");	
+		$("#mapActive2").attr("class","active");	
+	});
+	</script>
+	

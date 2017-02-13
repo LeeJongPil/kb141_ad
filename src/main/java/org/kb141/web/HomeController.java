@@ -26,6 +26,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -75,14 +76,14 @@ public class HomeController {
 
 		
 	@GetMapping("")
-	public String indexing(Model model, ClientVO vo){
+	public String indexing(@CookieValue("username") String admin,Model model){
 		logger.info("index");
 		model.addAttribute("adCount", adService.getCount());
 		model.addAttribute("logCount", logService.countLog());
 		model.addAttribute("msgCount",messageService.countMsg());
 		model.addAttribute("devList", deviceService.getDevList());
 //		model.addAttribute("msgList", messageService.getMsgList(vo.getCid()));   이게 진짜임
-		model.addAttribute("msgList", messageService.getMsgList("client0"));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
+		model.addAttribute("msgList", messageService.getMsgList(admin));		// 로그인 되면 로그인 된 아이디 값을 넘겨줘야 한다.  로그인 처리 되면 ↑ 껄로 바꿔줘야한다. 
 		model.addAttribute("Adviewership", logService.getAdviewership());
 		model.addAttribute("deviceList", deviceService.getList());
 		return "admin/index";

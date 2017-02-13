@@ -178,6 +178,8 @@ font-size:16px;
 // 		}
  
 		$(document).ready(function() {
+			$("#mapActive1").attr("class","active");	
+			$("#mapDropLink").attr("class","droplink open");	
 			$("body").attr("class", "page-header-fixed page-sidebar-fixed");
 			// 			$("main").attr("class", "page-content content-wrap full-height");
 		});

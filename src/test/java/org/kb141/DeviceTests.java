@@ -109,11 +109,11 @@ public class DeviceTests {
 		}
 	}
 	
-	@Test
+/*	@Test
 	public void getClientDevListTest() throws Exception{
 		service.getClientDevList("dd");
 		
-	}
+	}*/
 	
 	
 //	---------------------------------------- Mapper Test --------------------------------------------------
@@ -144,11 +144,11 @@ public class DeviceTests {
 		}
 	}
 	
-	@Test
+/*	@Test
 	public void clientDevListTest() throws Exception{
 		List<DeviceListVO> list = deviceMapper.clientDevList("dd");
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}
-	}
+	}*/
 }
