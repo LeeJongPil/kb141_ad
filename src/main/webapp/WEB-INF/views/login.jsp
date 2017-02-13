@@ -77,7 +77,7 @@
 					<div class="login-box">
 						<a href="#" class="logo-name text-lg text-center">Modern</a>
 						<p class="text-center m-t-md">Please login into your account.</p>
-						<c:url value="/login" var="loginUrl" />
+						<c:url value="/login"  var="loginUrl" />
 						<form action="${loginUrl}" method="post" class="m-t-md">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Id"
@@ -136,12 +136,12 @@
 	<script src="../assets/plugins/waves/waves.min.js"></script>
 	<script src="../assets/plugins/3d-bold-navigation/js/main.js"></script>
 	<script src="../assets/js/modern.min.js"></script>
+	
 	<script>
 		var result = '${msg}';
 		if (result == "success") {
 			alert("회원가입이 완료되었습니다.");
 		}
-		
 		
 		
 	</script>

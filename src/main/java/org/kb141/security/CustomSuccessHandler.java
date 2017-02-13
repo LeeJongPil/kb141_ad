@@ -22,23 +22,30 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 	static final String REQUEST_PARAM_NAME = "username";
 	static final String COOKIE_NAME = "username";
 
+	static final String URL_NAME = "urlname";
+	
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	@Override
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException {
 		String targetUrl = determineTargetUrl(authentication);
-
+		System.out.println("targetUrl : " + targetUrl);
 		String id = request.getParameter(REQUEST_PARAM_NAME);
-
+		
 		if (id != null) {
 			String username = ((UserDetails) authentication.getPrincipal()).getUsername();
 			Cookie cookie = new Cookie(COOKIE_NAME, username);
+			Cookie url = new Cookie(URL_NAME, targetUrl);
 			response.addCookie(cookie);
+			response.addCookie(url);
 		} else {
 			Cookie cookie = new Cookie(COOKIE_NAME, "");
+			Cookie url = new Cookie(URL_NAME,"");
 			cookie.setMaxAge(0);
+			url.setMaxAge(0);
 			response.addCookie(cookie);
+			response.addCookie(url);
 		}
 
 		if (response.isCommitted()) {

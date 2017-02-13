@@ -12,11 +12,18 @@ public interface MessageDAO extends PagingAndSortingRepository<MessageVO, Intege
 		
 	public List<MessageVO> findAll();
 	
-	public Page<MessageVO> findByMcontentContainingOrMtitleContainingOrMfromContaining(String search1, String search2, String search3, Pageable page);
+	public Page<MessageVO> findByMtoEqualsAndMfromContainingOrMtoEqualsAndMcontentContainingOrMtoEqualsAndMtitleContaining(String mto1, String mfrom, 
+			String mto2, String mcontent, String mto3, String mtitle, Pageable page);
 	// 검색일때는 파라미터3개를 각각 다 받아와야한다. 검색 조건에 페이징 까지 결합한것이다. 
 	
-	public Page<MessageVO> findByMto(String mto, Pageable page);
+	public List<MessageVO> findByMtoEqualsAndMfromContainingOrMtoEqualsAndMcontentContainingOrMtoEqualsAndMtitleContaining(String mto1, String mfrom, 
+			String mto2, String mcontent, String mto3, String mtitle);
+	
+	public Page<MessageVO> findByMtoEquals(String mto, Pageable page);
 	// 기본 뿌릴때 파라미터 mto  를 받아서 처음에 뿌려준다.  
+	
+
+	
 	
 	
 //	// 보내는 사람에 대한 리스트 

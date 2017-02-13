@@ -499,7 +499,7 @@
 						<li><a href="/admin/charts-chartjs">통합 통계</a></li>
 						<li><a href="/admin/charts-chartjs2">개별 통계</a></li>
 					</ul></li>
-				<li class="droplink active"><a href="#"
+				<li class="droplink"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
 						<p>기기관리</p> <span class="arrow"></span></a>

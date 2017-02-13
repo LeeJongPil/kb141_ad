@@ -36,29 +36,44 @@ public class MessageController {
 	
 	@GetMapping("/inbox")
 	public void inboxMain(@RequestParam(value="keyword", defaultValue="") String keyword,
-			Model model, @CookieValue("username") String username){
+			Model model, @CookieValue("username") String username, @CookieValue("urlname") String urlName){
 		logger.info("Message Inbox Comming");
 		logger.info("user name : " + username);
-		logger.info(keyword);
+		logger.info("keyword 1차: " + keyword);
 		logger.info("view inbox main call...");
+		logger.info("url Name : " + urlName);
 		
 		cri.setpage(0);	// F5를 했을경우 다시 첫페이지로 가기 위해서 해놔야 한다. 리얼 트루
-		cri.setSearch(keyword);
 		cri.setMto(username);
+		
+//		cri.setSearch((keyword != "") ? keyword : null);
+		cri.setSearch((keyword.equals("")) ? null : keyword);
+		logger.info("keyword 2차 : " + cri.getSearch());
+//		System.out.println(cri.getSearch());
+		
 		List<MessageVO>msgList = service.pagingList(cri);
+//		cri.setTotal(msgList.size());
+
+		System.out.println("cri.getTotal : " + cri.getTotal());
+		for(int i = 0 ; i < msgList.size(); i++){
+			System.out.println(msgList.get(i));
+		}
+		
 		model.addAttribute("list" , msgList);
 		model.addAttribute("total", cri.getTotal());
-		
+		model.addAttribute("urlname", urlName);
 //		return "/message/inbox";
 	}
 	
 	
-	@PostMapping("paging")
+	@GetMapping("paging")
 	@ResponseBody
-	public List<MessageVO> paging(int page, @CookieValue("username") String username){
+	public List<MessageVO> paging(@RequestParam(value="keyword", defaultValue="") String keyword,
+			Model model, @CookieValue("username") String username, int page){
 		System.out.println("paging Start .....");
-		System.out.println(page);
+		System.out.println("page : " +page);
 		cri.setpage(page);
+		cri.setSearch((keyword != "") ? keyword : null);
 		logger.info(username);
 		cri.setMto(username);
 //		List<MessageVO> list = service.nextPagingList(cri);
@@ -66,6 +81,20 @@ public class MessageController {
 		System.out.println(list);
 		return list;
 	}
+	
+//	@GetMapping("/paging")
+//	@ResponseBody
+//	public List<MessageVO> paging(int page){
+//		System.out.println("paging Start .....");
+//		System.out.println(page);
+////		cri.setpage(page);
+////		logger.info(username);
+////		cri.setMto(username);
+////		List<MessageVO> list = service.nextPagingList(cri);
+//		List<MessageVO> list = service.pagingList(cri);
+//		System.out.println(list);
+//		return list;
+//	}
 	
 	
 	
@@ -78,15 +107,15 @@ public class MessageController {
 	}
 	
 	@GetMapping("/send")
-	public void registerMsg(String mfrom , Model model){
+	public void registerMsg( Model model){
 		logger.info("sendmsg page called.....");
-		logger.info(mfrom);
-		model.addAttribute("to" , mfrom);
+//		logger.info(mfrom);
+//		model.addAttribute("to" , mfrom);
 	}
 	
 	@PostMapping(value = "/send")
 	public String sendMsg(MessageVO vo , Model model){
-		logger.info("send msg...");
+		logger.info("send msg Post ...");
 		logger.info("vo : " + vo); 
 		service.register(vo);
 		return "redirect:inbox";

@@ -3,6 +3,8 @@
 <link href="../assets/plugins/summernote-master/summernote-bs2.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/plugins/summernote-master/summernote-bs3.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <%@ include file="header.jsp" %>
     <div class="page-inner">
@@ -35,18 +37,18 @@
                         <div class="col-md-10">
                             <div class="mailbox-content">
                                 <div class="compose-body">
-                                    <form class="form-horizontal"  id = "sending"  method = "post" action = "send">
+                                    <form class="form-horizontal"  id = "sending"  method = "post"  action = "send">
                                         <div class="form-group">
                                             <label for="to" class="col-sm-2 control-label">To</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="to" name = "mto" value = "${to}">
-                                                <input type="hidden"  name = "mfrom" value="test">
+                                                <input type="text" class="form-control"  id="to" name = "mto"  >
+                                                <input type="hidden"  name = "mfrom" value="<sec:authentication property="principal.username"/>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="subject" class="col-sm-2 control-label">Subject</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="subject" name = "mtitle">
+                                                <input type="text"  class="form-control"  id="subject"  name ="mtitle">
                                             </div>
                                         </div>
                                         
@@ -56,12 +58,16 @@
                                     <textarea class="form-control"  name="mcontent"  id="text" rows="30"  style="resize:none;"></textarea>
                                     </div>
                                 </div>
-                                </form>
                                 <div class="compose-options">
                                     <div class="pull-right">
                                         <button class="btn btn-success" id = "btnSend"><i class="fa fa-send m-r-xs"></i>Send</button>
                                     </div>
                                 </div>
+                                <input
+									type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
+                                </form>
+                                
                             </div>
                         </div>
                                     

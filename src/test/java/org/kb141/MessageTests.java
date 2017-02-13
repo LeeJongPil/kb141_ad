@@ -78,16 +78,47 @@ public class MessageTests {
 		for(int i = 0 ; i < list.size(); i ++) {
 			System.out.println(list.get(i));
 		}
-
 	}
+	
+	@Test
+	public void searchCountTest() throws Exception{
+		System.out.println(dao.findByMcontentContainingOrMtitleContainingOrMfromContainingAndMtoEquals("lsy", "lsy", "lsy", "admin").size());
+	}
+	
+	@Test
+	public void searchPageTest() throws Exception{
+		PageRequest page = new PageRequest(0, 10, new Sort(Direction.DESC, "mno"));
+//		Page<MessageVO> list = dao.findByMcontentContainingOrMtitleContainingOrMfromContainingAndMtoEquals("test", "test","test", "lsy", page);
+		Page<MessageVO> list = dao.findByMtoEqualsAndMfromContainingOrMtoEqualsAndMcontentContainingOrMtoEqualsAndMtitleContaining("lsy", "왜","lsy","왜","lsy", "왜", page);
+		List<MessageVO> listed = list.getContent();
+		for(int i = 0; i < listed.size(); i++){
+			System.out.println(listed.get(i));
+		}
+	}
+	
+	@Test
+	public void firstPageTest() throws Exception{
+		PageRequest page = new PageRequest(0, 10, new Sort(Direction.DESC, "mno"));
+		Page<MessageVO> paging = dao.findByMtoEquals("lsy", page);
+		List<MessageVO> list = paging.getContent();
+		for(int i = 0 ; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
+		
+		
+	}
+	
+	
 	
 	// ---------------- service --------------------------------------------------------------------------------------------------
 	
 	@Test
 	public void pagingTest() throws Exception {
 		Criteria cri = new Criteria();
-		cri.setMto("lsy");
+		cri.setMto("admin");
+		cri.setSearch("lsy");
 		List<MessageVO> list = service.pagingList(cri);
+		
 		System.out.println(cri);
 		
 		for(int i = 0 ; i < list.size(); i++) {
@@ -164,7 +195,7 @@ public class MessageTests {
 	@Test
 	public void getSearchListTest(){
 		Criteria cri = new Criteria();
-		cri.setSearch("test");
+		cri.setSearch("admin");
 		List<MessageVO> list = service.pagingList(cri);
 		for(int i = 0 ; i < list.size(); i++){
 			System.out.println(list.get(i));
@@ -199,7 +230,9 @@ public class MessageTests {
 	
 	@Test
 	public void countTest() throws Exception{
-		System.out.println(messageMapper.count());
+		System.out.println(messageMapper.count("admin"));
 	}
 
+
+	
 }
