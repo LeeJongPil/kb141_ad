@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.kb141.dao.ClientDAO;
 import org.kb141.domain.ClientVO;
+import org.kb141.mapper.ClientMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ public class ClientServiceImpl implements ClientService {
 
 	@Autowired
 	private ClientDAO clientDAO;
+
+	@Autowired
+	private ClientMapper mapper;
 
 	@Override
 	public void register(ClientVO vo) {
@@ -63,4 +67,14 @@ public class ClientServiceImpl implements ClientService {
 		return result;
 	}
 
+	@Override
+	public Integer checkId(String cid) {
+		int num = 0;
+		try {
+			num = mapper.checkId(cid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
 }

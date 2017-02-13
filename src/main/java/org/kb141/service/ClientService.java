@@ -14,4 +14,6 @@ public interface ClientService {
 	public void remove(String cid);
 
 	public List<ClientVO> getList();
+	
+	public Integer checkId(String cid);
 }

@@ -87,11 +87,12 @@
 						<p class="text-center m-t-md">Create a Modern's account</p>
 						<!-- 						<form class="m-t-md" action="/register" method="post"> -->
 						<form class="m-t-md form" method="post">
-							<div class="form-group row">
+							<div class="form-group row check">
 								<div class="col-md-11">
 									<input type="text" class="form-control" id='id' name="cid"
 										placeholder="Id" required>
 								</div>
+								<span id="checkIdText"></span>
 							</div>
 							<div class="form-group row check">
 								<div class="col-md-11">
@@ -153,35 +154,36 @@
 		// 		var passwordCheck = document.getElementById("checkPassword").value;
 		var re_id = /^[a-z0-9_-]{5,16}$/;
 		var re_pw = /^[A-za-z0-9_-]{6,18}/g;
-		
+
 		var form = $('.form');
 		var id = $('#id');
 		var pw = $('#password');
 		var pwc = $('#checkPassword');
 		var comp = $('#company');
-		console.log(comp.val()=="");
-		console.log(comp.val()==null);
 
 		form.submit(function() {
-			if (re_id.test(id.val()) != true) {
-				alert("아이디를 확인해주세요.\n아이디는 영문(소문자), 숫자, _, - 포함 가능\n5~16자 사이로 정해주세요.");
-				id.focus();
-				return false;
-			} else if (re_pw.test(pw.val()) != true) {
-				alert("비밀번호를 확인해주세요.\n비밀번호는 영문(대소문자 구분), 숫자, _, - 포함 가능\n6~18자 사이로 정해주세요.");
-				pw.focus();
-				return false;
-			} else if (pw.val()!=pwc.val()){
-				alert("비밀번호 확인을 체크해주세요.");
-				pwc.focus();
-				return false;
-			} else if (comp.val()==""){
-				alert("회사명을 입력해주세요.");
-				comp.focus();
-				return false;
-			}
-		});
-		
+					if (re_id.test(id.val()) != true) {
+						alert("아이디를 확인해주세요.\n아이디는 영문(소문자), 숫자, _, - 포함 가능\n5~16자 사이로 정해주세요.");
+						id.focus();
+						return false;
+					} else if (re_pw.test(pw.val()) != true) {
+						alert("비밀번호를 확인해주세요.\n비밀번호는 영문(대소문자 구분), 숫자, _, - 포함 가능\n6~18자 사이로 정해주세요.");
+						pw.focus();
+						return false;
+					} else if (pw.val() != pwc.val()) {
+						alert("비밀번호 확인을 체크해주세요.");
+						pwc.focus();
+						return false;
+					} else if (comp.val() == "") {
+						alert("회사명을 입력해주세요.");
+						comp.focus();
+						return false;
+					} else if (check!=0) {
+						alert("중복된 아이디입니다.");
+						id.focus();
+						return false;
+					}
+				});
 
 		$("#checkPassword").keyup(function(event) {
 			passwordCheck();
@@ -203,13 +205,30 @@
 				document.getElementById("checkText").innerHTML = "";
 			}
 		}
+
 		
+		var check;
 		
-		
-		
-		
-		
-		
+		id.keyup(function() {
+			var checkId = id.val();
+
+			$.ajax({
+				url : "/register/checkId/" + checkId,
+				type : "GET",
+				success : function(data) {
+					check = data;
+					
+					if(check==0 && checkId.length >= 5 && checkId.length <= 16){
+						document.getElementById("checkIdText").style.color = "#4E5E6A";
+						document.getElementById("checkIdText").innerHTML = "OK";
+// 					}else if (check==1 || checkId.length < 5 || checkId.length > 16){
+					}else {
+						document.getElementById("checkIdText").style.color = "red";
+						document.getElementById("checkIdText").innerHTML = "X";
+					}
+				}
+			});
+		});
 	</script>
 </body>
 </html>

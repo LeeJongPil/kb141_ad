@@ -111,7 +111,7 @@ public class DeviceTests {
 	
 	@Test
 	public void getClientDevListTest() throws Exception{
-		service.getClientDevList();
+		service.getClientDevList("dd");
 		
 	}
 	
@@ -146,7 +146,7 @@ public class DeviceTests {
 	
 	@Test
 	public void clientDevListTest() throws Exception{
-		List<DeviceListVO> list = deviceMapper.clientDevList();
+		List<DeviceListVO> list = deviceMapper.clientDevList("dd");
 		for(int i = 0 ; i < list.size(); i ++){
 			System.out.println(list.get(i));
 		}
