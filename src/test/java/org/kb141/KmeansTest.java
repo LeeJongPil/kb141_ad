@@ -37,12 +37,12 @@ public class KmeansTest {
 	@Test
 	public void createTest() {
 		KmeansVO vo = new KmeansVO();
-		vo.setKage(25);
-		vo.setKgender("남");
-		vo.setKemotion("감정");
-		vo.setK_first("첫번째 추천");
-		vo.setK_second("두번째 추천");
-		vo.setK_third("세번째 추천");
+//		vo.setKage(25);
+//		vo.setKgender("남");
+//		vo.setKemotion("감정");
+//		vo.setK_first("첫번째 추천");
+//		vo.setK_second("두번째 추천");
+//		vo.setK_third("세번째 추천");
 		kmeansDAO.save(vo);
 		
 		System.out.println(kmeansDAO);
@@ -57,12 +57,12 @@ public class KmeansTest {
 	@Test
 	public void updateTest() {
 		KmeansVO vo = new KmeansVO();
-		vo.setKage(27);
-		vo.setKgender("남1");
-		vo.setKemotion("감정1");
-		vo.setK_first("첫번째 추천1");
-		vo.setK_second("두번째 추천1");
-		vo.setK_third("세번째 추천1");
+//		vo.setKage(27);
+//		vo.setKgender("남1");
+//		vo.setKemotion("감정1");
+//		vo.setK_first("첫번째 추천1");
+//		vo.setK_second("두번째 추천1");
+//		vo.setK_third("세번째 추천1");
 		vo.setKno(2);
 		kmeansDAO.save(vo);
 		
@@ -89,12 +89,12 @@ public class KmeansTest {
 	@Test
 	public void RegisterTest() {
 		KmeansVO vo = new KmeansVO();
-		vo.setKage(25);
-		vo.setKgender("남");
-		vo.setKemotion("서비스감정");
-		vo.setK_first("첫번째 추천");
-		vo.setK_second("두번째 추천");
-		vo.setK_third("세번째 추천");
+//		vo.setKage(25);
+//		vo.setKgender("남");
+//		vo.setKemotion("서비스감정");
+//		vo.setK_first("첫번째 추천");
+//		vo.setK_second("두번째 추천");
+//		vo.setK_third("세번째 추천");
 		
 		//kmeansService.register(vo);
 		kmeansService.register(vo);
@@ -109,12 +109,12 @@ public class KmeansTest {
 	@Test
 	public void modifyTest() {
 		KmeansVO vo = new KmeansVO();
-		vo.setKage(27);
-		vo.setKgender("남1");
-		vo.setKemotion("서비스감정1");
-		vo.setK_first("첫번째 추천1");
-		vo.setK_second("두번째 추천1");
-		vo.setK_third("세번째 추천1");
+//		vo.setKage(27);
+//		vo.setKgender("남1");
+//		vo.setKemotion("서비스감정1");
+//		vo.setK_first("첫번째 추천1");
+//		vo.setK_second("두번째 추천1");
+//		vo.setK_third("세번째 추천1");
 		vo.setKno(2);
 		kmeansService.modify(vo);
 		

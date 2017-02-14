@@ -3,25 +3,25 @@ package org.kb141.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.kb141.domain.KmeansTestVO;
+import org.kb141.domain.LogVO;
 
 public class KMeansMachine {
 
 	public static int num_cluster; // Total clusters.
 	public static int total_data; // Total data points.
-	public static List<KmeansTestVO> datalist;
+	public static List<LogVO> datalist;
 	
 	private static ArrayList<Data> dataSet = new ArrayList<Data>();
 	private static ArrayList<Centroid> centroids = new ArrayList<Centroid>();
 	
-	public KMeansMachine(int num_clusters, List<KmeansTestVO> datalist){
+	public KMeansMachine(int num_clusters, List<LogVO> datalist){
 		KMeansMachine.num_cluster = num_clusters;
 		KMeansMachine.datalist = datalist;
 		KMeansMachine.total_data = KMeansMachine.datalist.size();
 	}
 	
-	public List<KmeansTestVO> getClusterList(int mCluster) {
-		List<KmeansTestVO> result = new ArrayList<KmeansTestVO>();
+	public List<LogVO> getClusterList(int mCluster) {
+		List<LogVO> result = new ArrayList<LogVO>();
 		for (Data data : dataSet) {
 			if (data.getmCluster() == mCluster) {
 				result.add(data.getVO());
@@ -66,7 +66,7 @@ public class KMeansMachine {
 		// one.
 		while (dataSet.size() < total_data) {
 			
-			KmeansTestVO current = datalist.get(sampleNumber);
+			LogVO current = datalist.get(sampleNumber);
 			
 			newData = new Data(current);
 			dataSet.add(newData);
@@ -153,7 +153,7 @@ public class KMeansMachine {
 			for (int j = 0; j < total_data; j++) {
 				if (dataSet.get(j).getmCluster() == i) {
 					System.out.println(dataSet.get(j).getmX() + "\t" + dataSet.get(j).getmY()  + "\t"
-									+ dataSet.get(j).getVO().getCategory() + "\t"+ dataSet.get(j).getVO().getGender());
+									+ dataSet.get(j).getVO().getAdno() + "\t"+ dataSet.get(j).getVO().getGender());
 									// 여기 입맛대로 고쳐야 한다.
 				}
 			}

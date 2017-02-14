@@ -15,4 +15,6 @@ public interface LogDAO extends PagingAndSortingRepository<LogVO, Integer> {
 	
 	public List<LogVO> findByAdno(Integer adno);
 	
+	public List<LogVO> findByGenderEquals(String gender);
+	
 }
