@@ -114,9 +114,17 @@ public class MessageController {
 	}
 	
 	@PostMapping(value = "/send")
-	public String sendMsg(MessageVO vo , Model model){
+	public String sendMsg(MessageVO vo , Model model , String filenames[]){
+		logger.info("filenames : " + filenames);
 		logger.info("send msg Post ...");
 		logger.info("vo : " + vo); 
+		String filesname = "";
+		for(int i = 0 ; i < filenames.length ; i ++){
+			String files = filenames[i]  +  ",";
+			filesname += files;
+		}		
+		logger.info(filesname);
+		vo.setFilename(filesname); 
 		service.register(vo);
 		return "redirect:inbox";
 	}

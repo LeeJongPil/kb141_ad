@@ -23,8 +23,7 @@ public interface MessageService {
 	public Integer countMsg() ;
 	
 	public List<MessageVO> getMsgList(String mto);
-	
+
 	public List<MessageVO> pagingList(Criteria cri);
-	
-//	public List<MessageVO> nextPagingList(Criteria cri);
+
 }
