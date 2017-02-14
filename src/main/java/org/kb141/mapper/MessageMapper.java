@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Update;
 import org.kb141.domain.MessageVO;
 
 public interface MessageMapper {
-	
+
 	@Select("select * from tbl_message where mto = #{mto} order by mno desc")
 	public List<MessageVO> msgList(String mto) throws Exception;
 
@@ -19,10 +19,9 @@ public interface MessageMapper {
 
 	@Update("update tbl_message set checked = #{checked}  where mno = #{mno}")
 	public void updateState(MessageVO vo)throws Exception;
-	
+
 	@Select("select count(*) from tbl_message where mto = #{mto}")
 	public Integer count(String mto) throws Exception;
-
 	
 }
 

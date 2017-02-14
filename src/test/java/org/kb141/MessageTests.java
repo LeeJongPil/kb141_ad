@@ -154,7 +154,18 @@ public class MessageTests {
 	
 	@Test
 	public void viewTest(){
-		System.out.println(service.view(101));
+//		System.out.println(service.view(212));
+		MessageVO vo = new MessageVO();
+		
+		vo = service.view(212);
+		System.out.println(vo.getFilename());
+		String[] filename = vo.getFilename().split(",");
+		String filenames = null;
+		for(int i = 0 ; i <filename.length; i++){
+			filenames += filename[i];
+			System.out.println(filename[i]);
+		}
+		System.out.println(filenames);
 	}
 	
 	@Test

@@ -31,6 +31,8 @@ public class MessageVO {
 	@Column(nullable = false)
 	private String mcontent;
 	
+	private String filename;
+	
 //	@Column(nullable = false)
 	private Integer checked;
 	
@@ -112,13 +114,28 @@ public class MessageVO {
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
+	
+	
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
 	@Override
 	public String toString() {
 		return "MessageVO [mno=" + mno + ", mfrom=" + mfrom + ", mto=" + mto + ", mtitle=" + mtitle + ", mcontent="
-				+ mcontent + ", checked=" + checked + ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
+				+ mcontent + ", filename=" + filename + ", checked=" + checked + ", regdate=" + regdate
+				+ ", updatedate=" + updatedate + ", getMno()=" + getMno() + ", getMfrom()=" + getMfrom() + ", getMto()="
+				+ getMto() + ", getMtitle()=" + getMtitle() + ", getMcontent()=" + getMcontent() + ", getChecked()="
+				+ getChecked() + ", getRegdate()=" + getRegdate() + ", getUpdatedate()=" + getUpdatedate()
+				+ ", getFilename()=" + getFilename() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
-	
+
 	
 	
 }
