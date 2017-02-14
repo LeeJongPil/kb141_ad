@@ -1,17 +1,17 @@
 package org.kb141.util;
 
-import org.kb141.domain.KmeansTestVO;
+import org.kb141.domain.LogVO;
 
 public class Data {
-	private KmeansTestVO vo;
+	private LogVO vo;
 	private double mX = 0;
 	private double mY = 0;
 	private int mCluster = 0; // ������ Cluster Group
 
-	public Data(KmeansTestVO vo) {
+	public Data(LogVO vo) {
 		this.vo = vo;
 		this.mX = vo.getAge();
-		this.mY = vo.getEmotion_after() - vo.getEmotion_before();
+		this.mY = vo.getBeforeEmotion();
 	}
 
 	public double getmX() {
@@ -30,7 +30,7 @@ public class Data {
 		this.mCluster = mCluster;
 	}
 
-	public KmeansTestVO getVO() {
+	public LogVO getVO() {
 		return vo;
 	}
 

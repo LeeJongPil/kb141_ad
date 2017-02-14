@@ -1,4 +1,4 @@
-package org.kb141.util;
+package org.kb141.process;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -50,7 +50,7 @@ public class LogCSVWrite {
 		
 			try {
 						vo.setDno(Integer.parseInt(csa[0]));
-						System.out.println("vogetDno : " + vo.getDno());
+//						System.out.println("vogetDno : " + vo.getDno());
 						vo.setAge(Integer.parseInt(csa[1]));
 						vo.setGender(csa[2]);
 						vo.setAdno(Integer.parseInt(csa[3]));

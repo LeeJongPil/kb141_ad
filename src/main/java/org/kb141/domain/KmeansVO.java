@@ -14,34 +14,28 @@ import javax.persistence.Table;
 @Table(name = "tbl_kmeans") // table 생성할때 만들어지는 이름
 
 public class KmeansVO {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer kno;
 
-	@Column(nullable = false)
-	private Integer kage;
+	@Column
+	private Integer age;
+
+	@Column
+	private String gender;
+
+	@Column
+	private String emotion;
+
+	@Column
+	private String area;
 
 	@Column(nullable = false)
-	private String kgender;
-
-	@Column(nullable = false)
-	private String kemotion;
-
-	@Column(nullable = false)
-	private String karea;
-
-	@Column(nullable = false)
-	private String k_first;
-
-	@Column(nullable = false)
-	private String k_second;
-
-	@Column(nullable = false)
-	private String k_third;
+	private String ad;
 
 	private Date kdate;
-	
+
 	@PrePersist
 	protected void onCreate() {
 		this.kdate = new Date();
@@ -55,67 +49,58 @@ public class KmeansVO {
 		this.kno = kno;
 	}
 
-	public Integer getKage() {
-		return kage;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setKage(Integer kage) {
-		this.kage = kage;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
-	public String getKgender() {
-		return kgender;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setKgender(String kgender) {
-		this.kgender = kgender;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getKemotion() {
-		return kemotion;
+	public String getEmotion() {
+		return emotion;
 	}
 
-	public void setKemotion(String kemotion) {
-		this.kemotion = kemotion;
+	public void setEmotion(String emotion) {
+		this.emotion = emotion;
 	}
 
-	public String getK_first() {
-		return k_first;
+	public String getArea() {
+		return area;
 	}
 
-	public void setK_first(String k_first) {
-		this.k_first = k_first;
+	public void setArea(String area) {
+		this.area = area;
 	}
 
-	public String getK_second() {
-		return k_second;
+	public String getAd() {
+		return ad;
 	}
 
-	public void setK_second(String k_second) {
-		this.k_second = k_second;
+	public void setAd(String ad) {
+		this.ad = ad;
 	}
 
-	public String getK_third() {
-		return k_third;
+	public Date getKdate() {
+		return kdate;
 	}
 
-	public void setK_third(String k_third) {
-		this.k_third = k_third;
-	}
-
-	public String getKarea() {
-		return karea;
-	}
-
-	public void setKarea(String karea) {
-		this.karea = karea;
+	public void setKdate(Date kdate) {
+		this.kdate = kdate;
 	}
 
 	@Override
 	public String toString() {
-		return "KmeansVO [kno=" + kno + ", kage=" + kage + ", kgender=" + kgender + ", kemotion=" + kemotion
-				+ ", karea=" + karea + ", k_first=" + k_first + ", k_second=" + k_second + ", k_third=" + k_third
-				+ ", kdate=" + kdate + "]";
+		return "KmeansVO [kno=" + kno + ", age=" + age + ", gender=" + gender + ", emotion=" + emotion + ", area="
+				+ area + ", ad=" + ad + ", kdate=" + kdate + "]";
 	}
 
 }
