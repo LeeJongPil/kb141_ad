@@ -418,6 +418,12 @@ public class LogVO {
 	public void setCha_disgust(Double cha_disgust) {
 		this.cha_disgust = cha_disgust;
 	}
+	
+	public Double getBeforeEmotion(){
+		return this.bef_happiness - this.bef_anger - this.bef_contempt - this.bef_disgust - this.bef_fear 
+				- this.bef_sadness + this.bef_surprise + this.bef_neutral;
+				
+	}
 
 
 	@Override
