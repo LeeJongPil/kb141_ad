@@ -231,7 +231,6 @@ $(document).ready(function() {
 								
 								 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
 
-							
 							}
 				    }).catch(function(error) {
 				        switch (error.code) {
