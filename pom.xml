@@ -117,11 +117,6 @@
 			<scope>test</scope>
 		</dependency>
 
-
-<<<<<<< HEAD
-		
-=======
->>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
 	</dependencies>
 
 	<build>
