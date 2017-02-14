@@ -1,4 +1,4 @@
-package org.kb141.domain;
+ package org.kb141.domain;
 
 import java.util.Date;
 

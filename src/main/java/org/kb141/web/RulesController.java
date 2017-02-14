@@ -70,12 +70,21 @@ public class RulesController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("/getListBase")
+	
+	
+	@GetMapping("/rules/baseList")
 	public void getListBaseGET() throws Exception{
 		logger.info("GET BASE getList....");
 		baseService.getList();
 		logger.info("List : " + baseService.getList());
-		
 	}
+	
+	@GetMapping("/rules/kmeansList")
+	public void getListKmeansGET() throws Exception{
+		logger.info("GET BASE getList....");
+		baseService.getList();
+		logger.info("List : " + baseService.getList());
+	}
+	
 	
 }
