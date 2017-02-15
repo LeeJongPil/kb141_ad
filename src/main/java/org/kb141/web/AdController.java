@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.sf.json.JSONObject;
@@ -40,6 +41,7 @@ import net.sf.json.JSONObject;
  */
 @CrossOrigin
 @Controller
+@RequestMapping("/ad")
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);
@@ -280,9 +282,10 @@ public class AdController {
 //		
 //
 //	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
-//	@RequestMapping(value = "/log", method = RequestMethod.POST)
-//	public void filepush(String text) throws Exception {
-//		logger.info("log Start....................................");
+	@RequestMapping(value = "/log", method = RequestMethod.POST)
+	public void filepush(String text) throws Exception {
+		logger.info("log Start....................................");
+		logger.info("file" + text);
 //		LogCSVWrite logwrite = new LogCSVWrite();
 //
 //		String log = logwrite.logCSV(text);
@@ -296,7 +299,7 @@ public class AdController {
 //			logService.register(logwrite.logDB(csa));
 //			System.out.println("log go to DB ..................");
 //		}
-//	}
+	}
 //
 ////	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
 ////	// JS 에서 JSON으로 받는다.

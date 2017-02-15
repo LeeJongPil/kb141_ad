@@ -392,8 +392,8 @@
                                 <li><a href="charts-rickshaw.html">Rickshaw</a></li>
                                 <li><a href="charts-morris.html">Morris</a></li>
                                 <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="/admin/charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="${urlname}/charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="${urlname}/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
                         <li class="droplink"  id = "devicemanagement"><a href="#"

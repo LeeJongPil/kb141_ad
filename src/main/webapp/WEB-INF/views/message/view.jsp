@@ -30,8 +30,8 @@
                         <div class="col-md-2">
                             <ul class="list-unstyled mailbox-nav">
                                 <li><a href="inbox.html"><i class="fa fa-inbox"></i>Inbox <span class="badge badge-success pull-right">4</span></a></li>
-                                <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li>
-                                <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li>
+<!--                                 <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li> -->
+<!--                                 <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li> -->
                             </ul>
                         </div>
                         <div class="col-md-10">
@@ -221,9 +221,9 @@ $(document).ready(function() {
 								
 							if(currentSub == "jpg" && "png"){
 				        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
-			                         + '<img src=' + url + ' alt=""  id = "adimg" width="100px" height="300px">  </div>   <div class="attachment-info">'
+			                         + '<img src=' + url + ' alt=""  id = "adimg" style="width: 198px; height: 300px;">  <div class="attachment-info">'
 			                       + '<p>' +name[0].name+'</p>'
-			                        + '<span> ' + name[0].size + '</span>'
+			                        + '<span> ' + name[0].size + ' KB</span>'
 			                    +'</div></a> </div>')
 							}
 							else{
