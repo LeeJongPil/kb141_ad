@@ -1,17 +1,11 @@
 package org.kb141.web;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.List;
 
 import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceVO;
-import org.kb141.domain.KmeansVO;
 import org.kb141.domain.LogVO;
-import org.kb141.process.KmeansCSVRead;
-import org.kb141.process.LogCSVWrite;
-import org.kb141.process.RulebaseCSVRead;
 import org.kb141.service.AdService;
 import org.kb141.service.DeviceService;
 import org.kb141.service.KmeansService;
@@ -27,13 +21,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import net.sf.json.JSONObject;
 
 /*
  * ad, device, log

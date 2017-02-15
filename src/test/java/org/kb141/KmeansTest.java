@@ -37,15 +37,13 @@ public class KmeansTest {
 	@Test
 	public void createTest() {
 		KmeansVO vo = new KmeansVO();
-//		vo.setKage(25);
-//		vo.setKgender("남");
-//		vo.setKemotion("감정");
-//		vo.setK_first("첫번째 추천");
-//		vo.setK_second("두번째 추천");
-//		vo.setK_third("세번째 추천");
-		kmeansDAO.save(vo);
 		
-		System.out.println(kmeansDAO);
+		vo.setAge(32.59090909);
+		vo.setGender("male");
+		vo.setEmotion(0.189363185);
+		vo.setAd("neutral_japan.mp4");
+		
+		kmeansDAO.save(vo);
 	}
 	
 	@Test
@@ -57,12 +55,6 @@ public class KmeansTest {
 	@Test
 	public void updateTest() {
 		KmeansVO vo = new KmeansVO();
-//		vo.setKage(27);
-//		vo.setKgender("남1");
-//		vo.setKemotion("감정1");
-//		vo.setK_first("첫번째 추천1");
-//		vo.setK_second("두번째 추천1");
-//		vo.setK_third("세번째 추천1");
 		vo.setKno(2);
 		kmeansDAO.save(vo);
 		
@@ -89,16 +81,13 @@ public class KmeansTest {
 	@Test
 	public void RegisterTest() {
 		KmeansVO vo = new KmeansVO();
-//		vo.setKage(25);
-//		vo.setKgender("남");
-//		vo.setKemotion("서비스감정");
-//		vo.setK_first("첫번째 추천");
-//		vo.setK_second("두번째 추천");
-//		vo.setK_third("세번째 추천");
 		
-		//kmeansService.register(vo);
+		vo.setAge(60.46428571);
+		vo.setGender("male");
+		vo.setEmotion(0.235714286);
+		vo.setAd("happy_outback.mp4");
+		
 		kmeansService.register(vo);
-		System.out.println(vo);
 	}
 	
 	@Test

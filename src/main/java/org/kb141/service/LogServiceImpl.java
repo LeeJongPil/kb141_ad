@@ -115,10 +115,21 @@ public class LogServiceImpl implements LogService {
 	}
 
 	@Override
-	public List<LogVO> getClientList(String cid) throws Exception {
+	public List<LogVO> getClientList(String cid) {
 		List<LogVO> list = null;
 		try{
 			list = logMapper.getClientList(cid);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<LogVO> getListByGender(String gender) {
+		List<LogVO> list = null;
+		try{
+			list = logDAO.findByGenderEquals(gender);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
