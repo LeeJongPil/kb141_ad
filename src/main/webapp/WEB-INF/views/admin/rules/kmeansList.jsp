@@ -1,14 +1,36 @@
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <div class="page-inner">
-<style>
-tbody tr:nth-child(odd) { background-color: #f9f9f9; }
+	<style>
+tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+a {
+	color: #4E5E6A;
+}
+
+#kno {
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.check {
+	width: 30px
+}
+
+.deleteBtn {
+	align: right;
+}
 </style>
-<form>
-</form>
+
+	<form role="form" method="post">
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token }" id="CSRFtoken" />
+	</form>
 	<div class="page-title">
 		<h3>Datatables</h3>
 		<div class="page-breadcrumb">
@@ -24,8 +46,10 @@ tbody tr:nth-child(odd) { background-color: #f9f9f9; }
 			<div class="col-md-12">
 				<div class="panel panel-white">
 					<div class="panel-body">
+
+
 						<div class="table-responsive">
-							<table id="example" class="display table"
+							<table id="example-editable" class="display table"
 								style="width: 100%; cellspacing: 0;">
 								<thead>
 									<tr>
@@ -40,16 +64,24 @@ tbody tr:nth-child(odd) { background-color: #f9f9f9; }
 								</thead>
 								<tbody>
 									<c:forEach items="${list}" var="list">
-										<tr data-bno='${list.kno}'>
-											<td>${list.bno }</td>
-											<td>${list.age }</td>
-											<td>${list.gender }</td>
+										<tr>
+											<td>${list.kno}</td>
+
+											<td>${list.age}</td>
+
+											<td>${list.gender}</td>
+
 											<td>${list.emotion }</td>
+
 											<td>${list.area }</td>
+
 											<td>${list.ad }</td>
+
+
 											<td>${list.kdate }</td>
 										</tr>
 									</c:forEach>
+
 								</tbody>
 							</table>
 						</div>
@@ -60,8 +92,4 @@ tbody tr:nth-child(odd) { background-color: #f9f9f9; }
 		<!-- Row -->
 	</div>
 	<!-- Main Wrapper -->
-	<%@include file="footer.jsp"%>
-
-	<script>
-
-	</script>
+	<%@include file="../footer.jsp"%>

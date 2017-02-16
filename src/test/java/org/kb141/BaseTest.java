@@ -32,7 +32,7 @@ public class BaseTest {
 	public void createTest() {
 		BaseVO vo = new BaseVO();
 		vo.setAd("happy_outback.mp4");
-		vo.setAge(10);
+//		vo.setAge(10);
 		vo.setGender("male");
 		baseDAO.save(vo);
 		
@@ -57,6 +57,9 @@ public class BaseTest {
 	@Test
 	public void updateTest() {
 		BaseVO vo = new BaseVO();
+		vo.setBno(1);
+		vo.setAge(40.0);
+		vo.setAd("happy_outback.mp4");
 		baseDAO.save(vo);
 		
 		System.out.println(baseDAO);

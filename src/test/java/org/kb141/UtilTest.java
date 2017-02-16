@@ -43,10 +43,11 @@ public class UtilTest {
 	private ScheduledTasks tasks;
 	
 	
-	@Test
-	public void scheduleTest() {
-		tasks.reportCurrentTime();
-	}
+//	@Test
+//	public void scheduleTest() {
+//		tasks.reportCurrentTime();
+//	}
+//	
 	
 	@Test
 	public void csvReader1() {

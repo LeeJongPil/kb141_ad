@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login").successHandler(customSuccessHandler).permitAll();
 
 		http.rememberMe().key("REMEMBER_KEY").rememberMeParameter("_spring_security_remember_me")
-				.rememberMeCookieName("REMEMBER").tokenValiditySeconds(60);
+				.rememberMeCookieName("REMEMBER").tokenValiditySeconds(60000);
 
 		String[] cookies = { "JSESSIONID", "username", "REMEMBER","urlname" };
 		http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies(cookies);

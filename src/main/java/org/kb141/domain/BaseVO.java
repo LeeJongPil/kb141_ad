@@ -20,13 +20,13 @@ public class BaseVO {
 	private Integer bno;
 
 	@Column
-	private Integer age;
+	private Double age;
 
 	@Column
 	private String gender;
 
 	@Column
-	private String emotion;
+	private Double emotion;
 
 	@Column
 	private String area;
@@ -49,11 +49,11 @@ public class BaseVO {
 		this.bno = bno;
 	}
 
-	public Integer getAge() {
+	public Double getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(Double age) {
 		this.age = age;
 	}
 
@@ -65,11 +65,11 @@ public class BaseVO {
 		this.gender = gender;
 	}
 
-	public String getEmotion() {
+	public Double getEmotion() {
 		return emotion;
 	}
 
-	public void setEmotion(String emotion) {
+	public void setEmotion(Double emotion) {
 		this.emotion = emotion;
 	}
 

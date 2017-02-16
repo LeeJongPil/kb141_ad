@@ -28,7 +28,7 @@ align: right;
 </style>
 	
 	<form role="form" method="post">
-		<input type="text" name='bnoChecks' id='bnos'>
+		<input type="hidden" name='bnoChecks' id='bnos'>
 		<input type="hidden" name="${_csrf.parameterName}"
 		value="${_csrf.token }" id="CSRFtoken" />
 	</form>
