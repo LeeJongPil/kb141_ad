@@ -97,6 +97,17 @@ public class BaseVO {
 	public void setBdate(Date bdate) {
 		this.bdate = bdate;
 	}
+	
+	// number,age,gender,emotion,area,ad,date
+	
+	public String getCsvString(){
+		return bno + "," + (age == null ? "" : age) + ","
+				+ (gender == null ? "" : gender) + "," 
+				+ (emotion == null ? "" : emotion) + "," 
+				+ (area == null ? "" : area) + "," 
+				+ ad + "," + bdate + "\r\n"; 			
+	}
+	
 
 	@Override
 	public String toString() {

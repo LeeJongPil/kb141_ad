@@ -51,14 +51,13 @@
                                                 <input type="text"  class="form-control"  id="subject"  name ="mtitle">
                                             </div>
                                         </div>
+ 
                                       <div class="form-group">
                                         		<label for="file" class="col-sm-2 control-label"> File </label>  
 											<div class="col-sm-10">
 												<input type="file"  id="file" multiple="multiple">
 											</div>                                        
                                         </div>
-
-
                                 </div>
                                 <div class="compose-message">
                                     <div class="summernote">

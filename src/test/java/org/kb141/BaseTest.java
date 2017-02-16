@@ -31,20 +31,24 @@ public class BaseTest {
 	@Test
 	public void createTest() {
 		BaseVO vo = new BaseVO();
-		vo.setAd("happy_outback.mp4");
+
+//		vo.setBno(1);
+//		vo.setAd("happy_outback.mp4");
 //		vo.setAge(10);
-		vo.setGender("male");
-		baseDAO.save(vo);
+//		vo.setGender("male");
+//		baseDAO.save(vo);
 		
 //		vo.setAd("neutral_japan.mp4");
 //		vo.setAge(20);
 //		vo.setGender("male");
 //		baseDAO.save(vo);
-//		
+		
 //		vo.setAd("surprise_galaxy.mp4");
 //		vo.setAge(30);
 //		vo.setGender("male");
 //		baseDAO.save(vo);
+		
+		
 		
 	}
 	
@@ -83,18 +87,12 @@ public class BaseTest {
 	//========================================================Service ===================================
 	
 	@Test
-	public void RegisterTest() {
-//		BaseVO vo = new BaseVO();
-//		vo.setBage(25);
-//		vo.setBgender("남");
-//		vo.setBemotion("서비스감정");
-//		vo.setB_first("첫번째 추천");
-//		vo.setB_second("두번째 추천");
-//		vo.setB_third("세번째 추천");
-//		
-//		//baseService.register(vo);
-//		baseService.register(vo);
-//		System.out.println(vo);
+	public void registerTest() {
+		BaseVO vo = new BaseVO();
+		vo.setAd("surprise_macbook.mp4");
+		vo.setAge(40.0);
+		vo.setGender("male");
+		baseService.register(vo);
 	}
 	
 	@Test

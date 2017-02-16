@@ -102,8 +102,22 @@ public class MessageController {
 	@GetMapping("/view")
 	public void msgView(Integer mno , Model model){
 		logger.info("view called....");
-		logger.info("mno" + mno);
-		model.addAttribute("view", service.view(mno));
+		logger.info("mno : " + mno);
+		MessageVO vo = new MessageVO();
+		vo = service.view(mno);
+		
+		if(vo.getFilename() != null){
+			String[] filename = vo.getFilename().split(",");
+			System.out.println("filename : " +filename);
+			for(int i = 0 ; i < filename.length; i++){
+				System.out.println("filename"+i + " : " + filename[i]);
+			}
+			model.addAttribute("filename", filename);	// filename을 "," 로 나누어서 배열에 담았다.
+			System.out.println(filename[0]);
+		}
+		System.out.println("view 거치니 ?");
+		model.addAttribute("view", vo);
+		// view.jsp 에서 배열로 받아서 뿌리면 된다. 
 	}
 	
 	@GetMapping("/send")
