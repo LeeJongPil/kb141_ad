@@ -375,7 +375,7 @@
 								<li class="drop-all"><a href="#" class="text-center">All
 										Messages</a></li>
 							</ul></li>
-						<li class="dropdown"><a href="#"
+				<!-- 		<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"><i class="fa fa-bell"></i><span
 								class="badge badge-success pull-right">3</span></a>
@@ -411,7 +411,7 @@
 								</li>
 								<li class="drop-all"><a href="#" class="text-center">All
 										Tasks</a></li>
-							</ul></li>
+							</ul></li> -->
 						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"> <span class="user-name"><sec:authentication

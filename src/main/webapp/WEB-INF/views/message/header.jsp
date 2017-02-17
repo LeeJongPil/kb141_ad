@@ -242,7 +242,7 @@
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"></span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
                                         <li><p class="drop-title">You have 4 new  messages !</p></li>
                                         <li class="dropdown-menu-list slimscroll messages">
@@ -300,7 +300,7 @@
                                         <li class="drop-all"><a href="#" class="text-center">All Messages</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown">
+                               <!--  <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge badge-success pull-right">3</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
                                         <li><p class="drop-title">You have 3 pending tasks !</p></li>
@@ -331,7 +331,7 @@
                                         </li>
                                         <li class="drop-all"><a href="#" class="text-center">All Tasks</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name"><sec:authentication

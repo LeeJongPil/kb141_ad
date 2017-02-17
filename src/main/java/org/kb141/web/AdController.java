@@ -2,6 +2,7 @@ package org.kb141.web;
 
 import java.util.List;
 
+import org.hibernate.annotations.Filter;
 import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceVO;
@@ -15,21 +16,26 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /*
  * ad, device, log
  */
-@CrossOrigin
-@Controller
+
+@RestController
+@RequestMapping("/ad")
+@EnableWebSecurity
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);
@@ -269,13 +275,13 @@ public class AdController {
 //		
 //		
 //
-//	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
-//	@RequestMapping(value = "/log", method = RequestMethod.POST)
-//	public void filepush(String text) throws Exception {
-//		logger.info("log Start....................................");
+	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
+	@RequestMapping(value = "/log", method = RequestMethod.POST)
+	public void filepush(MultipartFile file) throws Exception {
+		logger.info("log Start...................................." + file);
 //		LogCSVWrite logwrite = new LogCSVWrite();
 //
-//		String log = logwrite.logCSV(text);
+//		String log = logwrite.logCSV(file);
 //		// 로그 들을 String 한줄로 다 붙여버린다.
 //
 //		String res[] = log.split("  ");
@@ -286,8 +292,8 @@ public class AdController {
 //			logService.register(logwrite.logDB(csa));
 //			System.out.println("log go to DB ..................");
 //		}
-//	}
-//
+	}
+
 ////	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
 ////	// JS 에서 JSON으로 받는다.
 ////	@RequestMapping(value = "/kmeans", produces = "application/json")

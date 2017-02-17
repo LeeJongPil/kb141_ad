@@ -11,7 +11,7 @@
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
 <%--                                     <a href="/message/send?mfrom=<sec:authentication property="principal.username"/>" class="btn btn-success btn-block">Compose</a> --%>
-                                    <a href="/message/send"  class="btn btn-success btn-block">Compose</a>
+                                    <a href="/message/send"  class="btn btn-success btn-block">메세지 보내기</a>
                                 </div>
                                 <div class="col-md-6">
                                     <h2>메 일 함</h2>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-2">
                             <ul class="list-unstyled mailbox-nav">
-                                <li class="active"><a href="inbox.html"><i class="fa fa-inbox"></i>메일함 <span class="badge badge-success pull-right">4</span></a></li>
+                                <li class="active"><a href="inbox.html"><i class="fa fa-inbox"></i>메일함 <span class="badge badge-success pull-right"></span></a></li>
 <!--                                 <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li> -->
 
                             </ul>
@@ -44,7 +44,7 @@
                                             <span><input type="checkbox" class="check-mail-all"></span>
                                         </th>
                                         <th class="text-right" colspan="5">
-                                            <span class="text-muted m-r-sm">Showing 20 of 346 </span>
+                                            <span class="text-muted m-r-sm"> </span>
                                             <a class="btn btn-default m-r-sm" data-toggle="tooltip" data-placement="top" title="Refresh" id="refresh"><i class="fa fa-refresh"></i></a>
                                             
                                             <div class="btn-group m-r-sm mail-hidden-options">

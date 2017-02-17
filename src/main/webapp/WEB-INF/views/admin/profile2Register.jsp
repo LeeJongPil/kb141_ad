@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
             <div class="page-inner">
-                <div class="page-title">
+<!--                 <div class="page-title">
                     <h3>Alerts</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                             <li class="active">Alerts</li>
                         </ol>
                     </div>
-                </div>
+                </div> -->
                <div id="main-wrapper">
 
 		<!-- Main content -->
@@ -128,13 +128,87 @@
                     </div>
             
             <%@include file="footer.jsp"%>
+            <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
    		<script>
    		$("#profileActive").attr("class","active");	
    		$(document).ready(function () {
+   		// settings config...
+   			var config = {
+   		        apiKey: "AIzaSyDHqc_8P_hEUTJ-kUvdgc8VAne1r36g0M8",
+   		        authDomain: "kb141-17d6a.firebaseapp.com",
+   		        databaseURL: "https://kb141-17d6a.firebaseio.com",
+   		        storageBucket: "kb141-17d6a.appspot.com",
+   		        messagingSenderId: "387641864580"
+   		    };
+   		    firebase.initializeApp(config);
+   		    var storage = firebase.storage();
+   		    var downloadRef =  storage.refFromURL("gs://kb141-17d6a.appspot.com/AD_File/");
+   		    var uploadRef = storage.ref();
+
+   		    // login
+   		    firebase.auth().signInWithEmailAndPassword("jk3a0123@gmail.com", "wjdwndud08").catch(function(error) {
+   		        // Handle Errors here.
+   		        console.log('error sign');
+   		        var errorCode = error.code;
+   		        var errorMessage = error.message;
+   		    });
+   		    
+   		    // checked login
+   		    firebase.auth().onAuthStateChanged(function(user) {
+   		        var currentUser = firebase.auth().currentUser;
+   		        if (currentUser) {
+   		            console.log(currentUser.uid);
+   		        } else {
+   		            console.log("no user");
+   		        }
+   		    });
+   			
+   			
 		 	$("#btnRegister").on("click", function () {
  	   		$("#ad_content").val($("#ad_content").val().replace(/\n/g, "<br>"));
- 	        /* $("#inputForm").append('<input type="hidden" name="_csrf" value="'+token+'">'); */
- 	   		$("#inputForm").attr("method","post").submit();  
+ 	   		
+ 	   		var image = $("#image")[0].files;
+ 	   		var video = $("#video")[0].files;
+ 	   		console.log(video);
+ 	   		console.log(image);
+			for(var i = 0 ; i < image.length ; i ++){
+				/* $("<input type='hidden' name='imagenames' value='"+ image[i].name+"'>").appendTo("#sending"); */ 
+				var uploadURL = uploadRef.child("AD_File/" + image[i].name);
+			    var uploadTask = uploadURL.put(image[i]); 
+			    
+			    uploadTask.on('state_changed', function(snapshot){
+			            // Observe state change events such as progress, pause, and resume
+			            // See below for more detail
+			        }, function(error) {
+			            // Handle unsuccessful uploads
+			        }, function() {
+			            // Handle successful uploads on complete
+			            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+			            var downloadURL = uploadTask.snapshot.downloadURL;
+			            $("#inputForm").attr("method","post").submit();
+			       });
+			}
+			var video = $("#video")[0].files;
+			for(var i = 0 ; i < video.length ; i ++){
+				/* $("<input type='hidden' name='videonames' value='"+ video[i].name+"'>").appendTo("#sending"); */ 
+				var uploadURL = uploadRef.child("AD_File/" + video[i].name);
+			    var uploadTask = uploadURL.put(video[i]); 
+			    
+			    uploadTask.on('state_changed', function(snapshot){
+			            // Observe state change events such as progress, pause, and resume
+			            // See below for more detail
+			        }, function(error) {
+			            // Handle unsuccessful uploads
+			        }, function() {
+			            // Handle successful uploads on complete
+			            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+			            var downloadURL = uploadTask.snapshot.downloadURL;
+			 	   		 $("#inputForm").attr("method","post").submit();  
+			           
+			       });
+			}
+			
+			
 		 	});
    		});
 		</script>

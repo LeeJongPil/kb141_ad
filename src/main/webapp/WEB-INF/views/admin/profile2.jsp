@@ -166,7 +166,7 @@
                     	<input type="hidden" name="ad_title" value="${adVO.ad_content }">
                     	<input type="hidden" name="ad_image" value="${adVO.ad_image }">
                     	<input type="hidden" name="ad_video" value="${adVO.ad_video }">
-                    	
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }" />
                     </form>
     			</body>
         <!-- Javascripts -->

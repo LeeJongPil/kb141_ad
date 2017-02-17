@@ -10,10 +10,10 @@
                         <div class="col-md-12">
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
-                                    <a  class="btn btn-success btn-block" id='register'>Message Register</a>
+                                    <a  class="btn btn-success btn-block" id='register'>메세지 보내기</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <h2>View Message</h2>
+                                    <h2>메세지 뷰</h2>
                                 </div>
                                 <div class="col-md-4">
                                     <form action="#" method="GET">
@@ -29,9 +29,9 @@
                         </div>
                         <div class="col-md-2">
                             <ul class="list-unstyled mailbox-nav">
-                                <li><a href="inbox.html"><i class="fa fa-inbox"></i>Inbox <span class="badge badge-success pull-right">4</span></a></li>
-                                <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li>
-                                <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li>
+                                <li><a href="inbox.html"><i class="fa fa-inbox"></i>메일함 <span class="badge badge-success pull-right"></span></a></li>
+                               <!--  <li><a href="#"><i class="fa fa-sign-out"></i>Sent</a></li>
+                                <li><a href="#"><i class="fa fa-trash"></i>Trash</a></li> -->
                             </ul>
                         </div>
                         <div class="col-md-10">
@@ -117,8 +117,8 @@
                                     </div>
                                 </div> -->
                                 <div class="message-options pull-right" id="control" >
-                                   <a class="btn btn-default"><i class="fa fa-reply m-r-xs"></i>Reply</a> 
-                                   <a class="btn btn-default"><i class="fa fa-trash m-r-xs"></i>Trash</a>
+                                   <a class="btn btn-default"><i class="fa fa-reply m-r-xs"></i>뒤로가기</a> 
+                                   <a class="btn btn-default"><i class="fa fa-trash m-r-xs"></i>삭제</a>
                                     
                                 </div>
                             </div>
@@ -232,7 +232,7 @@ $(document).ready(function() {
 								 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
 
 							}
-				    }).catch(function(error) {
+				    }).c5ratch(function(error) {
 				        switch (error.code) {
 				            case 'storage/object_not_found':
 				                console.log("not found");
@@ -254,6 +254,8 @@ $(document).ready(function() {
 				
 				    }
 				    clearInterval(please);
+				    	}else{
+				    		console.log("사진 없어요 .....................");
 				    	}
 	    },1000);
 // 	    }

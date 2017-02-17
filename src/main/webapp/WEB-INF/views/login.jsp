@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Modern | Login - Sign in</title>
+<title>KB141 | Login - Sign in</title>
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta charset="UTF-8">
 <meta name="description" content="Admin Dashboard Template" />
@@ -75,8 +75,8 @@
 			<div class="row">
 				<div class="col-md-3 center">
 					<div class="login-box">
-						<a href="#" class="logo-name text-lg text-center">Modern</a>
-						<p class="text-center m-t-md">Please login into your account.</p>
+						<a href="#" class="logo-name text-lg text-center"><b>AD4U</b></a>
+						<p class="text-center m-t-md">우리를 위한 광고 플랫폼</p>
 						<c:url value="/login"  var="loginUrl" />
 						<form action="${loginUrl}" method="post" class="m-t-md">
 							<div class="form-group">
@@ -91,7 +91,7 @@
 							<button type="submit" class="btn btn-success btn-block">Login</button>
 							<p class="display-block text-center m-t-md text-sm remember">
 								<input type="checkbox" name="_spring_security_remember_me"
-									value="true" />Remember Me
+									value="true" />아이디 기억하기
 							</p>
 							<sec:csrfInput />
 							<c:if test="${param.error != null}">
@@ -102,14 +102,13 @@
 								<p class="display-block text-center m-t-md text-sm">로그아웃
 									되었습니다.</p>
 							</c:if>
-							<p class="text-center m-t-xs text-sm">Do not have an account?</p>
-							<a href="register" class="btn btn-default btn-block">Create
-								an account</a>
+							<p class="text-center m-t-xs text-sm">아이디가 없으시면</p>
+							<a href="register" class="btn btn-default btn-block">회원가입</a>
 						</form>
 
 
-						<p class="cw text-center m-t-xs text-sm">2015 &copy; Modern by
-							Steelcoders.</p>
+						<p class="cw text-center m-t-xs text-sm">2017 &copy; AD4U by
+							KB141.</p>
 					</div>
 				</div>
 			</div>
