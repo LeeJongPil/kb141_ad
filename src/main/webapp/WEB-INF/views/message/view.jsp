@@ -78,6 +78,8 @@
 <!--                                     </div> -->
                                     
                                 </div>
+                                <div class = "video-attachments">
+                                </div>
                                
                                
                 
@@ -222,7 +224,7 @@ $(document).ready(function() {
 										}
 										else if(name[0].name.substr(name[0].name.length - 3, 3) == "mp4" || name[0].name.substr(name[0].name.length - 3, 3) == "avi"){
 											console.log("video 할거임 ......");
-											 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
+											 $(".video-attachments").append('<video controls src ='+url+' height = "700px" width = "700px"></video>');
 			
 										}
 										else{
@@ -251,7 +253,7 @@ $(document).ready(function() {
 				    }
 				    clearInterval(please);
 				    	}
-	    },3000);
+	    },1000);
 // 	    }
 	    
 	    
