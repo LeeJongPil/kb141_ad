@@ -102,8 +102,9 @@ public class AdController {
 	}
 
 	@PostMapping("/modifyAd")
-	public String modifyAdPOST(AdVO vo, RedirectAttributes rttr) throws Exception {
+	public String modifyAdPOST(AdVO vo, @RequestParam(value="value") String value,RedirectAttributes rttr) throws Exception {
 		logger.info("POST MESSAGE Modify....");
+		logger.info(value);
 		adService.modify(vo);
 
 		rttr.addFlashAttribute("msg", "success");
