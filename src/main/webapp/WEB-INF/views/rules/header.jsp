@@ -20,58 +20,49 @@
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600'
 	rel='stylesheet' type='text/css'>
 <link
-	href="/assets/plugins/pace-master/themes/blue/pace-theme-flash.css"
+	href="../assets/plugins/pace-master/themes/blue/pace-theme-flash.css"
 	rel="stylesheet" />
-<link href="/assets/plugins/uniform/css/uniform.default.min.css"
+<link href="../assets/plugins/uniform/css/uniform.default.min.css"
 	rel="stylesheet" />
-<link href="/assets/plugins/bootstrap/css/bootstrap.min.css"
+<link href="../assets/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/fontawesome/css/font-awesome.css"
+<link href="../assets/plugins/fontawesome/css/font-awesome.css"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/line-icons/simple-line-icons.css"
+<link href="../assets/plugins/line-icons/simple-line-icons.css"
 	rel="stylesheet" type="text/css" />
 <link
-	href="/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css"
+	href="../assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/waves/waves.min.css" rel="stylesheet"
+<link href="../assets/plugins/waves/waves.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="/assets/plugins/switchery/switchery.min.css"
+<link href="../assets/plugins/switchery/switchery.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/3d-bold-navigation/css/style.css"
+<link href="../assets/plugins/3d-bold-navigation/css/style.css"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/slidepushmenus/css/component.css"
+<link href="../assets/plugins/slidepushmenus/css/component.css"
 	rel="stylesheet" type="text/css" /> 
 	
 	
-<link href="/assets/plugins/datatables/css/jquery.datatables.min.css"
+<link href="../assets/plugins/datatables/css/jquery.datatables.min.css"
 	rel="stylesheet" type="text/css" />
 <link
-	href="/assets/plugins/datatables/css/jquery.datatables_themeroller.css"
+	href="../assets/plugins/datatables/css/jquery.datatables_themeroller.css"
 	rel="stylesheet" type="text/css" />
 <link
-	href="/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css"
+	href="../assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css"
 	rel="stylesheet" type="text/css">
-<link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css"
+<link href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css"
 	rel="stylesheet" type="text/css" />
 
 <!-- Theme Styles -->
-<link href="/assets/css/modern.min.css" rel="stylesheet"
+<link href="../assets/css/modern.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="/assets/css/themes/white.css" class="theme-color"
+<link href="../assets/css/themes/white.css" class="theme-color"
 	rel="stylesheet" type="text/css" />
-<link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
 
-<link
-	href="/assets/plugins/weather-icons-master/css/weather-icons.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="/assets/plugins/toastr/toastr.min.css" rel="stylesheet"
-	type="text/css" />
-
-<script src="/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
-<script src="/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
-
+<script src="../assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+<script src="../assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
 
 </head>
 <body class="page-header-fixed">
@@ -392,7 +383,7 @@
 								<li class="drop-all"><a href="#" class="text-center">All
 										Messages</a></li>
 							</ul></li>
-				<!-- 		<li class="dropdown"><a href="#"
+						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"><i class="fa fa-bell"></i><span
 								class="badge badge-success pull-right">3</span></a>
@@ -428,7 +419,7 @@
 								</li>
 								<li class="drop-all"><a href="#" class="text-center">All
 										Tasks</a></li>
-							</ul></li> -->
+							</ul></li>
 						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"> <span class="user-name"><sec:authentication
@@ -516,22 +507,15 @@
 						<li><a href="/admin/charts-chartjs">통합 통계</a></li>
 						<li><a href="/admin/charts-chartjs2">개별 통계</a></li>
 					</ul></li>
-				
-				<li id = 'mapDropLink' class="droplink"><a href="#"
+
+				<li id='mapDropLink' class="droplink"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
 						<p>기기관리</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-						<li id ='mapActive1'><a href="/admin/device/map">위치 확인</a></li>
-						<li id ='mapActive2'><a href="/admin/device/register">기기 등록</a></li>
-					</ul></li>
-					<li id = 'mapDropLink' class="droplink"><a href="#"
-					class="waves-effect waves-button"><span
-						class="menu-icon glyphicon glyphicon-map-marker"></span>
-						<p>규칙 관리</p> <span class="arrow"></span></a>
-					<ul class="sub-menu">
-						<li id ='baseList'><a href="/admin/rules/baseList">기본 규칙</a></li>
-						<li id ='kmeansList'><a href="/admin/rules/kmeansList">K-means</a></li>
+						<li id='mapActive1'><a href="/admin/device/map">위치 확인</a></li>
+						<li id='mapActive2'><a href="/admin/device/register">기기
+								등록</a></li>
 					</ul></li>
 			</ul>
 		</div>
