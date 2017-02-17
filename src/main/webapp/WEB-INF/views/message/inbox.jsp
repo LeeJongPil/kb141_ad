@@ -228,9 +228,9 @@ $(document).ready(function (){
 	
 	
 	 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+	 "${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
 	
 	 console.log("inbox urlname : ${urlname}");
-	 
 });
 
 </script>

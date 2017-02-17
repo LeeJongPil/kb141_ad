@@ -190,60 +190,68 @@ $(document).ready(function() {
 	    
 	    var please = setInterval(function (){
 	    	if(list.length == meta.length){
-// 				    		clearInterval(this);
 				    for(var i = 0 ; i < list.length; i++){
-				    	console.log("그림 뿌리기 시작할거임.......................")
-				    	console.log("list : " + list[i]);
-				    var currentURL = downloadRef.child(list[i]);
-				    
-				    var currentWhat = list[i];
-				    var currentSub = currentWhat.substr(currentWhat.length - 3,3);
-				    
-				    
-				    currentURL.getDownloadURL().then(function (url) {
-				    	console.log("url : " + url);
-			// 	        $("#adimg").attr("src" , url);
-							var name = meta.filter(function(item){
-								return item.url == url
-							});
-								
-							if(currentSub == "jpg" && "png"){
-				        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
-			                         + '<img src=' + url + ' alt=""  id = "adimg" style="width: 198px; height: 300px;">  <div class="attachment-info">'
-			                       + '<p>' +name[0].name+'</p>'
-			                        + '<span> ' + name[0].size + ' KB</span>'
-			                    +'</div></a> </div>')
-							}
-							else{
-								console.log("video 할거임 ......");
-								
-								 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
-
-							}
-				    }).catch(function(error) {
-				        switch (error.code) {
-				            case 'storage/object_not_found':
-				                console.log("not found");
-				                break;
+							    	console.log("조건 확인 할 거임.......................")
+							    	console.log("list : " + list[i]);
+							    var currentURL = downloadRef.child(list[i]);
+							    
+							    var currentWhat = list[i];
+							    console.log("currentWhat "+ i +" : " + currentWhat);
+							    var currentSub = currentWhat.substr(currentWhat.length - 3,3);
+							    console.log("currentSub "+ i + " : " + currentSub);
+							    
+							    currentURL.getDownloadURL().then(function (url) {
+							    	console.log("url : " + url);
+						// 	        $("#adimg").attr("src" , url);
+										var name = meta.filter(function(item){
+											return item.url == url
+										});
+									
+										console.log(name);
+											
+											 console.log("currentWhat "+ i +" : " + currentWhat);
+											 
+											 console.log(name[0].name.substr(name[0].name.length - 3, 3));
+										if(name[0].name.substr(name[0].name.length - 3, 3) =="jpg" ||  name[0].name.substr(name[0].name.length - 3, 3) =="png"){
+											console.log("그림 뿌릴거임....................................")
+							        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
+						                         + '<img src=' + url + ' alt=""  id = "adimg" style="width: 198px; height: 300px;">  <div class="attachment-info">'
+						                       + '<p>' +name[0].name+'</p>'
+						                        + '<span> ' + name[0].size + ' KB</span>'
+						                    +'</div></a> </div>')
+										}
+										else if(name[0].name.substr(name[0].name.length - 3, 3) == "mp4" || name[0].name.substr(name[0].name.length - 3, 3) == "avi"){
+											console.log("video 할거임 ......");
+											 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
 			
-				            case 'storage/unauthorized':
-				                console.log("not auth");
-				                break;
-			
-				            case 'storage/canceled':
-				                console.log("canceled...");
-				                break;
-			
-				            case 'storage/unknown':
-				                console.log("unknown..");
-				                break;
-				        }
-				    });
+										}
+										else{
+											console.log("예외것들 : " + currentSub);
+										}
+							    }).catch(function(error) {
+							        switch (error.code) {
+							            case 'storage/object_not_found':
+							                console.log("not found");
+							                break;
+						
+							            case 'storage/unauthorized':
+							                console.log("not auth");
+							                break;
+						
+							            case 'storage/canceled':
+							                console.log("canceled...");
+							                break;
+						
+							            case 'storage/unknown':
+							                console.log("unknown..");
+							                break;
+							        }
+							    });
 				
 				    }
 				    clearInterval(please);
 				    	}
-	    },1000);
+	    },3000);
 // 	    }
 	    
 	    
@@ -306,6 +314,7 @@ $(document).ready(function() {
 			 	
 // 			 	getCookie("urlname") == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
 			 		 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+			 		"${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
  });
 
 </script>
