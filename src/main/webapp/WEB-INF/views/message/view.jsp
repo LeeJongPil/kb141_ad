@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@include file="header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="header.jsp"%>
             <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -79,18 +78,11 @@
 <!--                                     </div> -->
                                     
                                 </div>
+                                <div class = "video-attachments">
+                                </div>
                                
                                
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
+                
                        <!--          <div class="message-attachments">
                                     <p><i class="fa fa-paperclip m-r-xs"></i>2 Attachments - <a href="#">View all</a> | <a href="#">Download all</a></p>
                                     <div class="message-attachment">
@@ -165,8 +157,6 @@ $(document).ready(function() {
 	    });	
 	    
 	    
-	    
-	    
 	    // download   이미지명을 불러와서 넣기만 하면 된다. 
 	    // 여러개를 불러올수있으니까 for문을 돌려서 append 해야한다. 
 	    
@@ -202,8 +192,8 @@ $(document).ready(function() {
 	    
 	    var please = setInterval(function (){
 	    	if(list.length == meta.length){
-// 				    		clearInterval(this);
 				    for(var i = 0 ; i < list.length; i++){
+<<<<<<< HEAD
 				    	console.log("그림 뿌리기 시작할거임.......................")
 				    	console.log("list : " + list[i]);
 				    var currentURL = downloadRef.child(list[i]);
@@ -237,20 +227,64 @@ $(document).ready(function() {
 				            case 'storage/object_not_found':
 				                console.log("not found");
 				                break;
+=======
+							    	console.log("조건 확인 할 거임.......................")
+							    	console.log("list : " + list[i]);
+							    var currentURL = downloadRef.child(list[i]);
+							    
+							    var currentWhat = list[i];
+							    console.log("currentWhat "+ i +" : " + currentWhat);
+							    var currentSub = currentWhat.substr(currentWhat.length - 3,3);
+							    console.log("currentSub "+ i + " : " + currentSub);
+							    
+							    currentURL.getDownloadURL().then(function (url) {
+							    	console.log("url : " + url);
+						// 	        $("#adimg").attr("src" , url);
+										var name = meta.filter(function(item){
+											return item.url == url
+										});
+									
+										console.log(name);
+											
+											 console.log("currentWhat "+ i +" : " + currentWhat);
+											 
+											 console.log(name[0].name.substr(name[0].name.length - 3, 3));
+										if(name[0].name.substr(name[0].name.length - 3, 3) =="jpg" ||  name[0].name.substr(name[0].name.length - 3, 3) =="png"){
+											console.log("그림 뿌릴거임....................................")
+							        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
+						                         + '<img src=' + url + ' alt=""  id = "adimg" style="width: 198px; height: 300px;">  <div class="attachment-info">'
+						                       + '<p>' +name[0].name+'</p>'
+						                        + '<span> ' + name[0].size + ' KB</span>'
+						                    +'</div></a> </div>')
+										}
+										else if(name[0].name.substr(name[0].name.length - 3, 3) == "mp4" || name[0].name.substr(name[0].name.length - 3, 3) == "avi"){
+											console.log("video 할거임 ......");
+											 $(".video-attachments").append('<video controls src ='+url+' height = "700px" width = "700px"></video>');
+>>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
 			
-				            case 'storage/unauthorized':
-				                console.log("not auth");
-				                break;
-			
-				            case 'storage/canceled':
-				                console.log("canceled...");
-				                break;
-			
-				            case 'storage/unknown':
-				                console.log("unknown..");
-				                break;
-				        }
-				    });
+										}
+										else{
+											console.log("예외것들 : " + currentSub);
+										}
+							    }).catch(function(error) {
+							        switch (error.code) {
+							            case 'storage/object_not_found':
+							                console.log("not found");
+							                break;
+						
+							            case 'storage/unauthorized':
+							                console.log("not auth");
+							                break;
+						
+							            case 'storage/canceled':
+							                console.log("canceled...");
+							                break;
+						
+							            case 'storage/unknown':
+							                console.log("unknown..");
+							                break;
+							        }
+							    });
 				
 				    }
 				    clearInterval(please);
@@ -287,11 +321,40 @@ $(document).ready(function() {
 							$("<form action='state' method='post'><input type='hidden' name='mno' value='"+${view.mno}+"'><input type='hidden' name='checked' value='2'></form>").appendTo('body').submit();		
 						}
 			});	
+			
 			// send msg page called.. 
 			$("#register").on("click" , function(){
 				$("<form action='send' method='get'></form>").appendTo("body").submit();	
 			});
 			
-});
+			
+			 	
+// // 			 	console.log($(".urlname"));
+				
+// 				var cookie = document.cookie;
+				
+// 			 	 console.log("view urlname : ${urlname}");
+// 			 	console.log(cookie);
+			 	
+// // 			 	var cname = "urlname";
+			 	
+// 			 	function getCookie(cname)
+// 			 	{
+// 			 	var name = cname + "=";
+// 			 	var ca = document.cookie.split(';');
+// 			 	for(var i=0; i<ca.length; i++)
+// 			 	  {
+// 			 	  var c = ca[i].trim();
+// 			 	  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+// 			 	  }
+// 			 	return "";
+// 			 	} 
+			 	
+// 			 	console.log(getCookie("urlname"));
+			 	
+// 			 	getCookie("urlname") == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+			 		 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+			 		"${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
+ });
 
 </script>

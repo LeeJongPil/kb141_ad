@@ -392,18 +392,27 @@
                                 <li><a href="charts-rickshaw.html">Rickshaw</a></li>
                                 <li><a href="charts-morris.html">Morris</a></li>
                                 <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="/admin/charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="${urlname}/charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="${urlname}/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
-                        <li class="droplink"  id = "devicemanagement"><a href="#"
-					class="waves-effect waves-button"><span
-						class="menu-icon glyphicon glyphicon-map-marker"></span>
-						<p>기기관리</p> <span class="arrow"></span></a>
-					<ul class="sub-menu">
-						<li><a href="/admin/device/map">위치 확인</a></li>
-						<li><a href="/admin/device/register">기기 등록</a></li>
-					</ul></li>
+                        <li class="droplink"  id = "devicemanagement"><a href="#"	class="waves-effect waves-button">
+                        <span	class="menu-icon glyphicon glyphicon-map-marker"></span>
+													<p>기기관리</p> <span class="arrow"></span></a>
+												<ul class="sub-menu">
+													<li><a href="/admin/device/map">위치 확인</a></li>
+													<li><a href="/admin/device/register">기기 등록</a></li>
+												</ul></li>
+					
+												<li id = 'mapDropLink' class="droplink"><a href="#" class="waves-effect waves-button">
+												<span	class="menu-icon glyphicon glyphicon-map-marker"></span>
+													<p>규칙 관리</p> <span class="arrow"></span></a>
+												<ul class="sub-menu">
+													<li id ='baseList'><a href="/admin/rules/baseList">기본 규칙</a></li>
+													<li id ='kmeansList'><a href="/admin/rules/kmeansList">K-means</a></li>
+												</ul></li>
+					
                     </ul>
                 </div><!-- Page Sidebar Inner -->
-			</div>
+                		</div>
+                		

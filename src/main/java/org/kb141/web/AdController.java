@@ -2,7 +2,6 @@ package org.kb141.web;
 
 import java.util.List;
 
-import org.hibernate.annotations.Filter;
 import org.kb141.domain.AdDeviceVO;
 import org.kb141.domain.AdVO;
 import org.kb141.domain.DeviceVO;
@@ -18,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+//github.com/LeeJongPil/kb141_ad.git
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,6 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 @RequestMapping("/ad")
 @EnableWebSecurity
+@CrossOrigin
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);
@@ -122,14 +124,14 @@ public class AdController {
 	@GetMapping("admin/device/register")
 	public void registerDeviceGET(Model model) throws Exception {
 		logger.info("GET DEVICE Register....");
-		model.addAttribute("lastDno",deviceService.getLastDno());
+		model.addAttribute("lastDno", deviceService.getLastDno());
 	}
 
 	@PostMapping("admin/device/register")
 	public String registerDevicePOST(DeviceVO vo, Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("POST DEVICE Register....");
 		logger.info("POST: " + vo);
-		rttr.addFlashAttribute("msg","success");
+		rttr.addFlashAttribute("msg", "success");
 		deviceService.register(vo);
 
 		return "redirect:map";
@@ -151,7 +153,6 @@ public class AdController {
 		logger.info("result: " + deviceService.getList());
 	}
 
-	
 	@ResponseBody
 	@GetMapping("admin/device/adFromDevice/{dno}")
 	public ResponseEntity<List<AdDeviceVO>> adFromDevice(@PathVariable("dno") Integer dno) {
@@ -190,20 +191,22 @@ public class AdController {
 		return "redirect:map";
 	}
 
-//	@GetMapping("/modifyDevice")
-//	public void modifyDeviceGET(@RequestParam("dno") Integer dno, Model model) throws Exception {
-//		logger.info("GET DEVICE Modify....");
-//		model.addAttribute(deviceService.view(dno));
-//	}
-//
-//	@PostMapping("/modifyDevice")
-//	public String modifyDevicePOST(DeviceVO vo, RedirectAttributes rttr) throws Exception {
-//		logger.info("POST DEVICE Modify....");
-//		deviceService.modify(vo);
-//
-//		rttr.addFlashAttribute("msg", "success");
-//		return "redirect:/list";
-//	}
+	// @GetMapping("/modifyDevice")
+	// public void modifyDeviceGET(@RequestParam("dno") Integer dno, Model
+	// model) throws Exception {
+	// logger.info("GET DEVICE Modify....");
+	// model.addAttribute(deviceService.view(dno));
+	// }
+	//
+	// @PostMapping("/modifyDevice")
+	// public String modifyDevicePOST(DeviceVO vo, RedirectAttributes rttr)
+	// throws Exception {
+	// logger.info("POST DEVICE Modify....");
+	// deviceService.modify(vo);
+	//
+	// rttr.addFlashAttribute("msg", "success");
+	// return "redirect:/list";
+	// }
 	////////////////////////////////////////////////////////////////////////////////////
 
 	/*
@@ -248,15 +251,6 @@ public class AdController {
 	 * LOG UTIL
 	 */
 
-	
-//		// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다. 
-//		// JS 에서 JSON으로 받는다. 
-//		@RequestMapping(value="/kmeans" , produces="application/json")
-//		public JSONObject Kmeans() throws Exception  {
-//			System.out.println("kmeans start");
-//			KmeansCSVRead kmeans = new KmeansCSVRead();
-//			return kmeans.kmeansCSV();
-//		}
 //		
 //		/*	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
 //		// JS 에서 JSON으로 받는다.
@@ -275,34 +269,6 @@ public class AdController {
 //		}
 //		
 //		
-//
-	// JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
-	@RequestMapping(value = "/log", method = RequestMethod.POST)
-	public void filepush(MultipartFile file) throws Exception {
-		logger.info("log Start...................................." + file);
-//		LogCSVWrite logwrite = new LogCSVWrite();
-//
-//		String log = logwrite.logCSV(file);
-//		// 로그 들을 String 한줄로 다 붙여버린다.
-//
-//		String res[] = log.split("  ");
-//		String csa[] = {};
-//
-//		for (int i = 1; i < res.length; i++) {
-//			csa = res[i].split(",");
-//			logService.register(logwrite.logDB(csa));
-//			System.out.println("log go to DB ..................");
-//		}
-	}
-
-////	// CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
-////	// JS 에서 JSON으로 받는다.
-////	@RequestMapping(value = "/kmeans", produces = "application/json")
-////	public JSONObject rulebase() throws Exception {
-////		System.out.println("rulebase start");
-////		KmeansCSVRead kmeans = new KmeansCSVRead();
-////		return kmeans.kmeansCSV();
-////	}
 //
 //	// CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드
 //	// Kmeans 돌려서 나오는 걸 DB에 넣고 CSV 를 만든다.
@@ -352,5 +318,85 @@ public class AdController {
 //	public void ADList() throws Exception {
 //
 //	}
+	
+	
+	
+	// // JS 에서 오는 LOG파일을 CSV를 만들고 DB에 넣는다.
+	@RequestMapping(value = "/log", method = RequestMethod.POST)
+	public void filepush(MultipartFile file) throws Exception {
+		logger.info("log Start....................................");
+		logger.info("file" + file);
+		// LogCSVWrite logwrite = new LogCSVWrite();
+		//
+		// String log = logwrite.logCSV(text);
+		// // 로그 들을 String 한줄로 다 붙여버린다.
+		//
+		// String res[] = log.split(" ");
+		// String csa[] = {};
+		//
+		// for (int i = 1; i < res.length; i++) {
+		// csa = res[i].split(",");
+		// logService.register(logwrite.logDB(csa));
+		// System.out.println("log go to DB ..................");
+		// }
+	}
+	//
+	//// // CSV 파일 저장되어있는것을 읽어와서 JSONObject 에 담아서 리턴해준다.
+	//// // JS 에서 JSON으로 받는다.
+	//// @RequestMapping(value = "/kmeans", produces = "application/json")
+	//// public JSONObject rulebase() throws Exception {
+	//// System.out.println("rulebase start");
+	//// KmeansCSVRead kmeans = new KmeansCSVRead();
+	//// return kmeans.kmeansCSV();
+	//// }
+	//
+	// // CSV 파일 저장되어있는것을 읽어와서 DB에 넣는 코드
+	// // Kmeans 돌려서 나오는 걸 DB에 넣고 CSV 를 만든다.
+	// @RequestMapping(value = "/base", produces = "application/json")
+	// public void base() throws Exception {
+	// System.out.println("base start");
+	//
+	// FileReader fr = new FileReader("C://zzz//Kmeans.csv");
+	// BufferedReader br = new BufferedReader(fr);
+	//
+	// fr.read(); // 리턴값으로 읽어온 char 수를 리턴한다. -1 은 다읽은 거다.
+	// String result = "";
+	//
+	// while (true) {
+	// if (br.ready() == false) {
+	// break;
+	// }
+	// result += br.readLine().replaceAll("\"", "") + " ";
+	// }
+	// System.out.println("result : " + result);
+	//
+	// String arr[] = result.split(" "); // 첫줄은 헤더니까 1부터 시작해서 파싱 시작해줘야한다.
+	// // 모든것을 읽어서 띄어쓰기로 나눠서 배열로 넣어두었다.
+	//
+	// String aee[] = {};
+	// System.out.println("arr 길이 : " + arr.length);
+	//
+	// for (int i = 1; i < arr.length; i++) {
+	// System.out.println(arr[i]);
+	// aee = arr[i].split(",");
+	// KmeansVO vo = new KmeansVO();
+	// vo.setKage(Integer.parseInt(aee[1]));
+	// vo.setKgender(aee[2]);
+	// vo.setKemotion(aee[3]);
+	// vo.setK_first(aee[4]);
+	// vo.setK_second(aee[5]);
+	// vo.setK_third(aee[6]);
+	// vo.setKarea(aee[7]);
+	// kmeansService.register(vo);
+	// }
+	//
+	// }
+	//
+	//
+	// // JS에 광고 리스트를 보내줘야 하는 기능 구현 해야 한다.
+	// @RequestMapping(value = "/adlist", produces = "application/json")
+	// public void ADList() throws Exception {
+	//
+	// }
 
 }

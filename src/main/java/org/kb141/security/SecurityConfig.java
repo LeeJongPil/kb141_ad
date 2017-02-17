@@ -36,6 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/client/**")
 				.hasAnyRole("CLIENT", "ADMIN");
 		// .anyRequest().authenticated()
+		
+		// csrf 이거 POST 방식 통하게 하게끔 일딴은 뚫어주기는하는데 
+		// 이걸 사용하는걸 추천하지는 않는다. 
+		http.csrf().disable();
 
 		http.formLogin().loginPage("/login").successHandler(customSuccessHandler).permitAll();
 
