@@ -11,11 +11,12 @@ public class ScheduledTasks {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-	@Scheduled(cron = "*/5 * * * * *")
-	public void reportCurrentTime() {
 
+//	@Scheduled(cron = "*/5 * * * * *")
+//	public void reportCurrentTime() {
+//
 //		System.out.println("The time is now " + dateFormat.format(new Date()));
-
-	}
+//
+//	}
 
 }

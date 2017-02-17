@@ -25,5 +25,8 @@ public interface LogService {
 	
 	public List<LogVO> getListByAdno(Integer adno);
 	
-	public List<LogVO> getClientList(String cid) throws Exception;
+	public List<LogVO> getClientList(String cid);
+	
+	public List<LogVO> getListByGender(String gender);
+	
 }

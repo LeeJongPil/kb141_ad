@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@include file="header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="header.jsp"%>
             <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -81,16 +80,7 @@
                                 </div>
                                
                                
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
+                
                        <!--          <div class="message-attachments">
                                     <p><i class="fa fa-paperclip m-r-xs"></i>2 Attachments - <a href="#">View all</a> | <a href="#">Download all</a></p>
                                     <div class="message-attachment">
@@ -163,8 +153,6 @@ $(document).ready(function() {
 	            console.log("no user");
 	        }
 	    });	
-	    
-	    
 	    
 	    
 	    // download   이미지명을 불러와서 넣기만 하면 된다. 
@@ -285,11 +273,39 @@ $(document).ready(function() {
 							$("<form action='state' method='post'><input type='hidden' name='mno' value='"+${view.mno}+"'><input type='hidden' name='checked' value='2'></form>").appendTo('body').submit();		
 						}
 			});	
+			
 			// send msg page called.. 
 			$("#register").on("click" , function(){
 				$("<form action='send' method='get'></form>").appendTo("body").submit();	
 			});
 			
-});
+			
+			 	
+// // 			 	console.log($(".urlname"));
+				
+// 				var cookie = document.cookie;
+				
+// 			 	 console.log("view urlname : ${urlname}");
+// 			 	console.log(cookie);
+			 	
+// // 			 	var cname = "urlname";
+			 	
+// 			 	function getCookie(cname)
+// 			 	{
+// 			 	var name = cname + "=";
+// 			 	var ca = document.cookie.split(';');
+// 			 	for(var i=0; i<ca.length; i++)
+// 			 	  {
+// 			 	  var c = ca[i].trim();
+// 			 	  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+// 			 	  }
+// 			 	return "";
+// 			 	} 
+			 	
+// 			 	console.log(getCookie("urlname"));
+			 	
+// 			 	getCookie("urlname") == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+			 		 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+ });
 
 </script>

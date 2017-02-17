@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	
             <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -228,13 +227,11 @@ $(document).ready(function (){
 	});
 	
 	
-	
 	 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
 	
+	 console.log("inbox urlname : ${urlname}");
+	 
 });
-
-		
-
 
 </script>
 <script src="../assets/js/pages/inbox.js"></script>

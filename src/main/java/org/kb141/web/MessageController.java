@@ -100,7 +100,7 @@ public class MessageController {
 	
 	
 	@GetMapping("/view")
-	public void msgView(Integer mno , Model model){
+	public void msgView(Integer mno , Model model,  @CookieValue("urlname") String urlName){
 		logger.info("view called....");
 		logger.info("mno : " + mno);
 		MessageVO vo = new MessageVO();
@@ -117,6 +117,7 @@ public class MessageController {
 		}
 		System.out.println("view 거치니 ?");
 		model.addAttribute("view", vo);
+		model.addAttribute("urlname", urlName);
 		// view.jsp 에서 배열로 받아서 뿌리면 된다. 
 	}
 	

@@ -19,14 +19,14 @@ public class KmeansVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer kno;
 
-	@Column
-	private Integer age;
+	@Column(nullable = false)
+	private Double age;
 
-	@Column
+	@Column(nullable = false)
 	private String gender;
 
-	@Column
-	private String emotion;
+	@Column(nullable = false)
+	private Double emotion;
 
 	@Column
 	private String area;
@@ -49,12 +49,20 @@ public class KmeansVO {
 		this.kno = kno;
 	}
 
-	public Integer getAge() {
+	public Double getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(Double age) {
 		this.age = age;
+	}
+
+	public Double getEmotion() {
+		return emotion;
+	}
+
+	public void setEmotion(Double emotion) {
+		this.emotion = emotion;
 	}
 
 	public String getGender() {
@@ -63,14 +71,6 @@ public class KmeansVO {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public String getEmotion() {
-		return emotion;
-	}
-
-	public void setEmotion(String emotion) {
-		this.emotion = emotion;
 	}
 
 	public String getArea() {
