@@ -19,8 +19,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <div class="col-md-6">
-									  <label class="control-label">종류</label>  
+                                    <div class="full-right col-md-6">
 									  <select  class="form-control" id="ChartVal">
 									  <c:forEach var="adVO" items="${adVO }">
 									      <option value="${adVO.adno }">${adVO.ad_title }</option>
@@ -39,7 +38,7 @@
                    <div id ="ChartShow">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Gender / View</h3>
                                 </div>
@@ -51,9 +50,9 @@
                             </div>
                         </div>
                          <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Area / View</h3>
+                                    <h3 class="panel-title" >Area / View</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div>
@@ -65,7 +64,7 @@
 					</div>
 					 <div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Date / View</h3>
                                 </div>
@@ -77,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age / View</h3>
                                 </div>
@@ -91,7 +90,7 @@
 					</div>
 					<div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Time / View</h3>
                                 </div>
@@ -103,7 +102,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age / Emotion</h3>
                                 </div>
@@ -117,7 +116,7 @@
 					</div>
 					<div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age, Gender / Watch Time</h3>
                                 </div>
@@ -129,7 +128,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white">
+                            <div class="panel panel-white" style="height: 318px">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Change Emotion</h3>
                                 </div>
@@ -151,7 +150,14 @@
 <script>
 $( document ).ready(function() {
 	$("#tabChart").attr("class","active");
-
+    var ctx1 = document.getElementById("chartGenderView").getContext("2d");
+    var ctx2 = document.getElementById("chartAreaView").getContext("2d");
+    var ctx3 = document.getElementById("chartDateView").getContext("2d");
+    var ctx4 = document.getElementById("chartAgeView").getContext("2d");
+    var ctx5 = document.getElementById("chartTimeView").getContext("2d");
+    var ctx6 = document.getElementById("chartAgeEmotion").getContext("2d");
+    var ctx7 = document.getElementById("chartAgeGenderWatchtime").getContext("2d");    
+    var ctx8 = document.getElementById("chartEmotion").getContext("2d");
 function ChartList(data){
 	console.log(data);
 	console.log((data.male));
@@ -429,14 +435,6 @@ function ChartList(data){
 			responsive: true
 		}
 		
-    var ctx1 = document.getElementById("chartGenderView").getContext("2d");
-    var ctx2 = document.getElementById("chartAreaView").getContext("2d");
-    var ctx3 = document.getElementById("chartDateView").getContext("2d");
-    var ctx4 = document.getElementById("chartAgeView").getContext("2d");
-    var ctx5 = document.getElementById("chartTimeView").getContext("2d");
-    var ctx6 = document.getElementById("chartAgeEmotion").getContext("2d");
-    var ctx7 = document.getElementById("chartAgeGenderWatchtime").getContext("2d");    
-    var ctx8 = document.getElementById("chartEmotion").getContext("2d");
     
     var chart1 = new Chart(ctx1).Doughnut(data1,doughnutAttribute);
 	var chart2 = new Chart(ctx2).Bar(data2, barAttribute);
@@ -450,9 +448,6 @@ function ChartList(data){
 	
 		
 };
-		
-
-
 
 		$("#ChartBtn").on("click",function(){
 			console.log($("#ChartVal").val());
@@ -471,8 +466,26 @@ function ChartList(data){
 							console.log(data);
 							 $("#ChartShow").show(1000); 
 							setTimeout(function (event) {
-							ChartList(data);
-							 }, 1100);
+								if(data.male==0&&data.female==0){
+									
+									console.log("신난다");
+									console.log(data.male);
+									ctx1.clearRect(0,0,478,239);
+							 		ctx2.clearRect(0,0,478,239);
+									ctx3.clearRect(0,0,478,239);
+									ctx4.clearRect(0,0,478,239);
+									ctx5.clearRect(0,0,478,239);
+									ctx6.clearRect(0,0,478,239);
+									ctx7.clearRect(0,0,478,239);
+									ctx8.clearRect(0,0,478,239);
+									 alert("데이터가 없습니다.");
+									 data=null;
+									 window.location.reload(true);
+								}else{
+									ChartList(data);
+								}
+									
+								}, 100);
 							
 						}
 					});
@@ -480,7 +493,7 @@ function ChartList(data){
 		});
 
 
-$("#ChartShow").hide();  
+
 </script>
         
 </body>

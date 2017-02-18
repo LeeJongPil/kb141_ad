@@ -35,10 +35,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/client")
 public class ClientController {
 	Logger logger = Logger.getLogger(this.getClass());
-	
-	String testId = "lsy";
-	
-	
+
 	@Autowired
 	private KmeansService kmeansService;
 	
@@ -84,10 +81,6 @@ public class ClientController {
 		return "client/index";
 	}
 
-//	@GetMapping("/login")
-//	public void login(Model model) {
-//		logger.info("YHJ IS COMING");
-//	}
 	
 	@GetMapping("/inbox")
 	public void inbox(Model model) {
@@ -111,9 +104,9 @@ public class ClientController {
 	
 	
 	@GetMapping("/charts-chartjs")
-	public void chartschartjs(/*String cid,*/ Model model) throws Exception{
+	public void chartschartjs(@CookieValue("username") String username, Model model) throws Exception{
 		ChartAttributes result = AttributeGenerator.
-				INSTANCE.generator(logService.getClientList(testId));
+				INSTANCE.generator(logService.getClientList(username));
 
 		ChartAttributes result2 = logService.getDateView();
 		result.setView_date(result2.getView_date());
@@ -124,7 +117,7 @@ public class ClientController {
 	}
 	
 	@GetMapping("/charts-chartjs2")
-	public void chartschartjs2(Integer adno,Model model) throws Exception{
+	public void chartschartjs2(@CookieValue("username") String username,Integer adno,Model model) throws Exception{
 		
 
 		logger.info("join");
@@ -137,7 +130,7 @@ public class ClientController {
 		System.out.println("result : " +result);
 		model.addAttribute("data", result);
 		model.addAttribute("stategender", deviceService.getStateGenderCount());
-		model.addAttribute("adVO", adService.getAdlist(testId));
+		model.addAttribute("adVO", adService.getAdlist(username));
 		
 	}
 	
@@ -153,14 +146,11 @@ public class ClientController {
 		result.setView_date(result2.getView_date());
 		System.out.println("adno : "+adno);
 		System.out.println("result : " + result);
-/*		model.addAttribute("data", result);
-		model.addAttribute("stategender", deviceService.getStateGenderCount());
-		model.addAttribute("adVO", adService.getAdlist(testId));*/
 		return result;
 	}
 	
 	@GetMapping("/profile")
-	public void profile(/*String cid,*/ Model model,@CookieValue("username") String username) throws Exception{
+	public void profile(Model model,@CookieValue("username") String username) throws Exception{
 		logger.info("Profile is Comming");
 		logger.info(username);
 		model.addAttribute("adVO", adService.getAdlist(username));

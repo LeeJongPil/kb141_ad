@@ -3,9 +3,14 @@ package org.kb141.web;
  * client, admin, message
  */
 
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.kb141.domain.AdminVO;
 import org.kb141.domain.ClientVO;
-import org.kb141.domain.DeviceVO;
 import org.kb141.domain.MessageVO;
 import org.kb141.service.AdminService;
 import org.kb141.service.ClientService;
@@ -15,18 +20,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/*")
+//@CrossOrigin
 public class PersonController {
 
 	private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
@@ -44,6 +53,75 @@ public class PersonController {
 	 * SECURITY
 	 */
 
+	
+	
+	
+	
+	@PostMapping("/jpa")
+	public File jpaToken(MultipartFile file){
+		logger.info("JPA ~~~~~~~~~~!!!!!!!!!   ");
+		logger.info("들어온다...........................");	
+		logger.info("file : " + file);
+		
+		File convFile = new File("C:/zzz/ad/" + file.getOriginalFilename());
+		
+		logger.info("originalFileName : " + file.getOriginalFilename());
+		
+		try {
+			file.transferTo(convFile);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		logger.info("convFile : " + convFile);
+		
+		return convFile; 
+	}
+	
+	
+	// node.js 에서 이걸 호출 하면 로그인을 한후 ? 토큰값을 반환해주면된다. ? 
+	// 파라미터로 id , pw 를 받아서 토큰값만 리턴 해줘야 한다. 
+	
+	//일딴 여기서는 id, pw 만 보내서 토큰만 나오는지 확인 해 보자 
+	@GetMapping("/token")
+	public void token(CsrfToken token, HttpServletRequest request){
+		logger.info("Get token 갑니다...........................................");
+//		HttpSession session = request.getSession(false);
+//		
+//		if(session != null){
+//			session.invalidate(); // 초기화 
+//			
+//		}
+//		
+//		session = request.getSession(true);
+//		
+//		logger.info("session : " + session);
+		
+		
+//		CsrfToken token 
+//		logger.info("token get : " + token);
+//		return token;
+		
+	}
+	
+	@PostMapping("/token")
+	public void tokenPost(MultipartFile file){
+		logger.info("Post token start ............");
+		logger.info("token post : " + file);
+	}
+	
+	
+//	@PostMapping("/login")
+//	public String loginPost(String id, String pw, Model model){
+//		
+//		logger.info("Post 방식으로 login 페이지 거쳐서 토큰값 추출.........................");
+//		model.addAttribute("id", id);
+//		model.addAttribute("pw", pw);
+//		
+//		return "redirect:login";
+//	}
+	
+	
 	@GetMapping("/login")
 	public void login() {
 	} // login 페이지로 간다.

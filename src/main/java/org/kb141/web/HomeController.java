@@ -1,17 +1,12 @@
 package org.kb141.web;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.kb141.domain.AdVO;
-import org.kb141.domain.ClientVO;
-import org.kb141.mapper.SecurityMapper;
 import org.kb141.service.AdService;
 import org.kb141.service.ClientService;
 import org.kb141.service.DeviceService;
@@ -130,13 +125,45 @@ public class HomeController {
 	}
 	
 	@GetMapping("/charts-chartjs2")
-	public void chartschartjs2(Model model){
+	public void chartschartjs2(Integer adno,Model model){
 		logger.info("YHJ IS COMING");
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getListByAdno(adno));
+		
+		ChartAttributes result2 = logService.getDateView();
+		result.setView_date(result2.getView_date());
+		
+		System.out.println(result);
+		model.addAttribute("data", result);
+		model.addAttribute("stategender", deviceService.getStateGenderCount());
+		model.addAttribute("adVO",adService.getList());
 	}
+	
+	@GetMapping("/Chart")
+	@ResponseBody
+	public ChartAttributes Chart(Integer adno,Model model) throws Exception{
+		
+		logger.info("join");
+		ChartAttributes result = AttributeGenerator.
+				INSTANCE.generator(logService.getListByAdno(adno));
+
+		ChartAttributes result2 = logService.getDateView();
+		result.setView_date(result2.getView_date());
+		System.out.println("adno : "+adno);
+		System.out.println("result : " + result);
+/*		model.addAttribute("data", result);
+		model.addAttribute("stategender", deviceService.getStateGenderCount());
+		model.addAttribute("adVO", adService.getAdlist(testId));*/
+		return result;
+	}
+	
 	
 	@GetMapping("profile")
 	public void profile(Model model){
 		logger.info("YHJ IS COMING");
+		
+
+		model.addAttribute("filename", adService.getList());	// filename을 "," 로 나누어서 배열에 담았다.
 		model.addAttribute("adVO", adService.getList());
 		model.addAttribute("clientVO", clientService.getList());
 	}
@@ -153,6 +180,7 @@ public class HomeController {
 				INSTANCE.generator(logService.getListByAdno(adno));
 		model.addAttribute("data", result);
 	}
+	
 	@GetMapping("profile2Register")
 	public void profile2registerGET(){
 		logger.info("profile2registerGET.......");

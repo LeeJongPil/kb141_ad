@@ -1,6 +1,7 @@
 package org.kb141.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,19 +29,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// 1.2. http 설정
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/client/**")
+		http.authorizeRequests()
+				.antMatchers("/ad/cendlog").permitAll()
+				.antMatchers("/admin/**")
+				.hasRole("ADMIN")
+				.antMatchers("/client/**")
 				.hasAnyRole("CLIENT", "ADMIN");
 		// .anyRequest().authenticated()
+		
+		// csrf 이거 POST 방식 통하게 하게끔 일딴은 뚫어주기는하는데 
+		// 이걸 사용하는걸 추천하지는 않는다. 
+		http.csrf().disable();
 
 		http.formLogin().loginPage("/login").successHandler(customSuccessHandler).permitAll();
 
 		http.rememberMe().key("REMEMBER_KEY").rememberMeParameter("_spring_security_remember_me")
-				.rememberMeCookieName("REMEMBER").tokenValiditySeconds(60);
+				.rememberMeCookieName("REMEMBER").tokenValiditySeconds(60000);
 
 		String[] cookies = { "JSESSIONID", "username", "REMEMBER","urlname" };
 		http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies(cookies);
 	}
-
+	
+	
+	
 	// @Bean
 	// public TokenBasedRememberMeServices tokenBasedRememberMeServices(){
 	// TokenBasedRememberMeServices tokenBasedRememberMeServices =

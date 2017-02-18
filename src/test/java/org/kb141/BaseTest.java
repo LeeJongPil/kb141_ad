@@ -31,6 +31,7 @@ public class BaseTest {
 	@Test
 	public void createTest() {
 		BaseVO vo = new BaseVO();
+
 //		vo.setBno(1);
 //		vo.setAd("happy_outback.mp4");
 //		vo.setAge(10);
@@ -60,6 +61,9 @@ public class BaseTest {
 	@Test
 	public void updateTest() {
 		BaseVO vo = new BaseVO();
+		vo.setBno(1);
+		vo.setAge(40.0);
+		vo.setAd("happy_outback.mp4");
 		baseDAO.save(vo);
 		
 		System.out.println(baseDAO);
@@ -86,7 +90,7 @@ public class BaseTest {
 	public void registerTest() {
 		BaseVO vo = new BaseVO();
 		vo.setAd("surprise_macbook.mp4");
-		vo.setAge(40);
+		vo.setAge(40.0);
 		vo.setGender("male");
 		baseService.register(vo);
 	}

@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <!-- Title -->
-<title>Modern | Admin Dashboard Template</title>
+<title>Modern | Datatables</title>
 
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta charset="UTF-8">
@@ -39,16 +37,20 @@
 	rel="stylesheet" type="text/css" />
 <link href="../assets/plugins/slidepushmenus/css/component.css"
 	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/plugins/weather-icons-master/css/weather-icons.min.css"
+<link href="../assets/plugins/datatables/css/jquery.datatables.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="../assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="../assets/plugins/toastr/toastr.min.css" rel="stylesheet"
-	type="text/css" />
+<link
+	href="../assets/plugins/datatables/css/jquery.datatables_themeroller.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css"
+	rel="stylesheet" type="text/css">
+<link href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css"
+	rel="stylesheet" type="text/css" />
 
 <!-- Theme Styles -->
-<link href="../assets/css/modern.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/modern.min.css" rel="stylesheet"
+	type="text/css" />
 <link href="../assets/css/themes/white.css" class="theme-color"
 	rel="stylesheet" type="text/css" />
 <link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
@@ -182,13 +184,12 @@
 				</a>
 			</div>
 			<div class="logo-box">
-				<a href="index.html" class="logo-text"><span>KB 141</span></a>
+				<a href="index.html" class="logo-text"><span>Modern</span></a>
 			</div>
 			<!-- Logo Box -->
 			<div class="search-button">
 				<a href="javascript:void(0);"
-					class="waves-effect waves-button waves-classic 
--search"><i
+					class="waves-effect waves-button waves-classic show-search"><i
 					class="fa fa-search"></i></a>
 			</div>
 			<div class="topmenu-outer">
@@ -203,10 +204,10 @@
 						<li><a href="javascript:void(0);"
 							class="waves-effect waves-button waves-classic toggle-fullscreen"><i
 								class="fa fa-expand"></i></a></li>
-						<li class="dropdown">
-							<!--  <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <i class="fa fa-cogs"></i>
-                                    </a> -->
+						<li class="dropdown"><a href="#"
+							class="dropdown-toggle waves-effect waves-button waves-classic"
+							data-toggle="dropdown"> <i class="fa fa-cogs"></i>
+						</a>
 							<ul
 								class="dropdown-menu dropdown-md dropdown-list theme-settings"
 								role="menu">
@@ -287,8 +288,7 @@
 								</li>
 								<li class="no-link"><button
 										class="btn btn-default reset-options">Reset Options</button></li>
-							</ul>
-						</li>
+							</ul></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="javascript:void(0);"
@@ -296,8 +296,7 @@
 								class="fa fa-search"></i></a></li>
 						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
-							data-toggle="dropdown" id="showRight"><i
-								class="fa fa-envelope"></i><span
+							data-toggle="dropdown"><i class="fa fa-envelope"></i><span
 								class="badge badge-success pull-right">4</span></a>
 							<ul class="dropdown-menu title-caret dropdown-lg" role="menu">
 								<li><p class="drop-title">You have 4 new messages !</p></li>
@@ -429,12 +428,12 @@
 							class="log-out waves-effect waves-button waves-classic"> <span><i
 									class="fa fa-sign-out m-r-xs"></i>Log out</span>
 						</a></li>
-						<li>
-							<!--   <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
-                                        <i class="fa fa-comments"></i>
-                                    </a>
-                                </li> 
-                            </ul><!-- Nav -->
+						<li><a href="javascript:void(0);"
+							class="waves-effect waves-button waves-classic" id="showRight">
+								<i class="fa fa-comments"></i>
+						</a></li>
+					</ul>
+					<!-- Nav -->
 				</div>
 				<!-- Top Menu -->
 			</div>
@@ -451,48 +450,317 @@
 								class="img-circle img-responsive" alt="">
 						</div>
 						<div class="sidebar-profile-details">
-							<span>David Green<br>
-							<small>Art Director</small></span>
+							<span>David Green<br> <small>Art Director</small></span>
 						</div>
 					</a>
 				</div>
 			</div>
 			<ul class="menu accordion-menu">
-				<li><a href="/admin/index.html"
-					class="waves-effect waves-button"><span
+
+				<li><a href="index.html" class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-home"></span>
-					<p>메인</p></a></li>
-				<li><a href="/admin/profile.html" class="waves-effect waves-button"><span
+						<p>Dashboard</p></a></li>
+				<li><a href="profile.html" class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-user"></span>
-					<p>AD 관리</p></a></li>
-				<li><a href="/message/inbox.html" class="waves-effect waves-button"><span
+						<p>Profile</p></a></li>
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-envelope"></span>
-					<p>메일</p>
-						<!-- <span class="arrow"></span> --></a> <!--                             <ul class="sub-menu">
-                                <li><a href="inbox.html">Inbox</a></li>
-                                <li><a href="message-view.html">View Message</a></li>
-                                <li><a href="compose.html">Compose</a></li>
-                            </ul> --></li>
+						<p>Mailbox</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="inbox.html">Inbox</a></li>
+						<li><a href="message-view.html">View Message</a></li>
+						<li><a href="compose.html">Compose</a></li>
+					</ul></li>
+
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-briefcase"></span>
+						<p>UI Kits</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="ui-alerts.html">Alerts</a></li>
+						<li><a href="ui-buttons.html">Buttons</a></li>
+						<li><a href="ui-icons.html">Icons</a></li>
+						<li><a href="ui-typography.html">Typography</a></li>
+						<li><a href="ui-notifications.html">Notifications</a></li>
+						<li><a href="ui-grid.html">Grid</a></li>
+						<li><a href="ui-tabs-accordions.html">Tabs &amp;
+								Accordions</a></li>
+						<li><a href="ui-modals.html">Modals</a></li>
+						<li><a href="ui-panels.html">Panels</a></li>
+						<li><a href="ui-progress.html">Progress Bars</a></li>
+						<li><a href="ui-nestable.html">Nestable</a></li>
+						<li><a href="ui-tree-view.html">Tree View</a></li>
+					</ul></li>
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-th"></span>
+						<p>Layouts</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="layout-blank.html">Blank Page</a></li>
+						<li><a href="layout-boxed.html">Boxed Page</a></li>
+						<li><a href="layout-horizontal-menu.html">Horizontal Menu</a></li>
+						<li><a href="layout-horizontal-menu-boxed.html">Boxed
+								&amp; Horizontal Menu</a></li>
+						<li><a href="layout-horizontal-menu-minimal.html">Horizontal
+								Menu Minimal</a></li>
+						<li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+						<li><a href="layout-static-header.html">Static Header</a></li>
+						<li><a href="layout-collapsed-sidebar.html">Collapsed
+								Sidebar</a></li>
+						<li><a href="layout-compact-menu.html">Compact Menu</a></li>
+						<li><a href="layout-hover-menu.html">Hover Menu</a></li>
+					</ul></li>
+				<li class="droplink active open"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-list"></span>
+						<p>Tables</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="table-static.html">Static Tables</a></li>
+						<li><a href="table-responsive.html">Responsive Tables</a></li>
+						<li class="active"><a href="table-data.html">Data Tables</a></li>
+					</ul></li>
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-edit"></span>
+						<p>Forms</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="form-elements.html">Form Elements</a></li>
+						<li><a href="form-wizard.html">Form Wizard</a></li>
+						<li><a href="form-upload.html">File Upload</a></li>
+						<li><a href="form-image-crop.html">Image Crop</a></li>
+						<li><a href="form-select2.html">Select2</a></li>
+						<li><a href="form-x-editable.html">X-editable</a></li>
+					</ul></li>
 				<li class="droplink"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-stats"></span>
-					<p>차트</p>
-						<span class="arrow"></span></a>
+						<p>Charts</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-						<li><a href="/admin/charts-chartjs.html">통합 통계</a></li>
-						<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
+						<li><a href="charts-sparkline.html">Sparkline</a></li>
+						<li><a href="charts-rickshaw.html">Rickshaw</a></li>
+						<li><a href="charts-morris.html">Morris</a></li>
+						<li><a href="charts-flotchart.html">Flotchart</a></li>
+						<li><a href="charts-chartjs.html">Chart.js</a></li>
 					</ul></li>
-				<li class="droplink active"><a href="#"
+
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-log-in"></span>
+						<p>Login</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="login.html">Login Form</a></li>
+						<li><a href="register.html">Register Form</a></li>
+						<li><a href="forgot.html">Forgot Password</a></li>
+						<li><a href="lock-screen.html">Lock Screen</a></li>
+					</ul></li>
+				<li class="droplink"><a href="#"
 					class="waves-effect waves-button"><span
 						class="menu-icon glyphicon glyphicon-map-marker"></span>
-					<p>기기관리</p>
-						<span class="arrow"></span></a>
+						<p>Maps</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-						<li><a href="../device/map">위치 확인</a></li>
-						<li><a href="../device/register">기기 등록</a></li>
+						<li><a href="maps-google.html">Google Maps</a></li>
+						<li><a href="maps-vector.html">Vector Maps</a></li>
+					</ul></li>
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-gift"></span>
+						<p>Extra</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li><a href="404.html">404 Page</a></li>
+						<li><a href="500.html">500 Page</a></li>
+						<li><a href="invoice.html">Invoice</a></li>
+						<li><a href="calendar.html">Calendar</a></li>
+						<li><a href="pricing-tables.html">Pricing Tables</a></li>
+						<li><a href="shop.html">Shop</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="timeline.html">Timeline</a></li>
+						<li><a href="search.html">Search Results</a></li>
+						<li><a href="coming-soon.html">Coming Soon</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul></li>
+				<li class="droplink"><a href="#"
+					class="waves-effect waves-button"><span
+						class="menu-icon glyphicon glyphicon-flash"></span>
+						<p>Levels</p> <span class="arrow"></span></a>
+					<ul class="sub-menu">
+						<li class="droplink"><a href="#"><p>Level 1.1</p> <span
+								class="arrow"></span></a>
+							<ul class="sub-menu">
+								<li class="droplink"><a href="#"><p>Level 2.1</p> <span
+										class="arrow"></span></a>
+									<ul class="sub-menu">
+										<li><a href="#">Level 3.1</a></li>
+									</ul></li>
+								<li><a href="#">Level 2.2</a></li>
+							</ul></li>
+						<li><a href="#">Level 1.2</a></li>
 					</ul></li>
 			</ul>
 		</div>
 		<!-- Page Sidebar Inner -->
 	</div>
 	<!-- Page Sidebar -->
+	<div class="page-inner">
+		<div class="page-title">
+			<h3>Datatables</h3>
+			<div class="page-breadcrumb">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#">Tables</a></li>
+					<li class="active">Datatables</li>
+				</ol>
+			</div>
+		</div>
+		<div id="main-wrapper">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-white">
+						<div class="panel-body">
+							<button type="button" class="btn btn-success m-b-sm"
+								data-toggle="modal" data-target="#myModal">Add New Row</button>
+							<!-- Modal -->
+							<form id="add-row-form" action="javascript:void(0);">
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+												<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+											</div>
+											<div class="modal-body">
+												<div class="form-group">
+													<input type="text" id="name-input" class="form-control"
+														placeholder="Name" required>
+												</div>
+												<div class="form-group">
+													<input type="text" id="position-input" class="form-control"
+														placeholder="Position" required>
+												</div>
+												<div class="form-group">
+													<input type="number" id="age-input" class="form-control"
+														placeholder="Age" required>
+												</div>
+												<div class="form-group">
+													<input type="text" id="date-input"
+														class="form-control date-picker" placeholder="Start Date"
+														required>
+												</div>
+												<div class="form-group">
+													<input type="number" id="salary-input" class="form-control"
+														placeholder="Salary" required>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Cancel</button>
+												<button type="submit" id="add-row" class="btn btn-success">Add</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="table-responsive">
+								<table id="example3" class="display table"
+									style="width: 100%; cellspacing: 0;">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Position</th>
+											<th>Age</th>
+											<th>Start date</th>
+											<th>Salary</th>
+										</tr>
+									</thead>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row -->
+		</div>
+		<!-- Main Wrapper -->
+
+
+
+		<div class="page-footer">
+			<p class="no-s">2015 &copy; Modern by Steelcoders.</p>
+		</div>
+	</div>
+	<!-- Page Inner --> </main>
+	<!-- Page Content -->
+	<nav class="cd-nav-container" id="cd-nav">
+		<header>
+			<h3>Navigation</h3>
+			<a href="#0" class="cd-close-nav">Close</a>
+		</header>
+		<ul class="cd-nav list-unstyled">
+			<li class="cd-selected" data-menu="index"><a
+				href="javsacript:void(0);"> <span> <i
+						class="glyphicon glyphicon-home"></i>
+				</span>
+					<p>Dashboard</p>
+			</a></li>
+			<li data-menu="profile"><a href="javsacript:void(0);"> <span>
+						<i class="glyphicon glyphicon-user"></i>
+				</span>
+					<p>Profile</p>
+			</a></li>
+			<li data-menu="inbox"><a href="javsacript:void(0);"> <span>
+						<i class="glyphicon glyphicon-envelope"></i>
+				</span>
+					<p>Mailbox</p>
+			</a></li>
+			<li data-menu="#"><a href="javsacript:void(0);"> <span>
+						<i class="glyphicon glyphicon-tasks"></i>
+				</span>
+					<p>Tasks</p>
+			</a></li>
+			<li data-menu="#"><a href="javsacript:void(0);"> <span>
+						<i class="glyphicon glyphicon-cog"></i>
+				</span>
+					<p>Settings</p>
+			</a></li>
+			<li data-menu="calendar"><a href="javsacript:void(0);"> <span>
+						<i class="glyphicon glyphicon-calendar"></i>
+				</span>
+					<p>Calendar</p>
+			</a></li>
+		</ul>
+	</nav>
+	<div class="cd-overlay"></div>
+
+
+	<!-- Javascripts -->
+	<script src="../assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+	<script src="../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../assets/plugins/pace-master/pace.min.js"></script>
+	<script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="../assets/plugins/switchery/switchery.min.js"></script>
+	<script src="../assets/plugins/uniform/jquery.uniform.min.js"></script>
+	<script src="../assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+	<script src="../assets/plugins/offcanvasmenueffects/js/main.js"></script>
+	<script src="../assets/plugins/waves/waves.min.js"></script>
+	<script src="../assets/plugins/3d-bold-navigation/js/main.js"></script>
+
+	<script src="../assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
+	<script src="../assets/plugins/moment/moment.js"></script>
+	<!-- 	<script src="../assets/plugins/datatables/js/jquery.datatables.min.js"></script> -->
+	<script
+		src="../assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+	<script
+		src="../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/js/modern.min.js"></script>
+	<!-- 	<script src="../assets/js/pages/table-data.js"></script> -->
+
+</body>
+</html>

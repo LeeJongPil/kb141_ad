@@ -17,7 +17,86 @@
 }   
    
 </style>
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+        <script type="text/javascript">
+	
+        
+        	 var config = {
+  	    	        apiKey: "AIzaSyDHqc_8P_hEUTJ-kUvdgc8VAne1r36g0M8",
+  	    	        authDomain: "kb141-17d6a.firebaseapp.com",
+  	    	        databaseURL: "https://kb141-17d6a.firebaseio.com",
+  	    	        storageBucket: "kb141-17d6a.appspot.com",
+  	    	        messagingSenderId: "387641864580"
+  	    	    };
+  	    	    firebase.initializeApp(config);
+  	    	    var storage = firebase.storage();
+  	    	    var downloadRef =  storage.refFromURL("gs://kb141-17d6a.appspot.com/AD_File/");
+  	    	    var uploadRef = storage.ref();
 
+  	    	    // login
+  	    	    firebase.auth().signInWithEmailAndPassword("jk3a0123@gmail.com", "wjdwndud08").catch(function(error) {
+  	    	        // Handle Errors here.
+  	    	        console.log('error sign');
+  	    	        var errorCode = error.code;
+  	    	        var errorMessage = error.message;
+  	    	    });
+  	    	    
+  	    	    // checked login
+  	    	    firebase.auth().onAuthStateChanged(function(user) {
+  	    	        var currentUser = firebase.auth().currentUser;
+  	    	        if (currentUser) {
+  	    	            console.log(currentUser.uid);
+  	    	        } else {
+  	    	            console.log("no user");
+  	    	        }
+  	    	    });	
+       
+</script>
+
+<script>
+	var map;
+		
+	function initMap() {
+			map = new google.maps.Map(document.getElementById('map-canvas'), {
+				center : {
+					lat : 37.494505,
+					lng : 127.028022
+				},
+				zoom : 8
+			});
+		<c:forEach items="${deviceVO}" var="device">
+		var marker${device.dano} = new google.maps.Marker({
+			position : {
+				lat : ${device.lat},
+				lng : ${device.lng}
+			},
+			map : map,
+			title : '${device.dano}'
+		});
+		openInfo(marker${device.dano});
+		</c:forEach>
+		};
+		function openInfo(markerName) {
+			console.log(markerName.title);
+			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
+			var infowindow = new google.maps.InfoWindow({
+				content : contentString
+			});
+			markerName.addListener('click', function() {
+				infowindow.open(map, markerName);
+			});
+		}
+		function makeMarker(name, markerLat, markerLng, markerTitle) {
+			var name = new google.maps.Marker({
+				position : {
+					lat : markerLat,
+					lng : markerLng
+				},
+				map : map,
+				title : markerTitle,
+			});
+		}
+</script>
 
 
             
@@ -121,10 +200,8 @@
                                         <div class="panel-heading">
                                                 <h4 class="panel-title"><span class="icon-social-youtube" aria-hidden="ture"></span> 동영상</h4>
                                             </div>
-                                            <div class="panel-body col-centered">
-                           					   <video width="480" height="360" controls>
-												  <source src="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_video }" type="video/mp4">
-  											   </video>
+                                            <div class="panel-body col-centered" id="videoView">
+                           					 
                                         </div>
                                     </li>
                                 </ul>
@@ -138,8 +215,8 @@
                                         <div class="panel-heading">
                                                 <h4 class="panel-title"><span class="icon-picture" aria-hidden="ture"></span> 포스터</h4>
                                             </div>
-                                            <div class="panel-body col-centered">
-                                              <img src ="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_image }" style="height: 400px ;width :400px;">
+                                            <div class="panel-body col-centered" id="imageView">
+                                              <%-- <img src ="http://localhost:8081/admin/viewfile?fileName=${adVO.ad_image }" style="height: 400px ;width :400px;"> --%>
                                        		 </div>
                                        		 </div>
                                     </li>
@@ -166,76 +243,60 @@
                     	<input type="hidden" name="ad_title" value="${adVO.ad_content }">
                     	<input type="hidden" name="ad_image" value="${adVO.ad_image }">
                     	<input type="hidden" name="ad_video" value="${adVO.ad_video }">
-                    	
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }" />
                     </form>
-    			</body>
+    			
         <!-- Javascripts -->
     	<%@include file="footer.jsp"%>
       	<script src="/assets/js/pages/profile.js"></script>
-        <script>
-       
- 		var map;
- 		
-		function initMap() {
- 			map = new google.maps.Map(document.getElementById('map-canvas'), {
- 				center : {
- 					lat : 37.494505,
- 					lng : 127.028022
- 				},
- 				zoom : 8
- 			});
- 		<c:forEach items="${deviceVO}" var="device">
- 		var marker${device.dano} = new google.maps.Marker({
- 			position : {
- 				lat : ${device.lat},
- 				lng : ${device.lng}
- 			},
- 			map : map,
- 			title : '${device.dano}'
- 		});
- 		openInfo(marker${device.dano});
+      	
+        <script type="text/javascript">
+      	    var imglist = [ <c:forEach items="${adVO.ad_image}" var="i"> "${i}",</c:forEach>];
+	      	  	console.log("이거 왜 안찍혀 : " + imglist);
+	        	
+	    	    	// Create a reference to the file whose metadata we want to retrieve
+	    	    	var forestRef = downloadRef.child(imglist[0]);
+	    	    	
+	    	    	// Get metadata properties
+	    	    	forestRef.getMetadata().then(function(metadata) {
+	    				console.log("url : " + metadata.downloadURLs[0]);
+	    				$("#imageView").append('<img src=' + metadata.downloadURLs[0] + ' alt="" style="width: 400px; height: 400px;"> ');
+	    	    	}).catch(function(error) {
+	    	    	  // Uh-oh, an error occurred!
+	    	    	});    
+        	
+	    	    	
+	    	    	
+	       var vidlist = [ <c:forEach items="${adVO.ad_video}" var="y"> "${y}",</c:forEach>];
+	        	    console.log("이거 왜 안찍혀 : " + vidlist);
+	        	
+	        	    var forestRef2 = downloadRef.child(vidlist[0]);
+	         	    console.log("어떻게 해결했지" + forestRef2);
+	        	    forestRef2.getMetadata().then(function(metadata) {
+	        				console.log("url : " + metadata.downloadURLs[0]);
+	        				$("#videoView").append('<video width="480" height="360" controls src= ' + metadata.downloadURLs[0] + ' type="video/mp4" ></video>');
+	        	    	}).catch(function(error) {
+	        	    	  // Uh-oh, an error occurred!
+	        	    	});  
+	        	    
+	        	    
+	        	    
+	        	    
+	                $("#profileActive").attr("class","active");
+	         		$("#btnRemove").on("click", function(event) {
+	        	       	 console.log(event);
+	        			  if (confirm("정말삭제하시겠습니까?") == true) {
+	        			    $("#inputForm").attr("action", "profile2Remove").submit();
+	        			            } else {
+	        			                return;
+	        			            }
+	        		        	});        	    	
 
- 		</c:forEach>
- 		};
- 		function openInfo(markerName) {
- 			console.log(markerName.title);
- 			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
- 			var infowindow = new google.maps.InfoWindow({
- 				content : contentString
- 			});
- 			markerName.addListener('click', function() {
- 				infowindow.open(map, markerName);
- 			});
- 		}
- 		function makeMarker(name, markerLat, markerLng, markerTitle) {
- 			var name = new google.maps.Marker({
- 				position : {
- 					lat : markerLat,
- 					lng : markerLng
- 				},
- 				map : map,
- 				title : markerTitle,
- 			});
- 		}
- 		$("#profileActive").attr("class","active");
- 		$("#btnRemove").on("click", function(event) {
-	       	 console.log(event);
-	            if (confirm("정말삭제하시겠습니까?") == true) {
-	
-	                $("#inputForm").attr("action", "profile2Remove").submit();
-	            } else {
-	                return;
-	            }
-        	});
-		</script>
-       	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
-        <script>
-        
- 		$(document).ready(function(){
- 			 
- 	         $("body").attr("class","page-header-fixed page-sidebar-fixed");
- 	         $("main").attr("class","page-content content-wrap full-height");
- 	            
- 	            });
+		          
+        $(document).ready(function(){
+
+ 	     });
         </script>
+       	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
+       	</body>
 </html>

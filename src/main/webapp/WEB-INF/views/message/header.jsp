@@ -242,7 +242,7 @@
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" id="showRight"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"></span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
                                         <li><p class="drop-title">You have 4 new  messages !</p></li>
                                         <li class="dropdown-menu-list slimscroll messages">
@@ -300,7 +300,7 @@
                                         <li class="drop-all"><a href="#" class="text-center">All Messages</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown">
+                               <!--  <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge badge-success pull-right">3</span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
                                         <li><p class="drop-title">You have 3 pending tasks !</p></li>
@@ -331,7 +331,7 @@
                                         </li>
                                         <li class="drop-all"><a href="#" class="text-center">All Tasks</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name"><sec:authentication
@@ -392,18 +392,27 @@
                                 <li><a href="charts-rickshaw.html">Rickshaw</a></li>
                                 <li><a href="charts-morris.html">Morris</a></li>
                                 <li><a href="charts-flotchart.html">Flotchart</a></li> -->
-                                <li><a href="/admin/charts-chartjs.html">통합 통계</a></li>
-                            	<li><a href="/admin/charts-chartjs2.html">개별 통계</a></li>
+                                <li><a href="${urlname}/charts-chartjs.html">통합 통계</a></li>
+                            	<li><a href="${urlname}/charts-chartjs2.html">개별 통계</a></li>
                             </ul>
                         </li>
-                        <li class="droplink"  id = "devicemanagement"><a href="#"
-					class="waves-effect waves-button"><span
-						class="menu-icon glyphicon glyphicon-map-marker"></span>
-						<p>기기관리</p> <span class="arrow"></span></a>
-					<ul class="sub-menu">
-						<li><a href="/admin/device/map">위치 확인</a></li>
-						<li><a href="/admin/device/register">기기 등록</a></li>
-					</ul></li>
+                        <li class="droplink"  id = "devicemanagement"><a href="#"	class="waves-effect waves-button">
+                        <span	class="menu-icon glyphicon glyphicon-map-marker"></span>
+													<p>기기관리</p> <span class="arrow"></span></a>
+												<ul class="sub-menu">
+													<li><a href="/admin/device/map">위치 확인</a></li>
+													<li><a href="/admin/device/register">기기 등록</a></li>
+												</ul></li>
+					
+												<li id = 'mapDropLink' class="droplink"><a href="#" class="waves-effect waves-button">
+												<span	class="menu-icon glyphicon glyphicon-map-marker"></span>
+													<p>규칙 관리</p> <span class="arrow"></span></a>
+												<ul class="sub-menu">
+													<li id ='baseList'><a href="/admin/rules/baseList">기본 규칙</a></li>
+													<li id ='kmeansList'><a href="/admin/rules/kmeansList">K-means</a></li>
+												</ul></li>
+					
                     </ul>
                 </div><!-- Page Sidebar Inner -->
-			</div>
+                		</div>
+                		
