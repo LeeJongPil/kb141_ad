@@ -162,20 +162,7 @@ public class HomeController {
 	public void profile(Model model){
 		logger.info("YHJ IS COMING");
 		
-//		
-//		for(int y = 1; y<adService.getList().size();y++){
-//			
-//		if( (adService.view(y)).getAd_image() != null){
-//			System.out.println(y+"번째 사진은 :" + (adService.view(y)).getAd_image());
-//			String[] filename = adService.view(y).getAd_image().split(",");
-//			logger.info("filename : " +filename);
-//			
-//			for(int i = 0 ; i < filename.length; i++){
-//				logger.info("filename"+i + " : " + filename[i]);
-//			}
-//	}else{
-//		continue;				
-//	}}
+
 		model.addAttribute("filename", adService.getList());	// filename을 "," 로 나누어서 배열에 담았다.
 		model.addAttribute("adVO", adService.getList());
 		model.addAttribute("clientVO", clientService.getList());

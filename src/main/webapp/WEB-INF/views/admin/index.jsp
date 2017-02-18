@@ -5,7 +5,7 @@
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
             <div class="page-inner">
-                <div class="page-title">
+<!--                 <div class="page-title">
                     <h3>Dashboard</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
-                </div>
+                </div> -->
                 <div id="main-wrapper">
                
                     <div class="row">
