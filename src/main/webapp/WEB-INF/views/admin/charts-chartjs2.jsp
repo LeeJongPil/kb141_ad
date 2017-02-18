@@ -37,7 +37,7 @@
                     </div><!-- Row -->
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Gender / View</h3>
                                 </div>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                          <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Area / View</h3>
                                 </div>
@@ -63,7 +63,7 @@
 					</div>
 					 <div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Date / View</h3>
                                 </div>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age / View</h3>
                                 </div>
@@ -89,7 +89,7 @@
 					</div>
 					<div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Time / View</h3>
                                 </div>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age / Emotion</h3>
                                 </div>
@@ -115,7 +115,7 @@
 					</div>
 					<div class="row">
 					  <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Age, Gender / Watch Time</h3>
                                 </div>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="panel panel-white" style="height: 318px">
+                            <div class="panel panel-white">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Change Emotion</h3>
                                 </div>
