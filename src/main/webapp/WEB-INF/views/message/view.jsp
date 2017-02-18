@@ -193,41 +193,6 @@ $(document).ready(function() {
 	    var please = setInterval(function (){
 	    	if(list.length == meta.length){
 				    for(var i = 0 ; i < list.length; i++){
-<<<<<<< HEAD
-				    	console.log("그림 뿌리기 시작할거임.......................")
-				    	console.log("list : " + list[i]);
-				    var currentURL = downloadRef.child(list[i]);
-				    
-				    var currentWhat = list[i];
-				    var currentSub = currentWhat.substr(currentWhat.length - 3,3);
-				    
-				    
-				    currentURL.getDownloadURL().then(function (url) {
-				    	console.log("url : " + url);
-			// 	        $("#adimg").attr("src" , url);
-							var name = meta.filter(function(item){
-								return item.url == url
-							});
-								
-							if(currentSub == "jpg" && "png"){
-				        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
-			                         + '<img src=' + url + ' alt=""  id = "adimg" width="100px" height="300px">  </div>   <div class="attachment-info">'
-			                       + '<p>' +name[0].name+'</p>'
-			                        + '<span> ' + name[0].size + '</span>'
-			                    +'</div></a> </div>')
-							}
-							else{
-								console.log("video 할거임 ......");
-								
-								 $(".message-attachments").append('<video controls src ='+url+' height = "500px" width = "500px"></video>');
-
-							}
-				    }).c5ratch(function(error) {
-				        switch (error.code) {
-				            case 'storage/object_not_found':
-				                console.log("not found");
-				                break;
-=======
 							    	console.log("조건 확인 할 거임.......................")
 							    	console.log("list : " + list[i]);
 							    var currentURL = downloadRef.child(list[i]);
@@ -260,7 +225,6 @@ $(document).ready(function() {
 										else if(name[0].name.substr(name[0].name.length - 3, 3) == "mp4" || name[0].name.substr(name[0].name.length - 3, 3) == "avi"){
 											console.log("video 할거임 ......");
 											 $(".video-attachments").append('<video controls src ='+url+' height = "700px" width = "700px"></video>');
->>>>>>> branch 'master' of https://github.com/LeeJongPil/kb141_ad.git
 			
 										}
 										else{

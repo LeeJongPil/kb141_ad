@@ -176,12 +176,7 @@ public class HomeController {
 //	}else{
 //		continue;				
 //	}}
-			model.addAttribute("filename", adService.getList());	// filename을 "," 로 나누어서 배열에 담았다.
-		
-		
-		
-	
-		
+		model.addAttribute("filename", adService.getList());	// filename을 "," 로 나누어서 배열에 담았다.
 		model.addAttribute("adVO", adService.getList());
 		model.addAttribute("clientVO", clientService.getList());
 	}
@@ -198,6 +193,7 @@ public class HomeController {
 				INSTANCE.generator(logService.getListByAdno(adno));
 		model.addAttribute("data", result);
 	}
+	
 	@GetMapping("profile2Register")
 	public void profile2registerGET(){
 		logger.info("profile2registerGET.......");

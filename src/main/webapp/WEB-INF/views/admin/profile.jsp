@@ -76,9 +76,6 @@
                                 </ul>
                             </div> 
                          </div>
-                        </div>
-                    </div>
-                </div>
 			</div>
      
 	
@@ -152,14 +149,7 @@
         	    }
         	    
         	    var please = setInterval(function (){
-        				 /*    for(String s : meta.size()){
-        				    	if(s.equals (adList))
-        				    	console.log("그림 뿌리기 시작할거임.......................")
-        				    		return true;
-        				    	}
-        				    return false;
-        				    } */
-        			
+        
         				  for (var x = 0; x < meta.length; x++) {
 							console.log("메타데이터 :"+meta[x].name);
         				    
@@ -170,23 +160,10 @@
         			 	    		console.log(meta[x].url);
         			 	    		var id = document.getElementById(list[i]);
         			 	    		console.log(id);
-        			 	    		
         			 	    		 $(id).children().first().append('<img src=' + meta[x].url + ' alt="" >');     
         			 	    	}
 							} 
         				  }     
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
-        				    
         		 clearInterval(please);
         	    },3000);
         	    

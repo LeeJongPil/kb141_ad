@@ -185,7 +185,7 @@
 			            // Handle successful uploads on complete
 			            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
 			            var downloadURL = uploadTask.snapshot.downloadURL;
-			            $("#inputForm").attr("method","post").submit();
+			            
 			       });
 			}
 			var video = $("#video")[0].files;
@@ -203,7 +203,11 @@
 			            // Handle successful uploads on complete
 			            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
 			            var downloadURL = uploadTask.snapshot.downloadURL;
-			 	   		 $("#inputForm").attr("method","post").submit();  
+			 	   		
+			            
+			            setInterval(function (){
+			            $("#inputForm").attr("method","post").submit();  
+			            },3000);
 			           
 			       });
 			}
