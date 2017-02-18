@@ -128,7 +128,7 @@
 		</nav>
         <div class="menu-wrap">
             <nav class="profile-menu">
-                <div class="profile"><img src="/assets/images/avatar1.png" width="52" alt="David Green"/><span></span></div>
+                <div class="profile"><img src="/assets/images/client.png" width="52" alt="David Green"/><span></span></div>
                 <div class="profile-menu-list">
                     <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                     <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
@@ -349,7 +349,7 @@
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name"><sec:authentication
 										property="principal.username" /><i class="fa fa-angle-down"></i></span>
-                                        <img class="img-circle avatar" src="/assets/images/avatar1.png" width="40" height="40" alt="">
+                                        <img class="img-circle avatar" src="/assets/images/client.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
                                         <li role="presentation"><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
@@ -385,7 +385,7 @@
                         <div class="sidebar-profile">
                             <a href="javascript:void(0);" id="profile-menu-link">
                                 <div class="sidebar-profile-image">
-                                    <img src="/assets/images/avatar1.png" class="img-circle img-responsive" alt="">
+                                    <img src="/assets/images/client.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span><sec:authentication property="principal.username"/><br><small><sec:authentication property="principal.company"/></small></span>

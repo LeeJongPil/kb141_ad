@@ -63,7 +63,12 @@ public class MessageTests {
 	
 	@Test
 	public void deleteTest(){
-		dao.delete(3);
+		int i = 1 ;
+		for (; i < 200; i++) {
+		if(null != dao.findOne(i)){
+			dao.delete(i);
+		};
+		}
 	}
 	
 	@Test
