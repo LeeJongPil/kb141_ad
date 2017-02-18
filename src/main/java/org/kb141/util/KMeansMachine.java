@@ -188,7 +188,7 @@ public class KMeansMachine {
 			int maxAdno = 0;
 			int count = 0;
 			for (int j = 0; j < 10; j++) {
-				// System.out.print(cluster_adCount[i][j] + ", ");
+				 System.out.print(cluster_adCount[i][j] + ", ");
 				if (count < cluster_adCount[i][j]) {
 					count = cluster_adCount[i][j];
 					maxAdno = j;

@@ -145,6 +145,10 @@ public class AdVO {
 	public void setTarget_area(String target_area) {
 		this.target_area = target_area;
 	}
+	
+	public String getCsvString() {
+		return this.adno + "," + this.ad_image + "," + this.ad_video + "\r\n";
+	}
 
 	@Override
 	public String toString() {
