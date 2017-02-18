@@ -37,7 +37,7 @@
                             <div class="mailbox-content">
                                 <div class="message-header">
                                 	<p class="message-date">   날짜 :  ${view.regdate}</p>
-                                    <h2> 제목    :    ${view.mtitle}</h2>
+                                    <h2>     ${view.mtitle}</h2>
                                 </div>
                                 <div class="message-sender">
                                     보낸 사람 : <p> ${view.mfrom}</p>
