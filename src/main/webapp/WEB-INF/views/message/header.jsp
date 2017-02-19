@@ -142,7 +142,7 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="index.html" class="logo-text"><span>KB 141</span></a>
+                        <a href="${urlname}.html" class="logo-text"><span>KB 141</span></a>
                     </div><!-- Logo Box -->
                     <div class="search-button">
                         <a href="javascript:void(0);" class="waves-effect waves-button waves-classic-search"><i class="fa fa-search"></i></a>

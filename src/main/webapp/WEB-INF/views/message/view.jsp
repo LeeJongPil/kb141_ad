@@ -214,17 +214,26 @@ $(document).ready(function() {
 											 console.log("currentWhat "+ i +" : " + currentWhat);
 											 
 											 console.log(name[0].name.substr(name[0].name.length - 3, 3));
-										if(name[0].name.substr(name[0].name.length - 3, 3) =="jpg" ||  name[0].name.substr(name[0].name.length - 3, 3) =="png"){
+											 
+											 var extension = name[0].name.substr(name[0].name.length - 3, 3);
+											 console.log(extension);
+											 
+										if(extension =="jpg" ||  extension =="png" || extension =="gif"){
 											console.log("그림 뿌릴거임....................................")
 							        $(".message-attachments").append('<div class="message-attachment"><a href="#"><div class="attachment-content">'
 						                         + '<img src=' + url + ' alt=""  id = "adimg" style="width: 198px; height: 300px;">  <div class="attachment-info">'
-						                       + '<p>' +name[0].name+'</p>'
+						                       + '<p id = "download">' +name[0].name+'</p>'
 						                        + '<span> ' + name[0].size + ' KB</span>'
 						                    +'</div></a> </div>')
 										}
-										else if(name[0].name.substr(name[0].name.length - 3, 3) == "mp4" || name[0].name.substr(name[0].name.length - 3, 3) == "avi"){
+										else if(extension == "mp4" || extension == "avi"){
 											console.log("video 할거임 ......");
-											 $(".video-attachments").append('<video controls src ='+url+' height = "700px" width = "700px"></video>');
+// 											 $(".video-attachments").append('<div class="message-attachment"><video controls src ='+url+' height = "700px" width = "700px"></video></div>');
+										   $(".video-attachments").append('<div class="message-attachment" style="height : 800px; width : 700px"><div class="attachment-content" style="height : 800px; width : 700px">'
+							                         + '<video controls src ='+url+' height = "700px" width = "700px"></video>  <div class="attachment-info">'
+							                       + '<p id = "download">' +name[0].name+'</p>'
+							                        + '<span> ' + name[0].size + ' KB</span>'
+							                    +'</div></div>')
 			
 										}
 										else{
@@ -256,6 +265,11 @@ $(document).ready(function() {
 	    },1000);
 // 	    }
 	    
+	    $("#download").on("click",function(e){
+	    	
+	    	console.log(e);
+	    	
+	    });
 	    
 	    
 	

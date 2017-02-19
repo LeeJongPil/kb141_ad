@@ -1,11 +1,12 @@
 package org.kb141;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
-import javax.websocket.Session;
+import javax.activation.MimetypesFileTypeMap;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,9 @@ import org.kb141.process.ScheduledTasks;
 import org.kb141.service.LogService;
 import org.kb141.util.Centroid;
 import org.kb141.util.KMeansMachine;
+import org.kb141.web.PersonController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -31,6 +35,9 @@ public class UtilTest {
 	
 	@Autowired
 	private LogService logService;
+	
+	private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
+	
 	
 	@Test
 	public void algorithm() {
@@ -88,5 +95,60 @@ public class UtilTest {
 //		// 자동으로 뭘 말 하는 건가. 
 		System.out.println(result);	
 	}
+	
+	
+	@Test
+	public void File()throws Exception{
+		File file = new File("C:/zzz/ad/list.csv");
+		
+		if(file.exists()){
+			
+			FileInputStream fis = new FileInputStream(file);
+			int i ; 
+			
+				while((i = fis.read()) != -1){
+					System.out.println((char) i);
+				}
+			
+			fis.close();
+		}
+		else{
+			System.out.println("해당 파일이 없습니다.");
+		}
+		
+	}
+	
+	@Test
+	public void mimeType(){
+		
+		File file = new File("C:/zzz/upload/images5");
+		System.out.println(new MimetypesFileTypeMap().getContentType(file));
+	}
+	
+	@Test
+	public void fileToString()throws Exception{
+	
+		FileInputStream fis = new FileInputStream("C:/zzz/ad/list.csv");
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String line = "";
+		
+		try{
+			while((line = br.readLine()) != null){
+				String[] splitData = line.split(",");
+				
+			}
+			
+			
+		}catch(Exception e){
+			
+		}
+			
+		
+	}
+	
+	
+	
 
 }

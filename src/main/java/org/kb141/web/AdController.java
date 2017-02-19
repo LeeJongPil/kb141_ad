@@ -33,7 +33,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @CrossOrigin
 @Controller
-@RequestMapping("/ad")
 public class AdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdController.class);

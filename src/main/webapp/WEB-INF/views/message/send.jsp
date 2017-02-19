@@ -5,8 +5,8 @@
 <link href="../assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-
 <%@ include file="header.jsp" %>
+
     <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row m-t-md">
@@ -165,7 +165,12 @@ $(document).ready(function(){
 // // 				$("#sendForm").submit();
 // 			console.log("-----------------------------------");
 // 		    console.log(suc);
-// 			});
+// 			});	 		
+
+	   console.log("urlname :   ${urlname}");
+
+//     "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+//  		"${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
 	
 	
 });

@@ -4,8 +4,9 @@ package org.kb141.web;
  */
 
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileReader;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,7 +24,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +49,7 @@ public class PersonController {
 	@Autowired
 	private MessageService messageService;
 
+	
 	/*
 	 * SECURITY
 	 */
@@ -57,12 +58,41 @@ public class PersonController {
 	
 	
 	
-	@PostMapping("/jpa")
-	public File jpaToken(MultipartFile file){
-		logger.info("JPA ~~~~~~~~~~!!!!!!!!!   ");
-		logger.info("들어온다...........................");	
-		logger.info("file : " + file);
-		
+//	@PostMapping("/jpa")
+//	public File jpaToken(MultipartFile file){
+//		logger.info("JPA ~~~~~~~~~~!!!!!!!!!   ");
+//		logger.info("들어온다...........................");	
+//		logger.info("file : " + file);
+//		
+//		File convFile = new File("C:/zzz/ad/" + file.getOriginalFilename());
+//		
+//		logger.info("originalFileName : " + file.getOriginalFilename());
+//		
+//		try {
+//			file.transferTo(convFile);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		logger.info("convFile : " + convFile);
+//		
+//		return convFile; 
+//	}
+	
+	
+	// node.js 에서 이걸 호출 하면 로그인을 한후 ? 토큰값을 반환해주면된다. ? 
+	// 파라미터로 id , pw 를 받아서 토큰값만 리턴 해줘야 한다. 
+	
+	//일딴 여기서는 id, pw 만 보내서 토큰만 나오는지 확인 해 보자 
+	@GetMapping("/token")
+	public void token(CsrfToken token, HttpServletRequest request){
+		logger.info("Get token 갑니다...........................................");
+	}
+	
+	@PostMapping("/token")
+	public File tokenPost(MultipartFile file){
+		logger.info("Post token start ............");
+		logger.info("token post : " + file);
 		File convFile = new File("C:/zzz/ad/" + file.getOriginalFilename());
 		
 		logger.info("originalFileName : " + file.getOriginalFilename());
@@ -78,38 +108,22 @@ public class PersonController {
 		return convFile; 
 	}
 	
+	@RequestMapping("/download")
+	public MultipartFile fileDown(){
+	logger.info("file download start.........");
+		String filePath = "C:/zzz/ad/list.csv";
+		
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+//		fr = new FileReader();
+		
+			
 	
-	// node.js 에서 이걸 호출 하면 로그인을 한후 ? 토큰값을 반환해주면된다. ? 
-	// 파라미터로 id , pw 를 받아서 토큰값만 리턴 해줘야 한다. 
-	
-	//일딴 여기서는 id, pw 만 보내서 토큰만 나오는지 확인 해 보자 
-	@GetMapping("/token")
-	public void token(CsrfToken token, HttpServletRequest request){
-		logger.info("Get token 갑니다...........................................");
-//		HttpSession session = request.getSession(false);
-//		
-//		if(session != null){
-//			session.invalidate(); // 초기화 
-//			
-//		}
-//		
-//		session = request.getSession(true);
-//		
-//		logger.info("session : " + session);
 		
 		
-//		CsrfToken token 
-//		logger.info("token get : " + token);
-//		return token;
-		
+		return null;
 	}
-	
-	@PostMapping("/token")
-	public void tokenPost(MultipartFile file){
-		logger.info("Post token start ............");
-		logger.info("token post : " + file);
-	}
-	
 	
 //	@PostMapping("/login")
 //	public String loginPost(String id, String pw, Model model){

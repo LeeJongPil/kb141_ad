@@ -122,8 +122,9 @@ public class MessageController {
 	}
 	
 	@GetMapping("/send")
-	public void registerMsg( Model model){
+	public void registerMsg( Model model, @CookieValue("urlname") String urlName){
 		logger.info("sendmsg page called.....");
+		model.addAttribute("urlname", urlName);
 //		logger.info(mfrom);
 //		model.addAttribute("to" , mfrom);
 	}
