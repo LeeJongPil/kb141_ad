@@ -5,7 +5,7 @@
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
             <div class="page-inner">
-<!--                 <div class="page-title">
+                <div class="page-title">
                     <h3>Dashboard</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
-                </div> -->
+                </div>
                 <div id="main-wrapper">
                
                     <div class="row">
@@ -152,7 +152,7 @@
                                                     <small>6 hours ago</small>
                                                 </div>
                                                 <div class="timeline-item-post">
-                                                    <div id="map-canvas" style="height: 225px; width: 100%;"></div>
+                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,59 +182,7 @@
                                             </div>
                                     		</c:forEach>
                                     		
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Sandra Smith</p> -->
-<!--                                                 <p class="inbox-item-text">Hey! I'm working on your...</p> -->
-<!--                                                 <p class="inbox-item-date">13:40 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar3.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Christopher</p> -->
-<!--                                                 <p class="inbox-item-text">I've finished it! See you so...</p> -->
-<!--                                                 <p class="inbox-item-date">13:34 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Amily Lee</p> -->
-<!--                                                 <p class="inbox-item-text">This theme is awesome!</p> -->
-<!--                                                 <p class="inbox-item-date">13:17 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar5.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Nick Doe</p> -->
-<!--                                                 <p class="inbox-item-text">Nice to meet you</p> -->
-<!--                                                 <p class="inbox-item-date">12:20 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Sandra Smith</p> -->
-<!--                                                 <p class="inbox-item-text">Hey! I'm working on your...</p> -->
-<!--                                                 <p class="inbox-item-date">10:15 AM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Amily Lee</p> -->
-<!--                                                 <p class="inbox-item-text">This theme is awesome!</p> -->
-<!--                                                 <p class="inbox-item-date">9:56 AM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
+
                                         
                                     </div>
                                 </div>
@@ -242,37 +190,57 @@
                         </div>
                     </div>
                 </div><!-- Main Wrapper -->
+    </body>
 		<%@include file="footer.jsp"%>
 		
         <script  src="/assets/js/pages/dashboard.js"></script>
         <script src="/assets/js/pages/profile.js"></script>
-    </body>
     
     <script>
     $("#mainActive").attr("class","active");	
     var map;
 		
-	function initMap() {
-			map = new google.maps.Map(document.getElementById('map-canvas'), {
-				center : {
-					lat : 37.494505,
-					lng : 127.028022
-				},
-				zoom : 8
-			});
-		<c:forEach items="${deviceList}" var="device">
-		var marker${device.state} = new google.maps.Marker({
-			position : {
-				lat : ${device.lat},
-				lng : ${device.lng}
-			},
-			map : map,
-			title : '${device.state}'
-		});
-		openInfo(marker${device.state});
 
+    function initMap() {
+		map = new google.maps.Map(document.getElementById('map-canvas'), {
+			center : {
+				lat : 37.494505,
+				lng : 127.028022
+			},
+			zoom : 8
+		});
+		
+		<c:forEach items="${deviceList}" var="device">
+		
+		lat = ${device.lat};
+		lng = ${device.lng};
+
+		$.ajax({
+			url : "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&language=ko&key=AIzaSyDho-ovmiGXI8BKnzuQyzqJ_bAxWP4qkhM",
+			type:"GET",
+			success:function(data){
+//					console.log(data);
+				var lotNumAddress = data.results[0].formatted_address;
+				var rodeNameAddress = data.results[1].formatted_address;
+				
+				var marker${device.dno} = new google.maps.Marker({
+					position : {
+						lat : ${device.lat},
+						lng : ${device.lng}
+					},
+					map : map,
+					title : '${device.dno}',
+					lotAd : lotNumAddress,
+					rodeAd : rodeNameAddress
+				});
+				openInfo(marker${device.dno});
+			}
+		});
 		</c:forEach>
-		};
+
+	}
+    
+    
 		function openInfo(markerName) {
 			console.log(markerName.title);
 			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
@@ -294,84 +262,12 @@
 			});
 		}
 		
-	$(document).ready(function(){
+		$(document).ready(function(){
 	 
      $("body").attr("class","page-header-fixed page-sidebar-fixed");
      $("main").attr("class","page-content content-wrap full-height");
-	
-     var config = {
- 	        apiKey: "AIzaSyDHqc_8P_hEUTJ-kUvdgc8VAne1r36g0M8",
- 	        authDomain: "kb141-17d6a.firebaseapp.com",
- 	        databaseURL: "https://kb141-17d6a.firebaseio.com",
- 	        storageBucket: "kb141-17d6a.appspot.com",
- 	        messagingSenderId: "387641864580"
- 	    };
- 	    firebase.initializeApp(config);
- 	    var storage = firebase.storage();
- 	    var downloadRef =  storage.refFromURL("gs://kb141-17d6a.appspot.com/AD_File/");
- 	    var uploadRef = storage.ref();
-
- 	    // login
- 	    firebase.auth().signInWithEmailAndPassword("jk3a0123@gmail.com", "wjdwndud08").catch(function(error) {
- 	        // Handle Errors here.
- 	        console.log('error sign');
- 	        var errorCode = error.code;
- 	        var errorMessage = error.message;
- 	    });
- 	    
- 	    // checked login
- 	    firebase.auth().onAuthStateChanged(function(user) {
- 	        var currentUser = firebase.auth().currentUser;
- 	        if (currentUser) {
- 	            console.log(currentUser.uid);
- 	        } else {
- 	            console.log("no user");
- 	        }
- 	    });	
-    	    var imglist = [ <c:forEach items="${adVO.ad_image}" var="i"> "${i}",</c:forEach>];
-   	  	console.log("이거 왜 안찍혀 : " + imglist);
-     	var meta = new Array();
- 	    	// Create a reference to the file whose metadata we want to retrieve
- 	    	var forestRef = downloadRef.child(imglist[0]);
- 	    	
- 	    	// Get metadata properties
- 	    	forestRef.getMetadata().then(function(metadata) {
- 				console.log("url : " + metadata.downloadURLs[0]);
- 				$("#imageView").append('<img src=' + metadata.downloadURLs[0] + ' alt="" style="width: 400px; height: 400px;"> ');
- 	    	}).catch(function(error) {
- 	    	  // Uh-oh, an error occurred!
- 	    	});   
-
- 	    	
-/*     	    var vidlist = [ <c:forEach items="${adVO.ad_video}" var="i"> "${i}",</c:forEach>];
- 	    console.log("이거 왜 안찍혀 : " + vidlist);
- 	    var meta = new Array();
- 	    var forestRef2 = downloadRef.child(vidlist[0]);
-  	    console.log("어떻게 해결했지" + forestRef2);
- 	    forestRef2.getMetadata().then(function(metadata) {
- 				console.log("url : " + metadata.downloadURLs[0]);
- 				$("#videoView").append('<video width="480" height="360" controls> <source src= ' + metadata.downloadURLs[0] + ' type="video/mp4" ');
- 	    	}).catch(function(error) {
- 	    	  // Uh-oh, an error occurred!
- 	    	});  
- 	    	
-
-   	}); */
-     
-     
-     
-	});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
+	});	
 		
     </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
 </html>

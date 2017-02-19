@@ -166,7 +166,8 @@ $(document).ready(function(){
 // 			console.log("-----------------------------------");
 // 		    console.log(suc);
 // 			});
-	
+	 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+	 "${urlname}" == "/admin" ? $("#mapDropLink").show( : $("#mapDropLink").hide();
 	
 });
 </script>

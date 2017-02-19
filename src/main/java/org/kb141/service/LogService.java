@@ -23,10 +23,14 @@ public interface LogService {
 	
 	public ChartAttributes getDateView();
 	
+	public ChartAttributes getDateViewByAdno(Integer adno);
+	
 	public List<LogVO> getListByAdno(Integer adno);
 	
 	public List<LogVO> getClientList(String cid);
 	
 	public List<LogVO> getListByGender(String gender);
+	
+	
 	
 }

@@ -1,6 +1,10 @@
 package org.kb141.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import org.kb141.domain.DeviceListVO;
 
 public class ChartAttributes {
 
@@ -15,6 +19,8 @@ public class ChartAttributes {
 	private int[] emotion_positive_female = new int[8];
 	private int[] emotion_negative_male = new int[8];
 	private int[] emotion_negative_female = new int[8];
+	
+	private List<DeviceListVO> stategender = new ArrayList<>();
 
 	// anger contempt disgust fear happiness neutral sadness surprise
 
@@ -32,6 +38,14 @@ public class ChartAttributes {
 			this.emotion_negative_male[i] = 0;
 			this.emotion_negative_female[i] = 0;
 		}
+	}
+	
+	public List<DeviceListVO> getStategender() {
+		return stategender;
+	}
+
+	public void setStategender(List<DeviceListVO> stategender) {
+		this.stategender.addAll(stategender);
 	}
 
 	public int getMale() {
@@ -176,7 +190,7 @@ public class ChartAttributes {
 				+ Arrays.toString(emotion_positive_male) + ", emotion_positive_female="
 				+ Arrays.toString(emotion_positive_female) + ", emotion_negative_male="
 				+ Arrays.toString(emotion_negative_male) + ", emotion_negative_female="
-				+ Arrays.toString(emotion_negative_female) + "]";
+				+ Arrays.toString(emotion_negative_female) + "]" + this.stategender;
 	}
 
 }

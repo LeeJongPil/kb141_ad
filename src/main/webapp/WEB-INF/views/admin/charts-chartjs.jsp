@@ -164,22 +164,22 @@ $( document ).ready(function() {
         datasets: [
             {
                 label: "Male dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
+                fillColor: "rgba(123,171,199,0.2)",
+                strokeColor: "rgba(123,171,199,1)",
+                pointColor: "rgba(123,171,199,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
+                pointHighlightStroke: "rgba(123,171,199,1)",
                 data: data2_male
             },
             {
                 label: "Female dataset",
-                fillColor: "rgba(34,186,160,0.2)",
-                strokeColor: "rgba(34,186,160,1)",
-                pointColor: "rgba(34,186,160,1)",
+                fillColor: "rgba(247,170,159,0.2)",
+                strokeColor: "rgba(247,170,159,1)",
+                pointColor: "rgba(247,170,159,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(18,175,203,1)",
+                pointHighlightStroke: "rgba(247,170,159,1)",
                 data: data2_female
             }
         ]
@@ -255,22 +255,22 @@ $( document ).ready(function() {
             datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    fillColor: "rgba(123,171,199,0.2)",
+                    strokeColor: "rgba(123,171,199,1)",
+                    pointColor: "rgba(123,171,199,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    pointHighlightStroke: "rgba(123,171,199,1)",
                     data: data6_male
                 },
                 {
                     label: "My Second dataset",
-                    fillColor: "rgba(34,186,160,0.2)",
-                    strokeColor: "rgba(34,186,160,1)",
-                    pointColor: "rgba(34,186,160,1)",
+                    fillColor: "rgba(247,170,159,0.2)",
+                    strokeColor: "rgba(247,170,159,1)",
+                    pointColor: "rgba(247,170,159,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(18,175,203,1)",
+                    pointHighlightStroke: "rgba(247,170,159,1)",
                     data: data6_female
                 }
             ]
@@ -291,22 +291,22 @@ $( document ).ready(function() {
             datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    fillColor: "rgba(123,171,199,0.2)",
+                    strokeColor: "rgba(123,171,199,1)",
+                    pointColor: "rgba(123,171,199,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    pointHighlightStroke: "rgba(123,171,199,1)",
                     data: data7_male
                 },
                 {
                     label: "My Second dataset",
-                    fillColor: "rgba(34,186,160,0.2)",
-                    strokeColor: "rgba(34,186,160,1)",
-                    pointColor: "rgba(34,186,160,1)",
+                    fillColor: "rgba(247,170,159,0.2)",
+                    strokeColor: "rgba(247,170,159,1)",
+                    pointColor: "rgba(247,170,159,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(18,175,203,1)",
+                    pointHighlightStroke: "rgba(247,170,159,1)",
                     data: data7_female
                 }
             ]

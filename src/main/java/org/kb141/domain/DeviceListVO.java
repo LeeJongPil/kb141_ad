@@ -28,7 +28,7 @@ public class DeviceListVO {
 	}
 
 	public Integer getLogcnt() {
-		return logcnt;
+		return logcnt == null ? 0 : logcnt;
 	}
 
 	public void setLogcnt(Integer logcnt) {
@@ -36,7 +36,7 @@ public class DeviceListVO {
 	}
 
 	public Integer getLogPercent() {
-		return logPercent;
+		return logPercent == null ? 0 : logPercent;
 	}
 
 	public void setLogPercent(Integer logPercent) {
@@ -44,7 +44,7 @@ public class DeviceListVO {
 	}
 
 	public Integer getLog_area_male() {
-		return log_area_male;
+		return log_area_male == null ? 0 : log_area_male;
 	}
 
 	public void setLog_area_male(Integer log_area_male) {
@@ -52,7 +52,7 @@ public class DeviceListVO {
 	}
 
 	public Integer getLog_area_female() {
-		return log_area_female;
+		return log_area_female == null ? 0 : log_area_female;
 	}
 
 	public void setLog_area_female(Integer log_area_female) {

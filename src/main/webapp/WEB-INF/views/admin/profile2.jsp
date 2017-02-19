@@ -293,9 +293,7 @@
 	        		        	});        	    	
 
 		          
-        $(document).ready(function(){
 
- 	     });
         </script>
        	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgODk3nW5Qg39325e8Tp1KAcoUCG5coaA&callback=initMap"  async defer></script>
        	</body>

@@ -101,6 +101,19 @@ public class DeviceServiceImpl implements DeviceService {
 		}
 		return result;
 	}
+	
+	@Override
+	public List<DeviceListVO> getStateGenderCountByAdno(Integer adno) {
+		List<DeviceListVO> result = null;
+		try {
+			result = deviceMapper.getStateGenderCountByAdno(adno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
 
 	
 	public List<DeviceVO> getClientCount(String cid) {

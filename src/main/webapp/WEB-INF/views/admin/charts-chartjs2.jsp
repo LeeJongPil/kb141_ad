@@ -159,13 +159,13 @@ function ChartList(data){
 	// Gender / View Chart
     var data1 = [
     	{
-            value: data.male,
+            value: data.female,
             color:	"#f56954",
             highlight: "#F7AA9F",
             label: "Female"
         },
     	{
-			value:	data.female,
+			value:	data.male,
 			color: 	"#3c8dbc",
 			highlight: "#7BABC7",
 			label: "Male"
@@ -174,31 +174,48 @@ function ChartList(data){
     ];
 	
 	// Area / View Chart
-	var data2_labels = [<c:forEach items="${stategender}" var="i">"${i.city}",</c:forEach>]
-	var data2_male = [<c:forEach items="${stategender}" var="i">"${i.log_area_male}",</c:forEach>]
-	var data2_female = [<c:forEach items="${stategender}" var="i">"${i.log_area_female}",</c:forEach>]
+
+	
+	var data2_labels = new Array();
+	var data2_male = new Array();
+	var data2_female = new Array();
+	
+	for(var i = 0 ; i < data.stategender.length ; i++){
+		data2_labels.push(data.stategender[i].city);
+		data2_male.push(data.stategender[i].log_area_male);
+		data2_female.push(data.stategender[i].log_area_female);
+	}
+	
+	
+// 	console.log(data.stategender.city);
+// // 	var data2_data = data.stategender[0];
+
+// 	var data2_labels = new Array(data.stategender[0].city);
+// 	var data2_male = new Array(data.stategender[0].log_area_male);
+// 	var data2_female = new Array(data.stategender[0].log_area_female);
+	
 	
     var data2 = {
         labels: data2_labels,
         datasets: [
-            {
+            {	// 7BABC7
                 label: "Male dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
+                fillColor: "rgba(123,171,199,0.2)",
+                strokeColor: "rgba(123,171,199,1)",
+                pointColor: "rgba(123,171,199,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
+                pointHighlightStroke: "rgba(123,171,199,1)",
                 data: data2_male
             },
             {
                 label: "Female dataset",
-                fillColor: "rgba(34,186,160,0.2)",
-                strokeColor: "rgba(34,186,160,1)",
-                pointColor: "rgba(34,186,160,1)",
+                fillColor: "rgba(247,170,159,0.2)",
+                strokeColor: "rgba(247,170,159,1)",
+                pointColor: "rgba(247,170,159,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(18,175,203,1)",
+                pointHighlightStroke: "rgba(247,170,159,1)",
                 data: data2_female
             }
         ]
@@ -276,22 +293,22 @@ function ChartList(data){
             datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    fillColor: "rgba(123,171,199,0.2)",
+                    strokeColor: "rgba(123,171,199,1)",
+                    pointColor: "rgba(123,171,199,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    pointHighlightStroke: "rgba(123,171,199,1)",
                     data: data6_male
                 },
                 {
                     label: "My Second dataset",
-                    fillColor: "rgba(34,186,160,0.2)",
-                    strokeColor: "rgba(34,186,160,1)",
-                    pointColor: "rgba(34,186,160,1)",
+                    fillColor: "rgba(247,170,159,0.2)",
+                    strokeColor: "rgba(247,170,159,1)",
+                    pointColor: "rgba(247,170,159,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(18,175,203,1)",
+                    pointHighlightStroke: "rgba(247,170,159,1)",
                     data: data6_female
                 }
             ]
@@ -313,22 +330,22 @@ function ChartList(data){
             datasets: [
                 {
                     label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    fillColor: "rgba(123,171,199,0.2)",
+                    strokeColor: "rgba(123,171,199,1)",
+                    pointColor: "rgba(123,171,199,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    pointHighlightStroke: "rgba(123,171,199,1)",
                     data: data7_male
                 },
                 {
                     label: "My Second dataset",
-                    fillColor: "rgba(34,186,160,0.2)",
-                    strokeColor: "rgba(34,186,160,1)",
-                    pointColor: "rgba(34,186,160,1)",
+                    fillColor: "rgba(247,170,159,0.2)",
+                    strokeColor: "rgba(247,170,159,1)",
+                    pointColor: "rgba(247,170,159,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(18,175,203,1)",
+                    pointHighlightStroke: "rgba(247,170,159,1)",
                     data: data7_female
                 }
             ]
