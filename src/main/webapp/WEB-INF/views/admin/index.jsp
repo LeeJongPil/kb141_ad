@@ -5,7 +5,7 @@
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
             <div class="page-inner">
-                <div class="page-title">
+<!--                 <div class="page-title">
                     <h3>Dashboard</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
-                </div>
+                </div> -->
                 <div id="main-wrapper">
                
                     <div class="row">
@@ -243,10 +243,9 @@
                     </div>
                 </div><!-- Main Wrapper -->
 		<%@include file="footer.jsp"%>
-		
         <script  src="/assets/js/pages/dashboard.js"></script>
         <script src="/assets/js/pages/profile.js"></script>
-    </body>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
     
     <script>
     $("#mainActive").attr("class","active");	
@@ -294,23 +293,74 @@
 			});
 		}
 		
-		$(document).ready(function(){
+	$(document).ready(function(){
 	 
      $("body").attr("class","page-header-fixed page-sidebar-fixed");
      $("main").attr("class","page-content content-wrap full-height");
+	
+//      var config = {
+//  	        apiKey: "AIzaSyDHqc_8P_hEUTJ-kUvdgc8VAne1r36g0M8",
+//  	        authDomain: "kb141-17d6a.firebaseapp.com",
+//  	        databaseURL: "https://kb141-17d6a.firebaseio.com",
+//  	        storageBucket: "kb141-17d6a.appspot.com",
+//  	        messagingSenderId: "387641864580"
+//  	    };
+//  	    firebase.initializeApp(config);
+//  	    var storage = firebase.storage();
+//  	    var downloadRef =  storage.refFromURL("gs://kb141-17d6a.appspot.com/AD_File/");
+//  	    var uploadRef = storage.ref();
 
+//  	    // login
+//  	    firebase.auth().signInWithEmailAndPassword("jk3a0123@gmail.com", "wjdwndud08").catch(function(error) {
+//  	        // Handle Errors here.
+//  	        console.log('error sign');
+//  	        var errorCode = error.code;
+//  	        var errorMessage = error.message;
+//  	    });
+ 	    
+//  	    // checked login
+//  	    firebase.auth().onAuthStateChanged(function(user) {
+//  	        var currentUser = firebase.auth().currentUser;
+//  	        if (currentUser) {
+//  	            console.log(currentUser.uid);
+//  	        } else {
+//  	            console.log("no user");
+//  	        }
+//  	    });	
+//     	    var imglist = [ <c:forEach items="${adVO.ad_image}" var="i"> "${i}",</c:forEach>];
+//    	  	console.log("이거 왜 안찍혀 : " + imglist);
+//      	var meta = new Array();
+//  	    	// Create a reference to the file whose metadata we want to retrieve
+//  	    	var forestRef = downloadRef.child(imglist[0]);
+ 	    	
+//  	    	// Get metadata properties
+//  	    	forestRef.getMetadata().then(function(metadata) {
+//  				console.log("url : " + metadata.downloadURLs[0]);
+//  				$("#imageView").append('<img src=' + metadata.downloadURLs[0] + ' alt="" style="width: 400px; height: 400px;"> ');
+//  	    	}).catch(function(error) {
+//  	    	  // Uh-oh, an error occurred!
+//  	    	});   
+
+ 	    	
+/*     	    var vidlist = [ <c:forEach items="${adVO.ad_video}" var="i"> "${i}",</c:forEach>];
+ 	    console.log("이거 왜 안찍혀 : " + vidlist);
+ 	    var meta = new Array();
+ 	    var forestRef2 = downloadRef.child(vidlist[0]);
+  	    console.log("어떻게 해결했지" + forestRef2);
+ 	    forestRef2.getMetadata().then(function(metadata) {
+ 				console.log("url : " + metadata.downloadURLs[0]);
+ 				$("#videoView").append('<video width="480" height="360" controls> <source src= ' + metadata.downloadURLs[0] + ' type="video/mp4" ');
+ 	    	}).catch(function(error) {
+ 	    	  // Uh-oh, an error occurred!
+ 	    	});  
+ 	    	
+
+   	}); */
+     
+     
 	});
 		
 		
-		
-		
-		
-		
-		
-		
-		
-
-		
     </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
+    </body>
 </html>

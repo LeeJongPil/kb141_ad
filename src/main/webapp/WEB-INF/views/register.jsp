@@ -3,7 +3,7 @@
 <html>
 <head>
 <!-- Title -->
-<title>Modern | Login - Sign up</title>
+<title>AD4U | Login - Sign up</title>
 
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta charset="UTF-8">
@@ -83,8 +83,8 @@
 			<div class="row">
 				<div class="col-md-3 center">
 					<div class="login-box">
-						<a href="#" class="logo-name text-lg text-center">Modern</a>
-						<p class="text-center m-t-md">Create a Modern's account</p>
+						<a href="#" class="logo-name text-lg text-center">AD4U</a>
+						<p class="text-center m-t-md">우리를 위한 광고 플랫폼</p>
 						<!-- 						<form class="m-t-md" action="/register" method="post"> -->
 						<form class="m-t-md form" method="post">
 							<div class="form-group row check">
@@ -114,18 +114,17 @@
 										name="company" placeholder="Company">
 								</div>
 							</div>
-							<label> <input type="checkbox" required> Agree
-								the terms and policy
+							<label> <input type="checkbox" required> 약관에 동의합니다.
 							</label>
 							<div class="col-md-5 center">
 								<button type="submit" id="submitBtn"
-									class="btn btn-success btn-block m-t-xs">Submit</button>
+									class="btn btn-success btn-block m-t-xs">가입하기</button>
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token }" />
 							</div>
 						</form>
-						<p class="text-center m-t-xs text-sm">2015 &copy; Modern by
-							Steelcoders.</p>
+						<p class="text-center m-t-xs text-sm">2017 &copy; AD4U by
+							KB141.</p>
 					</div>
 				</div>
 			</div>

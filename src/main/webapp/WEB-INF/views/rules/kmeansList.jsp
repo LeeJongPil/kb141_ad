@@ -9,16 +9,16 @@ tbody tr:nth-child(odd) { background-color: #f9f9f9; }
 </style>
 <form>
 </form>
-	<div class="page-title">
+<!-- 	<div class="page-title">
 		<h3>Datatables</h3>
 		<div class="page-breadcrumb">
 			<ol class="breadcrumb">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="#">Tables</a></li>
-				<li class="active">Base Rule</li>
+				<li class="active">Kmeans-Rule</li>
 			</ol>
 		</div>
-	</div>
+	</div> -->
 	<div id="main-wrapper">
 		<div class="row">
 			<div class="col-md-12">

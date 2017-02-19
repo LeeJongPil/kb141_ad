@@ -82,6 +82,11 @@ public class UtilTest {
 	}
 	
 	@Test
+	public void csvWriter3() {
+		crw.listWriter();
+	}
+	
+	@Test
 	public void csvWriter2() {
 		List<LogVO> maleArr = logService.getListByGender("M");
 		List<LogVO> femaleArr = logService.getListByGender("F");

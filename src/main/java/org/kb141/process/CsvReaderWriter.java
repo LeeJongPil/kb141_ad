@@ -34,6 +34,8 @@ public class CsvReaderWriter {
 
 	@Autowired
 	private AdService adService;
+	
+	@Autowired
 
 	public void logReader() {
 		try {
@@ -176,4 +178,25 @@ public class CsvReaderWriter {
 
 	}
 
+	public void listWriter() {
+		try {
+			List<AdVO> list = adService.getList();
+
+			FileWriter fw;
+			fw = new FileWriter("C://zzz//ad//list7.csv");
+
+			fw.write("adno,image,video\r\n");
+			for (AdVO adVO : list) {
+				fw.write(adVO.getCsvString());
+			}
+			fw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+	
 }

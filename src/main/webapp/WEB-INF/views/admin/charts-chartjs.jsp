@@ -19,7 +19,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <p class="no-s">Simple, clean and engaging charts for designers and developers.</p>
+                                    <p class="no-s">전체 광고 페이지입니다.</p>
                                 </div>
                             </div>
                         </div>

@@ -171,7 +171,7 @@
 	<div class="menu-wrap">
 		<nav class="profile-menu">
 			<div class="profile">
-				<img src="/assets/images/avatar1.png" width="52" alt="David Green" /><span>난
+				<img src="/assets/images/admin.png" width="52" alt="David Green" /><span>난
 					관리자</span>
 			</div>
 			<div class="profile-menu-list">
@@ -392,7 +392,7 @@
 								<li class="drop-all"><a href="#" class="text-center">All
 										Messages</a></li>
 							</ul></li>
-						<li class="dropdown"><a href="#"
+				<!-- 		<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"><i class="fa fa-bell"></i><span
 								class="badge badge-success pull-right">3</span></a>
@@ -428,12 +428,12 @@
 								</li>
 								<li class="drop-all"><a href="#" class="text-center">All
 										Tasks</a></li>
-							</ul></li>
+							</ul></li> -->
 						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
 							data-toggle="dropdown"> <span class="user-name"><sec:authentication
 										property="principal.username" /><i class="fa fa-angle-down"></i></span>
-								<img class="img-circle avatar" src="/assets/images/avatar1.png"
+								<img class="img-circle avatar" src="/assets/images/admin.png"
 								width="40" height="40" alt="">
 						</a>
 							<ul class="dropdown-menu dropdown-list" role="menu">
@@ -477,7 +477,7 @@
 				<div class="sidebar-profile">
 					<a href="javascript:void(0);" id="profile-menu-link">
 						<div class="sidebar-profile-image">
-							<img src="/assets/images/avatar1.png"
+							<img src="/assets/images/admin.png"
 								class="img-circle img-responsive" alt="">
 						</div>
 						<div class="sidebar-profile-details">

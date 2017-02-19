@@ -22,7 +22,7 @@
                             <div class="panel info-box panel-white" style="height: 145px;">
                                 <div class="panel-body">
                                     <div class="info-box-stats">
-                                        <h1><p><span class="counter">${adCount.size()}</span> 개</p></h1>
+                                        <h1><p><span class="counter">${adList.size()}</span> 개</p></h1>
                                         <span class="info-box-title">전체  광고 .</span>
                                     </div>
                         	            <div class="info-box-icon">
