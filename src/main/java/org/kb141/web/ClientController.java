@@ -142,10 +142,11 @@ public class ClientController {
 		ChartAttributes result = AttributeGenerator.
 				INSTANCE.generator(logService.getListByAdno(adno));
 
-		ChartAttributes result2 = logService.getDateView();
+		ChartAttributes result2 = logService.getDateViewByAdno(adno);
 		result.setView_date(result2.getView_date());
 		System.out.println("adno : "+adno);
 		System.out.println("result : " + result);
+		result.setStategender(deviceService.getStateGenderCountByAdno(adno));
 		return result;
 	}
 	

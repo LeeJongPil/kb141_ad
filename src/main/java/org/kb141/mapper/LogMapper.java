@@ -28,4 +28,9 @@ public interface LogMapper {
 	@Select("select * from tbl_log where adno in ( select adno from tbl_ad where cid = #{cid})")
 	public List<LogVO> getClientList(String cid) throws Exception;
 	
+	
+	@Select("select	count(if(date_format(curr_time, '%Y%m%d') = curdate() -1, 1, null))day1, count(if(date_format(curr_time, '%Y%m%d') = curdate() -2, 1, null))day2, count(if(date_format(curr_time, '%Y%m%d') = curdate() -3, 1, null))day3, count(if(date_format(curr_time, '%Y%m%d') = curdate() -4, 1, null))day4, count(if(date_format(curr_time, '%Y%m%d') = curdate() -5, 1, null))day5, count(if(date_format(curr_time, '%Y%m%d') = curdate() -6, 1, null))day6, count(if(date_format(curr_time, '%Y%m%d') = curdate() -7, 1, null))day7 from tbl_log where adno = #{adno}")
+	public ChartAttributes getDateViewByAdno(Integer adno) throws Exception;
+	
+	
 }

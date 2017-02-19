@@ -5,7 +5,7 @@
     <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
             <div class="page-inner">
-<!--                 <div class="page-title">
+                <div class="page-title">
                     <h3>Dashboard</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
-                </div> -->
+                </div>
                 <div id="main-wrapper">
                
                     <div class="row">
@@ -152,7 +152,7 @@
                                                     <small>6 hours ago</small>
                                                 </div>
                                                 <div class="timeline-item-post">
-                                                    <div id="map-canvas" style="height: 225px; width: 100%;"></div>
+                                                    <div id="map-canvas" style="height: 200px; width: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,59 +182,7 @@
                                             </div>
                                     		</c:forEach>
                                     		
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Sandra Smith</p> -->
-<!--                                                 <p class="inbox-item-text">Hey! I'm working on your...</p> -->
-<!--                                                 <p class="inbox-item-date">13:40 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar3.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Christopher</p> -->
-<!--                                                 <p class="inbox-item-text">I've finished it! See you so...</p> -->
-<!--                                                 <p class="inbox-item-date">13:34 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Amily Lee</p> -->
-<!--                                                 <p class="inbox-item-text">This theme is awesome!</p> -->
-<!--                                                 <p class="inbox-item-date">13:17 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar5.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Nick Doe</p> -->
-<!--                                                 <p class="inbox-item-text">Nice to meet you</p> -->
-<!--                                                 <p class="inbox-item-date">12:20 PM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Sandra Smith</p> -->
-<!--                                                 <p class="inbox-item-text">Hey! I'm working on your...</p> -->
-<!--                                                 <p class="inbox-item-date">10:15 AM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-                                        
-<!--                                         <a href="#"> -->
-<!--                                             <div class="inbox-item"> -->
-<!--                                                 <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div> -->
-<!--                                                 <p class="inbox-item-author">Amily Lee</p> -->
-<!--                                                 <p class="inbox-item-text">This theme is awesome!</p> -->
-<!--                                                 <p class="inbox-item-date">9:56 AM</p> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
+
                                         
                                     </div>
                                 </div>
@@ -242,6 +190,7 @@
                         </div>
                     </div>
                 </div><!-- Main Wrapper -->
+    </body>
 		<%@include file="footer.jsp"%>
         <script  src="/assets/js/pages/dashboard.js"></script>
         <script src="/assets/js/pages/profile.js"></script>
@@ -251,27 +200,47 @@
     $("#mainActive").attr("class","active");	
     var map;
 		
-	function initMap() {
-			map = new google.maps.Map(document.getElementById('map-canvas'), {
-				center : {
-					lat : 37.494505,
-					lng : 127.028022
-				},
-				zoom : 8
-			});
-		<c:forEach items="${deviceList}" var="device">
-		var marker${device.state} = new google.maps.Marker({
-			position : {
-				lat : ${device.lat},
-				lng : ${device.lng}
-			},
-			map : map,
-			title : '${device.state}'
-		});
-		openInfo(marker${device.state});
 
+    function initMap() {
+		map = new google.maps.Map(document.getElementById('map-canvas'), {
+			center : {
+				lat : 37.494505,
+				lng : 127.028022
+			},
+			zoom : 8
+		});
+		
+		<c:forEach items="${deviceList}" var="device">
+		
+		lat = ${device.lat};
+		lng = ${device.lng};
+
+		$.ajax({
+			url : "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&language=ko&key=AIzaSyDho-ovmiGXI8BKnzuQyzqJ_bAxWP4qkhM",
+			type:"GET",
+			success:function(data){
+//					console.log(data);
+				var lotNumAddress = data.results[0].formatted_address;
+				var rodeNameAddress = data.results[1].formatted_address;
+				
+				var marker${device.dno} = new google.maps.Marker({
+					position : {
+						lat : ${device.lat},
+						lng : ${device.lng}
+					},
+					map : map,
+					title : '${device.dno}',
+					lotAd : lotNumAddress,
+					rodeAd : rodeNameAddress
+				});
+				openInfo(marker${device.dno});
+			}
+		});
 		</c:forEach>
-		};
+
+	}
+    
+    
 		function openInfo(markerName) {
 			console.log(markerName.title);
 			var contentString = '<div><a href="'+markerName.title+'">'+markerName.title+'</a></div>';
@@ -293,7 +262,7 @@
 			});
 		}
 		
-	$(document).ready(function(){
+		$(document).ready(function(){
 	 
      $("body").attr("class","page-header-fixed page-sidebar-fixed");
      $("main").attr("class","page-content content-wrap full-height");
@@ -356,11 +325,9 @@
  	    	
 
    	}); */
-     
-     
-	});
 		
+	});	
 		
     </script>
-    </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzjeZ1lORVesmjaaFu0EbYeTw84t1_nek&callback=initMap"  async defer></script>
 </html>

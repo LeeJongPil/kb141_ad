@@ -23,6 +23,8 @@ public interface DeviceService {
 	
 	public List<DeviceListVO> getStateGenderCount();
 	
+	public List<DeviceListVO> getStateGenderCountByAdno(Integer adno);
+	
 	public List<DeviceVO> getClientCount(String cid);
 
 	public Integer getLastDno();

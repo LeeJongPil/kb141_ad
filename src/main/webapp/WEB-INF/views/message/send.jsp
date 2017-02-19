@@ -169,9 +169,10 @@ $(document).ready(function(){
 
 	   console.log("urlname :   ${urlname}");
 
-//     "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
-//  		"${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
 	
+// 			});
+	 "${urlname}" == "/admin" ? $("#devicemanagement").show() : $("#devicemanagement").hide();
+	 "${urlname}" == "/admin" ? $("#mapDropLink").show() : $("#mapDropLink").hide();
 	
 });
 </script>

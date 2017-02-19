@@ -135,4 +135,15 @@ public class LogServiceImpl implements LogService {
 		}
 		return list;
 	}
+
+	@Override
+	public ChartAttributes getDateViewByAdno(Integer adno) {
+		ChartAttributes result = null;
+		try {
+			result = logMapper.getDateViewByAdno(adno);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

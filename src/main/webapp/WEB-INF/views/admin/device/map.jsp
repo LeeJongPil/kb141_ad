@@ -129,13 +129,6 @@ font-size:16px;
 			var lng = this.lng;
 			var lotAd = markerName.lotAd;
 			var rodeAd = markerName.rodeAd;
-// 			console.log(lat);
-// 			console.log(lng);
-// 			console.log(lotAd);
-// 			console.log(rodeAd);
-			
-// 			console.log(lotNumAddress);
-// 			console.log(rodeNameAddress);
 			markerName.addListener('click', function() {
 				
 				var str = "<div class='infoDIV' data-dno='"+dno+"'><h2 class='infoH2'>No. "+dno+"</h2><button type='submit'><i class='fa fa-trash' id='delBtn'></i></button><hr class='infoHr'></div>"
